@@ -147,6 +147,11 @@ async def fetch_data():
             start_date=str(month_start),
             end_date=str(yesterday),
         )
+        print(f"  Budget keys: {list(budgets.keys()) if isinstance(budgets, dict) else type(budgets)}")
+        if isinstance(budgets, dict):
+            for k, v in budgets.items():
+                sample = v[:1] if isinstance(v, list) and v else v
+                print(f"  budget[{k!r}] type={type(v).__name__} sample={str(sample)[:300]}")
     except Exception as e:
         print(f"  Budgets failed (non-fatal): {e}")
 
@@ -154,6 +159,14 @@ async def fetch_data():
     recurring = []
     try:
         rec_resp  = await mm.get_recurring_transactions()
+        print(f"  Recurring keys: {list(rec_resp.keys()) if isinstance(rec_resp, dict) else type(rec_resp)}")
+        if isinstance(rec_resp, dict):
+            for k, v in rec_resp.items():
+                sample = v[:1] if isinstance(v, list) and v else v
+                print(f"  recurring[{k!r}] type={type(v).__name__} sample={str(sample)[:300]}")
+        elif isinstance(rec_resp, list) and rec_resp:
+            print(f"  recurring[0] keys={list(rec_resp[0].keys()) if isinstance(rec_resp[0], dict) else rec_resp[0]}")
+            print(f"  recurring[0] sample={str(rec_resp[0])[:400]}")
         recurring = rec_resp if isinstance(rec_resp, list) else (
             rec_resp.get("recurringTransactionItems") or
             rec_resp.get("items") or
