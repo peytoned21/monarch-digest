@@ -245,28 +245,24 @@ def build_net_worth_html(accounts, history_by_id, yesterday):
         hist     = history_by_id.get(acct_id, {})
         prev_bal = hist.get(prev_str) or hist.get(yest_str)
 
+        is_asset = acct.get("isAsset", True)
         if prev_bal is not None:
             delta = cur_bal - prev_bal
             if abs(delta) >= DELTA_THRESHOLD:
-                movers.append((name, cur_bal, delta))
-
-        # Fallback: no history but balance is non-zero and > threshold — show without delta
-        elif abs(cur_bal) >= DELTA_THRESHOLD and not hist:
-            movers.append((name, cur_bal, None))
+                movers.append((name, cur_bal, delta, is_asset))
 
     if movers:
         # Sort by absolute delta desc (unknowns last)
-        movers.sort(key=lambda x: abs(x[2]) if x[2] is not None else 0, reverse=True)
+        movers.sort(key=lambda x: abs(x[2]), reverse=True)
         rows = ""
-        for name, bal, delta in movers:
-            bal_str   = fmt(bal) if bal >= 0 else f"-{fmt(abs(bal))}"
-            bal_color = C_RED if bal < 0 else C_TEXT
-            if delta is not None:
-                sign      = "▲" if delta > 0 else "▼"
-                d_color   = C_GREEN if delta > 0 else C_RED
-                delta_str = f'<span style="color:{d_color};font-size:11px">{sign} {fmt(abs(delta))}</span>'
-            else:
-                delta_str = ""
+        for name, bal, delta, is_asset in movers:
+            # Non-asset with positive balance = credit on a liability account (show as negative)
+            display_bal = bal if is_asset else -abs(bal)
+            bal_str     = fmt(display_bal) if display_bal >= 0 else f"-{fmt(abs(display_bal))}"
+            bal_color   = C_RED if display_bal < 0 else C_TEXT
+            sign      = "▲" if delta > 0 else "▼"
+            d_color   = C_GREEN if delta > 0 else C_RED
+            delta_str = f'<span style="color:{d_color};font-size:11px">{sign} {fmt(abs(delta))}</span>'
             rows += f"""
             <tr>
               <td style="padding:7px 0;border-bottom:1px solid {C_BORDER};font-size:12px;color:{C_TEXT}">{name}</td>
