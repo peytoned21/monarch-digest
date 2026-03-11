@@ -117,11 +117,26 @@ def analyze_transactions(transactions, exclude_transfers=False):
     return income, expenses, top_categories, hsa_total
 
 
+LIABILITY_TYPES = {"credit", "loan", "mortgage", "credit_card", "creditcard", "student", "auto"}
+
+def is_liability_account(acct):
+    if acct.get("isAsset") is False:
+        return True
+    type_name = str((acct.get("type") or {}).get("name", "")).lower()
+    display   = str(acct.get("displayName") or acct.get("name", "")).lower()
+    if any(k in type_name for k in LIABILITY_TYPES):
+        return True
+    if any(k in display for k in ["mortgage", "student loan", "auto loan", "credit card",
+                                   "mastercard", "visa", "amex", "sapphire", "heloc"]):
+        return True
+    return False
+
+
 def compute_net_worth(accounts):
     assets = liabilities = 0.0
     for acct in accounts:
         balance = float(acct.get("currentBalance", 0) or 0)
-        if acct.get("isAsset") is False:
+        if is_liability_account(acct):
             liabilities += balance
         else:
             assets += balance
@@ -186,11 +201,9 @@ def build_accounts_html(accounts):
     # Filter: hide $0 accounts (but keep liabilities even at $0 if they have a name suggesting active)
     def should_show(acct):
         balance = float(acct.get("currentBalance", 0) or 0)
-        is_liability = acct.get("isAsset") is False
-        if balance == 0 and not is_liability:
+        is_liability = is_liability_account(acct)
+        if balance == 0:
             return False
-        if balance == 0 and is_liability:
-            return False  # hide $0 liabilities too (paid off / empty)
         return True
 
     visible = [a for a in accounts if should_show(a)]
@@ -204,7 +217,7 @@ def build_accounts_html(accounts):
         name         = acct.get("displayName") or acct.get("name", "Unknown")
         inst         = (acct.get("institution") or {}).get("name", "")
         balance      = float(acct.get("currentBalance", 0) or 0)
-        is_liability = acct.get("isAsset") is False
+        is_liability = is_liability_account(acct)
 
         bal_display = f"-{fmt(balance)}" if is_liability else fmt(balance)
         bal_color   = "color:#777" if is_liability else "color:#e8e2d9"
@@ -367,7 +380,7 @@ def build_highlights_html(transactions, accounts):
         hsa_total = sum(abs(float(t.get("amount", 0))) for t in hsa_txns)
         items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">🏥 HSA-eligible spend: {green(fmt(hsa_total))} — log receipts in Monarch</div>')
 
-    liability_accts = [a for a in accounts if a.get("isAsset") is False and float(a.get("currentBalance", 0) or 0) > 0]
+    liability_accts = [a for a in accounts if is_liability_account(a) and float(a.get("currentBalance", 0) or 0) > 0]
     if liability_accts:
         total_debt = sum(float(a.get("currentBalance", 0) or 0) for a in liability_accts)
         items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">🎯 Total debt remaining: {red(fmt(total_debt))}</div>')
