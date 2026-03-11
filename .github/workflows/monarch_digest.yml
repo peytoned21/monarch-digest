@@ -22,6 +22,12 @@ jobs:
       - name: Install dependencies
         run: pip install --upgrade monarchmoney
 
+      - name: Patch monarchmoney API domain
+        run: |
+          FILE=$(python -c "import monarchmoney.monarchmoney as m; print(m.__file__)")
+          sed -i 's|https://api.monarchmoney.com|https://api.monarch.com|g' "$FILE"
+          echo "Patched $FILE"
+
       - name: Run digest script
         env:
           MONARCH_EMAIL:     ${{ secrets.MONARCH_EMAIL }}
