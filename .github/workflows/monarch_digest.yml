@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install --upgrade monarchmoney
+        run: pip install git+https://github.com/bradleyseanf/monarchmoneycommunity.git
 
       - name: Patch monarchmoney API domain
         run: |
