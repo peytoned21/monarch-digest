@@ -12,6 +12,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from monarchmoney import MonarchMoney
+import monarchmoney.monarchmoney as _mm
+_mm.BASE_URL = "https://api.monarch.com"
 
 # ── Config (set these as environment variables or GitHub Actions secrets) ──────
 MONARCH_EMAIL    = os.environ["MONARCH_EMAIL"]
