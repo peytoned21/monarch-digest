@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Monarch Money Daily Digest
-Light theme, uses Monarch's own net worth figure, balance deltas from account history.
+Net worth = sum of all signed balances (liabilities already negative in API).
+Balance deltas from account history API.
 """
 
 import asyncio
@@ -25,9 +26,8 @@ RECIPIENT_EMAIL  = os.environ.get("RECIPIENT_EMAIL", GMAIL_ADDRESS)
 
 HSA_KEYWORDS      = ["medical", "pharmacy", "dental", "vision", "health", "doctor", "hospital"]
 TRANSFER_KEYWORDS = ["transfer", "transfers to investments"]
-DELTA_THRESHOLD   = 25.0   # only show accounts that moved by more than this amount
+DELTA_THRESHOLD   = 25.0  # only show accounts that moved > this amount
 
-# Light theme colors
 C_BG     = "#f8f7f5"
 C_CARD   = "#ffffff"
 C_BORDER = "#e8e4df"
@@ -69,54 +69,49 @@ async def fetch_data():
     today       = date.today()
     yesterday   = today - timedelta(days=1)
     month_start = yesterday.replace(day=1)
-    two_days_ago = yesterday - timedelta(days=1)
 
     print("Fetching transactions...")
-    txn_resp = await mm.get_transactions(start_date=str(yesterday), end_date=str(yesterday))
+    txn_resp     = await mm.get_transactions(start_date=str(yesterday), end_date=str(yesterday))
     transactions = txn_resp.get("allTransactions", {}).get("results", [])
 
     print("Fetching MTD transactions...")
-    mtd_resp = await mm.get_transactions(start_date=str(month_start), end_date=str(yesterday))
+    mtd_resp         = await mm.get_transactions(start_date=str(month_start), end_date=str(yesterday))
     mtd_transactions = mtd_resp.get("allTransactions", {}).get("results", [])
 
     print("Fetching accounts...")
     acct_resp = await mm.get_accounts()
-    accounts = acct_resp.get("accounts", [])
-
-    # Print ALL fields of the first account so we can see the exact structure
-    if accounts:
-        print("=== ACCOUNT FIELDS ===")
-        for k, v in accounts[0].items():
-            print(f"  {k}: {v}")
-        print("=== END ACCOUNT FIELDS ===")
+    accounts  = acct_resp.get("accounts", [])
 
     print("Fetching account history for balance deltas...")
-    # Fetch balance snapshots for yesterday and day before for delta calculation
+    # get_account_history returns a list of snapshots: [{"date": "YYYY-MM-DD", "balance": float}, ...]
     history_by_id = {}
-    try:
-        # get_account_history returns daily snapshots for a single account
-        # We'll use get_accounts which includes currentBalance, and try to get
-        # yesterday's snapshot via get_account_snapshots_by_type if available
-        snap_resp = await mm.get_account_type_options()
-        print(f"Account type options available: {snap_resp is not None}")
-    except Exception as e:
-        print(f"Snapshot fetch failed (non-fatal): {e}")
+    two_days_ago  = str(yesterday - timedelta(days=1))
+    yest_str      = str(yesterday)
 
-    # Try fetching individual account history for delta
-    for acct in accounts[:3]:  # test on first 3
+    for acct in accounts:
         acct_id = acct.get("id")
-        if acct_id:
-            try:
-                hist = await mm.get_account_history(account_id=acct_id)
-                print(f"History for {acct.get('name')}: {list(hist.keys()) if hist else 'empty'}")
-                if hist:
-                    # Print first snapshot to understand shape
-                    items = hist.get("account", {}).get("balanceHistory", [])
-                    if items:
-                        print(f"  Sample snapshot: {items[0]}")
-                    break
-            except Exception as e:
-                print(f"  History failed: {e}")
+        if not acct_id:
+            continue
+        try:
+            hist = await mm.get_account_history(account_id=acct_id)
+            # hist is a list of {"date": ..., "balance": ...} dicts
+            if isinstance(hist, list):
+                snapshots = hist
+            else:
+                # try common wrapper keys
+                snapshots = (hist.get("account", {}).get("balanceHistory")
+                             or hist.get("balanceHistory")
+                             or hist.get("history")
+                             or [])
+
+            # Find balances for yesterday and day-before
+            bal_map = {s.get("date"): float(s.get("balance") or 0) for s in snapshots if isinstance(s, dict)}
+            if yest_str in bal_map or two_days_ago in bal_map:
+                history_by_id[str(acct_id)] = bal_map
+        except Exception:
+            pass  # non-fatal
+
+    print(f"  Got history for {len(history_by_id)} accounts")
 
     print("Fetching cashflow...")
     cashflow = {}
@@ -129,6 +124,26 @@ async def fetch_data():
         print(f"Cashflow failed (non-fatal): {e}")
 
     return yesterday, transactions, mtd_transactions, accounts, cashflow, history_by_id
+
+
+# ── Net Worth ──────────────────────────────────────────────────────────────────
+# Monarch API: currentBalance is SIGNED — negative for liabilities, positive for assets.
+# Net worth = simple sum of all signed balances for included accounts.
+
+def compute_net_worth(accounts):
+    net_worth   = 0.0
+    assets      = 0.0
+    liabilities = 0.0
+    for a in accounts:
+        if a.get("includeInNetWorth") is False:
+            continue
+        b = float(a.get("currentBalance") or 0)
+        net_worth += b
+        if b >= 0:
+            assets += b
+        else:
+            liabilities += abs(b)
+    return net_worth, assets, liabilities
 
 
 # ── Analysis ───────────────────────────────────────────────────────────────────
@@ -179,7 +194,7 @@ def extract_cashflow(cashflow):
     return 0.0, 0.0
 
 
-# ── HTML Primitives ────────────────────────────────────────────────────────────
+# ── HTML Helpers ───────────────────────────────────────────────────────────────
 
 def card(title, badge, content):
     if not (content or "").strip():
@@ -187,146 +202,85 @@ def card(title, badge, content):
     badge_html = f'<span style="display:inline-block;background:#edf7f1;color:{C_GREEN};border:1px solid #c8e6d4;border-radius:3px;font-size:9px;letter-spacing:.08em;padding:2px 7px;margin-left:8px">{badge}</span>' if badge else ""
     return f"""
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;padding:20px 28px">
-    <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:{C_LABEL};margin-bottom:14px;font-family:Georgia,serif">{title}{badge_html}</div>
+    <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:{C_LABEL};margin-bottom:14px">{title}{badge_html}</div>
     {content}
   </div>"""
 
 
 # ── Section Builders ───────────────────────────────────────────────────────────
 
-def build_net_worth_summary(accounts):
-    """
-    Use Monarch's own signed balance values directly.
-    Print raw data to logs so we can see what's happening.
-    """
-    total = 0.0
-    assets = 0.0
-    liabilities = 0.0
+def build_net_worth_html(accounts, history_by_id, yesterday):
+    net_worth, assets, liabilities = compute_net_worth(accounts)
+    yest_str     = str(yesterday)
+    prev_str     = str(yesterday - timedelta(days=1))
 
-    print("=== NET WORTH CALC ===")
-    for a in accounts:
-        name      = a.get("displayName") or a.get("name", "")
-        balance   = float(a.get("currentBalance") or 0)
-        is_asset  = a.get("isAsset")
-        in_nw     = a.get("includeInNetWorth")
-        print(f"  {name}: balance={balance} isAsset={is_asset} includeInNetWorth={in_nw}")
-
-        if in_nw is False:
-            continue
-        if is_asset is True:
-            assets += balance
-            total  += balance
-        elif is_asset is False:
-            liabilities += balance
-            total -= balance
-        else:
-            # isAsset is None — include as asset if positive, liability if negative
-            if balance >= 0:
-                assets += balance
-                total  += balance
-            else:
-                liabilities += abs(balance)
-                total       += balance  # already negative
-
-    print(f"  => Assets: {assets}, Liabilities: {liabilities}, Net Worth: {total}")
-    print("=== END NET WORTH CALC ===")
-    return total, assets, liabilities
-
-
-def build_account_changes_html(accounts):
-    """
-    Show net worth summary + only accounts that moved materially.
-    Since we don't have prior-day snapshots yet (need to debug history API),
-    we'll show all non-zero accounts grouped by type for now,
-    then switch to deltas once we confirm the history shape from logs.
-    """
-    net_worth, assets, liabilities = build_net_worth_summary(accounts)
-
-    # Group by asset type
-    groups = {
-        "Cash": [],
-        "Investments": [],
-        "Real Estate": [],
-        "Vehicles": [],
-        "Credit Cards": [],
-        "Loans": [],
-        "Other": [],
-    }
-
-    for a in accounts:
-        balance = float(a.get("currentBalance") or 0)
-        if balance == 0:
-            continue
-        name = (a.get("displayName") or a.get("name", "")).lower()
-        type_name = str((a.get("type") or {}).get("name", "")).lower()
-        is_asset = a.get("isAsset", True)
-
-        if not is_asset:
-            if any(k in name for k in ["mortgage", "heloc"]) or "mortgage" in type_name:
-                groups["Loans"].append(a)
-            elif any(k in name for k in ["student", "auto", "car", "lexus", "tesla", "loan"]) or "loan" in type_name:
-                groups["Loans"].append(a)
-            elif any(k in name for k in ["card", "mastercard", "visa", "amex", "sapphire", "citi", "amazon", "banana", "frontier", "tjx", "bonvoy"]) or "credit" in type_name:
-                groups["Credit Cards"].append(a)
-            else:
-                groups["Loans"].append(a)
-        else:
-            if any(k in name for k in ["checking", "savings", "cash", "wealthfront check", "wells fargo", "credit union", "southern first"]):
-                groups["Cash"].append(a)
-            elif any(k in name for k in ["mccully", "home", "real estate", "zillow"]) or "real_estate" in type_name or "real estate" in type_name:
-                groups["Real Estate"].append(a)
-            elif any(k in name for k in ["lexus", "tesla", "vehicle", "car", "vinaudit"]) or "vehicle" in type_name or "car" in type_name:
-                groups["Vehicles"].append(a)
-            else:
-                groups["Investments"].append(a)
-
-    html = ""
-
-    # Net worth header row
-    html += f"""
+    # --- Summary block ---
+    html = f"""
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
-        <td style="padding:0 0 4px;font-size:13px;color:{C_MUTED}">Assets</td>
-        <td style="padding:0 0 4px;text-align:right;font-size:13px;color:{C_TEXT}">{fmt(assets)}</td>
+        <td style="padding:5px 0;font-size:13px;color:{C_MUTED}">Assets</td>
+        <td style="padding:5px 0;text-align:right;font-size:13px;color:{C_TEXT}">{fmt(assets)}</td>
       </tr>
       <tr>
-        <td style="padding:4px 0 10px;font-size:13px;color:{C_MUTED}">Liabilities</td>
-        <td style="padding:4px 0 10px;text-align:right;font-size:13px;color:{C_RED}">-{fmt(liabilities)}</td>
+        <td style="padding:5px 0 12px;font-size:13px;color:{C_MUTED}">Liabilities</td>
+        <td style="padding:5px 0 12px;text-align:right;font-size:13px;color:{C_RED}">-{fmt(liabilities)}</td>
       </tr>
       <tr>
-        <td colspan="2" style="padding:0 0 16px">
-          <div style="border-top:1px solid {C_BORDER}"></div>
-        </td>
+        <td colspan="2" style="padding:0 0 12px"><div style="border-top:1px solid {C_BORDER}"></div></td>
       </tr>
       <tr>
-        <td style="padding:0 0 0;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{C_LABEL};font-family:Georgia,serif">Net Worth</td>
-        <td style="padding:0 0 0;text-align:right;font-size:20px;font-weight:600;color:{C_TEXT}">{fmt(net_worth)}</td>
+        <td style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{C_LABEL}">Net Worth</td>
+        <td style="text-align:right;font-size:20px;font-weight:600;color:{C_TEXT}">{fmt(net_worth)}</td>
       </tr>
     </table>"""
 
-    # Group summaries
-    group_totals = []
-    for group_name, accts in groups.items():
-        if not accts:
+    # --- Account deltas (only accounts that moved > threshold) ---
+    movers = []
+    for acct in accounts:
+        if acct.get("includeInNetWorth") is False:
             continue
-        total = sum(abs(float(a.get("currentBalance") or 0)) for a in accts)
-        is_liab = group_name in ("Credit Cards", "Loans")
-        group_totals.append((group_name, total, is_liab))
+        acct_id  = str(acct.get("id", ""))
+        name     = acct.get("displayName") or acct.get("name", "Unknown")
+        cur_bal  = float(acct.get("currentBalance") or 0)
+        hist     = history_by_id.get(acct_id, {})
+        prev_bal = hist.get(prev_str) or hist.get(yest_str)
 
-    if group_totals:
-        html += f'<div style="margin-top:16px;border-top:1px solid {C_BORDER};padding-top:14px">'
-        html += f'<table width="100%" cellpadding="0" cellspacing="0">'
-        for g_name, g_total, is_liab in group_totals:
-            color = C_RED if is_liab else C_TEXT
-            prefix = "-" if is_liab else ""
-            html += f"""
+        if prev_bal is not None:
+            delta = cur_bal - prev_bal
+            if abs(delta) >= DELTA_THRESHOLD:
+                movers.append((name, cur_bal, delta))
+
+        # Fallback: no history but balance is non-zero and > threshold — show without delta
+        elif abs(cur_bal) >= DELTA_THRESHOLD and not hist:
+            movers.append((name, cur_bal, None))
+
+    if movers:
+        # Sort by absolute delta desc (unknowns last)
+        movers.sort(key=lambda x: abs(x[2]) if x[2] is not None else 0, reverse=True)
+        rows = ""
+        for name, bal, delta in movers:
+            bal_str   = fmt(bal) if bal >= 0 else f"-{fmt(abs(bal))}"
+            bal_color = C_RED if bal < 0 else C_TEXT
+            if delta is not None:
+                sign      = "▲" if delta > 0 else "▼"
+                d_color   = C_GREEN if delta > 0 else C_RED
+                delta_str = f'<span style="color:{d_color};font-size:11px">{sign} {fmt(abs(delta))}</span>'
+            else:
+                delta_str = ""
+            rows += f"""
             <tr>
-              <td style="padding:5px 0;font-size:12px;color:{C_MUTED}">{g_name}</td>
-              <td style="padding:5px 0;text-align:right;font-size:12px;color:{color}">{prefix}{fmt(g_total)}</td>
+              <td style="padding:7px 0;border-bottom:1px solid {C_BORDER};font-size:12px;color:{C_TEXT}">{name}</td>
+              <td style="padding:7px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:12px;color:{bal_color}">{bal_str}</td>
+              <td style="padding:7px 0 7px 12px;border-bottom:1px solid {C_BORDER};text-align:right;min-width:80px">{delta_str}</td>
             </tr>"""
-        html += "</table></div>"
 
-    return html, net_worth
+        html += f"""
+        <div style="margin-top:16px;border-top:1px solid {C_BORDER};padding-top:14px">
+          <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{C_LABEL};margin-bottom:10px">Notable Moves · >${DELTA_THRESHOLD:.0f} threshold</div>
+          <table width="100%" cellpadding="0" cellspacing="0">{rows}</table>
+        </div>"""
+
+    return html
 
 
 def build_transactions_html(transactions):
@@ -355,7 +309,6 @@ def build_transactions_html(transactions):
             badges += f'<span style="display:inline-block;background:#f5f3f0;color:{C_MUTED};border:1px solid {C_BORDER};border-radius:3px;font-size:9px;padding:1px 5px;margin-left:6px">transfer</span>'
 
         note_html = f'<div style="font-size:10px;color:{C_LABEL};margin-top:1px;font-style:italic">{note}</div>' if note else ""
-
         rows += f"""
         <tr>
           <td style="padding:9px 0;border-bottom:1px solid {C_BORDER}">
@@ -449,7 +402,7 @@ def build_highlights_html(transactions, accounts):
     hsa_txns = [t for t in transactions if float(t.get("amount", 0)) < 0 and is_hsa((t.get("category") or {}).get("name", ""))]
     if hsa_txns:
         total = sum(abs(float(t.get("amount", 0))) for t in hsa_txns)
-        items.append(f'<div style="padding:8px 0;border-bottom:1px solid {C_BORDER};font-size:13px;color:{C_TEXT}">🏥 HSA-eligible spend: {green(fmt(total))} — log receipts</div>')
+        items.append(f'<div style="padding:8px 0;border-bottom:1px solid {C_BORDER};font-size:13px;color:{C_TEXT}">🏥 HSA-eligible spend: {green(fmt(total))} — log receipts in Monarch</div>')
     return "".join(items)
 
 
@@ -459,11 +412,11 @@ def build_email(yesterday, transactions, mtd_transactions, accounts, cashflow, h
     date_str  = yesterday.strftime("%A, %B %-d")
     generated = date.today().strftime("%B %-d, %Y")
 
-    nw_html, net_worth              = build_account_changes_html(accounts)
+    nw_html                         = build_net_worth_html(accounts, history_by_id, yesterday)
     txn_html, income, expenses, net = build_transactions_html(transactions)
-    cashflow_html   = build_cashflow_html(cashflow, mtd_transactions, yesterday)
-    spending_html   = build_spending_html(mtd_transactions)
-    highlights_html = build_highlights_html(transactions, accounts)
+    cashflow_html                   = build_cashflow_html(cashflow, mtd_transactions, yesterday)
+    spending_html                   = build_spending_html(mtd_transactions)
+    highlights_html                 = build_highlights_html(transactions, accounts)
 
     txn_count = len(transactions)
     net_color = C_GREEN if net >= 0 else C_RED
@@ -536,21 +489,14 @@ def send_email(subject, html_body):
 async def main():
     print("Fetching Monarch data...")
     yesterday, transactions, mtd_transactions, accounts, cashflow, history_by_id = await fetch_data()
-    print(f"  {len(transactions)} txns · {len(mtd_transactions)} MTD · {len(accounts)} accounts")
+    print(f"  {len(transactions)} txns · {len(mtd_transactions)} MTD · {len(accounts)} accounts · {len(history_by_id)} with history")
 
-    html = build_email(yesterday, transactions, mtd_transactions, accounts, cashflow, history_by_id)
+    net_worth, _, _ = compute_net_worth(accounts)
+    print(f"  Net worth: {fmt(net_worth)}")
 
-    _, net_worth, _ = build_net_worth_summary(accounts)
-    # Actually recompute cleanly
-    nw = 0.0
-    for a in accounts:
-        if a.get("includeInNetWorth") is False:
-            continue
-        b = float(a.get("currentBalance") or 0)
-        nw += b if a.get("isAsset", True) else -b
-
+    html     = build_email(yesterday, transactions, mtd_transactions, accounts, cashflow, history_by_id)
     date_str = yesterday.strftime("%b %-d")
-    subject  = f"💰 Monarch · {date_str} · {len(transactions)} txns · NW {fmt(nw)}"
+    subject  = f"💰 Monarch · {date_str} · {len(transactions)} txns · NW {fmt(net_worth)}"
     send_email(subject, html)
 
 
