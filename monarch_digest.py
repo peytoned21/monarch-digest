@@ -1,54 +1,61 @@
 #!/usr/bin/env python3
 """
 Monarch Money Daily Digest
-Pulls yesterday's transactions and account balance changes, sends a formatted HTML email via Gmail SMTP.
+Pulls yesterday's transactions, account balances, cashflow, and budget data.
+Sends a rich HTML email via Gmail SMTP every morning.
 """
 
 import asyncio
 import os
 import smtplib
+from collections import defaultdict
 from datetime import date, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from monarchmoney import MonarchMoney
 
-# ── Config (set these as environment variables or GitHub Actions secrets) ──────
+# ── Config ─────────────────────────────────────────────────────────────────────
 MONARCH_EMAIL    = os.environ["MONARCH_EMAIL"]
 MONARCH_PASSWORD = os.environ["MONARCH_PASSWORD"]
-MONARCH_MFA_KEY  = os.environ.get("MONARCH_MFA_KEY", "")   # leave blank if no MFA
+MONARCH_MFA_KEY  = os.environ.get("MONARCH_MFA_KEY", "")
 
-GMAIL_ADDRESS    = os.environ["GMAIL_ADDRESS"]              # your Gmail
-GMAIL_APP_PASS   = os.environ["GMAIL_APP_PASSWORD"]         # Gmail App Password
-
+GMAIL_ADDRESS    = os.environ["GMAIL_ADDRESS"]
+GMAIL_APP_PASS   = os.environ["GMAIL_APP_PASSWORD"]
 RECIPIENT_EMAIL  = os.environ.get("RECIPIENT_EMAIL", GMAIL_ADDRESS)
 
-HSA_CATEGORY_KEYWORDS = ["medical", "pharmacy", "dental", "vision", "health"]
+HSA_KEYWORDS = ["medical", "pharmacy", "dental", "vision", "health", "doctor", "hospital"]
 # ──────────────────────────────────────────────────────────────────────────────
 
 
-def fmt_dollars(amount: float, sign: bool = False) -> str:
+def fmt(amount: float, sign: bool = False) -> str:
     prefix = "+" if sign and amount > 0 else ""
     return f"{prefix}${abs(amount):,.2f}"
 
 
-def delta_arrow(amount: float) -> str:
-    if amount > 0.01:
-        return f'<span style="color:#3a7d52">▲ {fmt_dollars(amount)}</span>'
-    elif amount < -0.01:
-        return f'<span style="color:#b05040">▼ {fmt_dollars(abs(amount))}</span>'
-    else:
-        return '<span style="color:#666">— no change</span>'
+def pct(value: float) -> str:
+    return f"{value:.1f}%"
 
 
-def is_hsa_eligible(category_name: str) -> bool:
-    name = (category_name or "").lower()
-    return any(k in name for k in HSA_CATEGORY_KEYWORDS)
+def is_hsa(category: str) -> bool:
+    return any(k in (category or "").lower() for k in HSA_KEYWORDS)
 
+
+def green(text): return f'<span style="color:#3a7d52">{text}</span>'
+def red(text):   return f'<span style="color:#b05040">{text}</span>'
+def muted(text): return f'<span style="color:#555">{text}</span>'
+
+
+def delta_html(amount: float) -> str:
+    if amount > 0.01:    return green(f"▲ {fmt(amount)}")
+    elif amount < -0.01: return red(f"▼ {fmt(abs(amount))}")
+    else:                return muted("— no change")
+
+
+# ── Data Fetching ──────────────────────────────────────────────────────────────
 
 async def fetch_data():
     mm = MonarchMoney()
-
     await mm.login(
         email=MONARCH_EMAIL,
         password=MONARCH_PASSWORD,
@@ -57,102 +64,323 @@ async def fetch_data():
         use_saved_session=False,
     )
 
-    yesterday = date.today() - timedelta(days=1)
-    day_before = yesterday - timedelta(days=1)
+    today       = date.today()
+    yesterday   = today - timedelta(days=1)
+    month_start = yesterday.replace(day=1)
 
-    # Transactions from yesterday
-    txn_data = await mm.get_transactions(
+    print("Fetching transactions...")
+    txn_resp = await mm.get_transactions(
         start_date=str(yesterday),
         end_date=str(yesterday),
     )
-    transactions = txn_data.get("allTransactions", {}).get("results", [])
+    transactions = txn_resp.get("allTransactions", {}).get("results", [])
 
-    # Account balances (returns recent snapshots)
-    accounts_data = await mm.get_accounts()
-    accounts = accounts_data.get("accounts", [])
+    print("Fetching month-to-date transactions...")
+    mtd_resp = await mm.get_transactions(
+        start_date=str(month_start),
+        end_date=str(yesterday),
+    )
+    mtd_transactions = mtd_resp.get("allTransactions", {}).get("results", [])
 
-    # Balance history for delta calculation
-    balance_history = await mm.get_account_type_balances()
+    print("Fetching accounts...")
+    acct_resp = await mm.get_accounts()
+    accounts = acct_resp.get("accounts", [])
 
-    return yesterday, transactions, accounts, balance_history
+    print("Fetching cashflow summary...")
+    cashflow = {}
+    try:
+        cashflow = await mm.get_cashflow_summary(
+            start_date=str(month_start),
+            end_date=str(yesterday),
+        )
+    except Exception as e:
+        print(f"Cashflow fetch failed (non-fatal): {e}")
 
+    print("Fetching budgets...")
+    budgets = {}
+    try:
+        budgets = await mm.get_budgets(
+            start_date=str(month_start),
+            end_date=str(yesterday),
+        )
+    except Exception as e:
+        print(f"Budget fetch failed (non-fatal): {e}")
 
-def build_account_rows(accounts) -> tuple[str, float]:
-    """Returns HTML rows and total net worth."""
-    rows_html = ""
-    net_worth = 0.0
-
-    for acct in accounts:
-        name = acct.get("displayName") or acct.get("name", "Unknown")
-        inst = acct.get("institution", {}).get("name", "") if acct.get("institution") else ""
-        balance = float(acct.get("currentBalance", 0) or 0)
-        is_liability = acct.get("isAsset") is False
-
-        # Use signedBalance for net worth calculation
-        signed = -balance if is_liability else balance
-        net_worth += signed
-
-        # Delta: Monarch doesn't always expose prior-day balance per account cleanly,
-        # so we show the today balance. You can extend this with get_account_snapshots.
-        delta_placeholder = ""  # extended in pro version with snapshot diff
-
-        balance_display = f"-{fmt_dollars(balance)}" if is_liability else fmt_dollars(balance)
-        color = "color:#999" if is_liability else ""
-
-        rows_html += f"""
-        <tr>
-          <td style="padding:8px 0;border-bottom:1px solid #1e1e1e;font-size:13px;color:#c0b8ae">{name}
-            {f'<span style="color:#444;font-size:11px"> · {inst}</span>' if inst else ""}
-          </td>
-          <td style="padding:8px 0;border-bottom:1px solid #1e1e1e;text-align:right;font-size:13px;{color}">{balance_display}</td>
-        </tr>"""
-
-    return rows_html, net_worth
+    return yesterday, transactions, mtd_transactions, accounts, cashflow, budgets
 
 
-def build_transaction_rows(transactions) -> tuple[str, float, float, float]:
-    rows_html = ""
-    total_income = 0.0
-    total_expense = 0.0
+# ── Analysis ───────────────────────────────────────────────────────────────────
+
+def analyze_transactions(transactions):
+    income = 0.0
+    expenses = 0.0
+    by_category = defaultdict(float)
+    hsa_total = 0.0
 
     for txn in transactions:
-        merchant = txn.get("merchant", {}).get("name") or txn.get("plaidName") or "Unknown"
-        category = txn.get("category", {}).get("name", "Uncategorized")
-        amount = float(txn.get("amount", 0))
-        is_income = amount > 0  # Monarch: positive = income, negative = expense
-
-        if is_income:
-            total_income += amount
-            amt_html = f'<span style="color:#3a7d52">+{fmt_dollars(amount)}</span>'
+        amount   = float(txn.get("amount", 0))
+        category = (txn.get("category") or {}).get("name", "Uncategorized")
+        if amount > 0:
+            income += amount
         else:
-            total_expense += abs(amount)
-            amt_html = f'<span style="color:#b05040">-{fmt_dollars(abs(amount))}</span>'
+            expenses += abs(amount)
+            by_category[category] += abs(amount)
+            if is_hsa(category):
+                hsa_total += abs(amount)
 
-        hsa_badge = ""
-        if not is_income and is_hsa_eligible(category):
-            hsa_badge = '<span style="display:inline-block;background:#1e2a1e;color:#3a7d52;border:1px solid #2a4030;border-radius:2px;font-size:9px;letter-spacing:.1em;padding:1px 5px;margin-left:6px">HSA</span>'
+    top_categories = sorted(by_category.items(), key=lambda x: x[1], reverse=True)[:5]
+    return income, expenses, top_categories, hsa_total
 
-        rows_html += f"""
+
+def compute_net_worth(accounts):
+    assets = liabilities = 0.0
+    for acct in accounts:
+        balance = float(acct.get("currentBalance", 0) or 0)
+        if acct.get("isAsset") is False:
+            liabilities += balance
+        else:
+            assets += balance
+    return assets - liabilities, assets, liabilities
+
+
+def get_biggest_txn(transactions):
+    expenses = [t for t in transactions if float(t.get("amount", 0)) < 0]
+    if not expenses:
+        return None
+    return min(expenses, key=lambda t: float(t.get("amount", 0)))
+
+
+# ── HTML Builders ──────────────────────────────────────────────────────────────
+
+def section(title, badge_text, content_html):
+    if not content_html or not content_html.strip():
+        return ""
+    badge = ""
+    if badge_text:
+        badge = f'<span style="display:inline-block;background:#1e2a1e;color:#3a7d52;border:1px solid #2a4030;border-radius:2px;font-size:9px;letter-spacing:.1em;padding:1px 6px;margin-left:8px">{badge_text}</span>'
+    return f"""
+  <div style="background:#161616;border:1px solid #2a2a2a;border-top:none;padding:20px 32px">
+    <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:14px">{title}{badge}</div>
+    {content_html}
+  </div>"""
+
+
+def build_accounts_html(accounts):
+    net_worth, assets, liabilities = compute_net_worth(accounts)
+    rows = ""
+
+    sorted_accts = sorted(
+        accounts,
+        key=lambda a: (a.get("isAsset") is False, -float(a.get("currentBalance", 0) or 0))
+    )
+
+    for acct in sorted_accts:
+        name        = acct.get("displayName") or acct.get("name", "Unknown")
+        inst        = (acct.get("institution") or {}).get("name", "")
+        balance     = float(acct.get("currentBalance", 0) or 0)
+        is_liability = acct.get("isAsset") is False
+
+        bal_display = f"-{fmt(balance)}" if is_liability else fmt(balance)
+        bal_color   = "color:#777" if is_liability else "color:#e8e2d9"
+        inst_html   = f'<span style="color:#3a3a3a;font-size:11px"> · {inst}</span>' if inst else ""
+
+        rows += f"""
         <tr>
-          <td style="padding:9px 0;border-bottom:1px solid #1e1e1e">
-            <div style="font-size:13px;color:#c0b8ae">{merchant}</div>
-            <div style="font-size:11px;color:#444;margin-top:2px">{category}{hsa_badge}</div>
-          </td>
-          <td style="padding:9px 0;border-bottom:1px solid #1e1e1e;text-align:right;font-size:13px">{amt_html}</td>
+          <td style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:13px;color:#b8b0a4">{name}{inst_html}</td>
+          <td style="padding:8px 0;border-bottom:1px solid #1a1a1a;text-align:right;font-size:13px;{bal_color}">{bal_display}</td>
         </tr>"""
 
-    net = total_income - total_expense
-    return rows_html, total_income, total_expense, net
+    rows += f"""
+        <tr>
+          <td style="padding:10px 0 4px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#444">Net Worth</td>
+          <td style="padding:10px 0 4px;text-align:right;font-size:16px;font-weight:500;color:#f0ebe3">{fmt(net_worth)}</td>
+        </tr>"""
+
+    return f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>', net_worth
 
 
-def build_email_html(yesterday: date, transactions, accounts, net_worth: float) -> str:
-    acct_rows_html, _ = build_account_rows(accounts)
-    txn_rows_html, income, expense, net = build_transaction_rows(transactions)
-    txn_count = len(transactions)
-    date_str = yesterday.strftime("%A, %B %-d")
+def build_transactions_html(transactions):
+    if not transactions:
+        return '<p style="color:#444;font-size:12px;margin:0">No transactions recorded yesterday.</p>', 0, 0, 0
+
+    income, expenses, _, _ = analyze_transactions(transactions)
+    rows = ""
+
+    sorted_txns = sorted(transactions, key=lambda t: float(t.get("amount", 0)), reverse=True)
+
+    for txn in sorted_txns:
+        merchant = (txn.get("merchant") or {}).get("name") or txn.get("plaidName") or "Unknown"
+        category = (txn.get("category") or {}).get("name", "Uncategorized")
+        amount   = float(txn.get("amount", 0))
+        note     = (txn.get("notes") or "").strip()
+
+        amt_html = green(f"+{fmt(amount)}") if amount > 0 else red(f"-{fmt(abs(amount))}")
+
+        badges = ""
+        if amount < 0 and is_hsa(category):
+            badges += '<span style="display:inline-block;background:#1e2a1e;color:#3a7d52;border:1px solid #2a4030;border-radius:2px;font-size:9px;padding:1px 5px;margin-left:6px">HSA</span>'
+
+        note_html = f'<div style="font-size:10px;color:#3a3a3a;margin-top:1px;font-style:italic">{note}</div>' if note else ""
+
+        rows += f"""
+        <tr>
+          <td style="padding:9px 0;border-bottom:1px solid #1a1a1a">
+            <div style="font-size:13px;color:#c0b8ae">{merchant}</div>
+            <div style="font-size:11px;color:#444;margin-top:2px">{category}{badges}</div>
+            {note_html}
+          </td>
+          <td style="padding:9px 0;border-bottom:1px solid #1a1a1a;text-align:right;font-size:13px;vertical-align:top">{amt_html}</td>
+        </tr>"""
+
+    net = income - expenses
+    return f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>', income, expenses, net
+
+
+def build_spending_breakdown_html(mtd_transactions):
+    _, _, top_cats, _ = analyze_transactions(mtd_transactions)
+    if not top_cats:
+        return ""
+
+    total_spend = sum(v for _, v in top_cats)
+    max_val = top_cats[0][1] if top_cats else 1
+    rows = ""
+
+    for cat, amount in top_cats:
+        bar_width = int((amount / max_val) * 100)
+        share = (amount / total_spend * 100) if total_spend else 0
+        rows += f"""
+        <tr>
+          <td style="padding:7px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4;width:38%">{cat}</td>
+          <td style="padding:7px 12px;border-bottom:1px solid #1a1a1a;vertical-align:middle">
+            <div style="background:#2a2a2a;border-radius:1px;height:3px;width:{bar_width}px;display:inline-block;vertical-align:middle"></div>
+          </td>
+          <td style="padding:7px 0;border-bottom:1px solid #1a1a1a;text-align:right;font-size:11px;color:#555;white-space:nowrap">{pct(share)}</td>
+          <td style="padding:7px 0 7px 12px;border-bottom:1px solid #1a1a1a;text-align:right;font-size:12px;color:#c0b8ae;white-space:nowrap">{fmt(amount)}</td>
+        </tr>"""
+
+    return f"""
+    <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#333;margin-bottom:10px">Month-to-date · Top Categories</div>
+    <table width="100%" cellpadding="0" cellspacing="0">{rows}</table>"""
+
+
+def build_cashflow_html(cashflow, yesterday):
+    if not cashflow:
+        return ""
+    try:
+        summary = cashflow
+        if isinstance(cashflow.get("summary"), list):
+            summary = cashflow["summary"][0]
+        elif isinstance(cashflow.get("summary"), dict):
+            summary = cashflow["summary"]
+
+        mtd_income  = float(summary.get("sumIncome", 0) or 0)
+        mtd_expense = float(abs(summary.get("sumExpense", 0) or 0))
+        savings     = mtd_income - mtd_expense
+        savings_rate = (savings / mtd_income * 100) if mtd_income > 0 else 0
+
+        days_elapsed   = yesterday.day
+        import calendar
+        days_in_month  = calendar.monthrange(yesterday.year, yesterday.month)[1]
+        month_pct      = days_elapsed / days_in_month * 100
+        run_rate       = (mtd_expense / days_elapsed * days_in_month) if days_elapsed > 0 else 0
+
+        sr_color = "#3a7d52" if savings_rate >= 20 else ("#b05040" if savings_rate < 5 else "#a88c5a")
+
+        return f"""
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding:6px 0;font-size:12px;color:#b8b0a4">MTD Income</td>
+        <td style="padding:6px 0;text-align:right;font-size:12px;color:#3a7d52">{fmt(mtd_income)}</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 0;font-size:12px;color:#b8b0a4">MTD Spending</td>
+        <td style="padding:6px 0;text-align:right;font-size:12px;color:#b05040">{fmt(mtd_expense)}</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 0;font-size:12px;color:#b8b0a4">Projected Month-End Spend</td>
+        <td style="padding:6px 0;text-align:right;font-size:12px;color:#777">{fmt(run_rate)}</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 0 4px;font-size:11px;color:#555">{yesterday.strftime('%B')} progress · Day {days_elapsed} of {days_in_month}</td>
+        <td style="padding:8px 0 4px;text-align:right;font-size:11px;color:#444">{pct(month_pct)}</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding:4px 0 10px">
+          <div style="background:#222;border-radius:2px;height:3px;width:100%">
+            <div style="background:#3a7d52;border-radius:2px;height:3px;width:{min(int(month_pct), 100)}%"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#444">Savings Rate</td>
+        <td style="text-align:right;font-size:16px;font-weight:500;color:{sr_color}">{pct(savings_rate)}</td>
+      </tr>
+    </table>"""
+    except Exception as e:
+        print(f"Cashflow render error: {e}")
+        return ""
+
+
+def build_highlights_html(transactions, accounts):
+    items = []
+
+    biggest = get_biggest_txn(transactions)
+    if biggest:
+        merchant = (biggest.get("merchant") or {}).get("name") or "Unknown"
+        amount   = abs(float(biggest.get("amount", 0)))
+        items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">💸 Largest purchase: <strong style="color:#e8e2d9">{merchant}</strong> — {red(fmt(amount))}</div>')
+
+    hsa_txns = [t for t in transactions if float(t.get("amount", 0)) < 0 and is_hsa((t.get("category") or {}).get("name", ""))]
+    if hsa_txns:
+        hsa_total = sum(abs(float(t.get("amount", 0))) for t in hsa_txns)
+        items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">🏥 HSA-eligible spend: {green(fmt(hsa_total))} — log receipts in Monarch</div>')
+
+    liability_accts = [a for a in accounts if a.get("isAsset") is False]
+    if liability_accts:
+        total_debt = sum(float(a.get("currentBalance", 0) or 0) for a in liability_accts)
+        items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">🎯 Total debt remaining: {red(fmt(total_debt))}</div>')
+
+    invest_keywords = ["brokerage", "investment", "401k", "ira", "roth", "401(k)"]
+    invest_accts = [a for a in accounts if any(k in str(a.get("type", "")).lower() for k in invest_keywords)
+                    or any(k in (a.get("displayName") or a.get("name", "")).lower() for k in ["vanguard", "wealthfront", "merrill", "fidelity", "roth", "401"])]
+    if invest_accts:
+        inv_total = sum(float(a.get("currentBalance", 0) or 0) for a in invest_accts)
+        items.append(f'<div style="padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#b8b0a4">📈 Investments: {green(fmt(inv_total))}</div>')
+
+    return "".join(items)
+
+
+# ── Email Assembly ─────────────────────────────────────────────────────────────
+
+def build_email(yesterday, transactions, mtd_transactions, accounts, cashflow, budgets):
+    date_str  = yesterday.strftime("%A, %B %-d")
     generated = date.today().strftime("%B %-d, %Y")
+
+    acct_html, net_worth   = build_accounts_html(accounts)
+    txn_html, income, expenses, net = build_transactions_html(transactions)
+    spending_html   = build_spending_breakdown_html(mtd_transactions)
+    cashflow_html   = build_cashflow_html(cashflow, yesterday)
+    highlights_html = build_highlights_html(transactions, accounts)
+
+    txn_count = len(transactions)
     net_color = "#3a7d52" if net >= 0 else "#b05040"
-    net_sign = "+" if net >= 0 else ""
+    net_sign  = "+" if net > 0 else ""
+
+    summary_bar = f"""
+  <div style="background:#161616;border:1px solid #2a2a2a;border-top:none;display:table;width:100%;box-sizing:border-box">
+    <div style="display:table-cell;padding:16px 0;text-align:center;border-right:1px solid #1e1e1e">
+      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Income</div>
+      <div style="font-size:15px;font-weight:500;color:#3a7d52">{fmt(income)}</div>
+    </div>
+    <div style="display:table-cell;padding:16px 0;text-align:center;border-right:1px solid #1e1e1e">
+      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Spent</div>
+      <div style="font-size:15px;font-weight:500;color:#b05040">{fmt(expenses)}</div>
+    </div>
+    <div style="display:table-cell;padding:16px 0;text-align:center">
+      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Net</div>
+      <div style="font-size:15px;font-weight:500;color:{net_color}">{net_sign}{fmt(net)}</div>
+    </div>
+  </div>"""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -162,59 +390,33 @@ def build_email_html(yesterday: date, transactions, accounts, net_worth: float) 
 <title>Monarch Digest · {date_str}</title>
 </head>
 <body style="margin:0;padding:32px 16px;background:#0f0f0f;font-family:'Courier New',monospace">
-<div style="max-width:560px;margin:0 auto">
+<div style="max-width:580px;margin:0 auto">
 
   <!-- Header -->
-  <div style="background:#161616;border:1px solid #2a2a2a;border-radius:4px 4px 0 0;padding:28px 32px 22px;display:flex;justify-content:space-between;align-items:flex-start">
-    <div>
-      <div style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#3a7d52;margin-bottom:6px">Monarch Daily Digest</div>
-      <div style="font-size:22px;color:#f0ebe3;font-weight:300">{date_str}</div>
-    </div>
-    <div style="text-align:right">
-      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#555;margin-bottom:4px">Net Worth</div>
-      <div style="font-size:20px;color:#f0ebe3;font-weight:500">{fmt_dollars(net_worth)}</div>
+  <div style="background:#161616;border:1px solid #2a2a2a;border-radius:4px 4px 0 0;padding:28px 32px 22px">
+    <div style="display:table;width:100%">
+      <div style="display:table-cell;vertical-align:top">
+        <div style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#3a7d52;margin-bottom:6px">Monarch Daily Digest</div>
+        <div style="font-size:22px;color:#f0ebe3;font-weight:300">{date_str}</div>
+      </div>
+      <div style="display:table-cell;vertical-align:top;text-align:right">
+        <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#555;margin-bottom:4px">Net Worth</div>
+        <div style="font-size:20px;color:#f0ebe3;font-weight:500">{fmt(net_worth)}</div>
+      </div>
     </div>
   </div>
 
-  <!-- Account Balances -->
-  <div style="background:#161616;border:1px solid #2a2a2a;border-top:none;padding:20px 32px">
-    <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:14px">Account Balances</div>
-    <table width="100%" cellpadding="0" cellspacing="0">
-      {acct_rows_html}
-    </table>
-  </div>
-
-  <!-- Transactions -->
-  <div style="background:#161616;border:1px solid #2a2a2a;border-top:none;padding:20px 32px">
-    <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:14px">
-      Yesterday's Transactions
-      <span style="display:inline-block;background:#1e2a1e;color:#3a7d52;border:1px solid #2a4030;border-radius:2px;font-size:9px;letter-spacing:.1em;padding:1px 6px;margin-left:8px">{txn_count} transactions</span>
-    </div>
-    <table width="100%" cellpadding="0" cellspacing="0">
-      {txn_rows_html if txn_rows_html else '<tr><td style="color:#444;font-size:12px;padding:8px 0">No transactions recorded yesterday.</td></tr>'}
-    </table>
-  </div>
-
-  <!-- Summary Bar -->
-  <div style="background:#161616;border:1px solid #2a2a2a;border-top:none;display:flex">
-    <div style="flex:1;padding:16px 0;text-align:center;border-right:1px solid #1e1e1e">
-      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Income</div>
-      <div style="font-size:15px;font-weight:500;color:#3a7d52">{fmt_dollars(income)}</div>
-    </div>
-    <div style="flex:1;padding:16px 0;text-align:center;border-right:1px solid #1e1e1e">
-      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Spent</div>
-      <div style="font-size:15px;font-weight:500;color:#b05040">{fmt_dollars(expense)}</div>
-    </div>
-    <div style="flex:1;padding:16px 0;text-align:center">
-      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;margin-bottom:6px">Net</div>
-      <div style="font-size:15px;font-weight:500;color:{net_color}">{net_sign}{fmt_dollars(net)}</div>
-    </div>
-  </div>
+  {section("Account Balances", None, acct_html)}
+  {section("Yesterday's Transactions", f"{txn_count} transactions", txn_html)}
+  {summary_bar}
+  {section("Highlights", None, highlights_html)}
+  {section("Month-to-Date Cashflow", yesterday.strftime("%B %Y"), cashflow_html)}
+  {section("Spending Breakdown", None, spending_html)}
 
   <!-- Footer -->
-  <div style="background:#111;border:1px solid #2a2a2a;border-top:none;border-radius:0 0 4px 4px;padding:12px 32px;display:flex;justify-content:space-between;align-items:center">
-    <span style="font-size:10px;color:#333">Pulled from Monarch Money · {generated} at 7:00 AM</span>
-    <span style="font-size:10px;color:#3a6347">{RECIPIENT_EMAIL}</span>
+  <div style="background:#111;border:1px solid #2a2a2a;border-top:none;border-radius:0 0 4px 4px;padding:12px 32px;display:table;width:100%;box-sizing:border-box">
+    <span style="display:table-cell;font-size:10px;color:#2a2a2a">Monarch Money · {generated} · 7:00 AM ET</span>
+    <span style="display:table-cell;font-size:10px;color:#3a6347;text-align:right">{RECIPIENT_EMAIL}</span>
   </div>
 
 </div>
@@ -222,11 +424,13 @@ def build_email_html(yesterday: date, transactions, accounts, net_worth: float) 
 </html>"""
 
 
+# ── Send ───────────────────────────────────────────────────────────────────────
+
 def send_email(subject: str, html_body: str):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = GMAIL_ADDRESS
-    msg["To"] = RECIPIENT_EMAIL
+    msg["From"]    = GMAIL_ADDRESS
+    msg["To"]      = RECIPIENT_EMAIL
     msg.attach(MIMEText(html_body, "html"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
@@ -237,13 +441,14 @@ def send_email(subject: str, html_body: str):
 
 async def main():
     print("Fetching Monarch data...")
-    yesterday, transactions, accounts, balance_history = await fetch_data()
+    yesterday, transactions, mtd_transactions, accounts, cashflow, budgets = await fetch_data()
+    print(f"  {len(transactions)} transactions yesterday · {len(mtd_transactions)} MTD · {len(accounts)} accounts")
 
-    _, net_worth = build_account_rows(accounts)
-    html = build_email_html(yesterday, transactions, accounts, net_worth)
+    html = build_email(yesterday, transactions, mtd_transactions, accounts, cashflow, budgets)
 
+    net_worth, _, _ = compute_net_worth(accounts)
     date_str = yesterday.strftime("%b %-d")
-    subject = f"💰 Monarch Digest · {date_str} · {len(transactions)} transactions"
+    subject  = f"💰 Monarch · {date_str} · {len(transactions)} txns · NW {fmt(net_worth)}"
     send_email(subject, html)
 
 
