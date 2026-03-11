@@ -49,22 +49,13 @@ def is_hsa_eligible(category_name: str) -> bool:
 async def fetch_data():
     mm = MonarchMoney()
 
-    if MONARCH_MFA_KEY:
-        await mm.login(
-            email=MONARCH_EMAIL,
-            password=MONARCH_PASSWORD,
-            mfa_secret_key=MONARCH_MFA_KEY,
-            save_session=True,
-        )
-    else:
-        try:
-            mm.load_session()
-        except Exception:
-            await mm.login(
-                email=MONARCH_EMAIL,
-                password=MONARCH_PASSWORD,
-                save_session=True,
-            )
+    await mm.login(
+        email=MONARCH_EMAIL,
+        password=MONARCH_PASSWORD,
+        mfa_secret_key=MONARCH_MFA_KEY if MONARCH_MFA_KEY else None,
+        save_session=False,
+        use_saved_session=False,
+    )
 
     yesterday = date.today() - timedelta(days=1)
     day_before = yesterday - timedelta(days=1)
