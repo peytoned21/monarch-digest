@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,9 +137,9 @@ canvas { display: block; width: 100% !important; }
 <div class="app">
 
 <div class="header">
-  <div class="eyebrow">Retirement Projection &middot; Peyton Edwards &middot; Age 38 &middot; As of <span id="as-of">March 29, 2026</span></div>
+  <div class="eyebrow">Retirement Projection &middot; Peyton Edwards &middot; Age 38 &middot; As of <span id="as-of">--</span></div>
   <h1>How early can you <em>actually</em> retire?</h1>
-  <div class="header-sub">Monte Carlo &middot; 1,000 simulations &middot; Account-type aware &middot; All values in today's dollars</div>
+  <div class="header-sub">Monte Carlo &middot; 1,000 simulations &middot; Accumulation-phase account-aware &middot; All values in today's dollars</div>
 </div>
 
 <div class="scenarios">
@@ -191,7 +190,7 @@ canvas { display: block; width: 100% !important; }
     <div class="ctrl"><div class="ctrl-lbl">Lumpy Expenses (every 8yr)</div><div class="ctrl-row"><input type="range" min="0" max="150000" step="5000" id="r-lumpy" oninput="sl('lumpy',this.value)"><input type="text" class="num-in" id="i-lumpy" onchange="si('lumpy',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Social Security / mo</div><div class="ctrl-row"><input type="range" min="500" max="5000" step="100" id="r-ss" oninput="sl('ss',this.value)"><input type="text" class="num-in" id="i-ss" onchange="si('ss',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">SS Claim Age</div><div class="ctrl-row"><input type="range" min="62" max="70" step="1" id="r-ssage" oninput="sl('ssage',this.value)"><input type="text" class="num-in" id="i-ssage" onchange="si('ssage',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">HD Concentration %</div><div class="ctrl-row"><input type="range" min="0" max="80" step="5" id="r-hdconc" oninput="sl('hdconc',this.value)"><input type="text" class="num-in" id="i-hdconc" onchange="si('hdconc',this.value)"></div></div>
+
     </div>
 
     <div class="sec"><div class="sec-lbl">Legacy Goal</div>
@@ -257,7 +256,7 @@ canvas { display: block; width: 100% !important; }
         <button class="stab" onclick="setStrat('fixed')" id="st-fixed">Fixed 4%</button>
         <button class="stab" onclick="setStrat('dynamic')" id="st-dynamic">Dynamic</button>
       </div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px" id="strat-desc">Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Improves success rate ~8% vs fixed withdrawal.</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px" id="strat-desc">Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Typically improves modeled success rate vs fixed withdrawal.</div>
       <div class="sec-lbl">Roth Conversion Window &middot; Gap Years Before SS</div>
       <div class="roth-tl" id="roth-tl"></div>
       <div style="display:flex;gap:14px;margin-top:8px;font-family:'DM Mono',monospace;font-size:8.5px">
@@ -294,10 +293,10 @@ canvas { display: block; width: 100% !important; }
 <script>
 // ---- State ----
 var BASE = {
-  roth:385723, k401:146908, taxable:129445, rsus:97350, hsa:13625,
+  roth:398000, k401:149000, taxable:134000, rsus:181000, hsa:14000,
   c401k:23000, croth:7000, chsa:8300, ctax:18000,
   rsugrant:50000, rsusell:80,
-  spend:110000, lumpy:60000, ss:3200, ssage:67, hdconc:35,
+  spend:110000, lumpy:60000, ss:3200, ssage:67,
   market:'base', strat:'guardrails', retireAge:55,
   legacy:'modest', legacyFloor:500000, currentAge:38
 };
@@ -312,7 +311,7 @@ function fmtK(v) {
 }
 function fmtPct(v) { return Math.round(v) + '%'; }
 function dispVal(k, v) {
-  var pctKeys = ['rsusell','hdconc'];
+  var pctKeys = ['rsusell'];
   var ageKeys = ['ssage'];
   v = parseFloat(v);
   if (pctKeys.indexOf(k) >= 0) return v + '%';
@@ -339,15 +338,21 @@ function sl(k, v) {
 function si(k, raw) {
   var v = parseInput(k, raw);
   if (v === null) return;
-  S[k] = v;
+  // Clamp to slider bounds to prevent silent mismatches
   var r = document.getElementById('r-' + k);
-  if (r) r.value = v;
+  if (r) {
+    var mn = parseFloat(r.min), mx = parseFloat(r.max);
+    if (!isNaN(mn) && v < mn) v = mn;
+    if (!isNaN(mx) && v > mx) v = mx;
+    r.value = v;
+  }
+  S[k] = v;
   var inp = document.getElementById('i-' + k);
   if (inp) inp.value = dispVal(k, v);
   recalc();
 }
 function initControls() {
-  var keys = ['roth','k401','taxable','rsus','hsa','c401k','croth','chsa','ctax','rsugrant','rsusell','spend','lumpy','ss','ssage','hdconc'];
+  var keys = ['roth','k401','taxable','rsus','hsa','c401k','croth','chsa','ctax','rsugrant','rsusell','spend','lumpy','ss','ssage'];
   keys.forEach(function(k) {
     var r = document.getElementById('r-' + k);
     var i = document.getElementById('i-' + k);
@@ -383,7 +388,7 @@ function setMarket(m) {
   recalc();
 }
 var STRAT_DESC = {
-  guardrails: 'Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Improves success rate ~8% vs fixed withdrawal.',
+  guardrails: 'Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Typically improves modeled success rate vs fixed withdrawal.',
   fixed: 'Fixed 4%: withdraw 4% of initial portfolio annually, inflation-adjusted. Simple but inflexible -- can fail in bad sequence years.',
   dynamic: 'Dynamic: withdraw 3.5% in down years, up to 5% in strong years. Balances lifestyle with longevity protection.'
 };
@@ -409,13 +414,14 @@ function randn() {
   return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
 }
 
-function project() {
-  var m = MKT[S.market];
+function project(st) {
+  if (!st) st = S;
+  var m = MKT[st.market];
   var rr = m.eq - m.inf;
-  var yA = S.retireAge - S.currentAge;
-  var yD = 95 - S.retireAge;
-  var ssAnn = S.ss * 12;
-  var floor = S.legacyFloor;
+  var yA = st.retireAge - st.currentAge;
+  var yD = 95 - st.retireAge;
+  var ssAnn = st.ss * 12;
+  var floor = st.legacyFloor;
   var N = 1000;
   var success = 0;
   var allPaths = [];
@@ -423,19 +429,21 @@ function project() {
 
   for (var sim = 0; sim < N; sim++) {
     var sig = m.sigma;
-    var roth = S.roth, pre = S.k401, tax = S.taxable, hsa = S.hsa;
-    var hdV = S.rsus, hdF = 0;
+    var roth = st.roth, pre = st.k401, tax = st.taxable, hsa = st.hsa;
+    var hdV = st.rsus, hdF = 0;
 
     // Accumulation
     for (var y = 0; y < yA; y++) {
-      var hdSig = sig * (1 + S.hdconc / 100 * 0.8);
-      roth = Math.max(0, roth * (1 + rr + sig*randn()) + S.croth);
-      pre  = Math.max(0, pre  * (1 + rr + sig*randn()) + S.c401k);
-      tax  = Math.max(0, tax  * (1 + rr + sig*randn()) + S.ctax);
-      hsa  = Math.max(0, hsa  * (1 + rr + sig*randn()) + S.chsa);
+      // 401(k) is diversified index funds -- normal market vol
+      // HD stock (RSUs/ESPP) is single-stock -- use 1.5x market sigma
+      var hdSig = sig * 1.5;
+      roth = Math.max(0, roth * (1 + rr + sig*randn()) + st.croth);
+      pre  = Math.max(0, pre  * (1 + rr + sig*randn()) + st.c401k);
+      tax  = Math.max(0, tax  * (1 + rr + sig*randn()) + st.ctax);
+      hsa  = Math.max(0, hsa  * (1 + rr + sig*randn()) + st.chsa);
       hdV  = Math.max(0, hdV  * (1 + rr + hdSig*randn()));
-      var vest = S.rsugrant * 0.25;
-      var sold = vest * (S.rsusell / 100);
+      var vest = st.rsugrant * 0.25;
+      var sold = vest * (st.rsusell / 100);
       hdF  = Math.max(0, hdF * (1 + rr + hdSig*randn()) + vest - sold);
       tax  = Math.max(0, tax + sold);
     }
@@ -443,16 +451,16 @@ function project() {
     var totalRet = roth + pre + tax + hsa + hdV + hdF;
     var port = totalRet;
     var path = [port];
-    var baseSpend = S.spend;
+    var baseSpend = st.spend;
     var curSpend = baseSpend;
     var hw = port;
     var preFrac = pre / Math.max(totalRet, 1);
 
     // Drawdown
     for (var d = 0; d < yD; d++) {
-      var age = S.retireAge + d;
-      var ss = age >= S.ssage ? ssAnn : 0;
-      var lump = (d > 0 && d % 8 === 0) ? S.lumpy : 0;
+      var age = st.retireAge + d;
+      var ss = age >= st.ssage ? ssAnn : 0;
+      var lump = (d > 0 && d % 8 === 0) ? st.lumpy : 0;
       var need = Math.max(0, curSpend - ss) + lump;
       var taxDrag = need * preFrac * 0.20;
       var wd = need + taxDrag;
@@ -461,10 +469,10 @@ function project() {
 
       port = Math.max(0, port * (1 + rr + sig*randn()) - wd);
 
-      if (S.strat === 'guardrails') {
+      if (st.strat === 'guardrails') {
         if (port < hw * 0.80) curSpend = Math.max(baseSpend * 0.80, curSpend * 0.90);
         else if (port > hw * 1.20) curSpend = Math.min(baseSpend * 1.25, curSpend * 1.05);
-      } else if (S.strat === 'dynamic') {
+      } else if (st.strat === 'dynamic') {
         var wdr = wd / Math.max(port, 1);
         if (wdr > 0.05) curSpend = Math.max(baseSpend * 0.80, curSpend * 0.97);
         else if (wdr < 0.035) curSpend = Math.min(baseSpend * 1.25, curSpend * 1.02);
@@ -491,14 +499,14 @@ function project() {
 
   // Bucket estimates (deterministic)
   function grow(v,c,y) { return v*Math.pow(1+rr,y)+c*((Math.pow(1+rr,y)-1)/Math.max(rr,0.001)); }
-  var soldPerYr = S.rsugrant * 0.25 * (S.rsusell/100);
-  var bRoth = Math.max(0, grow(S.roth, S.croth, yA));
-  var bPre  = Math.max(0, grow(S.k401, S.c401k, yA));
-  var bTax  = Math.max(0, grow(S.taxable, S.ctax + soldPerYr, yA));
-  var bHSA  = Math.max(0, grow(S.hsa, S.chsa, yA));
+  var soldPerYr = st.rsugrant * 0.25 * (st.rsusell/100);
+  var bRoth = Math.max(0, grow(st.roth, st.croth, yA));
+  var bPre  = Math.max(0, grow(st.k401, st.c401k, yA));
+  var bTax  = Math.max(0, grow(st.taxable, st.ctax + soldPerYr, yA));
+  var bHSA  = Math.max(0, grow(st.hsa, st.chsa, yA));
   // HD bucket: vested stock grows + future grants that aren't sold accumulate
-  var unsoldPerYr = S.rsugrant * 0.25 * (1 - S.rsusell/100);
-  var bHD   = Math.max(0, S.rsus * Math.pow(1+rr, yA) + grow(0, unsoldPerYr, yA));
+  var unsoldPerYr = st.rsugrant * 0.25 * (1 - st.rsusell/100);
+  var bHD   = Math.max(0, st.rsus * Math.pow(1+rr, yA) + grow(0, unsoldPerYr, yA));
 
   return {
     sr: success/N, p25:p25, p50:p50, p75:p75,
@@ -625,7 +633,12 @@ function buildRothTL(retAge, ssAge) {
 }
 
 // ---- Concentration Risk ----
-function buildConc(pct) {
+function buildConc() {
+  // Compute HD concentration automatically: RSU/vested stock vs total investable
+  var totalInv = S.roth + S.k401 + S.taxable + S.hsa + S.rsus;
+  var hdAmt    = S.rsus;  // only RSUs/vested HD stock -- 401k is diversified
+  var pct      = totalInv > 0 ? Math.round(hdAmt / totalInv * 100) : 0;
+
   var meter = document.getElementById('risk-meter');
   var desc  = document.getElementById('conc-desc');
   var adv   = document.getElementById('conc-adv');
@@ -642,11 +655,15 @@ function buildConc(pct) {
     meter.appendChild(d);
   }
   var lvl, col, advice;
-  if (pct < 15)      { lvl='Low';      col='var(--green-lt)'; advice='Within acceptable range. Continue systematic diversification at each vest.'; }
-  else if (pct < 30) { lvl='Moderate'; col='var(--gold)';     advice='Sell RSUs into strength. Target below 15%. Keep discipline regardless of stock outlook.'; }
-  else if (pct < 50) { lvl='Elevated'; col='var(--amber)';    advice='RSUs + 401(k) + salary all correlated to HD. Diversify at every vest event.'; }
-  else               { lvl='High';     col='var(--red-lt)';   advice='Critical. A 40% HD decline materially impacts retirement timeline. Sell all vests immediately into index funds.'; }
-  desc.innerHTML = '<span style="color:'+col+';font-weight:500">'+lvl+' concentration</span> -- '+pct+'% of investable assets tied to Home Depot. Salary, RSUs, ESPP, and 401(k) all correlated.';
+  if (pct < 15)      { lvl='Low';      col='var(--green-lt)'; advice='RSU concentration is within acceptable range. Keep selling into strength at each vest to stay here.'; }
+  else if (pct < 25) { lvl='Moderate'; col='var(--gold)';     advice='Sell RSUs at vest and reinvest into diversified funds. Target below 15% of investable assets.'; }
+  else if (pct < 40) { lvl='Elevated'; col='var(--amber)';    advice='Single-stock risk is meaningful. Prioritize selling RSUs at every vest event regardless of HD outlook.'; }
+  else               { lvl='High';     col='var(--red-lt)';   advice='Critical concentration. A 40% HD decline could materially impact your retirement timeline. Consider selling RSUs aggressively at each vest and diversifying into index funds.'; }
+
+  desc.innerHTML = '<span style="color:'+col+';font-weight:500">'+lvl+' concentration</span> -- '
+    + pct+'% of investable assets ($'+Math.round(hdAmt/1000)+'K) is HD stock (RSUs/vested shares). '
+    + 'Your 401(k) is diversified index funds and is excluded from this calculation. '
+    + 'Your salary adds additional HD income correlation not reflected here.';
   adv.textContent = advice;
 }
 
@@ -665,58 +682,49 @@ function buildInsights(res, fireNum) {
     items.push({icon:'&#9672;', col:'var(--amber)', text:'Portfolio is <strong>'+fmtK(Math.abs(gap))+'</strong> short of FIRE number at '+S.retireAge+'. Adding <strong>$'+extra.toLocaleString()+'/yr</strong> closes the gap, or retire at '+(S.retireAge+2)+' instead.'});
   }
 
-  // Recommended age -- scan using full simulation at key ages
-  var recAge = null;
-  var recSR = 0;
+  // Recommended age -- use cached scenario results (computed in _recalc, no re-simulation)
+  var recAge = null, recSR = 0;
   var scanAges = [52,54,56,58,60,62,64,66,68];
-  var origAge = S.retireAge;
   for (var ai=0; ai<scanAges.length; ai++) {
-    S.retireAge = scanAges[ai];
-    var scanRes = project();
-    if (scanRes.sr >= 0.85 && recAge === null) {
+    var cached = _cacheScen[scanAges[ai]];
+    if (cached && cached.sr >= 0.85 && recAge === null) {
       recAge = scanAges[ai];
-      recSR = Math.round(scanRes.sr * 100);
+      recSR  = Math.round(cached.sr * 100);
     }
   }
-  S.retireAge = origAge;
   if (recAge !== null) {
     var yrsAway = recAge - S.currentAge;
     items.push({icon:'&#9670;', col:'var(--gold)',
-      text:'<strong>Age '+recAge+'</strong> is your earliest retirement age with an 85%+ success rate (<strong>'+recSR+'%</strong> in simulation). That is '+yrsAway+' years away under '+S.market+' market conditions.'});
+      text:'<strong>Age '+recAge+'</strong> is where your modeled success rate first crosses 85% (<strong>'+recSR+'%</strong>). That is '+yrsAway+' years away under '+S.market+' market conditions.'});
   } else {
     items.push({icon:'&#9670;', col:'var(--red-lt)',
-      text:'Success rate stays below 85% through age 68 under current assumptions. Try increasing contributions, reducing spending, or switching to Guardrails withdrawal strategy.'});
+      text:'Modeled success rate stays below 85% through age 68 under current assumptions. Consider increasing contributions, reducing spending, or switching to Guardrails.'});
   }
 
   var ss62 = Math.round(S.ss*0.70*12);
   var ss70 = Math.round(S.ss*1.24*12);
-  items.push({icon:'&#9711;', col:'var(--blue)', text:'SS timing: at 62 = <strong>'+fmtK(ss62)+'/yr</strong>, at 70 = <strong>'+fmtK(ss70)+'/yr</strong>. That is a <strong>'+fmtK(ss70-ss62)+'</strong> annual gap. Breakeven vs claiming at 62 is roughly age 80. In early retirement, draw taxable first and delay SS.'});
+  items.push({icon:'&#9711;', col:'var(--blue)', text:'SS timing: at 62 = <strong>'+fmtK(ss62)+'/yr</strong>, at 70 = <strong>'+fmtK(ss70)+'/yr</strong>. That is a <strong>'+fmtK(ss70-ss62)+'</strong> annual gap. Breakeven vs. claiming at 62 is typically around age 80, depending on your health and return assumptions. In early retirement, draw taxable first and consider delaying SS.'});
 
   items.push({icon:'&#9733;', col:'var(--gold)', text:'Roth IRA projected at <strong>'+fmtK(res.bkt.roth)+'</strong> at retirement. No RMDs, tax-free growth, passes to heirs tax-free. Protect it: draw taxable accounts first so Roth compounds longer.'});
 
-  // Tradeoff: work 2 more years
-  var origAge2 = S.retireAge;
-  S.retireAge = origAge2 + 2;
-  var res2 = project();
-  var sr2 = Math.round(res2.sr * 100);
-  var sr0 = Math.round(res.sr * 100);
-  S.retireAge = origAge2;
+  // Tradeoffs -- use projectWith() so no global mutation
+  var sr0  = Math.round(res.sr * 100);
+  var res2 = projectWith({retireAge: S.retireAge + 2});
+  var sr2  = Math.round(res2.sr * 100);
   var srDiff = sr2 - sr0;
   if (srDiff > 0) {
     items.push({icon:'&#9650;', col:'var(--muted)',
-      text:'Working 2 more years (to age '+(origAge2+2)+') raises success rate from <strong>'+sr0+'%</strong> to <strong>'+sr2+'%</strong> -- a <strong>+'+srDiff+' point</strong> improvement. That buys the most safety per year of any lever.'});
+      text:'Working 2 more years (to age '+(S.retireAge+2)+') could raise success rate from <strong>'+sr0+'%</strong> to <strong>'+sr2+'%</strong> -- a <strong>+'+srDiff+' point</strong> improvement under these assumptions.'});
   }
 
-  // Tradeoff: cut spending $10K
-  var origSpend = S.spend;
-  S.spend = origSpend - 10000;
-  var res3 = project();
-  var sr3 = Math.round(res3.sr * 100);
-  S.spend = origSpend;
-  var srDiff3 = sr3 - sr0;
-  if (srDiff3 > 0 && origSpend > 70000) {
-    items.push({icon:'&#9660;', col:'var(--muted)',
-      text:'Cutting spending by $10K/yr (to <strong>'+fmtK(origSpend-10000)+'</strong>) raises success rate by <strong>+'+srDiff3+' points</strong>. Spending is your most flexible lever in retirement -- even a 10% cut in bad years changes outcomes significantly.'});
+  if (S.spend > 70000) {
+    var res3    = projectWith({spend: S.spend - 10000});
+    var sr3     = Math.round(res3.sr * 100);
+    var srDiff3 = sr3 - sr0;
+    if (srDiff3 > 0) {
+      items.push({icon:'&#9660;', col:'var(--muted)',
+        text:'Spending $10K/yr less (to <strong>'+fmtK(S.spend-10000)+'</strong>) could raise success rate by <strong>+'+srDiff3+' points</strong>. Spending flexibility in down years is one of the most powerful levers in retirement planning.'});
+    }
   }
 
   items.forEach(function(ins) {
@@ -728,11 +736,31 @@ function buildInsights(res, fireNum) {
   });
 }
 
-// ---- Main recalc ----
+// ---- Simulation cache ----
+var _cache = null;   // last full simulation result
+var _cacheScen = {}; // cached results for ages 55/60/65
 var _t = null;
+
+// Run project with state overrides without mutating S
+function projectWith(overrides) {
+  return project(Object.assign({}, S, overrides));
+}
 function recalc() { clearTimeout(_t); _t = setTimeout(_recalc, 100); }
 function _recalc() {
+  // Run main simulation and cache
   var res = project();
+  _cache = res;
+
+  // Pre-compute scenario ages (used by cards and insights -- no global mutation)
+  var scanAges = [52,54,56,58,60,62,64,66,68];
+  _cacheScen = {};
+  for (var ai=0; ai<scanAges.length; ai++) {
+    _cacheScen[scanAges[ai]] = projectWith({retireAge: scanAges[ai]});
+  }
+  // Also cache the three card ages if not already scanned
+  [55,60,65].forEach(function(a) {
+    if (!_cacheScen[a]) _cacheScen[a] = projectWith({retireAge: a});
+  });
   var tot = res.portAtRet;
   var fireNum = S.spend / 0.04;
   var sp = Math.round(res.sr * 100);
@@ -777,9 +805,11 @@ function _recalc() {
     brows.appendChild(row);
   });
 
+  // Scenario cards use full cached MC results -- consistent with hero
   [55,60,65].forEach(function(age) {
-    var r = quickSR(age), p = Math.round(r*100);
-    var el = document.getElementById('prob-'+age);
+    var cached = _cacheScen[age];
+    var p = cached ? Math.round(cached.sr * 100) : 0;
+    var el  = document.getElementById('prob-'+age);
     var bar = document.getElementById('bar-'+age);
     el.textContent = p+'% success rate';
     el.className = 'sc-prob '+(p>=85?'ph':p>=70?'pm':'pl');
@@ -787,13 +817,12 @@ function _recalc() {
   });
 
   buildRothTL(S.retireAge, S.ssage);
-  buildConc(S.hdconc);
+  buildConc();
   buildInsights(res, fireNum);
 }
 
 window.addEventListener('resize', function() {
-  var r = project();
-  drawChart(r.p25, r.p50, r.p75, S.retireAge);
+  if (_cache) drawChart(_cache.p25, _cache.p50, _cache.p75, S.retireAge);
 });
 
 initControls();
