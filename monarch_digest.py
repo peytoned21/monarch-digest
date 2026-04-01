@@ -35,6 +35,10 @@ MONARCH_MFA_KEY  = os.environ.get("MONARCH_MFA_KEY", "")
 GMAIL_ADDRESS    = os.environ["GMAIL_ADDRESS"]
 GMAIL_APP_PASS   = os.environ["GMAIL_APP_PASSWORD"]
 RECIPIENT_EMAIL  = os.environ.get("RECIPIENT_EMAIL", GMAIL_ADDRESS)
+GITHUB_USER      = os.environ.get("GITHUB_USER", "peytoned21")
+GITHUB_REPO      = os.environ.get("GITHUB_REPO", "monarch-digest")
+CALC_FILENAME    = "retirement_calculator.html"
+CALC_URL         = f"https://{GITHUB_USER}.github.io/{GITHUB_REPO}/{CALC_FILENAME}"
 
 HSA_KEYWORDS      = ["medical", "pharmacy", "dental", "vision", "health", "doctor", "hospital"]
 TRANSFER_KEYWORDS = ["transfer", "transfers to investments", "credit card payment"]
@@ -419,50 +423,69 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
 
     sentences = []
 
-    # Week spend characterization with discretionary context
-    non_transfer = [t for t in week_txns if not is_transfer((t.get("category") or {}).get("name", ""))]
-    if week_expense == 0 and week_income == 0:
-        sentences.append(f"A quiet week — no spending or income recorded {week_label}.")
-    elif week_income > 0:
+    # ── Week pattern detection ────────────────────────────────────────────────
+    non_transfer    = [t for t in week_txns if not is_transfer((t.get("category") or {}).get("name", ""))]
+    over_budget     = [b for b in budgets_parsed if b["pct_used"] > 100]
+    big_bills_ct    = sum(1 for b in upcoming_bills if not b["is_income"] and b["amount"] >= 300)
+    avg_weekly_spend = (mtd_expense / max(week_end.day, 1)) * 7
+    is_income_week  = week_income > 3000
+    is_heavy_spend  = week_expense > avg_weekly_spend * 1.3 and week_expense > 500
+    is_quiet        = week_expense < 200 and week_income == 0
+    is_budget_stress = len(over_budget) > 0
+    is_bill_heavy   = big_bills_ct >= 2
+
+    # ── Lead sentence varies by week pattern ─────────────────────────────────
+    if is_quiet:
+        sentences.append(f"Quiet week — minimal activity {week_label}.")
+    elif is_income_week and week_income > week_expense * 1.5:
         net_str = f"+{fmt(week_net)}" if week_net >= 0 else f"-{fmt(abs(week_net))}"
-        sentences.append(f"You brought in {fmt(week_income)} and spent {fmt(week_expense)} last week, netting {net_str}.")
+        sentences.append(f"Strong income week: {fmt(week_income)} in, {fmt(week_expense)} out, net {net_str}.")
+    elif is_heavy_spend and not is_income_week:
+        sentences.append(f"Spend-heavy week — {fmt(week_expense)} out vs. ~{fmt(avg_weekly_spend)} weekly average.")
+    elif is_bill_heavy:
+        sentences.append(f"Bill-heavy week: {big_bills_ct} payments of $300+ due in the next 7 days.")
+    elif is_budget_stress:
+        names = ", ".join(b["category"] for b in over_budget[:2])
+        sentences.append(f"Budget pressure: {names} {'has' if len(over_budget)==1 else 'have'} exceeded budget this month.")
     else:
-        if total_fixed_monthly > 0:
-            sentences.append(f"You spent {fmt(week_expense)} last week — {fmt(week_discretionary)} discretionary ({fmt(disc_per_day)}/day after fixed obligations).")
+        if total_fixed_monthly > 0 and week_expense > 0:
+            sentences.append(f"You spent {fmt(week_expense)} last week — {fmt(week_discretionary)} non-fixed ({fmt(disc_per_day)}/day).")
+        elif week_income > 0:
+            net_str = f"+{fmt(week_net)}" if week_net >= 0 else f"-{fmt(abs(week_net))}"
+            sentences.append(f"You brought in {fmt(week_income)} and spent {fmt(week_expense)} last week, netting {net_str}.")
         else:
             sentences.append(f"You spent {fmt(week_expense)} last week across {len(non_transfer)} transactions.")
 
-    # MTD savings rate
+    # ── MTD context (one sentence max) ───────────────────────────────────────
     if mtd_income > 0:
         if savings_rate >= 30:
-            sentences.append(f"{month_name} is tracking at a {pct(savings_rate)} savings rate — strong month.")
+            sentences.append(f"{month_name} tracking at {pct(savings_rate)} savings — ahead of plan.")
         elif savings_rate >= 15:
-            sentences.append(f"{month_name} savings rate sits at {pct(savings_rate)} — on pace.")
+            sentences.append(f"{month_name} savings rate: {pct(savings_rate)}.")
         else:
-            sentences.append(f"{month_name} savings rate is {pct(savings_rate)} — worth watching as the month closes.")
+            sentences.append(f"{month_name} savings rate {pct(savings_rate)} — spending running high.")
 
-    # Budget flags
-    over_budget = [b for b in budgets_parsed if b["pct_used"] > 100]
-    if over_budget:
-        names = ", ".join(b["category"] for b in over_budget[:2])
-        sentences.append(f"{'One category has' if len(over_budget) == 1 else f'{len(over_budget)} categories have'} exceeded budget this month ({names}).")
+    # ── Supporting signals (budget, bills, HSA) ───────────────────────────────
+    # Skip budget stress — already in lead if present
+    if not is_budget_stress:
+        for b in over_budget[:1]:
+            over_by = b["actual"] - b["budgeted"]
+            sentences.append(f"{b['category']} is {fmt(over_by)} over budget ({pct(b['pct_used'])} used).")
 
-    # Big upcoming bill
     big_bills = [b for b in upcoming_bills if not b["is_income"] and b["amount"] >= 300]
-    if big_bills:
+    if big_bills and not is_bill_heavy:
         b = big_bills[0]
         days_away = (b["date"] - date.today()).days
-        when = "today" if days_away == 0 else "tomorrow" if days_away == 1 else f"{b['date'].strftime('%A')}"
-        sentences.append(f"{b['merchant']} ({fmt(b['amount'])}) is due {when}.")
+        when = "today" if days_away == 0 else "tomorrow" if days_away == 1 else b["date"].strftime("%A")
+        sentences.append(f"{b['merchant']} ({fmt(b['amount'])}) due {when}.")
 
-    # HSA
     hsa_unlogged = [t for t in mtd_txns
                     if float(t.get("amount", 0)) < 0
                     and is_hsa((t.get("category") or {}).get("name", ""))
                     and not (t.get("notes") or "").strip()]
     if hsa_unlogged:
         total = sum(abs(float(t.get("amount", 0))) for t in hsa_unlogged)
-        sentences.append(f"You have {fmt(total)} in HSA-eligible expenses without receipts logged — worth doing before you forget.")
+        sentences.append(f"{fmt(total)} in unlogged HSA receipts.")
 
     text = " ".join(sentences)
     return f"""
@@ -969,7 +992,8 @@ def build_debt_html(accounts):
 # ── Email Assembly ─────────────────────────────────────────────────────────────
 
 def build_email(today, week_start, week_end, week_txns, mtd_txns,
-                accounts, cashflow, history_by_id, budgets_raw, recurring_raw):
+                accounts, cashflow, history_by_id, budgets_raw, recurring_raw,
+                calc_url=None):
 
     budgets_parsed  = parse_budgets(budgets_raw)
     upcoming_bills  = parse_upcoming_bills(recurring_raw, today, BILL_LOOKAHEAD)
@@ -998,6 +1022,26 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
     disc_html     = build_discretionary_html(fixed_expenses, mtd_txns, week_txns, mtd_income, week_end)
     debt_html     = build_debt_html(accounts)
 
+    # Debt Tracker: show if balance moved >$100, or first week of month
+    debt_moved = week_end.day <= 7
+    if not debt_moved:
+        for acct in accounts:
+            name = (acct.get("displayName") or "").lower()
+            if not any(k in name for k in DEBT_ACCOUNTS):
+                continue
+            acct_id = str(acct.get("id", ""))
+            hist    = history_by_id.get(acct_id, {})
+            p_date  = week_start - timedelta(days=1)
+            prev    = hist.get(str(p_date))
+            if prev is None:
+                for d in [1,-1,2,-2]:
+                    k = str(p_date + timedelta(days=d))
+                    if k in hist:
+                        prev = hist[k]; break
+            cur = float(acct.get("currentBalance") or 0)
+            if prev is not None and abs(cur - prev) > 100:
+                debt_moved = True; break
+
     txn_count = len(week_txns)
     net_color = C_GREEN if week_net >= 0 else C_RED
     net_label = f"+{fmt(week_net)}" if week_net >= 0 else f"-{fmt(abs(week_net))}"
@@ -1018,6 +1062,27 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
       <div style="font-size:15px;font-weight:700;color:{net_color}">{net_label}</div>
     </div>
   </div>"""
+
+    # Calculator link section
+    if calc_url:
+        calc_section = f"""
+  <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;padding:20px 28px">
+    <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:{C_LABEL};margin-bottom:14px">Retirement Calculator</div>
+    <div style="font-size:13px;color:{C_TEXT};margin-bottom:14px;line-height:1.6;font-family:Georgia,serif">
+      Your calculator has been updated with this week&#39;s balances from Monarch.
+      Monte Carlo simulation, Roth conversion strategy, HD concentration risk, and personalized retirement age.
+    </div>
+    <a href="{calc_url}" style="display:inline-block;background:{C_TEXT};color:{C_BG};
+       font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+       padding:10px 20px;border-radius:3px;text-decoration:none">
+      Open Retirement Calculator &rarr;
+    </a>
+    <div style="margin-top:10px;font-family:'Courier New',monospace;font-size:9px;color:{C_LABEL}">
+      {calc_url}
+    </div>
+  </div>"""
+    else:
+        calc_section = ""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1047,9 +1112,10 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
   {card("Budget Pulse", month_name, budget_html)}
   {card("This Week Ahead", f"next {BILL_LOOKAHEAD} days", upcoming_html)}
   {card("Month-to-Date Cashflow", month_name, cashflow_html)}
-  {card("Fixed vs. Discretionary", month_name, disc_html)}
-  {card("Debt Tracker", None, debt_html)}
+  {card("Fixed vs. Non-Fixed Spending", month_name, disc_html) if week_end.day >= 7 else ""}
+  {card("Debt Tracker", None, debt_html) if debt_moved else ""}
 
+  {calc_section}
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;border-radius:0 0 6px 6px;
               padding:12px 28px;display:table;width:100%;box-sizing:border-box">
     <span style="display:table-cell;font-size:10px;color:{C_LABEL}">Monarch Money · {generated} · 7:00 AM ET</span>
@@ -1913,27 +1979,12 @@ def build_retirement_calculator(accounts, week_end):
     return calc_html
 
 
-def send_email(subject, html_body, attachment_html=None, attachment_name=None):
-    msg = MIMEMultipart("mixed")
+def send_email(subject, html_body):
+    msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"]    = GMAIL_ADDRESS
     msg["To"]      = RECIPIENT_EMAIL
-
-    # HTML body
-    body_part = MIMEMultipart("alternative")
-    body_part.attach(MIMEText(html_body, "html"))
-    msg.attach(body_part)
-
-    # Optional HTML attachment
-    if attachment_html and attachment_name:
-        part = MIMEBase("application", "octet-stream")
-        part.set_payload(attachment_html.encode("utf-8"))
-        email_encoders.encode_base64(part)
-        part.add_header("Content-Disposition", f'attachment; filename="{attachment_name}"')
-        part.add_header("Content-Type", "text/html; charset=utf-8")
-        msg.attach(part)
-        print(f"  Attaching {attachment_name}")
-
+    msg.attach(MIMEText(html_body, "html"))
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(GMAIL_ADDRESS, GMAIL_APP_PASS)
         server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
@@ -1951,17 +2002,23 @@ async def main():
           f"recurring={len(recurring)}")
 
     print("Building weekly digest...")
-    html = build_email(today, week_start, week_end, week_txns, mtd_txns,
-                       accounts, cashflow, history_by_id, budgets, recurring)
+    # html rebuilt below after calc_url is known
 
     print("Building retirement calculator...")
     calc_html = build_retirement_calculator(accounts, week_end)
 
+    # Write calculator to disk so the workflow can git commit it to the repo
+    # GitHub Pages will then serve it at CALC_URL
+    with open(CALC_FILENAME, "w", encoding="utf-8") as f:
+        f.write(calc_html)
+    print(f"  Wrote {CALC_FILENAME} ({len(calc_html):,} chars)")
+
     week_label = f"{week_start.strftime('%b %-d')}–{week_end.strftime('%-d')}"
     subject    = f"💰 Monarch Weekly · {week_label} · NW {fmt(net_worth)}"
-    send_email(subject, html,
-               attachment_html=calc_html,
-               attachment_name=f"retirement_{week_end.strftime('%Y%m%d')}.html")
+    html = build_email(today, week_start, week_end, week_txns, mtd_txns,
+                       accounts, cashflow, history_by_id, budgets, recurring,
+                       calc_url=CALC_URL)
+    send_email(subject, html)
 
 
 if __name__ == "__main__":
