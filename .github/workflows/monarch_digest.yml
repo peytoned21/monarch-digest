@@ -1,39 +1,43 @@
-name: Monarch Daily Digest
+name: Monarch Weekly Digest
 
 on:
   schedule:
-    # 7:00 AM Eastern = 11:00 AM UTC (12:00 UTC during EDT)
-    - cron: '0 12 * * *'
-  workflow_dispatch:  # allows manual trigger from GitHub UI
+    - cron: '0 12 * * 1'  # Monday 7:00 AM ET (12:00 UTC)
+  workflow_dispatch:       # allow manual trigger anytime
 
 jobs:
   send-digest:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    permissions:
+      contents: write      # needed to git push the calculator file
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: pip install git+https://github.com/bradleyseanf/monarchmoneycommunity.git
 
-      - name: Patch monarchmoney API domain
-        run: |
-          FILE=$(python -c "import monarchmoney.monarchmoney as m; print(m.__file__)")
-          sed -i 's|https://api.monarchmoney.com|https://api.monarch.com|g' "$FILE"
-          echo "Patched $FILE"
-
-      - name: Run digest script
+      - name: Run weekly digest
         env:
-          MONARCH_EMAIL:     ${{ secrets.MONARCH_EMAIL }}
-          MONARCH_PASSWORD:  ${{ secrets.MONARCH_PASSWORD }}
-          MONARCH_MFA_KEY:   ${{ secrets.MONARCH_MFA_KEY }}
-          GMAIL_ADDRESS:     ${{ secrets.GMAIL_ADDRESS }}
+          MONARCH_EMAIL:      ${{ secrets.MONARCH_EMAIL }}
+          MONARCH_PASSWORD:   ${{ secrets.MONARCH_PASSWORD }}
+          MONARCH_MFA_KEY:    ${{ secrets.MONARCH_MFA_KEY }}
+          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          RECIPIENT_EMAIL:   ${{ secrets.RECIPIENT_EMAIL }}
+          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+          GITHUB_USER:        peytoned21
+          GITHUB_REPO:        monarch-digest
         run: python monarch_digest.py
+
+      - name: Commit updated calculator to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add retirement_calculator.html
+          git diff --staged --quiet || git commit -m "chore: update retirement calculator [$(date +%Y-%m-%d)]"
+          git push
