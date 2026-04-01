@@ -291,6 +291,21 @@ canvas { display: block; width: 100% !important; }
 </div>
 
 <script>
+// ---- Model Constants ----
+// Changing these tunes the financial model assumptions
+var PLAN_TO_AGE           = 95;     // age to plan through (longevity assumption)
+var SAFE_WITHDRAWAL_RATE  = 0.04;   // 4% rule baseline
+var RSU_VEST_SCHEDULE     = 0.25;   // fraction of annual grant that vests per year (4-year vest)
+var HD_VOLATILITY_MULT    = 1.5;    // single-stock sigma multiplier vs market (HD beta ~1.3-1.5)
+var PRETAX_BLENDED_RATE   = 0.20;   // estimated blended tax rate on pre-tax withdrawals
+var SUCCESS_THRESHOLD     = 0.85;   // success rate target for recommended age scan
+var SCAN_AGES             = [52,54,56,58,60,62,64,66,68]; // ages to scan for recommended retirement
+var GUARDRAILS_FLOOR      = 0.80;   // spending floor in bad years (80% of base)
+var GUARDRAILS_CEIL       = 1.25;   // spending ceiling in good years (125% of base)
+var GUARDRAILS_CUT        = 0.90;   // spending reduction trigger (portfolio < 80% of high-water)
+var GUARDRAILS_RAISE      = 1.05;   // spending increase trigger (portfolio > 120% of high-water)
+var MC_SIMULATIONS        = 1000;   // number of Monte Carlo paths
+
 // ---- State ----
 var BASE = {
   roth:398000, k401:149000, taxable:134000, rsus:181000, hsa:14000,
@@ -419,10 +434,10 @@ function project(st) {
   var m = MKT[st.market];
   var rr = m.eq - m.inf;
   var yA = st.retireAge - st.currentAge;
-  var yD = 95 - st.retireAge;
+  var yD = PLAN_TO_AGE - st.retireAge;
   var ssAnn = st.ss * 12;
   var floor = st.legacyFloor;
-  var N = 1000;
+  var N = MC_SIMULATIONS;
   var success = 0;
   var allPaths = [];
   var finals = [];
@@ -436,13 +451,13 @@ function project(st) {
     for (var y = 0; y < yA; y++) {
       // 401(k) is diversified index funds -- normal market vol
       // HD stock (RSUs/ESPP) is single-stock -- use 1.5x market sigma
-      var hdSig = sig * 1.5;
+      var hdSig = sig * HD_VOLATILITY_MULT;
       roth = Math.max(0, roth * (1 + rr + sig*randn()) + st.croth);
       pre  = Math.max(0, pre  * (1 + rr + sig*randn()) + st.c401k);
       tax  = Math.max(0, tax  * (1 + rr + sig*randn()) + st.ctax);
       hsa  = Math.max(0, hsa  * (1 + rr + sig*randn()) + st.chsa);
       hdV  = Math.max(0, hdV  * (1 + rr + hdSig*randn()));
-      var vest = st.rsugrant * 0.25;
+      var vest = st.rsugrant * RSU_VEST_SCHEDULE;
       var sold = vest * (st.rsusell / 100);
       hdF  = Math.max(0, hdF * (1 + rr + hdSig*randn()) + vest - sold);
       tax  = Math.max(0, tax + sold);
@@ -462,7 +477,7 @@ function project(st) {
       var ss = age >= st.ssage ? ssAnn : 0;
       var lump = (d > 0 && d % 8 === 0) ? st.lumpy : 0;
       var need = Math.max(0, curSpend - ss) + lump;
-      var taxDrag = need * preFrac * 0.20;
+      var taxDrag = need * preFrac * PRETAX_BLENDED_RATE;
       var wd = need + taxDrag;
 
       if (port <= 0) { path.push(0); continue; }
@@ -470,8 +485,8 @@ function project(st) {
       port = Math.max(0, port * (1 + rr + sig*randn()) - wd);
 
       if (st.strat === 'guardrails') {
-        if (port < hw * 0.80) curSpend = Math.max(baseSpend * 0.80, curSpend * 0.90);
-        else if (port > hw * 1.20) curSpend = Math.min(baseSpend * 1.25, curSpend * 1.05);
+        if (port < hw * GUARDRAILS_CUT) curSpend = Math.max(baseSpend * GUARDRAILS_FLOOR, curSpend * GUARDRAILS_CUT);
+        else if (port > hw * 1.20) curSpend = Math.min(baseSpend * GUARDRAILS_CEIL, curSpend * GUARDRAILS_RAISE);
       } else if (st.strat === 'dynamic') {
         var wdr = wd / Math.max(port, 1);
         if (wdr > 0.05) curSpend = Math.max(baseSpend * 0.80, curSpend * 0.97);
@@ -499,13 +514,13 @@ function project(st) {
 
   // Bucket estimates (deterministic)
   function grow(v,c,y) { return v*Math.pow(1+rr,y)+c*((Math.pow(1+rr,y)-1)/Math.max(rr,0.001)); }
-  var soldPerYr = st.rsugrant * 0.25 * (st.rsusell/100);
+  var soldPerYr = st.rsugrant * RSU_VEST_SCHEDULE * (st.rsusell/100);
   var bRoth = Math.max(0, grow(st.roth, st.croth, yA));
   var bPre  = Math.max(0, grow(st.k401, st.c401k, yA));
   var bTax  = Math.max(0, grow(st.taxable, st.ctax + soldPerYr, yA));
   var bHSA  = Math.max(0, grow(st.hsa, st.chsa, yA));
   // HD bucket: vested stock grows + future grants that aren't sold accumulate
-  var unsoldPerYr = st.rsugrant * 0.25 * (1 - st.rsusell/100);
+  var unsoldPerYr = st.rsugrant * RSU_VEST_SCHEDULE * (1 - st.rsusell/100);
   var bHD   = Math.max(0, st.rsus * Math.pow(1+rr, yA) + grow(0, unsoldPerYr, yA));
 
   return {
@@ -523,7 +538,7 @@ function quickSR(retAge) {
   var now = S.roth+S.k401+S.taxable+S.hsa+S.rsus;
   var tc = S.croth+S.c401k+S.chsa+S.ctax;
   var proj = now*Math.pow(1+rr,yA)+tc*((Math.pow(1+rr,yA)-1)/Math.max(rr,0.001));
-  var fire = S.spend / 0.04;
+  var fire = S.spend / SAFE_WITHDRAWAL_RATE;
   var ratio = proj / fire;
   var base = 1/(1+Math.exp(-5*(ratio-0.9)));
   var bonus = S.strat==='guardrails'?0.05:S.strat==='dynamic'?0.025:0;
@@ -563,7 +578,7 @@ function drawChart(p25, p50, p75, retAge) {
 
   // X labels
   ctx.fillStyle='#4a4a46'; ctx.textAlign='center';
-  [0,10,20,95-retAge].forEach(function(off) {
+  [0,10,20,PLAN_TO_AGE-retAge].forEach(function(off) {
     var idx = Math.min(off, n-1);
     ctx.fillText('Age '+(retAge+off), xOf(idx), H-5);
   });
@@ -684,10 +699,9 @@ function buildInsights(res, fireNum) {
 
   // Recommended age -- use cached scenario results (computed in _recalc, no re-simulation)
   var recAge = null, recSR = 0;
-  var scanAges = [52,54,56,58,60,62,64,66,68];
-  for (var ai=0; ai<scanAges.length; ai++) {
-    var cached = _cacheScen[scanAges[ai]];
-    if (cached && cached.sr >= 0.85 && recAge === null) {
+  for (var ai=0; ai<SCAN_AGES.length; ai++) {
+    var cached = _cacheScen[SCAN_AGES[ai]];
+    if (cached && cached.sr >= SUCCESS_THRESHOLD && recAge === null) {
       recAge = scanAges[ai];
       recSR  = Math.round(cached.sr * 100);
     }
@@ -752,17 +766,16 @@ function _recalc() {
   _cache = res;
 
   // Pre-compute scenario ages (used by cards and insights -- no global mutation)
-  var scanAges = [52,54,56,58,60,62,64,66,68];
   _cacheScen = {};
-  for (var ai=0; ai<scanAges.length; ai++) {
-    _cacheScen[scanAges[ai]] = projectWith({retireAge: scanAges[ai]});
+  for (var ai=0; ai<SCAN_AGES.length; ai++) {
+    _cacheScen[SCAN_AGES[ai]] = projectWith({retireAge: SCAN_AGES[ai]});
   }
   // Also cache the three card ages if not already scanned
   [55,60,65].forEach(function(a) {
     if (!_cacheScen[a]) _cacheScen[a] = projectWith({retireAge: a});
   });
   var tot = res.portAtRet;
-  var fireNum = S.spend / 0.04;
+  var fireNum = S.spend / SAFE_WITHDRAWAL_RATE;
   var sp = Math.round(res.sr * 100);
 
   document.getElementById('hero-num').textContent = fmtK(tot);
@@ -772,7 +785,7 @@ function _recalc() {
   pe.textContent = sp+'%';
   pe.className = 'sv '+(sp>=85?'g':sp>=70?'gold':'r');
 
-  document.getElementById('st-safe').textContent = fmtK(tot*0.04)+'/yr';
+  document.getElementById('st-safe').textContent = fmtK(tot*SAFE_WITHDRAWAL_RATE)+'/yr';
   document.getElementById('st-fire').textContent = fmtK(fireNum);
 
   var ee = document.getElementById('st-estate');
