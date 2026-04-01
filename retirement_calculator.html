@@ -17,20 +17,20 @@
   --amber:#c87a28; --purple:#8a5ab8; --purple-bg:#120810;
 }
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; min-height:100vh; }
+body { background:var(--bg); color:var(--text); font-family:DM Sans,sans-serif; font-size:14px; line-height:1.6; min-height:100vh; }
 body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size:40px 40px; opacity:.12; pointer-events:none; z-index:0; }
 .app { position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:36px 24px 80px; }
 
 /* Header */
 .hdr { margin-bottom:28px; }
-.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-h1 { font-family:'DM Serif Display',serif; font-size:32px; font-weight:400; color:var(--text); line-height:1.15; margin-bottom:6px; }
+.eyebrow { font-family:DM Mono,monospace; font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+h1 { font-family:DM Serif Display,serif; font-size:32px; font-weight:400; color:var(--text); line-height:1.15; margin-bottom:6px; }
 h1 em { font-style:italic; color:var(--gold); }
-.hdr-sub { font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; }
+.hdr-sub { font-size:11px; color:var(--muted); font-family:DM Mono,monospace; }
 
 /* Tab nav */
 .tab-nav { display:flex; gap:4px; margin-bottom:20px; border-bottom:1px solid var(--border); padding-bottom:0; }
-.tab-btn { padding:8px 18px; background:transparent; border:1px solid transparent; border-bottom:none; border-radius:4px 4px 0 0; color:var(--muted); font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .15s; margin-bottom:-1px; }
+.tab-btn { padding:8px 18px; background:transparent; border:1px solid transparent; border-bottom:none; border-radius:4px 4px 0 0; color:var(--muted); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .15s; margin-bottom:-1px; }
 .tab-btn.active { background:var(--surface); border-color:var(--border); border-bottom-color:var(--surface); color:var(--gold); }
 .tab-btn:hover:not(.active) { color:var(--text); }
 .tab-pane { display:none; }
@@ -40,59 +40,59 @@ h1 em { font-style:italic; color:var(--gold); }
 .layout { display:grid; grid-template-columns:310px 1fr; gap:20px; align-items:start; }
 .right-col { display:flex; flex-direction:column; gap:16px; }
 .panel { background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
-.panel-hd { padding:12px 18px; border-bottom:1px solid var(--border); font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); display:flex; justify-content:space-between; align-items:center; }
+.panel-hd { padding:12px 18px; border-bottom:1px solid var(--border); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); display:flex; justify-content:space-between; align-items:center; }
 .panel-bd { padding:18px; }
-.reset-btn { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dk); background:none; border:1px solid var(--gold-dk); border-radius:3px; padding:3px 8px; cursor:pointer; transition:all .15s; }
+.reset-btn { font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dk); background:none; border:1px solid var(--gold-dk); border-radius:3px; padding:3px 8px; cursor:pointer; transition:all .15s; }
 .reset-btn:hover { color:var(--gold); border-color:var(--gold); }
 
 /* Controls */
 .ctrl { margin-bottom:14px; }
 .ctrl:last-child { margin-bottom:0; }
-.ctrl-lbl { font-size:10px; color:var(--muted); font-family:'DM Mono',monospace; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+.ctrl-lbl { font-size:10px; color:var(--muted); font-family:DM Mono,monospace; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
 .ctrl-row { display:flex; align-items:center; gap:8px; }
 input[type=range] { -webkit-appearance:none; flex:1; height:3px; background:var(--border2); border-radius:2px; outline:none; cursor:pointer; }
 input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:13px; height:13px; background:var(--gold); border-radius:50%; cursor:pointer; transition:transform .15s; }
 input[type=range]::-webkit-slider-thumb:hover { transform:scale(1.3); }
-.num-in { width:72px; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:'DM Mono',monospace; font-size:11px; padding:3px 6px; text-align:right; outline:none; }
+.num-in { width:72px; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:DM Mono,monospace; font-size:11px; padding:3px 6px; text-align:right; outline:none; }
 .num-in:focus { border-color:var(--gold-dk); }
 .tog-grp { display:flex; gap:4px; }
-.tog { flex:1; padding:6px 4px; background:transparent; border:1px solid var(--border2); border-radius:4px; color:var(--muted); font-family:'DM Mono',monospace; font-size:10px; cursor:pointer; transition:all .15s; text-align:center; }
+.tog { flex:1; padding:6px 4px; background:transparent; border:1px solid var(--border2); border-radius:4px; color:var(--muted); font-family:DM Mono,monospace; font-size:10px; cursor:pointer; transition:all .15s; text-align:center; }
 .tog.active { background:var(--gold-bg); border-color:var(--gold-dk); color:var(--gold); }
 .sec { border-top:1px solid var(--border); margin:14px 0; padding-top:14px; }
-.sec-lbl { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--label); margin-bottom:12px; }
+.sec-lbl { font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--label); margin-bottom:12px; }
 
 /* Scenario cards */
 .scenarios { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
 .sc-card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:14px; cursor:pointer; transition:border-color .15s,background .15s; }
 .sc-card:hover { border-color:var(--border2); }
 .sc-card.active { border-color:var(--gold-dk); background:var(--gold-bg); }
-.sc-name { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-.sc-age { font-family:'DM Serif Display',serif; font-size:26px; color:var(--gold); line-height:1; margin-bottom:2px; }
+.sc-name { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.sc-age { font-family:DM Serif Display,serif; font-size:26px; color:var(--gold); line-height:1; margin-bottom:2px; }
 .sc-desc { font-size:10px; color:var(--muted); margin-bottom:6px; }
-.sc-prob { font-family:'DM Mono',monospace; font-size:11px; }
+.sc-prob { font-family:DM Mono,monospace; font-size:11px; }
 .ph { color:var(--green-lt); } .pm { color:var(--gold); } .pl { color:var(--red-lt); }
 .mc-bar-wrap { background:var(--border); border-radius:2px; height:4px; overflow:hidden; margin-top:5px; }
 .mc-bar { height:4px; border-radius:2px; transition:width .5s ease; }
 
 /* Hero */
 .hero { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--gold); border-radius:8px; padding:22px 24px 20px; }
-.hero-lbl { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
-.hero-num { font-family:'DM Serif Display',serif; font-size:44px; line-height:1; color:var(--gold); margin-bottom:4px; }
+.hero-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.hero-num { font-family:DM Serif Display,serif; font-size:44px; line-height:1; color:var(--gold); margin-bottom:4px; }
 .hero-sub { font-size:11px; color:var(--muted); }
 .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; padding-top:18px; border-top:1px solid var(--border); }
 .stat { text-align:center; }
-.sv { font-family:'DM Serif Display',serif; font-size:17px; color:var(--text); line-height:1.1; }
+.sv { font-family:DM Serif Display,serif; font-size:17px; color:var(--text); line-height:1.1; }
 .sv.g { color:var(--green-lt); } .sv.r { color:var(--red-lt); } .sv.gold { color:var(--gold); } .sv.am { color:var(--amber); }
-.sl { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:3px; }
-.success-def { font-family:'DM Mono',monospace; font-size:8.5px; color:var(--label); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.6; }
+.sl { font-family:DM Mono,monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+.success-def { font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.6; }
 
 /* Chart */
 .chart-wrap { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; }
 .chart-hd { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
-.chart-title { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
-.chart-note { font-family:'DM Mono',monospace; font-size:8px; color:var(--label); margin-top:3px; }
+.chart-title { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+.chart-note { font-family:DM Mono,monospace; font-size:8px; color:var(--label); margin-top:3px; }
 .legend { display:flex; gap:12px; flex-wrap:wrap; }
-.leg-item { display:flex; align-items:center; gap:5px; font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); }
+.leg-item { display:flex; align-items:center; gap:5px; font-family:DM Mono,monospace; font-size:9px; color:var(--muted); }
 .leg-dot { width:7px; height:7px; border-radius:50%; }
 canvas { display:block; width:100% !important; }
 
@@ -100,10 +100,10 @@ canvas { display:block; width:100% !important; }
 .buckets { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; }
 .brow { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
 .brow:last-child { margin-bottom:0; }
-.bnm { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); width:90px; flex-shrink:0; }
+.bnm { font-family:DM Mono,monospace; font-size:10px; color:var(--muted); width:90px; flex-shrink:0; }
 .bbar-wrap { flex:1; background:var(--border); border-radius:2px; height:6px; overflow:hidden; }
 .bbar { height:6px; border-radius:2px; transition:width .4s ease; }
-.bval { font-family:'DM Mono',monospace; font-size:10px; color:var(--text); text-align:right; width:70px; flex-shrink:0; }
+.bval { font-family:DM Mono,monospace; font-size:10px; color:var(--text); text-align:right; width:70px; flex-shrink:0; }
 
 /* Insights */
 .insights { display:flex; flex-direction:column; gap:8px; }
@@ -114,29 +114,29 @@ canvas { display:block; width:100% !important; }
 
 /* Roth / risk */
 .strat-tabs { display:flex; gap:5px; margin-bottom:12px; }
-.stab { padding:5px 10px; background:transparent; border:1px solid var(--border2); border-radius:3px; color:var(--muted); font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:all .15s; }
+.stab { padding:5px 10px; background:transparent; border:1px solid var(--border2); border-radius:3px; color:var(--muted); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:all .15s; }
 .stab.active { background:var(--blue-bg); border-color:var(--blue); color:var(--blue-lt); }
 .roth-tl { display:flex; gap:3px; margin-top:10px; flex-wrap:wrap; }
-.ry { height:28px; min-width:28px; flex:1; border-radius:2px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:7px; }
+.ry { height:28px; min-width:28px; flex:1; border-radius:2px; display:flex; align-items:center; justify-content:center; font-family:DM Mono,monospace; font-size:7px; }
 .risk-meter { display:flex; gap:2px; margin-top:8px; }
 .rblk { flex:1; height:6px; border-radius:1px; }
 
 /* Tax widget */
 .tax-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .tax-card { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:16px; }
-.tax-card-lbl { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--label); margin-bottom:10px; }
+.tax-card-lbl { font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--label); margin-bottom:10px; }
 .tax-line { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid var(--border); font-size:12px; }
 .tax-line:last-child { border-bottom:none; }
 .tax-line .lbl { color:var(--muted); }
-.tax-line .val { font-family:'DM Mono',monospace; font-weight:500; }
+.tax-line .val { font-family:DM Mono,monospace; font-weight:500; }
 .tax-meter { margin-top:14px; }
 .tax-meter-bar { background:var(--border); border-radius:3px; height:8px; overflow:hidden; }
 .tax-meter-fill { height:8px; border-radius:3px; transition:width .4s; }
 .tax-alert { margin-top:14px; padding:12px 14px; border-radius:4px; font-size:12px; line-height:1.6; }
 .tax-input-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
 .tax-input-group { }
-.tax-input-lbl { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--label); margin-bottom:5px; }
-.tax-in { width:100%; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:'DM Mono',monospace; font-size:12px; padding:6px 10px; outline:none; }
+.tax-input-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--label); margin-bottom:5px; }
+.tax-in { width:100%; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:DM Mono,monospace; font-size:12px; padding:6px 10px; outline:none; }
 .tax-in:focus { border-color:var(--gold-dk); }
 
 /* Debt tracker */
@@ -144,22 +144,22 @@ canvas { display:block; width:100% !important; }
 .debt-row { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:14px; }
 .debt-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
 .debt-name { font-size:13px; color:var(--text); }
-.debt-bal { font-family:'DM Mono',monospace; font-size:13px; color:var(--red-lt); font-weight:500; }
+.debt-bal { font-family:DM Mono,monospace; font-size:13px; color:var(--red-lt); font-weight:500; }
 .debt-bar-wrap { background:var(--border); border-radius:2px; height:5px; overflow:hidden; margin-bottom:6px; }
 .debt-bar { height:5px; border-radius:2px; transition:width .4s; }
-.debt-meta { display:flex; justify-content:space-between; font-family:'DM Mono',monospace; font-size:9px; color:var(--label); }
-.debt-payoff { font-family:'DM Mono',monospace; font-size:10px; color:var(--green-lt); margin-top:4px; }
+.debt-meta { display:flex; justify-content:space-between; font-family:DM Mono,monospace; font-size:9px; color:var(--label); }
+.debt-payoff { font-family:DM Mono,monospace; font-size:10px; color:var(--green-lt); margin-top:4px; }
 
 /* Scenario compare */
 .scenario-compare { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:16px; }
 .sc-compare-card { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:14px; }
-.sc-compare-name { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
-.sc-compare-num { font-family:'DM Serif Display',serif; font-size:22px; color:var(--text); margin-bottom:4px; }
+.sc-compare-name { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.sc-compare-num { font-family:DM Serif Display,serif; font-size:22px; color:var(--text); margin-bottom:4px; }
 .sc-compare-sub { font-size:11px; color:var(--muted); }
 
 /* Misc */
-.footnote { margin-top:32px; font-family:'DM Mono',monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }
-.badge { display:inline-block; font-family:'DM Mono',monospace; font-size:8px; padding:2px 6px; border-radius:2px; letter-spacing:.08em; }
+.footnote { margin-top:32px; font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }
+.badge { display:inline-block; font-family:DM Mono,monospace; font-size:8px; padding:2px 6px; border-radius:2px; letter-spacing:.08em; }
 .badge-green { background:var(--green-bg); color:var(--green-lt); border:1px solid var(--green); }
 .badge-red { background:var(--red-bg); color:var(--red-lt); border:1px solid var(--red); }
 .badge-amber { background:#1a1000; color:var(--amber); border:1px solid var(--amber); }
@@ -257,7 +257,7 @@ canvas { display:block; width:100% !important; }
       <button class="tog active" onclick="setMarket('base')" id="m-base">Base</button>
       <button class="tog" onclick="setMarket('bull')" id="m-bull">Bull</button>
     </div>
-    <div style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);margin-top:8px" id="mkt-desc">Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%</div>
+    <div style="font-family:DM Mono,monospace;font-size:8.5px;color:var(--muted);margin-top:8px" id="mkt-desc">Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%</div>
     </div>
   </div>
 </div>
@@ -308,12 +308,12 @@ canvas { display:block; width:100% !important; }
       <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px" id="strat-desc">Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Typically improves modeled success rate vs fixed withdrawal.</div>
       <div class="sec-lbl">Conversion Window &middot; Gap Years Before SS</div>
       <div class="roth-tl" id="roth-tl"></div>
-      <div style="display:flex;gap:14px;margin-top:8px;font-family:'DM Mono',monospace;font-size:8.5px">
+      <div style="display:flex;gap:14px;margin-top:8px;font-family:DM Mono,monospace;font-size:8.5px">
         <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:1px"></span>12% bracket</span>
         <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--amber);border-radius:1px"></span>22% bracket</span>
         <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--green);border-radius:1px"></span>SS active</span>
       </div>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:10px;color:var(--gold)" id="roth-advice"></div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:DM Mono,monospace;font-size:10px;color:var(--gold)" id="roth-advice"></div>
     </div>
   </div>
 
@@ -323,7 +323,7 @@ canvas { display:block; width:100% !important; }
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.7" id="conc-desc"></div>
       <div class="sec-lbl">Risk Level</div>
       <div class="risk-meter" id="risk-meter"></div>
-      <div style="margin-top:12px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gold)" id="conc-adv"></div>
+      <div style="margin-top:12px;font-family:DM Mono,monospace;font-size:10px;color:var(--gold)" id="conc-adv"></div>
     </div>
   </div>
 
@@ -385,10 +385,10 @@ canvas { display:block; width:100% !important; }
 <div class="debt-grid" id="debt-grid"></div>
 <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--label)">Total Non-Mortgage Debt</span>
-    <span style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--red-lt)" id="total-debt">--</span>
+    <span style="font-family:DM Mono,monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--label)">Total Non-Mortgage Debt</span>
+    <span style="font-family:DM Serif Display,serif;font-size:22px;color:var(--red-lt)" id="total-debt">--</span>
   </div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--green-lt)" id="debt-free-date"></div>
+  <div style="font-family:DM Mono,monospace;font-size:10px;color:var(--green-lt)" id="debt-free-date"></div>
 </div>
 </div><!-- end tab-debt -->
 
@@ -1006,14 +1006,14 @@ function buildInsights(res, fireNum) {
 
     var header = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
       '<span class="ins-icon" style="color:var(--gold)">&#9670;</span>' +
-      '<span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Best Levers -- Ranked by Impact</span>' +
+      '<span style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Best Levers -- Ranked by Impact</span>' +
       '</div>';
 
     var rows = '<table style="width:100%;border-collapse:collapse;font-size:11px">' +
       '<tr style="border-bottom:1px solid var(--border)">' +
-      '<th style="text-align:left;padding:4px 0;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th>' +
-      '<th style="text-align:center;padding:4px 8px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th>' +
-      '<th style="text-align:right;padding:4px 0;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th>' +
+      '<th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th>' +
+      '<th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th>' +
+      '<th style="text-align:right;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th>' +
       '</tr>';
 
     levers.forEach(function(l, i) {
@@ -1022,8 +1022,8 @@ function buildInsights(res, fireNum) {
       rows += '<tr style="border-bottom:1px solid var(--border)">' +
         '<td style="padding:8px 0;color:var(--text)">' + l.action +
         '<div style="font-size:10px;color:var(--muted);margin-top:2px">' + l.note + '</div></td>' +
-        '<td style="text-align:center;padding:8px;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:'+impactCol+'">+'+l.delta+'%</td>' +
-        '<td style="text-align:right;padding:8px 0;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:'+effortCol+'">'+l.effort.toUpperCase()+'</td>' +
+        '<td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+impactCol+'">+'+l.delta+'%</td>' +
+        '<td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+effortCol+'">'+l.effort.toUpperCase()+'</td>' +
         '</tr>';
     });
     rows += '</table>';
@@ -1031,6 +1031,15 @@ function buildInsights(res, fireNum) {
     tbl.innerHTML = header + rows;
     el.appendChild(tbl);
   }
+
+  // ── Debt payoff insight ──────────────────────────────────────────────────
+  // Stanford loan: at current pace ($1,100/mo), payoff in ~26 months -> mid 2028
+  var stanfordBalance = 28177, stanfordRate = 0.03/12, stanfordPmt = 1100;
+  var stanfordMonths  = Math.ceil(Math.log(stanfordPmt/(stanfordPmt-stanfordBalance*stanfordRate)) / Math.log(1+stanfordRate));
+  var stanfordDate    = new Date(); stanfordDate.setMonth(stanfordDate.getMonth()+stanfordMonths);
+  supportItems.push({icon:'&#9650;',col:'var(--green-lt)',
+    text:'Stanford loan ($'+Math.round(stanfordBalance).toLocaleString()+' at 3%) pays off in ~<strong>'+stanfordMonths+' months</strong> ('+stanfordDate.toLocaleDateString('en-US',{month:'short',year:'numeric'})+'), freeing <strong>$1,100/mo</strong> to redirect to taxable investing. ' +
+    'At current pace: debt-free (ex-mortgage) by late 2028.'});
 
   // ── Supporting insights ───────────────────────────────────────────────────
   var supportItems = [];
@@ -1156,13 +1165,14 @@ function calcTax() {
 // DEBT TRACKER
 // ============================================================
 var DEBTS = [
-  {name:'Stanford Student Loan', balance:28177, rate:0.03, payment:1100, extra:0, color:'var(--blue)'},
-  {name:'Mortgage (2.75%)', balance:286822, rate:0.0275, payment:1646, extra:0, color:'var(--muted)', isMortgage:true},
+  {name:'Tesla Model 3 (4.5%)',   balance:9036,   rate:0.045, payment:489,  extra:0, color:'var(--amber)',    origBalance:22000},
+  {name:'Lexus GX460 (4.5%)',     balance:18835,  rate:0.045, payment:711,  extra:0, color:'var(--amber)',    origBalance:28000},
+  {name:'Stanford Student Loan',  balance:28177,  rate:0.03,  payment:1100, extra:0, color:'var(--blue)',     origBalance:55000},
+  {name:'Mortgage (2.75%)',       balance:286822, rate:0.0275,payment:1646, extra:0, color:'var(--muted)',    origBalance:317000, isMortgage:true},
 ];
 function buildDebtTracker() {
   var el = document.getElementById('debt-grid');
   el.innerHTML = '';
-  var origMort = 317000; // approximate original balance
   var totalNonMort = 0;
   var latestPayoff = new Date();
 
@@ -1182,7 +1192,7 @@ function buildDebtTracker() {
     var payoffStr = months >= 999 ? 'Never (payment too low)' :
       payoffDate.toLocaleDateString('en-US',{month:'short',year:'numeric'});
     var totalInterest = Math.max(0, pmt*months - bal);
-    var paidPct = Math.min(100, Math.round((1 - bal/(d.isMortgage?origMort:bal+5000))*100));
+    var paidPct = Math.min(100, Math.round((1 - bal/Math.max(d.origBalance||bal*1.5, bal))*100));
     if (payoffDate > latestPayoff && !d.isMortgage) latestPayoff = payoffDate;
 
     var row = document.createElement('div');
@@ -1204,8 +1214,17 @@ function buildDebtTracker() {
   });
 
   document.getElementById('total-debt').textContent = '-' + fmtD(totalNonMort);
+  var totalInterestAll = DEBTS.filter(function(d){return !d.isMortgage;})
+    .reduce(function(sum,d) {
+      var r = d.rate/12, p = d.payment+d.extra, b = d.balance;
+      var mo = p > b*r ? Math.ceil(Math.log(p/(p-b*r))/Math.log(1+r)) : 0;
+      return sum + Math.max(0, p*mo - b);
+    }, 0);
   document.getElementById('debt-free-date').textContent =
-    totalNonMort > 0 ? 'Non-mortgage debt-free target: ' + latestPayoff.toLocaleDateString('en-US',{month:'long',year:'numeric'}) : 'Non-mortgage debt-free!';
+    totalNonMort > 0
+      ? 'Non-mortgage debt-free: ' + latestPayoff.toLocaleDateString('en-US',{month:'long',year:'numeric'}) +
+        ' -- $' + Math.round(totalInterestAll).toLocaleString() + ' total interest remaining'
+      : 'Non-mortgage debt-free!';
 }
 
 function updateDebtExtra(idx, val) {
