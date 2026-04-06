@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,7 +172,7 @@ canvas { display:block; width:100% !important; }
 <div class="app">
 
 <div class="hdr">
-  <div class="eyebrow">Financial Command Center &middot; Peyton &amp; Grace Edwards &middot; Age 38 &middot; <span id="as-of">--</span></div>
+  <div class="eyebrow">Financial Command Center &middot; Peyton &amp; Grace Edwards &middot; Age 38 &middot; <span id="as-of">April 5, 2026</span></div>
   <h1>Your complete financial <em>picture</em></h1>
   <div class="hdr-sub">Retirement projections &middot; Tax planning &middot; Debt tracker &middot; Scenario analysis &middot; All values in today's dollars</div>
 </div>
@@ -446,7 +447,7 @@ var RSU_KNOWN_VESTS = {
 // STATE
 // ============================================================
 var BASE = {
-  roth:386000, groth:15000, k401:147000, taxable:129000, rsus:97000, hsa:14000,
+  roth:389545, groth:14338, k401:153914, taxable:129951, rsus:96489, hsa:13625,
   c401k:23000, croth:14000, chsa:8300, ctax:18000,
   espp:21580, rsugrant:50000, rsusell:100,
   spend:110000, lumpy:60000, ss:6400, ssage:67,
@@ -1149,12 +1150,12 @@ function calcTax() {
     '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Federal Tax</span><span class="val" style="color:var(--text)">'+fmtD(totalFedNet)+'</span></div>' +
     '<div class="tax-line"><span class="lbl">Effective Rate</span><span class="val">'+fmtPct(totalFedNet/Math.max(agi,1)*100)+'</span></div>' +
     '<div class="tax-meter">' +
-    '<div style="display:flex;justify-content:space-between;font-family:\'DM Mono\',monospace;font-size:9px;color:var(--label);margin-bottom:5px"><span>Payments: '+fmtD(totalPaid)+'</span><span>'+paidPct+'% covered</span></div>' +
+    '<div style="display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:9px;color:var(--label);margin-bottom:5px"><span>Payments: '+fmtD(totalPaid)+'</span><span>'+paidPct+'% covered</span></div>' +
     '<div class="tax-meter-bar"><div class="tax-meter-fill" style="width:'+paidPct+'%;background:'+(paidPct>=90?'var(--green)':paidPct>=70?'var(--amber)':'var(--red)')+'"></div></div>' +
     '</div>' +
     '<div class="tax-alert" style="background:'+(balance>5000?'var(--red-bg)':balance>0?'#1a1200':'var(--green-bg)')+';border:1px solid '+(balance>5000?'var(--red)':balance>0?'var(--amber)':'var(--green)')+'">'+
-    '<span style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:'+(balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)')+'">'+balLabel+': </span>' +
-    '<span style="font-family:\'DM Serif Display\',serif;font-size:18px;color:'+balColor+'">'+fmtD(Math.abs(balance))+'</span>' +
+    '<span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:'+(balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)')+'">'+balLabel+': </span>' +
+    '<span style="font-family:'DM Serif Display',serif;font-size:18px;color:'+balColor+'">'+fmtD(Math.abs(balance))+'</span>' +
     (balance>8000?'<div style="margin-top:6px;font-size:11px;color:var(--muted)">Consider adding $'+Math.round(balance/20/100)*100+'/paycheck extra withholding to cover the remaining balance.</div>':'') +
     '</div>' +
     '</div>';
@@ -1167,8 +1168,8 @@ function calcTax() {
 var DEBTS = [
   {name:'Tesla Model 3 (4.5%)',   balance:9036,   rate:0.045, payment:489,  extra:0, color:'var(--amber)',    origBalance:22000},
   {name:'Lexus GX460 (4.5%)',     balance:18835,  rate:0.045, payment:711,  extra:0, color:'var(--amber)',    origBalance:28000},
-  {name:'Stanford Student Loan',  balance:28177,  rate:0.03,  payment:1100, extra:0, color:'var(--blue)',     origBalance:55000},
-  {name:'Mortgage (2.75%)',       balance:286822, rate:0.0275,payment:1646, extra:0, color:'var(--muted)',    origBalance:317000, isMortgage:true},
+  {name:'Stanford Student Loan',  balance:27125,  rate:0.03,  payment:1100, extra:0, color:'var(--blue)',     origBalance:55000},
+  {name:'Mortgage (2.75%)',       balance:286134, rate:0.0275,payment:1646, extra:0, color:'var(--muted)',    origBalance:317000, isMortgage:true},
 ];
 function buildDebtTracker() {
   var el = document.getElementById('debt-grid');
@@ -1199,16 +1200,16 @@ function buildDebtTracker() {
     row.className = 'debt-row';
     row.innerHTML =
       '<div class="debt-top">' +
-      '<div class="debt-name">'+d.name+' <span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--label)">'+(d.rate*100).toFixed(2)+'%</span></div>' +
+      '<div class="debt-name">'+d.name+' <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--label)">'+(d.rate*100).toFixed(2)+'%</span></div>' +
       '<div class="debt-bal">-'+fmtD(bal)+'</div>' +
       '</div>' +
       '<div class="debt-bar-wrap"><div class="debt-bar" style="width:'+paidPct+'%;background:'+d.color+'"></div></div>' +
       '<div class="debt-meta"><span>$'+Math.round(pmt).toLocaleString()+'/mo'+(d.extra>0?' (incl. $'+d.extra+' extra)':'')+'</span><span>'+paidPct+'% paid down</span></div>' +
       '<div class="debt-payoff">Payoff: '+payoffStr+(months<999?' &middot; $'+Math.round(totalInterest).toLocaleString()+' total interest remaining':'')+'</div>' +
       '<div style="margin-top:8px;display:flex;align-items:center;gap:8px">' +
-      '<span style="font-family:\'DM Mono\',monospace;font-size:9px;color:var(--label)">EXTRA PAYMENT/MO</span>' +
+      '<span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--label)">EXTRA PAYMENT/MO</span>' +
       '<input type="range" min="0" max="'+(d.isMortgage?500:2000)+'" step="50" value="'+d.extra+'" style="-webkit-appearance:none;flex:1;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer" oninput="updateDebtExtra('+idx+',this.value)">' +
-      '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--gold);min-width:40px">$'+d.extra+'</span>' +
+      '<span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);min-width:40px">$'+d.extra+'</span>' +
       '</div>';
     el.appendChild(row);
   });
@@ -1263,7 +1264,7 @@ function buildScenarios() {
       '<div class="sc-compare-name">'+sc.name+'</div>' +
       '<div class="sc-compare-num" style="color:'+sc.color+'">'+fmtK(res.portAtRet)+'</div>' +
       '<div class="sc-compare-sub" style="margin-bottom:8px">at retirement &middot; '+fmtK(res.medFinal)+' at 95</div>' +
-      '<div style="font-family:\'DM Mono\',monospace;font-size:11px;color:'+(sp>=85?'var(--green-lt)':sp>=70?'var(--gold)':'var(--red-lt)')+'">'+sp+'% success rate</div>' +
+      '<div style="font-family:'DM Mono',monospace;font-size:11px;color:'+(sp>=85?'var(--green-lt)':sp>=70?'var(--gold)':'var(--red-lt)')+'">'+sp+'% success rate</div>' +
       '<div style="font-size:10px;color:var(--muted);margin-top:4px">'+sc.desc+'</div>';
     el.appendChild(card);
   });
