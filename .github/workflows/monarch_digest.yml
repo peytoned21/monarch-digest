@@ -9,9 +9,6 @@ jobs:
   send-digest:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write      # needed to git push the calculator file
-
     steps:
       - uses: actions/checkout@v4
 
@@ -33,11 +30,3 @@ jobs:
           GITHUB_USER:        peytoned21
           GITHUB_REPO:        monarch-digest
         run: python monarch_digest.py
-
-      - name: Commit updated calculator to repo
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add retirement_calculator.html
-          git diff --staged --quiet || git commit -m "chore: update retirement calculator [$(date +%Y-%m-%d)]"
-          git push
