@@ -1,30 +1,24 @@
 #!/usr/bin/env python3
 """
-Monarch Money — Weekly Financial Digest
-Runs Monday at 7am ET, covers the prior Mon–Sun week.
+Monarch Money — Daily Balance Sync + Weekly Financial Digest
+Daily (7am ET):  fetches all Monarch accounts → writes balances.json + appends nw_history.json
+Monday (7am ET): also sends the weekly HTML digest email
 
-Sections:
-  1. Weekly Brief       — narrative paragraph: how the week went
-  2. Net Worth          — snapshot + week-over-week change
-  3. Action Items       — HSA receipts, over-budget alerts
-  4. Last Week          — all transactions sorted by amount desc, grouped by day
-  5. Week Summary       — income / spent / net bar
-  6. Budget Pulse       — MTD actual vs budget with pace indicator
-  7. This Week Ahead    — upcoming bills & income next 7 days
-  8. Month-to-Date      — cashflow, savings rate, projection
-  9. Debt Tracker       — balances for tracked liabilities
+Files committed to GitHub:
+  balances.json    — current account balances, pre-computed dashboard fields
+  nw_history.json  — daily net worth snapshots for trend charting
 """
 
 import asyncio
 import calendar
+import json
 import os
+import subprocess
 import smtplib
 from collections import defaultdict
 from datetime import date, timedelta
-from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email import encoders as email_encoders
 
 from monarchmoney import MonarchMoney
 
@@ -37,18 +31,18 @@ GMAIL_APP_PASS   = os.environ["GMAIL_APP_PASSWORD"]
 RECIPIENT_EMAIL  = os.environ.get("RECIPIENT_EMAIL", GMAIL_ADDRESS)
 GITHUB_USER      = os.environ.get("GITHUB_USER", "peytoned21")
 GITHUB_REPO      = os.environ.get("GITHUB_REPO", "monarch-digest")
-CALC_FILENAME    = "retirement_calculator.html"
-CALC_URL         = f"https://{GITHUB_USER}.github.io/{GITHUB_REPO}/{CALC_FILENAME}"
+DASHBOARD_URL    = f"https://{GITHUB_USER}.github.io/{GITHUB_REPO}/dashboard.html"
+
+# Peyton's birthdate for age calculation
+PEYTON_BIRTHDATE = date(1987, 8, 24)
 
 HSA_KEYWORDS      = ["medical", "pharmacy", "dental", "vision", "health", "doctor", "hospital"]
 TRANSFER_KEYWORDS = ["transfer", "transfers to investments", "credit card payment"]
 INCOME_KEYWORDS   = ["paycheck", "income", "salary", "bonus", "direct deposit", "reimbursement"]
-NW_DELTA_THRESHOLD = 100.0   # min account move to show in net worth section
-BILL_LOOKAHEAD     = 7       # days ahead for upcoming bills
+NW_DELTA_THRESHOLD = 100.0
+BILL_LOOKAHEAD     = 7
 DEBT_ACCOUNTS      = ["mortgage", "tesla", "lexus", "stanford", "heloc"]
 
-# Fixed monthly obligations — matched against recurring merchant names (case-insensitive)
-# These are pulled from Monarch recurring and identified by keyword
 FIXED_EXPENSE_KEYWORDS = {
     "mortgage":  {"label": "Mortgage",       "category": "housing"},
     "stanford":  {"label": "Stanford Loan",  "category": "debt"},
@@ -77,13 +71,21 @@ C_BAMBER  = "#e8d9a0"
 C_BLUE    = "#1a5276"
 C_LTBLUE  = "#eaf2fb"
 C_BBLUE   = "#bad4ea"
-# ──────────────────────────────────────────────────────────────────────────────
+
+
+# ── Helpers ────────────────────────────────────────────────────────────────────
 
 def fmt(amount: float) -> str:
     return f"${abs(amount):,.2f}"
 
 def pct(value: float) -> str:
     return f"{value:.1f}%"
+
+def current_age(birthdate: date = PEYTON_BIRTHDATE) -> int:
+    today = date.today()
+    return today.year - birthdate.year - (
+        (today.month, today.day) < (birthdate.month, birthdate.day)
+    )
 
 def is_hsa(cat: str) -> bool:
     return any(k in (cat or "").lower() for k in HSA_KEYWORDS)
@@ -131,16 +133,200 @@ def section_label(text):
 # ── Date Helpers ───────────────────────────────────────────────────────────────
 
 def get_week_range(today: date):
-    """
-    Returns (week_start, week_end) for the most recently completed Mon–Sun week.
-    Called on Monday, so week_end = yesterday (Sunday), week_start = 7 days prior.
-    Also handles running mid-week for testing — always returns last full week.
-    """
-    # Find most recent Sunday
-    days_since_sunday = (today.weekday() + 1) % 7  # Mon=0 so Sun=6 days back
+    days_since_sunday = (today.weekday() + 1) % 7
     week_end   = today - timedelta(days=days_since_sunday if days_since_sunday > 0 else 7)
     week_start = week_end - timedelta(days=6)
     return week_start, week_end
+
+
+# ── Account Helpers ────────────────────────────────────────────────────────────
+
+def find_balance(accounts, keywords, must_be_positive=True):
+    """Find account balance by name keywords."""
+    for a in accounts:
+        name = (a.get("displayName") or a.get("name") or "").lower()
+        if any(k.lower() in name for k in keywords):
+            bal = float(a.get("currentBalance") or 0)
+            if must_be_positive and bal > 0:
+                return int(bal)
+            if not must_be_positive and bal < 0:
+                return int(abs(bal))
+    return 0
+
+def sum_by_type(accounts, type_names, positive_only=False, negative_only=False):
+    """Sum balances for accounts matching given type names."""
+    total = 0.0
+    for a in accounts:
+        t = (a.get("type") or {}).get("name", "")
+        if t not in type_names:
+            continue
+        bal = float(a.get("currentBalance") or 0)
+        if positive_only and bal < 0:
+            continue
+        if negative_only and bal > 0:
+            continue
+        total += bal
+    return total
+
+def compute_net_worth(accounts):
+    net_worth = assets = liabilities = 0.0
+    for a in accounts:
+        if a.get("includeInNetWorth") is False:
+            continue
+        b = float(a.get("currentBalance") or 0)
+        net_worth += b
+        if b >= 0:
+            assets += b
+        else:
+            liabilities += abs(b)
+    return net_worth, assets, liabilities
+
+
+# ── Balances JSON Builder ──────────────────────────────────────────────────────
+
+def build_balances_json(accounts, today: date) -> dict:
+    """
+    Build the complete balances.json snapshot.
+    Includes pre-computed dashboard fields AND full account list.
+    """
+    net_worth, assets, liabilities = compute_net_worth(accounts)
+
+    # Combined HSA (investment + deposit)
+    hsa_total = sum(
+        float(a.get("currentBalance") or 0)
+        for a in accounts
+        if "hsa" in (a.get("displayName") or a.get("name") or "").lower()
+        and float(a.get("currentBalance") or 0) > 0
+    )
+
+    # Taxable = Vanguard taxable + S&P 500 Direct (both are taxable brokerage)
+    taxable_total = sum(
+        float(a.get("currentBalance") or 0)
+        for a in accounts
+        if (a.get("type") or {}).get("name") == "Brokerage (Taxable)"
+        and float(a.get("currentBalance") or 0) > 0
+        and not any(k in (a.get("displayName") or "").lower()
+                    for k in ["liia", "rsu", "espp", "employee stock"])
+    )
+
+    # Full account list for the dashboard to use freely
+    account_list = []
+    for a in accounts:
+        account_list.append({
+            "id":            a.get("id"),
+            "name":          a.get("displayName") or a.get("name"),
+            "type":          (a.get("type") or {}).get("name"),
+            "balance":       round(float(a.get("currentBalance") or 0), 2),
+            "include_in_nw": a.get("includeInNetWorth", True),
+            "is_asset":      a.get("isAsset", True),
+            "institution":   (a.get("institution") or {}).get("name"),
+        })
+
+    return {
+        "as_of":        today.strftime("%B %-d, %Y"),
+        "generated_at": today.isoformat(),
+        "_cached":      False,
+
+        # ── Pre-computed dashboard fields ──────────────────────────────
+        # Retirement accounts
+        "roth":         find_balance(accounts, ["peyton - roth", "peyton roth"]),
+        "groth":        find_balance(accounts, ["grace - roth", "grace roth"]),
+        "k401":         find_balance(accounts, ["home depot 401", "401(k)"]),
+        "taxable":      int(taxable_total),
+        "hsa":          int(hsa_total),
+        "hd_vested":    find_balance(accounts, ["liia", "liia-"]),
+        "hd_rsus":      find_balance(accounts, ["home depot rsu", "the home depot rsu"]),
+
+        # Cash
+        "roth_staging": find_balance(accounts, ["roth staging", "wealthfront roth"]),
+        "total_cash":   int(sum_by_type(accounts, ["Checking", "Savings"], positive_only=True)),
+
+        # 529s
+        "eleanor_529":  find_balance(accounts, ["eleanor"]),
+        "arthur_529":   find_balance(accounts, ["arthur"]),
+
+        # Debt
+        "mortgage_bal": find_balance(accounts, ["mccully", "mortgage"], must_be_positive=False),
+        "stanford_bal": find_balance(accounts, ["stanford"], must_be_positive=False),
+        "lexus_bal":    find_balance(accounts, ["lexus", "gx460"], must_be_positive=False),
+        "tesla_bal":    find_balance(accounts, ["tesla", "model 3"], must_be_positive=False),
+        "cc_total":     int(abs(sum_by_type(accounts, ["Credit Card"], negative_only=True))),
+
+        # Real estate & vehicles
+        "home_value":   find_balance(accounts, ["mccully", "3149 mccully"]),
+        "vehicle_total": int(sum_by_type(accounts, ["Car"], positive_only=True)),
+        "lexus_value":  find_balance(accounts, ["lexus gx", "2019 lexus"]),
+        "tesla_value":  find_balance(accounts, ["tesla model 3", "2023 tesla"]),
+
+        # Summary
+        "net_worth":    int(net_worth),
+        "total_assets": int(assets),
+        "total_debt":   int(liabilities),
+
+        # Full account list
+        "accounts":     account_list,
+
+        # Age (dynamic)
+        "peyton_age":   current_age(),
+    }
+
+
+# ── Net Worth History ──────────────────────────────────────────────────────────
+
+def update_nw_history(net_worth: float, today: date, history_path="nw_history.json") -> list:
+    """
+    Load existing history, append today's snapshot if not already present,
+    return updated list. Keeps rolling 3-year window.
+    """
+    history = []
+    if os.path.exists(history_path):
+        try:
+            with open(history_path) as f:
+                history = json.load(f)
+        except Exception:
+            history = []
+
+    today_str = today.isoformat()
+
+    # Update or append today's entry
+    existing = next((h for h in history if h["date"] == today_str), None)
+    if existing:
+        existing["nw"] = int(net_worth)
+    else:
+        history.append({"date": today_str, "nw": int(net_worth)})
+
+    # Keep rolling 3-year window (1095 days)
+    cutoff = (today - timedelta(days=1095)).isoformat()
+    history = [h for h in history if h["date"] >= cutoff]
+
+    # Sort by date
+    history.sort(key=lambda x: x["date"])
+
+    with open(history_path, "w") as f:
+        json.dump(history, f, indent=2)
+
+    print(f"  NW history: {len(history)} snapshots, latest {today_str} = ${net_worth:,.0f}")
+    return history
+
+
+# ── Git Commit ─────────────────────────────────────────────────────────────────
+
+def git_commit(files: list, message: str):
+    """Stage, commit, and push specified files."""
+    try:
+        subprocess.run(["git", "config", "user.email", "action@github.com"], check=True)
+        subprocess.run(["git", "config", "user.name", "GitHub Action"], check=True)
+        for f in files:
+            subprocess.run(["git", "add", f], check=True)
+        result = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if result.returncode != 0:
+            subprocess.run(["git", "commit", "-m", message], check=True)
+            subprocess.run(["git", "push"], check=True)
+            print(f"✓ Committed: {', '.join(files)}")
+        else:
+            print("  No changes to commit")
+    except subprocess.CalledProcessError as e:
+        print(f"  Git error: {e}")
 
 
 # ── Fetch ──────────────────────────────────────────────────────────────────────
@@ -161,106 +347,84 @@ async def fetch_data():
 
     print(f"Week: {week_start} → {week_end}")
 
-    print("Fetching week transactions...")
-    txn_resp     = await mm.get_transactions(
-        start_date=str(week_start), end_date=str(week_end))
-    week_txns    = txn_resp.get("allTransactions", {}).get("results", [])
-
-    print("Fetching MTD transactions...")
-    mtd_resp     = await mm.get_transactions(
-        start_date=str(month_start), end_date=str(week_end))
-    mtd_txns     = mtd_resp.get("allTransactions", {}).get("results", [])
-
     print("Fetching accounts...")
     acct_resp    = await mm.get_accounts()
     accounts     = acct_resp.get("accounts", [])
 
-    print("Fetching account history for NW delta...")
-    history_by_id = {}
-    # We want balance snapshots for week_end and 7 days before week_end
-    target_dates  = {str(week_end), str(week_start - timedelta(days=1))}
-    debug_done    = False
-    for acct in accounts:
-        acct_id = acct.get("id")
-        if not acct_id or acct.get("includeInNetWorth") is False:
-            continue
-        try:
-            hist      = await mm.get_account_history(account_id=acct_id)
-            snapshots = hist if isinstance(hist, list) else (
-                hist.get("account", {}).get("balanceHistory") or
-                hist.get("balanceHistory") or hist.get("history") or [])
-            if not debug_done and snapshots:
-                s = snapshots[-1] if snapshots else {}
-                print(f"  History snapshot sample: {str(s)[:180]}")
-                print(f"  Total snapshots: {len(snapshots)}, looking for: {sorted(target_dates)}")
-                debug_done = True
-            bal_map = {}
-            for s in snapshots:
-                if not isinstance(s, dict):
-                    continue
-                # Try multiple date field names
-                d = (s.get("date") or s.get("startDate") or s.get("day") or "")
-                if d:
-                    bal_map[d[:10]] = float(s.get("balance") or s.get("amount") or 0)
-            if bal_map:
-                history_by_id[str(acct_id)] = bal_map
-        except Exception:
-            pass
-    matched = sum(1 for v in history_by_id.values()
-                  if any(d in v for d in target_dates))
-    print(f"  {len(history_by_id)} accounts with history, {matched} with target dates")
-
-    print("Fetching budgets...")
-    budgets = {}
-    try:
-        budgets = await mm.get_budgets(
-            start_date=str(month_start),
-            end_date=str(week_end),
-        )
-    except Exception as e:
-        print(f"  Budgets failed: {e}")
-
-    print("Fetching recurring transactions...")
+    # Only fetch transaction/budget data on Monday (digest day) to save API calls
+    is_monday = today.weekday() == 0
+    week_txns = mtd_txns = []
+    cashflow  = {}
+    budgets   = {}
     recurring = []
-    try:
-        rec_resp  = await mm.get_recurring_transactions()
-        raw_list  = (rec_resp.get("recurringTransactionItems") if isinstance(rec_resp, dict)
-                     else rec_resp if isinstance(rec_resp, list) else [])
-        recurring = raw_list or []
-    except Exception as e:
-        print(f"  Recurring failed: {e}")
+    history_by_id = {}
 
-    print("Fetching cashflow...")
-    cashflow = {}
-    try:
-        cashflow = await mm.get_cashflow_summary(
-            start_date=str(month_start),
-            end_date=str(week_end),
-        )
-    except Exception as e:
-        print(f"  Cashflow failed: {e}")
+    if is_monday:
+        print("Fetching week transactions...")
+        txn_resp  = await mm.get_transactions(
+            start_date=str(week_start), end_date=str(week_end))
+        week_txns = txn_resp.get("allTransactions", {}).get("results", [])
+
+        print("Fetching MTD transactions...")
+        mtd_resp  = await mm.get_transactions(
+            start_date=str(month_start), end_date=str(week_end))
+        mtd_txns  = mtd_resp.get("allTransactions", {}).get("results", [])
+
+        print("Fetching account history...")
+        target_dates = {str(week_end), str(week_start - timedelta(days=1))}
+        debug_done   = False
+        for acct in accounts:
+            acct_id = acct.get("id")
+            if not acct_id or acct.get("includeInNetWorth") is False:
+                continue
+            try:
+                hist      = await mm.get_account_history(account_id=acct_id)
+                snapshots = hist if isinstance(hist, list) else (
+                    hist.get("account", {}).get("balanceHistory") or
+                    hist.get("balanceHistory") or hist.get("history") or [])
+                if not debug_done and snapshots:
+                    print(f"  History sample: {str(snapshots[-1])[:120]}")
+                    debug_done = True
+                bal_map = {}
+                for s in snapshots:
+                    if not isinstance(s, dict):
+                        continue
+                    d = (s.get("date") or s.get("startDate") or s.get("day") or "")
+                    if d:
+                        bal_map[d[:10]] = float(s.get("balance") or s.get("amount") or 0)
+                if bal_map:
+                    history_by_id[str(acct_id)] = bal_map
+            except Exception:
+                pass
+
+        print("Fetching budgets...")
+        try:
+            budgets = await mm.get_budgets(
+                start_date=str(month_start), end_date=str(week_end))
+        except Exception as e:
+            print(f"  Budgets failed: {e}")
+
+        print("Fetching recurring...")
+        try:
+            rec_resp  = await mm.get_recurring_transactions()
+            raw_list  = (rec_resp.get("recurringTransactionItems") if isinstance(rec_resp, dict)
+                         else rec_resp if isinstance(rec_resp, list) else [])
+            recurring = raw_list or []
+        except Exception as e:
+            print(f"  Recurring failed: {e}")
+
+        print("Fetching cashflow...")
+        try:
+            cashflow = await mm.get_cashflow_summary(
+                start_date=str(month_start), end_date=str(week_end))
+        except Exception as e:
+            print(f"  Cashflow failed: {e}")
 
     return (today, week_start, week_end, week_txns, mtd_txns,
             accounts, cashflow, history_by_id, budgets, recurring)
 
 
-# ── Net Worth ──────────────────────────────────────────────────────────────────
-
-def compute_net_worth(accounts):
-    net_worth = assets = liabilities = 0.0
-    for a in accounts:
-        if a.get("includeInNetWorth") is False:
-            continue
-        b = float(a.get("currentBalance") or 0)
-        net_worth += b
-        if b >= 0:
-            assets += b
-        else:
-            liabilities += abs(b)
-    return net_worth, assets, liabilities
-
-
-# ── Budget Parsing ─────────────────────────────────────────────────────────────
+# ── Budget / Transaction helpers (used by digest) ─────────────────────────────
 
 def parse_budgets(budgets_raw):
     result = []
@@ -292,43 +456,6 @@ def parse_budgets(budgets_raw):
     return sorted(result, key=lambda x: x["pct_used"], reverse=True)
 
 
-# ── Recurring / Upcoming Bills ─────────────────────────────────────────────────
-
-def parse_fixed_expenses(recurring_raw):
-    """
-    Identify fixed monthly obligations from Monarch recurring transactions.
-    Returns list of {label, amount, category, merchant} sorted by amount desc.
-    """
-    fixed = []
-    seen_labels = set()
-    for item in (recurring_raw or []):
-        try:
-            stream   = item.get("stream") or {}
-            merchant = (stream.get("merchant") or {}).get("name") or ""
-            amount   = abs(float(stream.get("amount") or 0))
-            if amount == 0:
-                continue
-            # Skip income items
-            if float(stream.get("amount") or 0) > 0:
-                continue
-            merchant_lower = merchant.lower()
-            for keyword, meta in FIXED_EXPENSE_KEYWORDS.items():
-                if keyword in merchant_lower:
-                    label = meta["label"]
-                    if label not in seen_labels:
-                        fixed.append({
-                            "label":    label,
-                            "amount":   amount,
-                            "category": meta["category"],
-                            "merchant": merchant,
-                        })
-                        seen_labels.add(label)
-                    break
-        except Exception:
-            pass
-    return sorted(fixed, key=lambda x: x["amount"], reverse=True)
-
-
 def parse_upcoming_bills(recurring_raw, today, lookahead=7):
     upcoming = []
     cutoff   = today + timedelta(days=lookahead)
@@ -355,8 +482,6 @@ def parse_upcoming_bills(recurring_raw, today, lookahead=7):
             pass
     return sorted(upcoming, key=lambda x: x["date"])
 
-
-# ── Transaction Analysis ───────────────────────────────────────────────────────
 
 def analyze_transactions(transactions, exclude_transfers=False):
     income = expenses = hsa_total = 0.0
@@ -395,7 +520,31 @@ def extract_cashflow(cashflow):
     return 0.0, 0.0
 
 
-# ── Section: Weekly Brief ──────────────────────────────────────────────────────
+def parse_fixed_expenses(recurring_raw):
+    fixed = []
+    seen_labels = set()
+    for item in (recurring_raw or []):
+        try:
+            stream   = item.get("stream") or {}
+            merchant = (stream.get("merchant") or {}).get("name") or ""
+            amount   = abs(float(stream.get("amount") or 0))
+            if amount == 0 or float(stream.get("amount") or 0) > 0:
+                continue
+            merchant_lower = merchant.lower()
+            for keyword, meta in FIXED_EXPENSE_KEYWORDS.items():
+                if keyword in merchant_lower:
+                    label = meta["label"]
+                    if label not in seen_labels:
+                        fixed.append({"label": label, "amount": amount,
+                                      "category": meta["category"], "merchant": merchant})
+                        seen_labels.add(label)
+                    break
+        except Exception:
+            pass
+    return sorted(fixed, key=lambda x: x["amount"], reverse=True)
+
+
+# ── Digest Email Sections ──────────────────────────────────────────────────────
 
 def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
                        accounts, budgets_parsed, upcoming_bills, cashflow, recurring_raw=None):
@@ -408,22 +557,17 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
     net_worth, _, _ = compute_net_worth(accounts)
     savings_rate    = ((mtd_income - mtd_expense) / mtd_income * 100) if mtd_income > 0 else 0
     week_net        = week_income - week_expense
-    days_elapsed    = week_end.day
-    days_in_month   = calendar.monthrange(week_end.year, week_end.month)[1]
-    week_label      = f"{week_start.strftime('%b %-d')}–{week_end.strftime('%b %-d')}"
     month_name      = week_end.strftime("%B")
+    week_label      = f"{week_start.strftime('%b %-d')}–{week_end.strftime('%b %-d')}"
 
-    # Fixed expense context
-    fixed_expenses       = parse_fixed_expenses(recurring_raw) if recurring_raw else []
-    total_fixed_monthly  = sum(f["amount"] for f in fixed_expenses)
-    days_in_month        = calendar.monthrange(week_end.year, week_end.month)[1]
-    fixed_weekly         = total_fixed_monthly / (days_in_month / 7)
-    week_discretionary   = max(week_expense - fixed_weekly, 0)
-    disc_per_day         = week_discretionary / 7
+    fixed_expenses      = parse_fixed_expenses(recurring_raw) if recurring_raw else []
+    total_fixed_monthly = sum(f["amount"] for f in fixed_expenses)
+    days_in_month       = calendar.monthrange(week_end.year, week_end.month)[1]
+    fixed_weekly        = total_fixed_monthly / (days_in_month / 7)
+    week_discretionary  = max(week_expense - fixed_weekly, 0)
+    disc_per_day        = week_discretionary / 7
 
     sentences = []
-
-    # ── Week pattern detection ────────────────────────────────────────────────
     non_transfer    = [t for t in week_txns if not is_transfer((t.get("category") or {}).get("name", ""))]
     over_budget     = [b for b in budgets_parsed if b["pct_used"] > 100]
     big_bills_ct    = sum(1 for b in upcoming_bills if not b["is_income"] and b["amount"] >= 300)
@@ -431,10 +575,8 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
     is_income_week  = week_income > 3000
     is_heavy_spend  = week_expense > avg_weekly_spend * 1.3 and week_expense > 500
     is_quiet        = week_expense < 200 and week_income == 0
-    is_budget_stress = len(over_budget) > 0
     is_bill_heavy   = big_bills_ct >= 2
 
-    # ── Lead sentence varies by week pattern ─────────────────────────────────
     if is_quiet:
         sentences.append(f"Quiet week — minimal activity {week_label}.")
     elif is_income_week and week_income > week_expense * 1.5:
@@ -444,19 +586,18 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
         sentences.append(f"Spend-heavy week — {fmt(week_expense)} out vs. ~{fmt(avg_weekly_spend)} weekly average.")
     elif is_bill_heavy:
         sentences.append(f"Bill-heavy week: {big_bills_ct} payments of $300+ due in the next 7 days.")
-    elif is_budget_stress:
+    elif over_budget:
         names = ", ".join(b["category"] for b in over_budget[:2])
-        sentences.append(f"Budget pressure: {names} {'has' if len(over_budget)==1 else 'have'} exceeded budget this month.")
+        sentences.append(f"Budget pressure: {names} {'has' if len(over_budget)==1 else 'have'} exceeded budget.")
     else:
         if total_fixed_monthly > 0 and week_expense > 0:
             sentences.append(f"You spent {fmt(week_expense)} last week — {fmt(week_discretionary)} non-fixed ({fmt(disc_per_day)}/day).")
         elif week_income > 0:
             net_str = f"+{fmt(week_net)}" if week_net >= 0 else f"-{fmt(abs(week_net))}"
-            sentences.append(f"You brought in {fmt(week_income)} and spent {fmt(week_expense)} last week, netting {net_str}.")
+            sentences.append(f"You brought in {fmt(week_income)} and spent {fmt(week_expense)}, netting {net_str}.")
         else:
             sentences.append(f"You spent {fmt(week_expense)} last week across {len(non_transfer)} transactions.")
 
-    # ── MTD context (one sentence max) ───────────────────────────────────────
     if mtd_income > 0:
         if savings_rate >= 30:
             sentences.append(f"{month_name} tracking at {pct(savings_rate)} savings — ahead of plan.")
@@ -464,20 +605,6 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
             sentences.append(f"{month_name} savings rate: {pct(savings_rate)}.")
         else:
             sentences.append(f"{month_name} savings rate {pct(savings_rate)} — spending running high.")
-
-    # ── Supporting signals (budget, bills, HSA) ───────────────────────────────
-    # Skip budget stress — already in lead if present
-    if not is_budget_stress:
-        for b in over_budget[:1]:
-            over_by = b["actual"] - b["budgeted"]
-            sentences.append(f"{b['category']} is {fmt(over_by)} over budget ({pct(b['pct_used'])} used).")
-
-    big_bills = [b for b in upcoming_bills if not b["is_income"] and b["amount"] >= 300]
-    if big_bills and not is_bill_heavy:
-        b = big_bills[0]
-        days_away = (b["date"] - date.today()).days
-        when = "today" if days_away == 0 else "tomorrow" if days_away == 1 else b["date"].strftime("%A")
-        sentences.append(f"{b['merchant']} ({fmt(b['amount'])}) due {when}.")
 
     hsa_unlogged = [t for t in mtd_txns
                     if float(t.get("amount", 0)) < 0
@@ -498,27 +625,17 @@ def build_weekly_brief(week_start, week_end, week_txns, mtd_txns,
     </div>"""
 
 
-# ── Section: Net Worth ─────────────────────────────────────────────────────────
-
 def build_net_worth_html(accounts, history_by_id, week_start, week_end):
     net_worth, assets, liabilities = compute_net_worth(accounts)
-
-    # Week-over-week: compare current balance to balance 7 days ago
-    prior_date = str(week_start - timedelta(days=1))  # end of prior week = day before week_start
-    end_date   = str(week_end)
-
-    # Compute prior net worth from history
-    prior_nw   = None
+    prior_date = str(week_start - timedelta(days=1))
     prior_vals = {}
     for acct in accounts:
         if acct.get("includeInNetWorth") is False:
             continue
         acct_id  = str(acct.get("id", ""))
         hist     = history_by_id.get(acct_id, {})
-        # Find closest available date at or before prior_date
         prior_bal = hist.get(prior_date)
         if prior_bal is None:
-            # Try nearby dates (±2 days)
             for delta in [1, -1, 2, -2]:
                 d = str(date.fromisoformat(prior_date) + timedelta(days=delta))
                 if d in hist:
@@ -527,15 +644,13 @@ def build_net_worth_html(accounts, history_by_id, week_start, week_end):
         if prior_bal is not None:
             prior_vals[acct_id] = prior_bal
 
-    if len(prior_vals) >= 5:  # only show delta if we have enough accounts
-        prior_nw = sum(prior_vals.values())
-
-    nw_delta      = (net_worth - prior_nw) if prior_nw is not None else None
-    delta_color   = C_GREEN if (nw_delta or 0) >= 0 else C_RED
-    delta_sign    = "▲" if (nw_delta or 0) >= 0 else "▼"
-    delta_html    = (f'<span style="font-size:13px;color:{delta_color};margin-left:10px">'
-                     f'{delta_sign} {fmt(abs(nw_delta))} this week</span>'
-                     ) if nw_delta is not None else ""
+    prior_nw   = sum(prior_vals.values()) if len(prior_vals) >= 5 else None
+    nw_delta   = (net_worth - prior_nw) if prior_nw is not None else None
+    delta_color = C_GREEN if (nw_delta or 0) >= 0 else C_RED
+    delta_sign  = "▲" if (nw_delta or 0) >= 0 else "▼"
+    delta_html  = (f'<span style="font-size:13px;color:{delta_color};margin-left:10px">'
+                   f'{delta_sign} {fmt(abs(nw_delta))} this week</span>'
+                   ) if nw_delta is not None else ""
 
     html = f"""
     <table width="100%" cellpadding="0" cellspacing="0">
@@ -558,89 +673,29 @@ def build_net_worth_html(accounts, history_by_id, week_start, week_end):
         </td>
       </tr>
     </table>"""
-
-    # Notable movers — accounts that moved meaningfully this week
-    movers = []
-    for acct in accounts:
-        if acct.get("includeInNetWorth") is False:
-            continue
-        acct_id  = str(acct.get("id", ""))
-        name     = acct.get("displayName") or acct.get("name", "Unknown")
-        cur_bal  = float(acct.get("currentBalance") or 0)
-        is_asset = acct.get("isAsset", True)
-        hist     = history_by_id.get(acct_id, {})
-
-        # Get balance at start of week
-        prior_bal = hist.get(prior_date)
-        if prior_bal is None:
-            for delta in [1, -1, 2, -2]:
-                d = str(date.fromisoformat(prior_date) + timedelta(days=delta))
-                if d in hist:
-                    prior_bal = hist[d]
-                    break
-        if prior_bal is None:
-            continue
-
-        delta      = cur_bal - prior_bal
-        net_impact = delta  # positive = net worth went up
-        if abs(delta) >= NW_DELTA_THRESHOLD:
-            movers.append((name, cur_bal, delta, is_asset, net_impact))
-
-    if movers:
-        movers.sort(key=lambda x: abs(x[2]), reverse=True)
-        rows = ""
-        for name, bal, delta, is_asset, net_impact in movers[:8]:
-            display_bal = bal if is_asset else -abs(bal)
-            bal_str     = f"-{fmt(abs(display_bal))}" if display_bal < 0 else fmt(display_bal)
-            bal_color   = C_RED if display_bal < 0 else C_TEXT
-            sign        = "▲" if net_impact > 0 else "▼"
-            d_color     = C_GREEN if net_impact > 0 else C_RED
-            rows += f"""
-            <tr>
-              <td style="padding:6px 0;border-bottom:1px solid {C_BORDER};font-size:12px;color:{C_TEXT}">{name}</td>
-              <td style="padding:6px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:12px;color:{bal_color}">{bal_str}</td>
-              <td style="padding:6px 0 6px 14px;border-bottom:1px solid {C_BORDER};text-align:right;
-                         font-size:11px;color:{d_color};white-space:nowrap">{sign} {fmt(abs(delta))}</td>
-            </tr>"""
-        html += f"""
-        <div style="margin-top:18px">
-          {section_label("Week-over-Week Moves")}
-          <table width="100%" cellpadding="0" cellspacing="0">{rows}</table>
-        </div>"""
-
     return html
 
-
-# ── Section: Action Items ──────────────────────────────────────────────────────
 
 def build_action_items(week_txns, mtd_txns, budgets_parsed, upcoming_bills):
     today = date.today()
     items = []
-
-    # HSA unlogged
     hsa_unlogged = [t for t in mtd_txns
                     if float(t.get("amount", 0)) < 0
                     and is_hsa((t.get("category") or {}).get("name", ""))
                     and not (t.get("notes") or "").strip()]
     if hsa_unlogged:
         total = sum(abs(float(t.get("amount", 0))) for t in hsa_unlogged)
-        items.append(("🏥", f"{fmt(total)} in HSA-eligible expenses this month — log receipts in Monarch to lock in tax-free reimbursement", C_LTGREEN, C_BGREEN, C_GREEN))
-
-    # Over-budget categories
+        items.append(("🏥", f"{fmt(total)} in HSA-eligible expenses — log receipts in Monarch", C_LTGREEN, C_BGREEN, C_GREEN))
     for b in [b for b in budgets_parsed if b["pct_used"] > 100][:2]:
         over_by = b["actual"] - b["budgeted"]
-        items.append(("⚠️", f"{b['category']} is {fmt(over_by)} over budget ({pct(b['pct_used'])} used) — review or adjust", C_LTRED, C_BRED, C_RED))
-
-    # Bills due this week
+        items.append(("⚠️", f"{b['category']} is {fmt(over_by)} over budget ({pct(b['pct_used'])} used)", C_LTRED, C_BRED, C_RED))
     urgent = [b for b in upcoming_bills if not b["is_income"] and b["amount"] >= 100]
     for b in urgent[:3]:
         days_away = (b["date"] - today).days
         when = "today" if days_away == 0 else "tomorrow" if days_away == 1 else b["date"].strftime("%A")
         items.append(("💳", f"{b['merchant']} — {fmt(b['amount'])} due {when}", C_LTAMBER, C_BAMBER, C_AMBER))
-
     if not items:
         return ""
-
     rows = ""
     for icon, text, bg, border, color in items:
         rows += f"""
@@ -652,49 +707,33 @@ def build_action_items(week_txns, mtd_txns, budgets_parsed, upcoming_bills):
     return rows
 
 
-# ── Section: Transactions (grouped by day, sorted by amount within day) ────────
-
 def build_transactions_html(week_txns, week_start, week_end):
     if not week_txns:
         return '<p style="color:#a89f95;font-size:13px;margin:0">No transactions last week.</p>', 0.0, 0.0, 0.0
-
-    # Group by date
     by_date = defaultdict(list)
     for txn in week_txns:
-        d = txn.get("date", "")[:10]
-        by_date[d].append(txn)
-
+        by_date[txn.get("date", "")[:10]].append(txn)
     total_income = total_expenses = 0.0
     html = ""
-
-    # Iterate days in order, most recent first
     for day_str in sorted(by_date.keys(), reverse=True):
-        day_txns = sorted(by_date[day_str],
-                          key=lambda t: abs(float(t.get("amount", 0))), reverse=True)
+        day_txns = sorted(by_date[day_str], key=lambda t: abs(float(t.get("amount", 0))), reverse=True)
         try:
             day_label = date.fromisoformat(day_str).strftime("%A, %b %-d")
         except Exception:
             day_label = day_str
-
-        html += f"""
-        <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-                    color:{C_LABEL};margin:18px 0 8px;padding-bottom:6px;
-                    border-bottom:1px solid {C_BORDER}">{day_label}</div>"""
-
+        html += f'<div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{C_LABEL};margin:18px 0 8px;padding-bottom:6px;border-bottom:1px solid {C_BORDER}">{day_label}</div>'
         rows = ""
         for txn in day_txns:
             merchant = (txn.get("merchant") or {}).get("name") or txn.get("plaidName") or "Unknown"
             cat      = (txn.get("category") or {}).get("name", "Uncategorized")
             amount   = float(txn.get("amount", 0))
             note     = (txn.get("notes") or "").strip()
-
             if amount > 0:
                 total_income += amount
                 amt_html      = green(f"+{fmt(amount)}")
             else:
                 total_expenses += abs(amount)
                 amt_html        = red(f"-{fmt(abs(amount))}")
-
             badges_html = ""
             if amount < 0 and is_hsa(cat):
                 badges_html += badge("HSA", C_LTGREEN, C_BGREEN, C_GREEN)
@@ -702,10 +741,7 @@ def build_transactions_html(week_txns, week_start, week_end):
                 badges_html += badge("transfer", "#f5f3f0", C_BORDER, C_MUTED)
             if amount > 0 and is_income_cat(cat):
                 badges_html += badge("income", C_LTBLUE, C_BBLUE, C_BLUE)
-
-            note_html = (f'<div style="font-size:10px;color:{C_LABEL};margin-top:2px;'
-                         f'font-style:italic">{note}</div>') if note else ""
-
+            note_html = (f'<div style="font-size:10px;color:{C_LABEL};margin-top:2px;font-style:italic">{note}</div>') if note else ""
             rows += f"""
             <tr>
               <td style="padding:8px 0;border-bottom:1px solid {C_BORDER}">
@@ -713,17 +749,12 @@ def build_transactions_html(week_txns, week_start, week_end):
                 <div style="font-size:11px;color:{C_MUTED};margin-top:2px">{cat}{badges_html}</div>
                 {note_html}
               </td>
-              <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};
-                         text-align:right;font-size:13px;vertical-align:top;white-space:nowrap">{amt_html}</td>
+              <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:13px;vertical-align:top;white-space:nowrap">{amt_html}</td>
             </tr>"""
-
         html += f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>'
-
     net = total_income - total_expenses
     return html, total_income, total_expenses, net
 
-
-# ── Section: Budget Pulse ──────────────────────────────────────────────────────
 
 def build_budget_html(budgets_parsed, week_end):
     if not budgets_parsed:
@@ -731,7 +762,6 @@ def build_budget_html(budgets_parsed, week_end):
     days_elapsed  = week_end.day
     days_in_month = calendar.monthrange(week_end.year, week_end.month)[1]
     month_pct     = days_elapsed / days_in_month * 100
-
     rows = ""
     for b in budgets_parsed[:10]:
         p       = b["pct_used"]
@@ -742,7 +772,6 @@ def build_budget_html(budgets_parsed, week_end):
         status  = "OVER" if over else ("AHEAD" if p < month_pct - 15 else ("ON TRACK" if on_pace else "WATCH"))
         s_color = C_RED if over else (C_GREEN if status in ("ON TRACK", "AHEAD") else C_AMBER)
         bar_w   = min(int(p), 100)
-
         rows += f"""
         <tr>
           <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};font-size:12px;color:{C_TEXT};width:30%">{b['category']}</td>
@@ -751,18 +780,13 @@ def build_budget_html(budgets_parsed, week_end):
               <div style="background:{color};border-radius:3px;height:5px;width:{bar_w}%"></div>
             </div>
           </td>
-          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;
-                     font-size:11px;color:{C_MUTED};white-space:nowrap">{fmt(b['actual'])} / {fmt(b['budgeted'])}</td>
-          <td style="padding:8px 0 8px 12px;border-bottom:1px solid {C_BORDER};text-align:right;
-                     font-size:9px;letter-spacing:.08em;color:{s_color};white-space:nowrap">{status}</td>
+          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:11px;color:{C_MUTED};white-space:nowrap">{fmt(b['actual'])} / {fmt(b['budgeted'])}</td>
+          <td style="padding:8px 0 8px 12px;border-bottom:1px solid {C_BORDER};text-align:right;font-size:9px;letter-spacing:.08em;color:{s_color};white-space:nowrap">{status}</td>
         </tr>"""
-
     note = (f'<div style="font-size:10px;color:{C_LABEL};margin-bottom:14px;font-style:italic">'
-            f'{pct(month_pct)} of {week_end.strftime("%B")} elapsed · budget pace reference</div>')
+            f'{pct(month_pct)} of {week_end.strftime("%B")} elapsed</div>')
     return note + f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>'
 
-
-# ── Section: Upcoming Bills ────────────────────────────────────────────────────
 
 def build_upcoming_html(upcoming_bills, today):
     if not upcoming_bills:
@@ -782,18 +806,14 @@ def build_upcoming_html(upcoming_bills, today):
                      if b["account"] else "")
         rows += f"""
         <tr>
-          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};font-size:11px;
-                     color:{when_color};font-weight:600;white-space:nowrap;width:78px">{when_str}</td>
+          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};font-size:11px;color:{when_color};font-weight:600;white-space:nowrap;width:78px">{when_str}</td>
           <td style="padding:8px 12px;border-bottom:1px solid {C_BORDER}">
             <div style="font-size:13px;color:{C_TEXT}">{b['merchant']}</div>{acct_str}
           </td>
-          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;
-                     font-size:13px;color:{amt_color};white-space:nowrap">{sign} {fmt(b['amount'])}</td>
+          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:13px;color:{amt_color};white-space:nowrap">{sign} {fmt(b['amount'])}</td>
         </tr>"""
     return f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>'
 
-
-# ── Section: MTD Cashflow ──────────────────────────────────────────────────────
 
 def build_cashflow_html(cashflow, mtd_txns, week_end):
     api_income, api_expense = extract_cashflow(cashflow)
@@ -802,7 +822,6 @@ def build_cashflow_html(cashflow, mtd_txns, week_end):
     mtd_expense = api_expense if api_expense > 0 else txn_expense
     if mtd_income == 0 and mtd_expense == 0:
         return ""
-
     savings       = mtd_income - mtd_expense
     savings_rate  = (savings / mtd_income * 100) if mtd_income > 0 else 0
     days_elapsed  = week_end.day
@@ -812,7 +831,6 @@ def build_cashflow_html(cashflow, mtd_txns, week_end):
     proj_savings  = mtd_income - run_rate
     sr_color      = C_GREEN if savings_rate >= 20 else (C_RED if savings_rate < 5 else C_AMBER)
     ps_color      = C_GREEN if proj_savings > 0 else C_RED
-
     return f"""
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
@@ -820,8 +838,7 @@ def build_cashflow_html(cashflow, mtd_txns, week_end):
         <td style="padding:7px 0;text-align:right;font-size:13px;color:{C_GREEN};font-weight:600">{fmt(mtd_income)}</td>
       </tr>
       <tr>
-        <td style="padding:7px 0;font-size:13px;color:{C_TEXT}">MTD Spending
-          <span style="color:{C_LABEL};font-size:11px">(excl. transfers)</span></td>
+        <td style="padding:7px 0;font-size:13px;color:{C_TEXT}">MTD Spending</td>
         <td style="padding:7px 0;text-align:right;font-size:13px;color:{C_RED};font-weight:600">{fmt(mtd_expense)}</td>
       </tr>
       <tr>
@@ -829,125 +846,12 @@ def build_cashflow_html(cashflow, mtd_txns, week_end):
         <td style="padding:7px 0;text-align:right;font-size:12px;color:{C_MUTED}">{fmt(run_rate)}</td>
       </tr>
       <tr>
-        <td style="padding:7px 0 14px;font-size:12px;color:{C_MUTED}">Projected month-end savings</td>
-        <td style="padding:7px 0 14px;text-align:right;font-size:12px;
-                   color:{ps_color};font-weight:600">{fmt(proj_savings)}</td>
+        <td style="padding:7px 0 14px;font-size:12px;color:{C_MUTED}">Projected savings</td>
+        <td style="padding:7px 0 14px;text-align:right;font-size:12px;color:{ps_color};font-weight:600">{fmt(proj_savings)}</td>
       </tr>
       <tr>
-        <td colspan="2" style="padding:0 0 6px">
-          <div style="display:flex;justify-content:space-between;font-size:10px;
-                      color:{C_LABEL};margin-bottom:6px">
-            <span>{week_end.strftime('%B')} · Day {days_elapsed} of {days_in_month}</span>
-            <span>{pct(month_pct)} elapsed</span>
-          </div>
-          <div style="background:#ede9e4;border-radius:3px;height:5px">
-            <div style="background:{C_GREEN};border-radius:3px;height:5px;
-                        width:{min(int(month_pct),100)}%"></div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding:14px 0 4px;font-size:10px;letter-spacing:.15em;
-                   text-transform:uppercase;color:{C_LABEL}">Savings Rate MTD</td>
-        <td style="padding:14px 0 4px;text-align:right;font-size:20px;
-                   font-weight:700;color:{sr_color}">{pct(savings_rate)}</td>
-      </tr>
-    </table>"""
-
-
-# ── Section: Debt Tracker ──────────────────────────────────────────────────────
-
-def build_discretionary_html(fixed_expenses, mtd_txns, week_txns, mtd_income, week_end):
-    """
-    Fixed vs discretionary breakdown.
-    Shows fixed obligations from recurring, then discretionary = total spend - fixed.
-    """
-    if not fixed_expenses or mtd_income == 0:
-        return ""
-
-    total_fixed_monthly = sum(f["amount"] for f in fixed_expenses)
-    _, mtd_expense, _, _ = analyze_transactions(mtd_txns, exclude_transfers=True)
-    _, week_expense, _, _ = analyze_transactions(week_txns, exclude_transfers=True)
-
-    days_elapsed  = week_end.day
-    days_in_month = calendar.monthrange(week_end.year, week_end.month)[1]
-    month_fraction = days_elapsed / days_in_month
-
-    # Pro-rate fixed expenses to MTD
-    fixed_mtd        = total_fixed_monthly * month_fraction
-    discretionary_mtd = max(mtd_expense - fixed_mtd, 0)
-    discretionary_pct = (discretionary_mtd / mtd_income * 100) if mtd_income > 0 else 0
-    fixed_pct         = (fixed_mtd / mtd_income * 100) if mtd_income > 0 else 0
-
-    # Weekly discretionary
-    week_days         = 7
-    fixed_weekly      = total_fixed_monthly / (days_in_month / 7)
-    disc_weekly       = max(week_expense - fixed_weekly, 0)
-    disc_per_day      = disc_weekly / 7
-
-    # Build fixed line items
-    rows = ""
-    for f in fixed_expenses:
-        cat_color = C_BLUE if f["category"] == "savings" else C_RED
-        rows += f"""
-        <tr>
-          <td style="padding:5px 0;border-bottom:1px solid {C_BORDER};font-size:12px;color:{C_TEXT}">{f['label']}</td>
-          <td style="padding:5px 0;border-bottom:1px solid {C_BORDER};text-align:right;
-                     font-size:12px;color:{cat_color};white-space:nowrap">-{fmt(f['amount'])}/mo</td>
-        </tr>"""
-
-    # Summary bar: fixed vs discretionary visual
-    fixed_bar_w = min(int(fixed_pct), 100)
-    disc_bar_w  = min(int(discretionary_pct), 100)
-
-    return f"""
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px">
-      {rows}
-      <tr>
-        <td style="padding:10px 0 4px;font-size:10px;letter-spacing:.1em;
-                   text-transform:uppercase;color:{C_LABEL}">Total Fixed / mo</td>
-        <td style="padding:10px 0 4px;text-align:right;font-size:14px;
-                   font-weight:700;color:{C_TEXT}">-{fmt(total_fixed_monthly)}</td>
-      </tr>
-    </table>
-    <div style="border-top:1px solid {C_BORDER};margin:4px 0 16px"></div>
-    <table width="100%" cellpadding="0" cellspacing="0">
-      <tr>
-        <td style="padding:6px 0;font-size:13px;color:{C_TEXT}">MTD Income</td>
-        <td style="padding:6px 0;text-align:right;font-size:13px;
-                   color:{C_GREEN};font-weight:600">{fmt(mtd_income)}</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 0;font-size:13px;color:{C_TEXT}">Fixed obligations MTD
-          <span style="font-size:10px;color:{C_LABEL}"> (pro-rated)</span></td>
-        <td style="padding:6px 0;text-align:right;font-size:13px;color:{C_RED}">-{fmt(fixed_mtd)}</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 0 14px;font-size:13px;color:{C_TEXT}">Discretionary spend MTD</td>
-        <td style="padding:6px 0 14px;text-align:right;font-size:13px;
-                   color:{C_AMBER};font-weight:600">-{fmt(discretionary_mtd)}</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="padding:0 0 12px">
-          <div style="display:flex;gap:3px;height:6px;border-radius:3px;overflow:hidden;background:{C_BORDER}">
-            <div style="background:{C_GREEN};width:{fixed_bar_w}%;border-radius:3px 0 0 3px" title="Fixed"></div>
-            <div style="background:{C_AMBER};width:{disc_bar_w}%" title="Discretionary"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:10px;color:{C_LABEL};margin-top:5px">
-            <span style="color:{C_GREEN}">&#9632; Fixed {pct(fixed_pct)}</span>
-            <span style="color:{C_AMBER}">&#9632; Discretionary {pct(discretionary_pct)}</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td style="font-size:12px;color:{C_MUTED}">Last week's discretionary</td>
-        <td style="text-align:right;font-size:12px;color:{C_MUTED}">{fmt(disc_weekly)}</td>
-      </tr>
-      <tr>
-        <td style="padding-top:4px;font-size:10px;letter-spacing:.1em;
-                   text-transform:uppercase;color:{C_LABEL}">Discretionary / day</td>
-        <td style="padding-top:4px;text-align:right;font-size:16px;
-                   font-weight:700;color:{C_AMBER}">{fmt(disc_per_day)}</td>
+        <td style="padding:14px 0 4px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{C_LABEL}">Savings Rate MTD</td>
+        <td style="padding:14px 0 4px;text-align:right;font-size:20px;font-weight:700;color:{sr_color}">{pct(savings_rate)}</td>
       </tr>
     </table>"""
 
@@ -967,7 +871,6 @@ def build_debt_html(accounts):
     debts.sort(key=lambda x: x["balance"], reverse=True)
     total_debt = sum(d["balance"] for d in debts)
     max_bal    = debts[0]["balance"]
-
     rows = ""
     for d in debts:
         bar_w = int((d["balance"] / max_bal) * 120)
@@ -977,33 +880,25 @@ def build_debt_html(accounts):
           <td style="padding:8px 12px;border-bottom:1px solid {C_BORDER};vertical-align:middle">
             <div style="background:{C_LTRED};border-radius:3px;height:4px;width:{bar_w}px"></div>
           </td>
-          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;
-                     font-size:12px;color:{C_RED};font-weight:600;white-space:nowrap">-{fmt(d['balance'])}</td>
+          <td style="padding:8px 0;border-bottom:1px solid {C_BORDER};text-align:right;font-size:12px;color:{C_RED};font-weight:600;white-space:nowrap">-{fmt(d['balance'])}</td>
         </tr>"""
     rows += f"""
     <tr>
-      <td colspan="2" style="padding:10px 0;font-size:10px;color:{C_LABEL};
-                             letter-spacing:.1em;text-transform:uppercase">Total Debt</td>
+      <td colspan="2" style="padding:10px 0;font-size:10px;color:{C_LABEL};letter-spacing:.1em;text-transform:uppercase">Total Debt</td>
       <td style="padding:10px 0;text-align:right;font-size:15px;font-weight:700;color:{C_RED}">-{fmt(total_debt)}</td>
     </tr>"""
     return f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table>'
 
 
-# ── Email Assembly ─────────────────────────────────────────────────────────────
+# ── Digest Email Assembly ──────────────────────────────────────────────────────
 
 def build_email(today, week_start, week_end, week_txns, mtd_txns,
                 accounts, cashflow, history_by_id, budgets_raw, recurring_raw,
-                calc_url=None):
+                dashboard_url=None):
 
     budgets_parsed  = parse_budgets(budgets_raw)
     upcoming_bills  = parse_upcoming_bills(recurring_raw, today, BILL_LOOKAHEAD)
-    fixed_expenses  = parse_fixed_expenses(recurring_raw)
     net_worth, _, _ = compute_net_worth(accounts)
-
-    # MTD income for discretionary calc
-    api_income, _    = extract_cashflow(cashflow)
-    mtd_income_raw, _, _, _ = analyze_transactions(mtd_txns, exclude_transfers=True)
-    mtd_income       = api_income if api_income > 0 else mtd_income_raw
 
     week_label  = f"{week_start.strftime('%b %-d')}–{week_end.strftime('%b %-d, %Y')}"
     month_name  = week_end.strftime("%B %Y")
@@ -1019,28 +914,7 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
     budget_html   = build_budget_html(budgets_parsed, week_end)
     upcoming_html = build_upcoming_html(upcoming_bills, today)
     cashflow_html = build_cashflow_html(cashflow, mtd_txns, week_end)
-    disc_html     = build_discretionary_html(fixed_expenses, mtd_txns, week_txns, mtd_income, week_end)
     debt_html     = build_debt_html(accounts)
-
-    # Debt Tracker: show if balance moved >$100, or first week of month
-    debt_moved = week_end.day <= 7
-    if not debt_moved:
-        for acct in accounts:
-            name = (acct.get("displayName") or "").lower()
-            if not any(k in name for k in DEBT_ACCOUNTS):
-                continue
-            acct_id = str(acct.get("id", ""))
-            hist    = history_by_id.get(acct_id, {})
-            p_date  = week_start - timedelta(days=1)
-            prev    = hist.get(str(p_date))
-            if prev is None:
-                for d in [1,-1,2,-2]:
-                    k = str(p_date + timedelta(days=d))
-                    if k in hist:
-                        prev = hist[k]; break
-            cur = float(acct.get("currentBalance") or 0)
-            if prev is not None and abs(cur - prev) > 100:
-                debt_moved = True; break
 
     txn_count = len(week_txns)
     net_color = C_GREEN if week_net >= 0 else C_RED
@@ -1063,26 +937,20 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
     </div>
   </div>"""
 
-    # Calculator link section
-    if calc_url:
-        calc_section = f"""
+    dashboard_section = ""
+    if dashboard_url:
+        dashboard_section = f"""
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;padding:20px 28px">
-    <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:{C_LABEL};margin-bottom:14px">Retirement Calculator</div>
+    <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:{C_LABEL};margin-bottom:14px">Financial Dashboard</div>
     <div style="font-size:13px;color:{C_TEXT};margin-bottom:14px;line-height:1.6;font-family:Georgia,serif">
-      Your calculator has been updated with this week&#39;s balances from Monarch.
-      Monte Carlo simulation, Roth conversion strategy, HD concentration risk, and personalized retirement age.
+      Balances updated from Monarch. Net worth, retirement projections, college planning, and tax analysis.
     </div>
-    <a href="{calc_url}" style="display:inline-block;background:{C_TEXT};color:{C_BG};
+    <a href="{dashboard_url}" style="display:inline-block;background:{C_TEXT};color:{C_BG};
        font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
        padding:10px 20px;border-radius:3px;text-decoration:none">
-      Open Retirement Calculator &rarr;
+      Open Dashboard &rarr;
     </a>
-    <div style="margin-top:10px;font-family:'Courier New',monospace;font-size:9px;color:{C_LABEL}">
-      {calc_url}
-    </div>
   </div>"""
-    else:
-        calc_section = ""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1091,7 +959,6 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
 </head>
 <body style="margin:0;padding:32px 16px;background:{C_BG};font-family:Georgia,'Times New Roman',serif">
 <div style="max-width:600px;margin:0 auto">
-
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-radius:6px 6px 0 0;padding:26px 28px 22px">
     <div style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:{C_GREEN};margin-bottom:7px">Monarch · Weekly Digest</div>
     <div style="font-size:24px;color:{C_TEXT};font-style:italic;margin-bottom:4px">{week_label}</div>
@@ -1100,11 +967,9 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
       &nbsp;&middot;&nbsp; {txn_count} transactions
     </div>
   </div>
-
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;padding:0 28px 22px">
     {brief_html}
   </div>
-
   {card("Action Items", None, action_html, C_AMBER) if action_html else ""}
   {card("Net Worth", None, nw_html)}
   {card("Last Week", f"{txn_count} transactions", txn_html)}
@@ -1112,1370 +977,19 @@ def build_email(today, week_start, week_end, week_txns, mtd_txns,
   {card("Budget Pulse", month_name, budget_html)}
   {card("This Week Ahead", f"next {BILL_LOOKAHEAD} days", upcoming_html)}
   {card("Month-to-Date Cashflow", month_name, cashflow_html)}
-  {card("Fixed vs. Non-Fixed Spending", month_name, disc_html) if week_end.day >= 7 else ""}
-  {card("Debt Tracker", None, debt_html) if debt_moved else ""}
-
-  {calc_section}
+  {card("Debt Tracker", None, debt_html)}
+  {dashboard_section}
   <div style="background:{C_CARD};border:1px solid {C_BORDER};border-top:none;border-radius:0 0 6px 6px;
               padding:12px 28px;display:table;width:100%;box-sizing:border-box">
     <span style="display:table-cell;font-size:10px;color:{C_LABEL}">Monarch Money · {generated} · 7:00 AM ET</span>
     <span style="display:table-cell;font-size:10px;color:{C_GREEN};text-align:right">{RECIPIENT_EMAIL}</span>
   </div>
-
 </div>
 </body>
 </html>"""
 
 
-# ── Send ───────────────────────────────────────────────────────────────────────
-
-# ── Retirement Calculator Template ───────────────────────────────────────────
-
-RETIREMENT_CALC_TEMPLATE = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Financial Command Center -- Peyton & Grace</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {{
-  --bg:#0d0d0b; --surface:#141412; --surface2:#1c1c19;
-  --border:#2a2a26; --border2:#333330;
-  --text:#f0ede8; --muted:#7a7870; --label:#4a4a46;
-  --gold:#c8a84b; --gold-lt:#e8c96b; --gold-dk:#8a7030; --gold-bg:#1a1608;
-  --green:#4a9e6e; --green-lt:#6abf8e; --green-bg:#081a10;
-  --red:#c04a3a; --red-lt:#e06a5a; --red-bg:#1a0808;
-  --blue:#4a7ab8; --blue-lt:#6a9ad8; --blue-bg:#08101a;
-  --amber:#c87a28; --purple:#8a5ab8; --purple-bg:#120810;
-}}
-* {{ box-sizing:border-box; margin:0; padding:0; }}
-body {{ background:var(--bg); color:var(--text); font-family:DM Sans,sans-serif; font-size:14px; line-height:1.6; min-height:100vh; }}
-body::before {{ content:''; position:fixed; inset:0; background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size:40px 40px; opacity:.12; pointer-events:none; z-index:0; }}
-.app {{ position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:36px 24px 80px; }}
-
-/* Header */
-.hdr {{ margin-bottom:28px; }}
-.eyebrow {{ font-family:DM Mono,monospace; font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }}
-h1 {{ font-family:DM Serif Display,serif; font-size:32px; font-weight:400; color:var(--text); line-height:1.15; margin-bottom:6px; }}
-h1 em {{ font-style:italic; color:var(--gold); }}
-.hdr-sub {{ font-size:11px; color:var(--muted); font-family:DM Mono,monospace; }}
-
-/* Tab nav */
-.tab-nav {{ display:flex; gap:4px; margin-bottom:20px; border-bottom:1px solid var(--border); padding-bottom:0; }}
-.tab-btn {{ padding:8px 18px; background:transparent; border:1px solid transparent; border-bottom:none; border-radius:4px 4px 0 0; color:var(--muted); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .15s; margin-bottom:-1px; }}
-.tab-btn.active {{ background:var(--surface); border-color:var(--border); border-bottom-color:var(--surface); color:var(--gold); }}
-.tab-btn:hover:not(.active) {{ color:var(--text); }}
-.tab-pane {{ display:none; }}
-.tab-pane.active {{ display:block; }}
-
-/* Layout */
-.layout {{ display:grid; grid-template-columns:310px 1fr; gap:20px; align-items:start; }}
-.right-col {{ display:flex; flex-direction:column; gap:16px; }}
-.panel {{ background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; }}
-.panel-hd {{ padding:12px 18px; border-bottom:1px solid var(--border); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); display:flex; justify-content:space-between; align-items:center; }}
-.panel-bd {{ padding:18px; }}
-.reset-btn {{ font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dk); background:none; border:1px solid var(--gold-dk); border-radius:3px; padding:3px 8px; cursor:pointer; transition:all .15s; }}
-.reset-btn:hover {{ color:var(--gold); border-color:var(--gold); }}
-
-/* Controls */
-.ctrl {{ margin-bottom:14px; }}
-.ctrl:last-child {{ margin-bottom:0; }}
-.ctrl-lbl {{ font-size:10px; color:var(--muted); font-family:DM Mono,monospace; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }}
-.ctrl-row {{ display:flex; align-items:center; gap:8px; }}
-input[type=range] {{ -webkit-appearance:none; flex:1; height:3px; background:var(--border2); border-radius:2px; outline:none; cursor:pointer; }}
-input[type=range]::-webkit-slider-thumb {{ -webkit-appearance:none; width:13px; height:13px; background:var(--gold); border-radius:50%; cursor:pointer; transition:transform .15s; }}
-input[type=range]::-webkit-slider-thumb:hover {{ transform:scale(1.3); }}
-.num-in {{ width:72px; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:DM Mono,monospace; font-size:11px; padding:3px 6px; text-align:right; outline:none; }}
-.num-in:focus {{ border-color:var(--gold-dk); }}
-.tog-grp {{ display:flex; gap:4px; }}
-.tog {{ flex:1; padding:6px 4px; background:transparent; border:1px solid var(--border2); border-radius:4px; color:var(--muted); font-family:DM Mono,monospace; font-size:10px; cursor:pointer; transition:all .15s; text-align:center; }}
-.tog.active {{ background:var(--gold-bg); border-color:var(--gold-dk); color:var(--gold); }}
-.sec {{ border-top:1px solid var(--border); margin:14px 0; padding-top:14px; }}
-.sec-lbl {{ font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--label); margin-bottom:12px; }}
-
-/* Scenario cards */
-.scenarios {{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }}
-.sc-card {{ background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:14px; cursor:pointer; transition:border-color .15s,background .15s; }}
-.sc-card:hover {{ border-color:var(--border2); }}
-.sc-card.active {{ border-color:var(--gold-dk); background:var(--gold-bg); }}
-.sc-name {{ font-family:DM Mono,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }}
-.sc-age {{ font-family:DM Serif Display,serif; font-size:26px; color:var(--gold); line-height:1; margin-bottom:2px; }}
-.sc-desc {{ font-size:10px; color:var(--muted); margin-bottom:6px; }}
-.sc-prob {{ font-family:DM Mono,monospace; font-size:11px; }}
-.ph {{ color:var(--green-lt); }} .pm {{ color:var(--gold); }} .pl {{ color:var(--red-lt); }}
-.mc-bar-wrap {{ background:var(--border); border-radius:2px; height:4px; overflow:hidden; margin-top:5px; }}
-.mc-bar {{ height:4px; border-radius:2px; transition:width .5s ease; }}
-
-/* Hero */
-.hero {{ background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--gold); border-radius:8px; padding:22px 24px 20px; }}
-.hero-lbl {{ font-family:DM Mono,monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }}
-.hero-num {{ font-family:DM Serif Display,serif; font-size:44px; line-height:1; color:var(--gold); margin-bottom:4px; }}
-.hero-sub {{ font-size:11px; color:var(--muted); }}
-.stat-row {{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; padding-top:18px; border-top:1px solid var(--border); }}
-.stat {{ text-align:center; }}
-.sv {{ font-family:DM Serif Display,serif; font-size:17px; color:var(--text); line-height:1.1; }}
-.sv.g {{ color:var(--green-lt); }} .sv.r {{ color:var(--red-lt); }} .sv.gold {{ color:var(--gold); }} .sv.am {{ color:var(--amber); }}
-.sl {{ font-family:DM Mono,monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:3px; }}
-.success-def {{ font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.6; }}
-
-/* Chart */
-.chart-wrap {{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; }}
-.chart-hd {{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }}
-.chart-title {{ font-family:DM Mono,monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }}
-.chart-note {{ font-family:DM Mono,monospace; font-size:8px; color:var(--label); margin-top:3px; }}
-.legend {{ display:flex; gap:12px; flex-wrap:wrap; }}
-.leg-item {{ display:flex; align-items:center; gap:5px; font-family:DM Mono,monospace; font-size:9px; color:var(--muted); }}
-.leg-dot {{ width:7px; height:7px; border-radius:50%; }}
-canvas {{ display:block; width:100% !important; }}
-
-/* Buckets */
-.buckets {{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; }}
-.brow {{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }}
-.brow:last-child {{ margin-bottom:0; }}
-.bnm {{ font-family:DM Mono,monospace; font-size:10px; color:var(--muted); width:90px; flex-shrink:0; }}
-.bbar-wrap {{ flex:1; background:var(--border); border-radius:2px; height:6px; overflow:hidden; }}
-.bbar {{ height:6px; border-radius:2px; transition:width .4s ease; }}
-.bval {{ font-family:DM Mono,monospace; font-size:10px; color:var(--text); text-align:right; width:70px; flex-shrink:0; }}
-
-/* Insights */
-.insights {{ display:flex; flex-direction:column; gap:8px; }}
-.insight {{ background:var(--surface); border:1px solid var(--border); border-left:3px solid; border-radius:0 6px 6px 0; padding:12px 14px; display:flex; gap:10px; align-items:flex-start; }}
-.ins-icon {{ font-size:14px; flex-shrink:0; line-height:1.5; }}
-.ins-text {{ font-size:12px; color:var(--muted); line-height:1.65; }}
-.ins-text strong {{ color:var(--text); font-weight:500; }}
-
-/* Roth / risk */
-.strat-tabs {{ display:flex; gap:5px; margin-bottom:12px; }}
-.stab {{ padding:5px 10px; background:transparent; border:1px solid var(--border2); border-radius:3px; color:var(--muted); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:all .15s; }}
-.stab.active {{ background:var(--blue-bg); border-color:var(--blue); color:var(--blue-lt); }}
-.roth-tl {{ display:flex; gap:3px; margin-top:10px; flex-wrap:wrap; }}
-.ry {{ height:28px; min-width:28px; flex:1; border-radius:2px; display:flex; align-items:center; justify-content:center; font-family:DM Mono,monospace; font-size:7px; }}
-.risk-meter {{ display:flex; gap:2px; margin-top:8px; }}
-.rblk {{ flex:1; height:6px; border-radius:1px; }}
-
-/* Tax widget */
-.tax-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }}
-.tax-card {{ background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:16px; }}
-.tax-card-lbl {{ font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--label); margin-bottom:10px; }}
-.tax-line {{ display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid var(--border); font-size:12px; }}
-.tax-line:last-child {{ border-bottom:none; }}
-.tax-line .lbl {{ color:var(--muted); }}
-.tax-line .val {{ font-family:DM Mono,monospace; font-weight:500; }}
-.tax-meter {{ margin-top:14px; }}
-.tax-meter-bar {{ background:var(--border); border-radius:3px; height:8px; overflow:hidden; }}
-.tax-meter-fill {{ height:8px; border-radius:3px; transition:width .4s; }}
-.tax-alert {{ margin-top:14px; padding:12px 14px; border-radius:4px; font-size:12px; line-height:1.6; }}
-.tax-input-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }}
-.tax-input-group {{ }}
-.tax-input-lbl {{ font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--label); margin-bottom:5px; }}
-.tax-in {{ width:100%; background:var(--surface2); border:1px solid var(--border2); border-radius:3px; color:var(--gold); font-family:DM Mono,monospace; font-size:12px; padding:6px 10px; outline:none; }}
-.tax-in:focus {{ border-color:var(--gold-dk); }}
-
-/* Debt tracker */
-.debt-grid {{ display:flex; flex-direction:column; gap:10px; }}
-.debt-row {{ background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:14px; }}
-.debt-top {{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }}
-.debt-name {{ font-size:13px; color:var(--text); }}
-.debt-bal {{ font-family:DM Mono,monospace; font-size:13px; color:var(--red-lt); font-weight:500; }}
-.debt-bar-wrap {{ background:var(--border); border-radius:2px; height:5px; overflow:hidden; margin-bottom:6px; }}
-.debt-bar {{ height:5px; border-radius:2px; transition:width .4s; }}
-.debt-meta {{ display:flex; justify-content:space-between; font-family:DM Mono,monospace; font-size:9px; color:var(--label); }}
-.debt-payoff {{ font-family:DM Mono,monospace; font-size:10px; color:var(--green-lt); margin-top:4px; }}
-
-/* Scenario compare */
-.scenario-compare {{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:16px; }}
-.sc-compare-card {{ background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:14px; }}
-.sc-compare-name {{ font-family:DM Mono,monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }}
-.sc-compare-num {{ font-family:DM Serif Display,serif; font-size:22px; color:var(--text); margin-bottom:4px; }}
-.sc-compare-sub {{ font-size:11px; color:var(--muted); }}
-
-/* Misc */
-.footnote {{ margin-top:32px; font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }}
-.badge {{ display:inline-block; font-family:DM Mono,monospace; font-size:8px; padding:2px 6px; border-radius:2px; letter-spacing:.08em; }}
-.badge-green {{ background:var(--green-bg); color:var(--green-lt); border:1px solid var(--green); }}
-.badge-red {{ background:var(--red-bg); color:var(--red-lt); border:1px solid var(--red); }}
-.badge-amber {{ background:#1a1000; color:var(--amber); border:1px solid var(--amber); }}
-@keyframes fadeUp {{ from {{ opacity:0; transform:translateY(10px); }} to {{ opacity:1; transform:translateY(0); }} }}
-.panel,.hero,.chart-wrap,.buckets {{ animation:fadeUp .35s ease both; }}
-</style>
-</head>
-<body>
-<div class="app">
-
-<div class="hdr">
-  <div class="eyebrow">Financial Command Center &middot; Peyton &amp; Grace Edwards &middot; Age 38 &middot; <span id="as-of">{as_of}</span></div>
-  <h1>Your complete financial <em>picture</em></h1>
-  <div class="hdr-sub">Retirement projections &middot; Tax planning &middot; Debt tracker &middot; Scenario analysis &middot; All values in today's dollars</div>
-</div>
-
-<!-- Tab navigation -->
-<div class="tab-nav">
-  <button class="tab-btn active" onclick="showTab('retirement')">Retirement</button>
-  <button class="tab-btn" onclick="showTab('tax')">Tax Projection</button>
-  <button class="tab-btn" onclick="showTab('debt')">Debt Tracker</button>
-  <button class="tab-btn" onclick="showTab('scenarios')">Scenarios</button>
-</div>
-
-<!-- ================================================================ TAB: RETIREMENT -->
-<div class="tab-pane active" id="tab-retirement">
-
-<div class="scenarios">
-  <div class="sc-card active" onclick="setScenario(55)" id="sc-55">
-    <div class="sc-name">Aggressive</div><div class="sc-age">55</div>
-    <div class="sc-desc">17 years away</div>
-    <div class="sc-prob" id="prob-55">--</div>
-    <div class="mc-bar-wrap"><div class="mc-bar" id="bar-55" style="background:var(--amber);width:0%"></div></div>
-  </div>
-  <div class="sc-card" onclick="setScenario(58)" id="sc-58">
-    <div class="sc-name">Early</div><div class="sc-age">58</div>
-    <div class="sc-desc">20 years away</div>
-    <div class="sc-prob" id="prob-58">--</div>
-    <div class="mc-bar-wrap"><div class="mc-bar" id="bar-58" style="background:var(--gold);width:0%"></div></div>
-  </div>
-  <div class="sc-card" onclick="setScenario(60)" id="sc-60">
-    <div class="sc-name">Balanced</div><div class="sc-age">60</div>
-    <div class="sc-desc">22 years away</div>
-    <div class="sc-prob" id="prob-60">--</div>
-    <div class="mc-bar-wrap"><div class="mc-bar" id="bar-60" style="background:var(--green);width:0%"></div></div>
-  </div>
-  <div class="sc-card" onclick="setScenario(65)" id="sc-65">
-    <div class="sc-name">Conservative</div><div class="sc-age">65</div>
-    <div class="sc-desc">27 years away</div>
-    <div class="sc-prob" id="prob-65">--</div>
-    <div class="mc-bar-wrap"><div class="mc-bar" id="bar-65" style="background:var(--green);width:0%"></div></div>
-  </div>
-</div>
-
-<div class="layout">
-<div>
-<div class="panel">
-  <div class="panel-hd">Your Numbers <button class="reset-btn" onclick="resetAll()">Reset</button></div>
-  <div class="panel-bd">
-    <div class="sec-lbl">Current Portfolio</div>
-    <div class="ctrl"><div class="ctrl-lbl">Roth IRA (Peyton)</div><div class="ctrl-row"><input type="range" min="0" max="800000" step="5000" id="r-roth" oninput="sl('roth',this.value)"><input type="text" class="num-in" id="i-roth" onchange="si('roth',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Roth IRA (Grace)</div><div class="ctrl-row"><input type="range" min="0" max="200000" step="1000" id="r-groth" oninput="sl('groth',this.value)"><input type="text" class="num-in" id="i-groth" onchange="si('groth',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">401(k) Pre-Tax</div><div class="ctrl-row"><input type="range" min="0" max="800000" step="5000" id="r-k401" oninput="sl('k401',this.value)"><input type="text" class="num-in" id="i-k401" onchange="si('k401',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Taxable Brokerage</div><div class="ctrl-row"><input type="range" min="0" max="500000" step="5000" id="r-taxable" oninput="sl('taxable',this.value)"><input type="text" class="num-in" id="i-taxable" onchange="si('taxable',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">HD Vested Stock / RSUs</div><div class="ctrl-row"><input type="range" min="0" max="500000" step="5000" id="r-rsus" oninput="sl('rsus',this.value)"><input type="text" class="num-in" id="i-rsus" onchange="si('rsus',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">HSA (Investment)</div><div class="ctrl-row"><input type="range" min="0" max="100000" step="1000" id="r-hsa" oninput="sl('hsa',this.value)"><input type="text" class="num-in" id="i-hsa" onchange="si('hsa',this.value)"></div></div>
-
-    <div class="sec"><div class="sec-lbl">Annual Contributions</div>
-    <div class="ctrl"><div class="ctrl-lbl">401(k) / yr</div><div class="ctrl-row"><input type="range" min="0" max="69000" step="500" id="r-c401k" oninput="sl('c401k',this.value)"><input type="text" class="num-in" id="i-c401k" onchange="si('c401k',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Roth IRA (both) / yr</div><div class="ctrl-row"><input type="range" min="0" max="14000" step="500" id="r-croth" oninput="sl('croth',this.value)"><input type="text" class="num-in" id="i-croth" onchange="si('croth',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">HSA / yr</div><div class="ctrl-row"><input type="range" min="0" max="8300" step="100" id="r-chsa" oninput="sl('chsa',this.value)"><input type="text" class="num-in" id="i-chsa" onchange="si('chsa',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Taxable / yr</div><div class="ctrl-row"><input type="range" min="0" max="100000" step="2000" id="r-ctax" oninput="sl('ctax',this.value)"><input type="text" class="num-in" id="i-ctax" onchange="si('ctax',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">ESPP / yr (auto-sell)</div><div class="ctrl-row"><input type="range" min="0" max="40000" step="1000" id="r-espp" oninput="sl('espp',this.value)"><input type="text" class="num-in" id="i-espp" onchange="si('espp',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Annual RSU Grant</div><div class="ctrl-row"><input type="range" min="0" max="150000" step="2500" id="r-rsugrant" oninput="sl('rsugrant',this.value)"><input type="text" class="num-in" id="i-rsugrant" onchange="si('rsugrant',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">RSU Sell % at Vest</div><div class="ctrl-row"><input type="range" min="0" max="100" step="10" id="r-rsusell" oninput="sl('rsusell',this.value)"><input type="text" class="num-in" id="i-rsusell" onchange="si('rsusell',this.value)"></div></div>
-    </div>
-
-    <div class="sec"><div class="sec-lbl">Retirement Assumptions</div>
-    <div class="ctrl"><div class="ctrl-lbl">Annual Spending (today $)</div><div class="ctrl-row"><input type="range" min="50000" max="250000" step="5000" id="r-spend" oninput="sl('spend',this.value)"><input type="text" class="num-in" id="i-spend" onchange="si('spend',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Lumpy Expenses (every 8yr)</div><div class="ctrl-row"><input type="range" min="0" max="150000" step="5000" id="r-lumpy" oninput="sl('lumpy',this.value)"><input type="text" class="num-in" id="i-lumpy" onchange="si('lumpy',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">Social Security / mo</div><div class="ctrl-row"><input type="range" min="500" max="6000" step="100" id="r-ss" oninput="sl('ss',this.value)"><input type="text" class="num-in" id="i-ss" onchange="si('ss',this.value)"></div></div>
-    <div class="ctrl"><div class="ctrl-lbl">SS Claim Age</div><div class="ctrl-row"><input type="range" min="62" max="70" step="1" id="r-ssage" oninput="sl('ssage',this.value)"><input type="text" class="num-in" id="i-ssage" onchange="si('ssage',this.value)"></div></div>
-    </div>
-
-    <div class="sec">
-    <div class="sec-lbl">Legacy Goal</div>
-    <div class="tog-grp">
-      <button class="tog" onclick="setLegacy('zero')" id="leg-zero">Zero</button>
-      <button class="tog active" onclick="setLegacy('modest')" id="leg-modest">$500K</button>
-      <button class="tog" onclick="setLegacy('rich')" id="leg-rich">$1M+</button>
-    </div>
-    <div class="sec-lbl" style="margin-top:14px">Market Scenario</div>
-    <div class="tog-grp">
-      <button class="tog" onclick="setMarket('bear')" id="m-bear">Bear</button>
-      <button class="tog active" onclick="setMarket('base')" id="m-base">Base</button>
-      <button class="tog" onclick="setMarket('bull')" id="m-bull">Bull</button>
-    </div>
-    <div style="font-family:DM Mono,monospace;font-size:8.5px;color:var(--muted);margin-top:8px" id="mkt-desc">Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%</div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="right-col">
-  <div class="hero">
-    <div class="hero-lbl">Median Portfolio at Retirement (Today's Dollars)</div>
-    <div class="hero-num" id="hero-num">--</div>
-    <div class="hero-sub" id="hero-sub">calculating...</div>
-    <div class="stat-row">
-      <div class="stat"><div class="sv gold" id="st-prob">--</div><div class="sl">Success Rate</div></div>
-      <div class="stat"><div class="sv g" id="st-safe">--</div><div class="sl">4% Withdrawal</div></div>
-      <div class="stat"><div class="sv" id="st-fire">--</div><div class="sl">FIRE Number</div></div>
-      <div class="stat"><div class="sv am" id="st-estate">--</div><div class="sl">Est. Estate (95)</div></div>
-    </div>
-    <div class="success-def" id="success-def">Success = portfolio above floor through age 95 &middot; 1,000 simulated sequences &middot; includes lumpy expenses &amp; mortgage payoff</div>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-hd">
-      <div>
-        <div class="chart-title">Portfolio Trajectory &middot; 1,000 Simulations &middot; Today's Dollars</div>
-        <div class="chart-note">Shaded band = 25th&ndash;75th percentile &middot; Dashed = legacy floor &middot; &darr; = mortgage payoff</div>
-      </div>
-      <div class="legend">
-        <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Median</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--green);opacity:.6"></div>75th</div>
-        <div class="leg-item"><div class="leg-dot" style="background:var(--red);opacity:.6"></div>25th</div>
-      </div>
-    </div>
-    <canvas id="mc" height="210"></canvas>
-  </div>
-
-  <div class="buckets">
-    <div class="panel-hd" style="padding:0 0 12px;border:none">Account Mix at Retirement</div>
-    <div id="brows"></div>
-  </div>
-
-  <div class="panel">
-    <div class="panel-hd">Roth Conversion Strategy</div>
-    <div class="panel-bd">
-      <div class="strat-tabs">
-        <button class="stab active" onclick="setStrat('guardrails')" id="st-guardrails">Guardrails</button>
-        <button class="stab" onclick="setStrat('fixed')" id="st-fixed">Fixed 4%</button>
-        <button class="stab" onclick="setStrat('dynamic')" id="st-dynamic">Dynamic</button>
-      </div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px" id="strat-desc">Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Typically improves modeled success rate vs fixed withdrawal.</div>
-      <div class="sec-lbl">Conversion Window &middot; Gap Years Before SS</div>
-      <div class="roth-tl" id="roth-tl"></div>
-      <div style="display:flex;gap:14px;margin-top:8px;font-family:DM Mono,monospace;font-size:8.5px">
-        <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:1px"></span>12% bracket</span>
-        <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--amber);border-radius:1px"></span>22% bracket</span>
-        <span style="display:flex;align-items:center;gap:4px;color:var(--muted)"><span style="display:inline-block;width:8px;height:8px;background:var(--green);border-radius:1px"></span>SS active</span>
-      </div>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:DM Mono,monospace;font-size:10px;color:var(--gold)" id="roth-advice"></div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panel-hd">HD Concentration Risk</div>
-    <div class="panel-bd">
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.7" id="conc-desc"></div>
-      <div class="sec-lbl">Risk Level</div>
-      <div class="risk-meter" id="risk-meter"></div>
-      <div style="margin-top:12px;font-family:DM Mono,monospace;font-size:10px;color:var(--gold)" id="conc-adv"></div>
-    </div>
-  </div>
-
-  <div class="insights" id="insights"></div>
-</div>
-</div>
-</div><!-- end tab-retirement -->
-
-<!-- ================================================================ TAB: TAX PROJECTION -->
-<div class="tab-pane" id="tab-tax">
-<div style="margin-bottom:20px">
-  <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px">
-    Enter your year-to-date income and payments to project your 2026 federal tax liability.
-    Updates automatically. Based on MFJ filing with standard deduction.
-  </div>
-  <div class="tax-input-grid">
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">YTD W-2 Wages</div>
-      <input type="text" class="tax-in" id="tx-wages" value="$100,000" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">Expected Bonus</div>
-      <input type="text" class="tax-in" id="tx-bonus" value="$72,000" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">RSU Vest Income (YTD)</div>
-      <input type="text" class="tax-in" id="tx-rsu" value="$25,508" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">ESPP Gain (YTD)</div>
-      <input type="text" class="tax-in" id="tx-espp" value="$3,750" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">Capital Gains (est.)</div>
-      <input type="text" class="tax-in" id="tx-cg" value="$6,200" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">Grace Income (if any)</div>
-      <input type="text" class="tax-in" id="tx-grace" value="$0" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">YTD Federal Withheld</div>
-      <input type="text" class="tax-in" id="tx-withheld" value="$22,600" oninput="calcTax()">
-    </div>
-    <div class="tax-input-group">
-      <div class="tax-input-lbl">Estimated Payments Made</div>
-      <input type="text" class="tax-in" id="tx-estpay" value="$4,590" oninput="calcTax()">
-    </div>
-  </div>
-</div>
-<div class="tax-grid" id="tax-output"></div>
-</div><!-- end tab-tax -->
-
-<!-- ================================================================ TAB: DEBT TRACKER -->
-<div class="tab-pane" id="tab-debt">
-<div style="margin-bottom:16px;font-size:13px;color:var(--muted);line-height:1.7">
-  Payoff projections based on current balances and scheduled payments. Adjust extra payments to see the impact.
-</div>
-<div class="debt-grid" id="debt-grid"></div>
-<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-    <span style="font-family:DM Mono,monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--label)">Total Non-Mortgage Debt</span>
-    <span style="font-family:DM Serif Display,serif;font-size:22px;color:var(--red-lt)" id="total-debt">--</span>
-  </div>
-  <div style="font-family:DM Mono,monospace;font-size:10px;color:var(--green-lt)" id="debt-free-date"></div>
-</div>
-</div><!-- end tab-debt -->
-
-<!-- ================================================================ TAB: SCENARIOS -->
-<div class="tab-pane" id="tab-scenarios">
-<div style="margin-bottom:16px;font-size:13px;color:var(--muted);line-height:1.7">
-  Pre-configured scenarios based on your actual situation. Each runs a full Monte Carlo simulation.
-  The active scenario on the Retirement tab is shown as Base Case.
-</div>
-<div class="scenario-compare" id="scenario-compare"></div>
-<div style="margin-top:20px" id="scenario-detail"></div>
-</div><!-- end tab-scenarios -->
-
-<div class="footnote">
-  All retirement values in today's inflation-adjusted dollars. Monte Carlo: 1,000 paths, historical US equity distribution adjusted to market scenario.
-  ESPP modeled as annual cash flow to taxable account (sell-on-purchase strategy). RSUs: 4-year vest schedule with known 2026-2029 dates, then ongoing grant assumption.
-  Mortgage payoff modeled at age 60 (~2048) reducing required withdrawals by $1,646/mo.
-  Grace Roth IRA included in accumulation; SS estimate reflects single primary earner benefit.
-  Pre-tax withdrawals taxed at blended 20%. Roth and HSA tax-free. Not financial advice.
-</div>
-</div>
-
-<script>
-// ============================================================
-// MODEL CONSTANTS
-// ============================================================
-var PLAN_TO_AGE          = 95;
-var SAFE_WITHDRAWAL_RATE = 0.04;
-var RSU_VEST_SCHEDULE    = 0.25;
-var HD_VOLATILITY_MULT   = 1.5;
-var PRETAX_BLENDED_RATE  = 0.20;
-var SUCCESS_THRESHOLD    = 0.85;
-var SCAN_AGES            = [52,54,56,58,60,62,64,66,68];
-var GUARDRAILS_FLOOR     = 0.80;
-var GUARDRAILS_CEIL      = 1.25;
-var GUARDRAILS_CUT       = 0.90;
-var GUARDRAILS_RAISE     = 1.05;
-var MC_SIMULATIONS       = 1000;
-var MORTGAGE_PAYOFF_AGE  = 60;    // mortgage pays off ~2048 at current pace
-var MORTGAGE_PAYMENT     = 1646;  // monthly -- reduces spending need at payoff
-var ESPP_ANNUAL          = 21580; // sell-immediately strategy -> taxable each year
-var CURRENT_AGE          = 38;
-var EQUITY_WEIGHT        = 0.80;   // 80/20 equity/bond split during accumulation
-var BOND_SIGMA_MULT      = 0.35;   // bonds are ~35% as volatile as equities
-
-// Known RSU vest schedule (shares * ~$381/share * 0.6 after-tax)
-var RSU_KNOWN_VESTS = {{
-  1: 25508 * 0.60,  // 2026: 67 shares ~$25.5K, ~60% after tax
-  2: 51832 * 0.60,  // 2027: 88+72 shares ~$61.8K combined
-  3: 25889 * 0.60,  // 2028: 68 shares
-  4: 27412 * 0.60,  // 2029: 72 shares
-}};
-
-// ============================================================
-// STATE
-// ============================================================
-var BASE = {{
-  roth:{roth}, groth:{groth}, k401:{k401}, taxable:{taxable}, rsus:{rsus}, hsa:{hsa},
-  c401k:23000, croth:14000, chsa:8300, ctax:18000,
-  espp:21580, rsugrant:50000, rsusell:100,
-  spend:110000, lumpy:60000, ss:6400, ssage:67,
-  market:'base', strat:'guardrails', retireAge:55,
-  legacy:'modest', legacyFloor:500000,
-}};
-var S = Object.assign({{}}, BASE);
-
-// ============================================================
-// FORMATTERS
-// ============================================================
-function fmtK(v) {{
-  var a = Math.abs(v);
-  if (a >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
-  if (a >= 1000) return '$' + Math.round(v/1000) + 'K';
-  return '$' + Math.round(v);
-}}
-function fmtD(v) {{ return '$' + Math.abs(Math.round(v)).toLocaleString('en-US'); }}
-function fmtPct(v) {{ return Math.round(v) + '%'; }}
-function dispVal(k, v) {{
-  v = parseFloat(v);
-  if (['rsusell'].indexOf(k) >= 0) return v + '%';
-  if (['ssage'].indexOf(k) >= 0) return '' + v;
-  return fmtK(v);
-}}
-function parseNum(raw) {{
-  var s = raw.replace(/[$,]/g,'').trim();
-  var mult = 1;
-  if (s.toUpperCase().indexOf('M') >= 0) {{ mult = 1e6; s = s.replace(/[Mm]/g,''); }}
-  else if (s.toUpperCase().indexOf('K') >= 0) {{ mult = 1000; s = s.replace(/[Kk]/g,''); }}
-  s = s.replace('%','');
-  var v = parseFloat(s);
-  return isNaN(v) ? null : v * mult;
-}}
-
-// ============================================================
-// SYNC
-// ============================================================
-function sl(k, v) {{
-  S[k] = parseFloat(v);
-  var el = document.getElementById('i-' + k);
-  if (el) el.value = dispVal(k, v);
-  recalc();
-}}
-function si(k, raw) {{
-  var v = parseNum(raw);
-  if (v === null) return;
-  var r = document.getElementById('r-' + k);
-  if (r) {{
-    v = Math.max(parseFloat(r.min)||0, Math.min(parseFloat(r.max)||1e9, v));
-    r.value = v;
-  }}
-  S[k] = v;
-  var inp = document.getElementById('i-' + k);
-  if (inp) inp.value = dispVal(k, v);
-  recalc();
-}}
-function initControls() {{
-  var keys = ['roth','groth','k401','taxable','rsus','hsa','c401k','croth','chsa','ctax',
-              'espp','rsugrant','rsusell','spend','lumpy','ss','ssage'];
-  keys.forEach(function(k) {{
-    var r = document.getElementById('r-' + k);
-    var i = document.getElementById('i-' + k);
-    if (r) r.value = S[k];
-    if (i) i.value = dispVal(k, S[k]);
-  }});
-  document.getElementById('as-of').textContent =
-    new Date().toLocaleDateString('en-US',{{month:'long',day:'numeric',year:'numeric'}});
-}}
-function resetAll() {{
-  Object.assign(S, BASE);
-  initControls();
-  setMarket('base'); setStrat('guardrails'); setLegacy('modest'); setScenario(55);
-}}
-
-// ============================================================
-// TOGGLES
-// ============================================================
-function showTab(id) {{
-  document.querySelectorAll('.tab-pane').forEach(function(el) {{ el.classList.remove('active'); }});
-  document.querySelectorAll('.tab-btn').forEach(function(el) {{ el.classList.remove('active'); }});
-  document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
-  if (id === 'scenarios') buildScenarios();
-  if (id === 'debt') buildDebtTracker();
-}}
-function setScenario(age) {{
-  S.retireAge = age;
-  [55,58,60,65].forEach(function(a) {{ document.getElementById('sc-'+a).classList.toggle('active', a===age); }});
-  recalc();
-}}
-var MKT = {{
-  bear: {{eq:0.055, bond:0.025, inf:0.035, sigma:0.16, lbl:'Bear: 5.5% equity &middot; 3.5% inflation &middot; &sigma;=16%'}},
-  base: {{eq:0.07,  bond:0.04,  inf:0.025, sigma:0.14, lbl:'Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%'}},
-  bull: {{eq:0.09,  bond:0.05,  inf:0.02,  sigma:0.12, lbl:'Bull: 9% equity &middot; 2% inflation &middot; &sigma;=12%'}}
-}};
-function setMarket(m) {{
-  S.market = m;
-  ['bear','base','bull'].forEach(function(k) {{ document.getElementById('m-'+k).classList.toggle('active', k===m); }});
-  document.getElementById('mkt-desc').innerHTML = MKT[m].lbl;
-  recalc();
-}}
-var STRAT_DESC = {{
-  guardrails: 'Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Typically improves modeled success rate vs fixed withdrawal.',
-  fixed: 'Fixed 4%: withdraw 4% of initial portfolio annually, inflation-adjusted. Simple but inflexible.',
-  dynamic: 'Dynamic: withdraw 3.5% in down years, up to 5% in strong years. Balances lifestyle with longevity.'
-}};
-function setStrat(s) {{
-  S.strat = s;
-  ['guardrails','fixed','dynamic'].forEach(function(k) {{ document.getElementById('st-'+k).classList.toggle('active', k===s); }});
-  document.getElementById('strat-desc').textContent = STRAT_DESC[s];
-  recalc();
-}}
-var LEGACY_FLOORS = {{zero:10000, modest:500000, rich:1000000}};
-function setLegacy(l) {{
-  S.legacy = l;
-  S.legacyFloor = LEGACY_FLOORS[l];
-  ['zero','modest','rich'].forEach(function(k) {{ document.getElementById('leg-'+k).classList.toggle('active', k===l); }});
-  recalc();
-}}
-
-// ============================================================
-// MATH
-// ============================================================
-function randn() {{
-  var u=0,v=0;
-  while(!u) u=Math.random();
-  while(!v) v=Math.random();
-  return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
-}}
-
-function project(st) {{
-  if (!st) st = S;
-  var m   = MKT[st.market];
-  var rr  = m.eq - m.inf;
-  var yA  = st.retireAge - CURRENT_AGE;
-  var yD  = PLAN_TO_AGE - st.retireAge;
-  var ssAnn  = st.ss * 12;
-  var floor  = st.legacyFloor;
-  var N      = MC_SIMULATIONS;
-  var success = 0;
-  var allPaths = [];
-  var finals   = [];
-
-  for (var sim=0; sim<N; sim++) {{
-    var sig  = m.sigma;
-    var roth = st.roth + st.groth;  // combined Roth
-    var pre  = st.k401;
-    var tax  = st.taxable;
-    var hsa  = st.hsa;
-    var hdV  = st.rsus;
-    var hdF  = 0;
-
-    // ACCUMULATION -- blended equity/bond returns with correlated HD shock
-    for (var y=0; y<yA; y++) {{
-      // Shared market shock -- HD is correlated to market, not independent
-      var mktShock  = randn();
-      var idioShock = randn();  // HD-specific idiosyncratic risk
-
-      var eqRet   = rr + sig * mktShock;
-      var bondRet = (m.bond - m.inf) + (sig * BOND_SIGMA_MULT) * randn();
-      var blended = EQUITY_WEIGHT * eqRet + (1 - EQUITY_WEIGHT) * bondRet;
-
-      // HD amplifies the same market shock (beta > 1) plus idiosyncratic vol
-      var hdRet   = rr + sig * mktShock * HD_VOLATILITY_MULT + sig * 0.3 * idioShock;
-
-      roth = Math.max(0, roth * (1 + blended) + st.croth);
-      pre  = Math.max(0, pre  * (1 + blended) + st.c401k);
-      hsa  = Math.max(0, hsa  * (1 + blended) + st.chsa);
-      hdV  = Math.max(0, hdV  * (1 + hdRet));
-
-      // RSU: use known schedule for first 4 years, then steady-state
-      var vestAmt = y < 4 ? (RSU_KNOWN_VESTS[y+1] || st.rsugrant * RSU_VEST_SCHEDULE * (st.rsusell/100))
-                           : st.rsugrant * RSU_VEST_SCHEDULE * (st.rsusell/100);
-      var unsold  = st.rsugrant * RSU_VEST_SCHEDULE * (1 - st.rsusell/100);
-      hdF  = Math.max(0, hdF * (1 + hdRet) + unsold);
-
-      // ESPP sells immediately -> taxable each year
-      var esppInflow = st.espp;
-      tax  = Math.max(0, tax * (1 + blended) + st.ctax + vestAmt + esppInflow);
-    }}
-
-    var totalRet = roth + pre + tax + hsa + hdV + hdF;
-    var port     = totalRet;
-    var path     = [port];
-    var baseSpend = st.spend;
-    var curSpend  = baseSpend;
-    var hw = port;
-    var preFrac = pre / Math.max(totalRet, 1);
-
-    // DRAWDOWN
-    for (var d=0; d<yD; d++) {{
-      var age   = st.retireAge + d;
-      var ssInc = age >= st.ssage ? ssAnn : 0;
-      // Mortgage payoff reduces spending need
-      var mortSaving = age >= MORTGAGE_PAYOFF_AGE ? MORTGAGE_PAYMENT * 12 : 0;
-      var lump  = (d > 0 && d % 8 === 0) ? st.lumpy : 0;
-      var need  = Math.max(0, curSpend - ssInc - mortSaving) + lump;
-      var taxDrag = need * preFrac * PRETAX_BLENDED_RATE;
-      var wd    = need + taxDrag;
-      if (port <= 0) {{ path.push(0); continue; }}
-      var dMkt  = randn();
-      var dEq   = rr + sig * dMkt;
-      var dBond = (m.bond - m.inf) + (sig * BOND_SIGMA_MULT) * randn();
-      var dRet  = EQUITY_WEIGHT * dEq + (1 - EQUITY_WEIGHT) * dBond;
-      port = Math.max(0, port * (1 + dRet) - wd);
-      if (st.strat === 'guardrails') {{
-        if (port < hw * GUARDRAILS_CUT) curSpend = Math.max(baseSpend * GUARDRAILS_FLOOR, curSpend * GUARDRAILS_CUT);
-        else if (port > hw * 1.20) curSpend = Math.min(baseSpend * GUARDRAILS_CEIL, curSpend * GUARDRAILS_RAISE);
-      }} else if (st.strat === 'dynamic') {{
-        var wdr = wd / Math.max(port, 1);
-        if (wdr > 0.05) curSpend = Math.max(baseSpend * GUARDRAILS_FLOOR, curSpend * 0.97);
-        else if (wdr < 0.035) curSpend = Math.min(baseSpend * GUARDRAILS_CEIL, curSpend * 1.02);
-      }}
-      if (port > hw) hw = port;
-      path.push(port);
-    }}
-    if (port >= floor) success++;
-    finals.push(Math.max(port, 0));
-    allPaths.push(path);
-  }}
-
-  var tot = yD + 1;
-  var p25=[],p50=[],p75=[];
-  for (var i=0; i<tot; i++) {{
-    var vs = allPaths.map(function(p) {{ return p[Math.min(i,p.length-1)]; }}).sort(function(a,b){{return a-b;}});
-    p25.push(vs[Math.floor(N*0.25)]);
-    p50.push(vs[Math.floor(N*0.50)]);
-    p75.push(vs[Math.floor(N*0.75)]);
-  }}
-  finals.sort(function(a,b){{return a-b;}});
-
-  function grow(v,c,y) {{ return v*Math.pow(1+rr,y)+c*((Math.pow(1+rr,y)-1)/Math.max(rr,0.001)); }}
-  var soldPerYr   = st.rsugrant * RSU_VEST_SCHEDULE * (st.rsusell/100);
-  var esppPerYr   = st.espp;
-  var bRoth   = Math.max(0, grow(st.roth+st.groth, st.croth, yA));
-  var bPre    = Math.max(0, grow(st.k401, st.c401k, yA));
-  var bTax    = Math.max(0, grow(st.taxable, st.ctax+soldPerYr+esppPerYr, yA));
-  var bHSA    = Math.max(0, grow(st.hsa, st.chsa, yA));
-  var bHD     = Math.max(0, st.rsus * Math.pow(1+rr, Math.min(yA,12)));
-  var unsoldPerYr = st.rsugrant * RSU_VEST_SCHEDULE * (1-st.rsusell/100);
-  bHD += Math.max(0, grow(0, unsoldPerYr, yA));
-
-  return {{
-    sr: success/N, p25:p25, p50:p50, p75:p75,
-    portAtRet: p50[0], medFinal: finals[Math.floor(N*0.5)],
-    bkt:{{roth:bRoth, k401:bPre, taxable:bTax, hsa:bHSA, hd:bHD}},
-    yA:yA, yD:yD
-  }};
-}}
-
-function projectWith(overrides) {{ return project(Object.assign({{}}, S, overrides)); }}
-
-// ============================================================
-// SIMULATION CACHE
-// ============================================================
-var _cache = null;
-var _cacheScen = {{}};
-var _t = null;
-var _lastHash = '';
-function recalc() {{ clearTimeout(_t); _t = setTimeout(_recalc, 100); }}
-function _recalc() {{
-  // Skip if nothing changed
-  var h = JSON.stringify([S.roth,S.groth,S.k401,S.taxable,S.rsus,S.hsa,
-    S.c401k,S.croth,S.chsa,S.ctax,S.espp,S.rsugrant,S.rsusell,
-    S.spend,S.lumpy,S.ss,S.ssage,S.retireAge,S.legacyFloor,S.market,S.strat]);
-  if (h === _lastHash) return;
-  _lastHash = h;
-
-  var res = project();
-  _cache  = res;
-  _cacheScen = {{}};
-  for (var ai=0; ai<SCAN_AGES.length; ai++) {{
-    _cacheScen[SCAN_AGES[ai]] = projectWith({{retireAge: SCAN_AGES[ai]}});
-  }}
-  [55,58,60,65].forEach(function(a) {{
-    if (!_cacheScen[a]) _cacheScen[a] = projectWith({{retireAge: a}});
-  }});
-  renderRetirement(res);
-}}
-
-// ============================================================
-// RENDER: RETIREMENT TAB
-// ============================================================
-function renderRetirement(res) {{
-  var tot     = res.portAtRet;
-  var fireNum = S.spend / SAFE_WITHDRAWAL_RATE;
-  var sp      = Math.round(res.sr * 100);
-
-  document.getElementById('hero-num').textContent = fmtK(tot);
-  document.getElementById('hero-sub').textContent =
-    'Median at age ' + S.retireAge + ' -- ' + res.yA + ' years of accumulation' +
-    (S.retireAge <= MORTGAGE_PAYOFF_AGE ? '' : ' (mortgage paid off at ' + MORTGAGE_PAYOFF_AGE + ')');
-
-  var pe = document.getElementById('st-prob');
-  pe.textContent = sp + '%';
-  pe.className   = 'sv ' + (sp>=85?'g':sp>=70?'gold':'r');
-  document.getElementById('st-safe').textContent   = fmtK(tot*SAFE_WITHDRAWAL_RATE)+'/yr';
-  document.getElementById('st-fire').textContent   = fmtK(fireNum);
-  var ee = document.getElementById('st-estate');
-  ee.textContent = fmtK(res.medFinal);
-  ee.className   = 'sv ' + (res.medFinal>=1e6?'g':res.medFinal>=200000?'am':'r');
-
-  document.getElementById('success-def').textContent =
-    'Success = portfolio above ' + fmtK(S.legacyFloor) + ' floor through age 95 -- ' +
-    'includes ESPP ($' + Math.round(S.espp/1000) + 'K/yr), mortgage payoff at age ' +
-    MORTGAGE_PAYOFF_AGE + ' (-$' + Math.round(MORTGAGE_PAYMENT*12/1000) + 'K/yr spending), and lumpy expenses.';
-
-  drawChart(res.p25, res.p50, res.p75, S.retireAge);
-
-  // Buckets
-  var b = res.bkt, bt = b.roth+b.k401+b.taxable+b.hsa+b.hd;
-  var defs = [
-    {{k:'roth',    lbl:'Roth (both)',  tax:'Tax-free',     col:'var(--green)'}},
-    {{k:'k401',    lbl:'401(k)',       tax:'Pre-tax',      col:'var(--gold)'}},
-    {{k:'taxable', lbl:'Taxable',      tax:'Cap gains',    col:'var(--blue)'}},
-    {{k:'hsa',     lbl:'HSA',          tax:'Triple-tax',   col:'var(--green-lt)'}},
-    {{k:'hd',      lbl:'HD Stock',     tax:'Concentrated', col:'var(--amber)'}}
-  ];
-  var brows = document.getElementById('brows');
-  brows.innerHTML = '';
-  defs.forEach(function(d) {{
-    var v = b[d.k], p = bt>0?v/bt*100:0;
-    var row = document.createElement('div');
-    row.className = 'brow';
-    row.innerHTML = '<div class="bnm">'+d.lbl+'<br><span style="font-size:7.5px;color:var(--label)">'+d.tax+'</span></div>'+
-      '<div class="bbar-wrap"><div class="bbar" style="width:'+p.toFixed(1)+'%;background:'+d.col+'"></div></div>'+
-      '<div class="bval">'+fmtK(v)+'</div>';
-    brows.appendChild(row);
-  }});
-
-  // Scenario cards
-  [55,58,60,65].forEach(function(age) {{
-    var cached = _cacheScen[age];
-    var p = cached ? Math.round(cached.sr*100) : 0;
-    document.getElementById('prob-'+age).textContent = p+'% success rate';
-    document.getElementById('prob-'+age).className = 'sc-prob '+(p>=85?'ph':p>=70?'pm':'pl');
-    document.getElementById('bar-'+age).style.width = p+'%';
-  }});
-
-  buildRothTL(S.retireAge, S.ssage);
-  buildConc();
-  buildInsights(res, fireNum);
-}}
-
-// ============================================================
-// CHART
-// ============================================================
-function drawChart(p25, p50, p75, retAge) {{
-  var cv = document.getElementById('mc');
-  var ctx = cv.getContext('2d');
-  var dpr = window.devicePixelRatio||1;
-  var W = cv.offsetWidth, H = 210;
-  cv.width = W*dpr; cv.height = H*dpr;
-  ctx.scale(dpr, dpr);
-  ctx.clearRect(0,0,W,H);
-  var PAD = {{t:10,r:20,b:28,l:58}};
-  var cW = W-PAD.l-PAD.r, cH = H-PAD.t-PAD.b;
-  var n = p50.length;
-  var maxV = 0;
-  for (var i=0;i<p75.length;i++) if (isFinite(p75[i])&&p75[i]>maxV) maxV=p75[i];
-  maxV *= 1.08; if (maxV<1) maxV=1;
-  function xOf(i) {{ return PAD.l+(i/(n-1))*cW; }}
-  function yOf(v) {{ return PAD.t+cH-(Math.max(v,0)/maxV)*cH; }}
-
-  for (var g=0;g<=4;g++) {{
-    var gy = PAD.t+(g/4)*cH, gv = maxV*(1-g/4);
-    ctx.strokeStyle='#222220'; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(PAD.l,gy); ctx.lineTo(W-PAD.r,gy); ctx.stroke();
-    ctx.fillStyle='#4a4a46'; ctx.font='9px monospace'; ctx.textAlign='right';
-    ctx.fillText(gv>=1e6?'$'+(gv/1e6).toFixed(1)+'M':'$'+Math.round(gv/1000)+'K',PAD.l-6,gy+3);
-  }}
-  ctx.fillStyle='#4a4a46'; ctx.textAlign='center';
-  [0,10,20,PLAN_TO_AGE-retAge].forEach(function(off) {{
-    ctx.fillText('Age '+(retAge+off), xOf(Math.min(off,n-1)), H-5);
-  }});
-
-  // Mortgage payoff marker
-  var mortYear = MORTGAGE_PAYOFF_AGE - retAge;
-  if (mortYear > 0 && mortYear < n) {{
-    var mx = xOf(mortYear);
-    ctx.strokeStyle = 'rgba(106,191,142,0.4)';
-    ctx.setLineDash([2,4]); ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(mx,PAD.t); ctx.lineTo(mx,PAD.t+cH); ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle='rgba(106,191,142,0.6)'; ctx.font='8px monospace'; ctx.textAlign='center';
-    ctx.fillText('mortgage paid',mx,PAD.t+8);
-  }}
-
-  ctx.beginPath();
-  ctx.moveTo(xOf(0),yOf(p25[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i]));
-  for (var i=n-1;i>=0;i--) ctx.lineTo(xOf(i),yOf(p75[i]));
-  ctx.closePath(); ctx.fillStyle='rgba(74,158,110,0.07)'; ctx.fill();
-  ctx.beginPath(); ctx.strokeStyle='rgba(106,191,142,0.35)'; ctx.lineWidth=1.5;
-  ctx.moveTo(xOf(0),yOf(p75[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p75[i])); ctx.stroke();
-  ctx.beginPath(); ctx.strokeStyle='rgba(192,74,58,0.35)'; ctx.lineWidth=1.5;
-  ctx.moveTo(xOf(0),yOf(p25[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i])); ctx.stroke();
-  ctx.beginPath(); ctx.strokeStyle='#c8a84b'; ctx.lineWidth=2.5;
-  ctx.shadowColor='rgba(200,168,75,0.3)'; ctx.shadowBlur=8;
-  ctx.moveTo(xOf(0),yOf(p50[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p50[i])); ctx.stroke(); ctx.shadowBlur=0;
-  if (S.legacyFloor>0&&S.legacyFloor<maxV) {{
-    var fy=yOf(S.legacyFloor);
-    ctx.strokeStyle='rgba(200,122,40,0.4)'; ctx.setLineDash([4,5]); ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(PAD.l,fy); ctx.lineTo(W-PAD.r,fy); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle='rgba(200,122,40,0.55)'; ctx.font='8px monospace'; ctx.textAlign='left';
-    ctx.fillText(fmtK(S.legacyFloor)+' floor',PAD.l+4,fy-3);
-  }}
-}}
-
-// ============================================================
-// ROTH TIMELINE
-// ============================================================
-function buildRothTL(retAge, ssAge) {{
-  var el = document.getElementById('roth-tl');
-  el.innerHTML = '';
-  var show = Math.min(ssAge-retAge+4, 20);
-  for (var y=0; y<show; y++) {{
-    var age = retAge+y, d = document.createElement('div');
-    d.className = 'ry';
-    if (age >= ssAge) d.style.cssText = 'background:var(--green-bg);border:1px solid var(--green);color:var(--green-lt)';
-    else if (y<=2) d.style.cssText = 'background:var(--blue-bg);border:1px solid var(--blue);color:var(--blue-lt)';
-    else d.style.cssText = 'background:rgba(200,122,40,0.12);border:1px solid var(--amber);color:var(--amber)';
-    d.textContent = age;
-    el.appendChild(d);
-  }}
-  var gap = ssAge-retAge;
-  document.getElementById('roth-advice').textContent =
-    'Convert ~$55K/yr during '+gap+'-year gap (age '+retAge+'--'+ssAge+') at 12-22% vs 32%+ when RMDs force conversions later. ' +
-    'Total conversion opportunity: ~$' + Math.round(gap*55/1000)*1000/1000 + 'K.';
-}}
-
-// ============================================================
-// CONCENTRATION RISK
-// ============================================================
-function buildConc() {{
-  var totalInv = S.roth+S.groth+S.k401+S.taxable+S.hsa+S.rsus;
-  var hdAmt    = S.rsus;
-  var pct      = totalInv>0 ? Math.round(hdAmt/totalInv*100) : 0;
-  var meter    = document.getElementById('risk-meter');
-  var desc     = document.getElementById('conc-desc');
-  var adv      = document.getElementById('conc-adv');
-  meter.innerHTML = '';
-  for (var i=0;i<20;i++) {{
-    var d = document.createElement('div');
-    d.className = 'rblk';
-    if (i < Math.round(pct/100*20)) {{
-      var t = i/20;
-      d.style.background = 'rgb('+Math.round(74+t*118)+','+Math.round(158-t*120)+','+Math.round(110-t*76)+')';
-    }} else d.style.background = 'var(--border)';
-    meter.appendChild(d);
-  }}
-  var lvl, col, advice;
-  if (pct<15)      {{lvl='Low';      col='var(--green-lt)'; advice='RSU concentration is within acceptable range. Keep selling into strength at each vest.';}}
-  else if (pct<25) {{lvl='Moderate'; col='var(--gold)';     advice='Sell RSUs at vest and reinvest into diversified funds. Target below 15%.';}}
-  else if (pct<40) {{lvl='Elevated'; col='var(--amber)';    advice='Meaningful single-stock risk. Prioritize selling RSUs at every vest event.';}}
-  else             {{lvl='High';     col='var(--red-lt)';   advice='Critical concentration. Consider selling RSUs aggressively at each vest and diversifying into index funds.';}}
-  desc.innerHTML = '<span style="color:'+col+';font-weight:500">'+lvl+'</span> -- '+pct+'% of investable assets ($'+Math.round(hdAmt/1000)+'K) is HD stock. 401(k) is diversified and excluded. Salary adds additional HD income correlation.';
-  adv.textContent = advice;
-}}
-
-// ============================================================
-// INSIGHTS
-// ============================================================
-function buildInsights(res, fireNum) {{
-  var el = document.getElementById('insights');
-  el.innerHTML = '';
-  var total = res.portAtRet, gap = total-fireNum;
-  var sr0   = Math.round(res.sr*100);
-
-  // ── Headline ──────────────────────────────────────────────────────────────
-  var headline = document.createElement('div');
-  headline.className = 'insight';
-  if (gap >= 0) {{
-    headline.style.borderLeftColor = 'var(--green)';
-    headline.innerHTML = '<span class="ins-icon" style="color:var(--green)">&#10022;</span>' +
-      '<span class="ins-text">Projected <strong>'+fmtK(total)+'</strong> exceeds your FIRE number of <strong>'+fmtK(fireNum)+'</strong> by <strong>'+fmtK(gap)+'</strong>. ' +
-      'Mortgage payoff at age '+MORTGAGE_PAYOFF_AGE+' cuts required withdrawals by <strong>'+fmtK(MORTGAGE_PAYMENT*12)+'</strong>/yr -- modeled in simulation.</span>';
-  }} else {{
-    var extra = Math.round(Math.abs(gap)/res.yA/1000)*1000;
-    headline.style.borderLeftColor = 'var(--amber)';
-    headline.innerHTML = '<span class="ins-icon" style="color:var(--amber)">&#9672;</span>' +
-      '<span class="ins-text">Portfolio is <strong>'+fmtK(Math.abs(gap))+'</strong> short of FIRE number at age '+S.retireAge+'. ' +
-      'Closing this gap requires an additional <strong>$'+extra.toLocaleString()+'/yr</strong> in savings, or retiring at age '+(S.retireAge+2)+'. ' +
-      'See the lever table below for the most efficient paths.</span>';
-  }}
-  el.appendChild(headline);
-
-  // ── Ranked lever table ────────────────────────────────────────────────────
-  // Compute impact of each lever using projectWith (cached results where available)
-  var levers = [];
-
-  // Lever 1: retire 2 years later
-  var r2yr = projectWith({{retireAge: S.retireAge+2}});
-  levers.push({{
-    action: 'Retire at age '+(S.retireAge+2)+' instead of '+S.retireAge,
-    delta:  Math.round(r2yr.sr*100) - sr0,
-    note:   'Adds 2 years of contributions + removes 2 years of withdrawals',
-    effort: 'Medium'
-  }});
-
-  // Lever 2: spend $10K less
-  if (S.spend > 70000) {{
-    var rSpend = projectWith({{spend: S.spend-10000}});
-    levers.push({{
-      action: 'Reduce spending to '+fmtK(S.spend-10000)+'/yr (-$10K)',
-      delta:  Math.round(rSpend.sr*100) - sr0,
-      note:   'Lowers FIRE number and annual withdrawals simultaneously',
-      effort: 'Hard'
-    }});
-  }}
-
-  // Lever 3: save $10K more in taxable
-  var rSave = projectWith({{ctax: S.ctax+10000}});
-  levers.push({{
-    action: 'Add $10K/yr to taxable savings',
-    delta:  Math.round(rSave.sr*100) - sr0,
-    note:   'Compounds in taxable for '+res.yA+' years before retirement',
-    effort: 'Medium'
-  }});
-
-  // Lever 4: delay SS from ssage to 70
-  if (S.ssage < 70) {{
-    var rSS70 = projectWith({{ssage: 70, ss: Math.round(S.ss*1.24)}});
-    levers.push({{
-      action: 'Delay Social Security to age 70',
-      delta:  Math.round(rSS70.sr*100) - sr0,
-      note:   fmtK(Math.round(S.ss*1.24)*12)+'/yr vs '+fmtK(S.ss*12)+'/yr -- draw taxable bridge in gap',
-      effort: 'Low'
-    }});
-  }}
-
-  // Lever 5: sell all RSUs (100%)
-  if (S.rsusell < 100) {{
-    var rRSU = projectWith({{rsusell: 100}});
-    levers.push({{
-      action: 'Sell 100% of RSUs at vest (currently '+S.rsusell+'%)',
-      delta:  Math.round(rRSU.sr*100) - sr0,
-      note:   'Diversifies HD concentration, reinvests into blended portfolio',
-      effort: 'Low'
-    }});
-  }}
-
-  // Sort by impact descending, filter to only positive deltas
-  levers.sort(function(a,b) {{ return b.delta - a.delta; }});
-  levers = levers.filter(function(l) {{ return l.delta >= 0; }});
-
-  if (levers.length > 0) {{
-    var tbl = document.createElement('div');
-    tbl.className = 'insight';
-    tbl.style.borderLeftColor = 'var(--gold)';
-    tbl.style.flexDirection = 'column';
-    tbl.style.gap = '0';
-
-    var header = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
-      '<span class="ins-icon" style="color:var(--gold)">&#9670;</span>' +
-      '<span style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Best Levers -- Ranked by Impact</span>' +
-      '</div>';
-
-    var rows = '<table style="width:100%;border-collapse:collapse;font-size:11px">' +
-      '<tr style="border-bottom:1px solid var(--border)">' +
-      '<th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th>' +
-      '<th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th>' +
-      '<th style="text-align:right;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th>' +
-      '</tr>';
-
-    levers.forEach(function(l, i) {{
-      var impactCol = l.delta >= 10 ? 'var(--green-lt)' : l.delta >= 5 ? 'var(--gold)' : 'var(--muted)';
-      var effortCol = l.effort === 'Low' ? 'var(--green-lt)' : l.effort === 'Medium' ? 'var(--gold)' : 'var(--red-lt)';
-      rows += '<tr style="border-bottom:1px solid var(--border)">' +
-        '<td style="padding:8px 0;color:var(--text)">' + l.action +
-        '<div style="font-size:10px;color:var(--muted);margin-top:2px">' + l.note + '</div></td>' +
-        '<td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+impactCol+'">+'+l.delta+'%</td>' +
-        '<td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+effortCol+'">'+l.effort.toUpperCase()+'</td>' +
-        '</tr>';
-    }});
-    rows += '</table>';
-
-    tbl.innerHTML = header + rows;
-    el.appendChild(tbl);
-  }}
-
-  // ── Debt payoff insight ──────────────────────────────────────────────────
-  // Stanford loan: at current pace ($1,100/mo), payoff in ~26 months -> mid 2028
-  var stanfordBalance = 28177, stanfordRate = 0.03/12, stanfordPmt = 1100;
-  var stanfordMonths  = Math.ceil(Math.log(stanfordPmt/(stanfordPmt-stanfordBalance*stanfordRate)) / Math.log(1+stanfordRate));
-  var stanfordDate    = new Date(); stanfordDate.setMonth(stanfordDate.getMonth()+stanfordMonths);
-  supportItems.push({{icon:'&#9650;',col:'var(--green-lt)',
-    text:'Stanford loan ($'+Math.round(stanfordBalance).toLocaleString()+' at 3%) pays off in ~<strong>'+stanfordMonths+' months</strong> ('+stanfordDate.toLocaleDateString('en-US',{{month:'short',year:'numeric'}})+'), freeing <strong>$1,100/mo</strong> to redirect to taxable investing. ' +
-    'At current pace: debt-free (ex-mortgage) by late 2028.'}});
-
-  // ── Supporting insights ───────────────────────────────────────────────────
-  var supportItems = [];
-
-  // Recommended age
-  var recAge=null, recSR=0;
-  for (var ai=0;ai<SCAN_AGES.length;ai++) {{
-    var cached = _cacheScen[SCAN_AGES[ai]];
-    if (cached&&cached.sr>=SUCCESS_THRESHOLD&&recAge===null) {{ recAge=SCAN_AGES[ai]; recSR=Math.round(cached.sr*100); }}
-  }}
-  if (recAge!==null) {{
-    supportItems.push({{icon:'&#9670;',col:'var(--gold)',
-      text:'<strong>Age '+recAge+'</strong> is your modeled earliest retirement with 85%+ success (<strong>'+recSR+'%</strong>) under '+S.market+' market conditions.'}});
-  }}
-
-  var ss62=Math.round(S.ss*0.70), ss70=Math.round(S.ss*1.24);
-  supportItems.push({{icon:'&#9711;',col:'var(--blue)',
-    text:'SS at 62 = <strong>'+fmtK(ss62*12)+'/yr</strong> vs. at 70 = <strong>'+fmtK(ss70*12)+'/yr</strong>. In early retirement, draw taxable accounts first and delay SS -- lets Roth compound tax-free longer.'}});
-
-  supportItems.push({{icon:'&#9632;',col:'var(--muted)',
-    text:'Roth IRA projected at <strong>'+fmtK(res.bkt.roth)+'</strong> at retirement. No RMDs, tax-free withdrawals, passes to heirs tax-free. Draw taxable accounts first in retirement to protect this compounding.'}});
-
-  supportItems.forEach(function(ins) {{
-    var d = document.createElement('div');
-    d.className='insight'; d.style.borderLeftColor=ins.col;
-    d.innerHTML='<span class="ins-icon" style="color:'+ins.col+'">'+ins.icon+'</span><span class="ins-text">'+ins.text+'</span>';
-    el.appendChild(d);
-  }});
-}}
-
-// ============================================================
-// TAX PROJECTION
-// ============================================================
-function calcTax() {{
-  function v(id) {{ return parseNum(document.getElementById(id).value) || 0; }}
-  var wages    = v('tx-wages');
-  var bonus    = v('tx-bonus');
-  var rsu      = v('tx-rsu');
-  var espp     = v('tx-espp');
-  var cg       = v('tx-cg');
-  var grace    = v('tx-grace');
-  var withheld = v('tx-withheld');
-  var estPay   = v('tx-estpay');
-
-  var totalIncome = wages + bonus + rsu + espp + grace;
-  // 401k and HSA deductions
-  var deductions  = 23000 + 8550 + 31500; // 401k + HSA + std deduction MFJ
-  var agi         = Math.max(0, totalIncome - 23000 - 8550); // pre-deduction AGI
-  var taxableInc  = Math.max(0, agi - 31500 + cg); // add back cap gains
-
-  // 2026 MFJ brackets (approximate)
-  function fedTax(inc) {{
-    var tax = 0;
-    var brackets = [[23200,0.10],[94300,0.12],[201050,0.22],[383900,0.24],[487450,0.32],[731200,0.35],[1e9,0.37]];
-    var prev = 0;
-    for (var i=0;i<brackets.length;i++) {{
-      var top = brackets[i][0], rate = brackets[i][1];
-      if (inc <= prev) break;
-      tax += Math.min(inc-prev, top-prev) * rate;
-      if (inc <= top) break;
-      prev = top;
-    }}
-    return tax;
-  }}
-
-  // Cap gains tax (0% / 15% / 20% thresholds MFJ 2026 approx)
-  function cgTax(inc, cg) {{
-    if (inc < 94050) return 0;
-    if (inc < 583750) return cg * 0.15;
-    return cg * 0.20;
-  }}
-
-  var ordinaryTax = fedTax(Math.max(0, taxableInc - cg));
-  var capitalTax  = cgTax(taxableInc, cg);
-  var niit        = agi > 250000 ? Math.min(cg, agi-250000) * 0.038 : 0;
-  var totalFed    = ordinaryTax + capitalTax + niit;
-  var childCredit = 4400; // 2 kids
-  var totalFedNet = Math.max(0, totalFed - childCredit);
-
-  var totalPaid   = withheld + estPay;
-  var balance     = totalFedNet - totalPaid;
-  var remaining   = Math.max(0, totalFedNet - totalPaid);
-
-  var balColor = balance > 5000 ? 'var(--red-lt)' : balance > 0 ? 'var(--amber)' : 'var(--green-lt)';
-  var balLabel = balance > 0 ? 'Balance Due' : 'Overpaid';
-  var balBadge = balance > 5000 ? 'badge-red' : balance > 0 ? 'badge-amber' : 'badge-green';
-
-  var paidPct = Math.min(Math.round(totalPaid/Math.max(totalFedNet,1)*100), 100);
-
-  var html = '<div class="tax-card">' +
-    '<div class="tax-card-lbl">Income Summary</div>' +
-    '<div class="tax-line"><span class="lbl">W-2 Wages</span><span class="val">'+fmtD(wages)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Bonus</span><span class="val">'+fmtD(bonus)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">RSU Vest Income</span><span class="val">'+fmtD(rsu)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">ESPP Gain</span><span class="val">'+fmtD(espp)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Capital Gains</span><span class="val">'+fmtD(cg)+'</span></div>' +
-    (grace>0?'<div class="tax-line"><span class="lbl">Grace Income</span><span class="val">'+fmtD(grace)+'</span></div>':'')+
-    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Income</span><span class="val" style="color:var(--text)">'+fmtD(totalIncome)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">AGI</span><span class="val">'+fmtD(agi)+'</span></div>' +
-    '</div>' +
-    '<div class="tax-card">' +
-    '<div class="tax-card-lbl">Tax Calculation</div>' +
-    '<div class="tax-line"><span class="lbl">Ordinary Income Tax</span><span class="val">'+fmtD(ordinaryTax)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Capital Gains Tax</span><span class="val">'+fmtD(capitalTax)+'</span></div>' +
-    (niit>0?'<div class="tax-line"><span class="lbl">NIIT (3.8%)</span><span class="val">'+fmtD(niit)+'</span></div>':'')+
-    '<div class="tax-line"><span class="lbl">Child Tax Credit</span><span class="val" style="color:var(--green-lt)">-'+fmtD(childCredit)+'</span></div>' +
-    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Federal Tax</span><span class="val" style="color:var(--text)">'+fmtD(totalFedNet)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Effective Rate</span><span class="val">'+fmtPct(totalFedNet/Math.max(agi,1)*100)+'</span></div>' +
-    '<div class="tax-meter">' +
-    '<div style="display:flex;justify-content:space-between;font-family:\'DM Mono\',monospace;font-size:9px;color:var(--label);margin-bottom:5px"><span>Payments: '+fmtD(totalPaid)+'</span><span>'+paidPct+'% covered</span></div>' +
-    '<div class="tax-meter-bar"><div class="tax-meter-fill" style="width:'+paidPct+'%;background:'+(paidPct>=90?'var(--green)':paidPct>=70?'var(--amber)':'var(--red)')+'"></div></div>' +
-    '</div>' +
-    '<div class="tax-alert" style="background:'+(balance>5000?'var(--red-bg)':balance>0?'#1a1200':'var(--green-bg)')+';border:1px solid '+(balance>5000?'var(--red)':balance>0?'var(--amber)':'var(--green)')+'">'+
-    '<span style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:'+(balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)')+'">'+balLabel+': </span>' +
-    '<span style="font-family:\'DM Serif Display\',serif;font-size:18px;color:'+balColor+'">'+fmtD(Math.abs(balance))+'</span>' +
-    (balance>8000?'<div style="margin-top:6px;font-size:11px;color:var(--muted)">Consider adding $'+Math.round(balance/20/100)*100+'/paycheck extra withholding to cover the remaining balance.</div>':'') +
-    '</div>' +
-    '</div>';
-  document.getElementById('tax-output').innerHTML = html;
-}}
-
-// ============================================================
-// DEBT TRACKER
-// ============================================================
-var DEBTS = [
-  {{name:'Tesla Model 3 (4.5%)',   balance:{tesla_bal},   rate:0.045, payment:489,  extra:0, color:'var(--amber)',    origBalance:22000}},
-  {{name:'Lexus GX460 (4.5%)',     balance:{lexus_bal},  rate:0.045, payment:711,  extra:0, color:'var(--amber)',    origBalance:28000}},
-  {{name:'Stanford Student Loan',  balance:{stanford_bal},  rate:0.03,  payment:1100, extra:0, color:'var(--blue)',     origBalance:55000}},
-  {{name:'Mortgage (2.75%)',       balance:{mortgage_bal}, rate:0.0275,payment:1646, extra:0, color:'var(--muted)',    origBalance:317000, isMortgage:true}},
-];
-function buildDebtTracker() {{
-  var el = document.getElementById('debt-grid');
-  el.innerHTML = '';
-  var totalNonMort = 0;
-  var latestPayoff = new Date();
-
-  DEBTS.forEach(function(d, idx) {{
-    if (!d.isMortgage) totalNonMort += d.balance;
-
-    // Calculate payoff timeline
-    var bal = d.balance, rate = d.rate/12, pmt = d.payment + d.extra;
-    var months = 0;
-    if (pmt > bal*rate) {{
-      months = Math.ceil(Math.log(pmt/(pmt-bal*rate)) / Math.log(1+rate));
-    }} else {{
-      months = 999;
-    }}
-    var payoffDate = new Date();
-    payoffDate.setMonth(payoffDate.getMonth() + months);
-    var payoffStr = months >= 999 ? 'Never (payment too low)' :
-      payoffDate.toLocaleDateString('en-US',{{month:'short',year:'numeric'}});
-    var totalInterest = Math.max(0, pmt*months - bal);
-    var paidPct = Math.min(100, Math.round((1 - bal/Math.max(d.origBalance||bal*1.5, bal))*100));
-    if (payoffDate > latestPayoff && !d.isMortgage) latestPayoff = payoffDate;
-
-    var row = document.createElement('div');
-    row.className = 'debt-row';
-    row.innerHTML =
-      '<div class="debt-top">' +
-      '<div class="debt-name">'+d.name+' <span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--label)">'+(d.rate*100).toFixed(2)+'%</span></div>' +
-      '<div class="debt-bal">-'+fmtD(bal)+'</div>' +
-      '</div>' +
-      '<div class="debt-bar-wrap"><div class="debt-bar" style="width:'+paidPct+'%;background:'+d.color+'"></div></div>' +
-      '<div class="debt-meta"><span>$'+Math.round(pmt).toLocaleString()+'/mo'+(d.extra>0?' (incl. $'+d.extra+' extra)':'')+'</span><span>'+paidPct+'% paid down</span></div>' +
-      '<div class="debt-payoff">Payoff: '+payoffStr+(months<999?' &middot; $'+Math.round(totalInterest).toLocaleString()+' total interest remaining':'')+'</div>' +
-      '<div style="margin-top:8px;display:flex;align-items:center;gap:8px">' +
-      '<span style="font-family:\'DM Mono\',monospace;font-size:9px;color:var(--label)">EXTRA PAYMENT/MO</span>' +
-      '<input type="range" min="0" max="'+(d.isMortgage?500:2000)+'" step="50" value="'+d.extra+'" style="-webkit-appearance:none;flex:1;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer" oninput="updateDebtExtra('+idx+',this.value)">' +
-      '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--gold);min-width:40px">$'+d.extra+'</span>' +
-      '</div>';
-    el.appendChild(row);
-  }});
-
-  document.getElementById('total-debt').textContent = '-' + fmtD(totalNonMort);
-  var totalInterestAll = DEBTS.filter(function(d){{return !d.isMortgage;}})
-    .reduce(function(sum,d) {{
-      var r = d.rate/12, p = d.payment+d.extra, b = d.balance;
-      var mo = p > b*r ? Math.ceil(Math.log(p/(p-b*r))/Math.log(1+r)) : 0;
-      return sum + Math.max(0, p*mo - b);
-    }}, 0);
-  document.getElementById('debt-free-date').textContent =
-    totalNonMort > 0
-      ? 'Non-mortgage debt-free: ' + latestPayoff.toLocaleDateString('en-US',{{month:'long',year:'numeric'}}) +
-        ' -- $' + Math.round(totalInterestAll).toLocaleString() + ' total interest remaining'
-      : 'Non-mortgage debt-free!';
-}}
-
-function updateDebtExtra(idx, val) {{
-  DEBTS[idx].extra = parseInt(val);
-  buildDebtTracker();
-}}
-
-// ============================================================
-// SCENARIOS TAB
-// ============================================================
-var NAMED_SCENARIOS = [
-  {{name:'Base Case', desc:'Current trajectory', color:'var(--gold)',
-   overrides:{{}}}},
-  {{name:'Early at 55', desc:'Retire age 55, same spend', color:'var(--amber)',
-   overrides:{{retireAge:55}}}},
-  {{name:'HD Job Loss', desc:'No salary from age 45, reduced savings', color:'var(--red-lt)',
-   overrides:{{retireAge:60, c401k:0, croth:14000, ctax:0, espp:0, rsugrant:0, spend:90000}}}},
-  {{name:'Grace Returns', desc:'Grace returns to work, +$80K income', color:'var(--green-lt)',
-   overrides:{{croth:14000, ctax:38000, groth:15000}}}},
-  {{name:'Retire at 60', desc:'2 more years, higher savings', color:'var(--green)',
-   overrides:{{retireAge:60}}}},
-  {{name:'Lean FIRE', desc:'Reduce spending to $85K/yr', color:'var(--blue-lt)',
-   overrides:{{spend:85000, retireAge:55}}}},
-];
-
-function buildScenarios() {{
-  var el = document.getElementById('scenario-compare');
-  el.innerHTML = '';
-  NAMED_SCENARIOS.forEach(function(sc) {{
-    var res = projectWith(sc.overrides);
-    var sp  = Math.round(res.sr*100);
-    var card = document.createElement('div');
-    card.className = 'sc-compare-card';
-    card.style.borderTop = '2px solid ' + sc.color;
-    card.innerHTML =
-      '<div class="sc-compare-name">'+sc.name+'</div>' +
-      '<div class="sc-compare-num" style="color:'+sc.color+'">'+fmtK(res.portAtRet)+'</div>' +
-      '<div class="sc-compare-sub" style="margin-bottom:8px">at retirement &middot; '+fmtK(res.medFinal)+' at 95</div>' +
-      '<div style="font-family:\'DM Mono\',monospace;font-size:11px;color:'+(sp>=85?'var(--green-lt)':sp>=70?'var(--gold)':'var(--red-lt)')+'">'+sp+'% success rate</div>' +
-      '<div style="font-size:10px;color:var(--muted);margin-top:4px">'+sc.desc+'</div>';
-    el.appendChild(card);
-  }});
-}}
-
-// ============================================================
-// INIT
-// ============================================================
-window.addEventListener('resize', function() {{
-  if (_cache) drawChart(_cache.p25, _cache.p50, _cache.p75, S.retireAge);
-}});
-initControls();
-calcTax();
-buildDebtTracker();
-recalc();
-</script>
-</body>
-</html>
-"""
-
-
-
-# ── Retirement Calculator Generator ───────────────────────────────────────────
-
-def build_retirement_calculator(accounts, week_end):
-    """
-    Generate a personalized retirement_calculator.html with current balances
-    injected from Monarch. Returns the HTML string.
-    """
-    # Extract current balances by account name keyword
-    def find_balance(keywords):
-        for a in accounts:
-            name = (a.get("displayName") or a.get("name") or "").lower()
-            if any(k in name for k in keywords):
-                bal = float(a.get("currentBalance") or 0)
-                if bal > 0:
-                    return bal
-        return 0
-
-    roth    = find_balance(["roth ira", "peyton - roth"])
-    groth   = find_balance(["grace", "grace - roth", "grace roth"])
-    k401    = find_balance(["401(k)", "home depot 401", "vanguard - deloitte"])
-    taxable = find_balance(["taxable brokerage", "vanguard - taxable"])
-    hsa     = find_balance(["hsa investment", "hsa deposit"])
-    rsus    = find_balance(["rsu", "vested shares", "espp", "employee stock"])
-
-    # Debt balances (negative in Monarch API, take abs)
-    def find_debt(keywords):
-        for a in accounts:
-            name = (a.get("displayName") or a.get("name") or "").lower()
-            if any(k in name for k in keywords):
-                bal = float(a.get("currentBalance") or 0)
-                if bal < 0:
-                    return abs(bal)
-        return 0
-
-    tesla_bal    = find_debt(["tesla", "model 3"])
-    lexus_bal    = find_debt(["lexus", "gx460"])
-    stanford_bal = find_debt(["stanford", "student loan"])
-    mortgage_bal = find_debt(["mortgage", "mccully"])
-
-    as_of = week_end.strftime("%B %-d, %Y")
-
-    calc_html = RETIREMENT_CALC_TEMPLATE.format(
-        as_of=as_of,
-        roth=int(roth),
-        groth=int(groth) if groth else 15000,
-        k401=int(k401),
-        taxable=int(taxable),
-        hsa=int(hsa),
-        rsus=int(rsus),
-        tesla_bal=int(tesla_bal) if tesla_bal else 9036,
-        lexus_bal=int(lexus_bal) if lexus_bal else 18835,
-        stanford_bal=int(stanford_bal) if stanford_bal else 28177,
-        mortgage_bal=int(mortgage_bal) if mortgage_bal else 286822,
-    )
-    return calc_html
-
+# ── Email Send ─────────────────────────────────────────────────────────────────
 
 def send_email(subject, html_body):
     msg = MIMEMultipart("alternative")
@@ -2489,24 +1003,54 @@ def send_email(subject, html_body):
     print(f"✓ Sent to {RECIPIENT_EMAIL}")
 
 
+# ── Main ───────────────────────────────────────────────────────────────────────
+
 async def main():
+    today = date.today()
+    is_monday = today.weekday() == 0
+
+    print(f"Running {'Monday digest' if is_monday else 'daily balance sync'} for {today}")
+
     print("Fetching Monarch data...")
     (today, week_start, week_end, week_txns, mtd_txns,
      accounts, cashflow, history_by_id, budgets, recurring) = await fetch_data()
 
-    net_worth, _, _ = compute_net_worth(accounts)
-    print(f"  NW: {fmt(net_worth)} · {len(week_txns)} week txns · "
-          f"{len(mtd_txns)} MTD · budgets={'yes' if budgets else 'no'} · "
-          f"recurring={len(recurring)}")
+    net_worth, assets, liabilities = compute_net_worth(accounts)
+    print(f"  NW: {fmt(net_worth)} · assets: {fmt(assets)} · debt: {fmt(liabilities)}")
+    print(f"  Accounts: {len(accounts)}")
 
-    print("Building weekly digest...")
+    # ── Always: write balances.json ──────────────────────────────────────────
+    print("Building balances.json...")
+    balances = build_balances_json(accounts, today)
+    with open("balances.json", "w") as f:
+        json.dump(balances, f, indent=2)
+    print("✓ balances.json written")
 
-    week_label = f"{week_start.strftime('%b %-d')}\u2013{week_end.strftime('%-d')}"
-    subject    = f"\U0001f4b0 Monarch Weekly \u00b7 {week_label} \u00b7 NW {fmt(net_worth)}"
-    html = build_email(today, week_start, week_end, week_txns, mtd_txns,
-                       accounts, cashflow, history_by_id, budgets, recurring,
-                       calc_url=CALC_URL)
-    send_email(subject, html)
+    # ── Always: update nw_history.json ──────────────────────────────────────
+    print("Updating nw_history.json...")
+    update_nw_history(net_worth, today, "nw_history.json")
+
+    # ── Commit both files ────────────────────────────────────────────────────
+    git_commit(
+        ["balances.json", "nw_history.json"],
+        f"Daily balance sync {today} · NW ${net_worth:,.0f}"
+    )
+
+    # ── Monday only: send digest email ───────────────────────────────────────
+    if is_monday:
+        print("Building weekly digest email...")
+        week_label = f"{week_start.strftime('%b %-d')}\u2013{week_end.strftime('%-d')}"
+        subject    = f"\U0001f4b0 Monarch Weekly \u00b7 {week_label} \u00b7 NW {fmt(net_worth)}"
+        html = build_email(
+            today, week_start, week_end, week_txns, mtd_txns,
+            accounts, cashflow, history_by_id, budgets, recurring,
+            dashboard_url=DASHBOARD_URL
+        )
+        send_email(subject, html)
+    else:
+        print("Skipping digest email (not Monday)")
+
+    print("Done.")
 
 
 if __name__ == "__main__":
