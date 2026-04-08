@@ -144,9 +144,9 @@ def get_week_range(today: date):
 def find_balance(accounts, keywords, must_be_positive=True):
     """Find account balance by name keywords."""
     for a in accounts:
-        name = (a.get("displayName") or a.get("name") or "").lower()
-        if any(k.lower() in name for k in keywords):
-            bal = float(a.get("currentBalance") or 0)
+        acct_name = (a.get("displayName") or a.get("name") or "").lower()
+        if any(k.lower() in acct_name for k in keywords):
+            bal = float(a.get("currentBalance") or a.get("balance") or 0)
             if must_be_positive and bal > 0:
                 return int(bal)
             if not must_be_positive and bal < 0:
@@ -173,7 +173,7 @@ def compute_net_worth(accounts):
     for a in accounts:
         if a.get("includeInNetWorth") is False:
             continue
-        b = float(a.get("currentBalance") or 0)
+        b = float(a.get("currentBalance") or a.get("balance") or 0)
         net_worth += b
         if b >= 0:
             assets += b
@@ -188,38 +188,77 @@ def build_balances_json(accounts, today: date) -> dict:
     """
     Build the complete balances.json snapshot.
     Includes pre-computed dashboard fields AND full account list.
+
+    Monarch returns these type strings (confirmed from live data):
+      "brokerage"   — all investment accounts (Roth, 401k, taxable, HSA, 529, RSUs, etc.)
+      "depository"  — checking and savings accounts
+      "loan"        — mortgages, auto loans, student loans
+      "credit"      — credit cards
+      "vehicle"     — car values (KBB via VinAudit)
+      "real_estate" — home value (Zillow)
     """
     net_worth, assets, liabilities = compute_net_worth(accounts)
 
-    # Combined HSA (investment + deposit)
-    hsa_total = sum(
-        float(a.get("currentBalance") or 0)
-        for a in accounts
-        if "hsa" in (a.get("displayName") or a.get("name") or "").lower()
-        and float(a.get("currentBalance") or 0) > 0
-    )
+    # Helper: get name string for an account
+    def name(a):
+        return (a.get("displayName") or a.get("name") or "").lower()
 
-    # Taxable = Vanguard taxable + S&P 500 Direct (both are taxable brokerage)
+    def bal(a):
+        return float(a.get("currentBalance") or 0)
+
+    # Names that disqualify a brokerage account from being "taxable"
+    NON_TAXABLE_KEYWORDS = [
+        "roth", "401", "hsa", "liia", "home depot rsu", "the home depot rsu",
+        "eleanor", "arthur", "529", "espp", "vested shares", "bond portfolio",
+        "wealthfront investment", "nasdaq", "staging", "deloitte", "rollover",
+        "traditional ira", "thd employee", "employee stock purchase",
+    ]
+
+    # Taxable brokerage = all brokerage accounts that aren't retirement/HD/529/HSA
     taxable_total = sum(
-        float(a.get("currentBalance") or 0)
-        for a in accounts
-        if (a.get("type") or {}).get("name") == "Brokerage (Taxable)"
-        and float(a.get("currentBalance") or 0) > 0
-        and not any(k in (a.get("displayName") or "").lower()
-                    for k in ["liia", "rsu", "espp", "employee stock"])
+        bal(a) for a in accounts
+        if a.get("type") == "brokerage"
+        and bal(a) > 0
+        and not any(k in name(a) for k in NON_TAXABLE_KEYWORDS)
     )
 
-    # Full account list for the dashboard to use freely
+    # HSA = both HSA accounts combined
+    hsa_total = sum(
+        bal(a) for a in accounts
+        if "hsa" in name(a) and bal(a) > 0
+    )
+
+    # Cash = all depository accounts, positive, excluding Roth staging
+    cash_total = sum(
+        bal(a) for a in accounts
+        if a.get("type") == "depository"
+        and bal(a) > 0
+        and "roth" not in name(a)
+    )
+
+    # Vehicles = type "vehicle", positive
+    vehicle_total = sum(
+        bal(a) for a in accounts
+        if a.get("type") == "vehicle" and bal(a) > 0
+    )
+
+    # Credit cards = type "credit", negative balances
+    cc_total = abs(sum(
+        bal(a) for a in accounts
+        if a.get("type") == "credit" and bal(a) < 0
+    ))
+
+    # Full account list — using correct field names from Monarch API
     account_list = []
     for a in accounts:
         account_list.append({
             "id":            a.get("id"),
             "name":          a.get("displayName") or a.get("name"),
-            "type":          (a.get("type") or {}).get("name"),
-            "balance":       round(float(a.get("currentBalance") or 0), 2),
+            "type":          a.get("type"),           # plain string e.g. "brokerage"
+            "balance":       round(bal(a), 2),
             "include_in_nw": a.get("includeInNetWorth", True),
             "is_asset":      a.get("isAsset", True),
-            "institution":   (a.get("institution") or {}).get("name"),
+            "institution":   (a.get("institution") or {}).get("name") or a.get("institution"),
         })
 
     return {
@@ -227,46 +266,45 @@ def build_balances_json(accounts, today: date) -> dict:
         "generated_at": today.isoformat(),
         "_cached":      False,
 
-        # ── Pre-computed dashboard fields ──────────────────────────────
-        # Retirement accounts
-        "roth":         find_balance(accounts, ["peyton - roth", "peyton roth"]),
-        "groth":        find_balance(accounts, ["grace - roth", "grace roth"]),
-        "k401":         find_balance(accounts, ["home depot 401", "401(k)"]),
+        # ── Retirement accounts ────────────────────────────────────────
+        "roth":         find_balance(accounts, ["peyton - roth"]),
+        "groth":        find_balance(accounts, ["grace - roth"]),
+        "k401":         find_balance(accounts, ["home depot 401"]),
         "taxable":      int(taxable_total),
         "hsa":          int(hsa_total),
-        "hd_vested":    find_balance(accounts, ["liia", "liia-"]),
-        "hd_rsus":      find_balance(accounts, ["home depot rsu", "the home depot rsu"]),
+        "hd_vested":    find_balance(accounts, ["liia-", "liia "]),
+        "hd_rsus":      find_balance(accounts, ["the home depot rsus"]),
 
-        # Cash
-        "roth_staging": find_balance(accounts, ["roth staging", "wealthfront roth"]),
-        "total_cash":   int(sum_by_type(accounts, ["Checking", "Savings"], positive_only=True)),
+        # ── Cash ───────────────────────────────────────────────────────
+        "roth_staging": find_balance(accounts, ["roth staging"]),
+        "total_cash":   int(cash_total),
 
-        # 529s
+        # ── 529s ───────────────────────────────────────────────────────
         "eleanor_529":  find_balance(accounts, ["eleanor"]),
         "arthur_529":   find_balance(accounts, ["arthur"]),
 
-        # Debt
+        # ── Debt ───────────────────────────────────────────────────────
         "mortgage_bal": find_balance(accounts, ["mccully", "mortgage"], must_be_positive=False),
         "stanford_bal": find_balance(accounts, ["stanford"], must_be_positive=False),
-        "lexus_bal":    find_balance(accounts, ["lexus", "gx460"], must_be_positive=False),
+        "lexus_bal":    find_balance(accounts, ["gx460"], must_be_positive=False),
         "tesla_bal":    find_balance(accounts, ["tesla", "model 3"], must_be_positive=False),
-        "cc_total":     int(abs(sum_by_type(accounts, ["Credit Card"], negative_only=True))),
+        "cc_total":     int(cc_total),
 
-        # Real estate & vehicles
-        "home_value":   find_balance(accounts, ["mccully", "3149 mccully"]),
-        "vehicle_total": int(sum_by_type(accounts, ["Car"], positive_only=True)),
-        "lexus_value":  find_balance(accounts, ["lexus gx", "2019 lexus"]),
-        "tesla_value":  find_balance(accounts, ["tesla model 3", "2023 tesla"]),
+        # ── Real estate & vehicles ─────────────────────────────────────
+        "home_value":   find_balance(accounts, ["mccully", "3149"]),
+        "vehicle_total": int(vehicle_total),
+        "lexus_value":  find_balance(accounts, ["lexus gx base", "2019 lexus gx"]),
+        "tesla_value":  find_balance(accounts, ["tesla model 3 base", "2023 tesla"]),
 
-        # Summary
+        # ── Summary ────────────────────────────────────────────────────
         "net_worth":    int(net_worth),
         "total_assets": int(assets),
         "total_debt":   int(liabilities),
 
-        # Full account list
+        # ── Full account list ──────────────────────────────────────────
         "accounts":     account_list,
 
-        # Age (dynamic)
+        # ── Meta ───────────────────────────────────────────────────────
         "peyton_age":   current_age(),
     }
 
@@ -859,7 +897,7 @@ def build_cashflow_html(cashflow, mtd_txns, week_end):
 def build_debt_html(accounts):
     debts = []
     for a in accounts:
-        name = (a.get("displayName") or a.get("name") or "").lower()
+        acct_name = (a.get("displayName") or a.get("name") or "").lower()
         if not any(k in name for k in DEBT_ACCOUNTS):
             continue
         bal = float(a.get("currentBalance") or 0)
