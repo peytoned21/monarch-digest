@@ -5,21 +5,21 @@
   "roth": 391404,
   "groth": 14412,
   "k401": 154673,
-  "taxable": 0,
+  "taxable": 167567,
   "hsa": 14484,
   "hd_vested": 14045,
   "hd_rsus": 97995,
   "roth_staging": 3761,
-  "total_cash": 0,
+  "total_cash": 89385,
   "eleanor_529": 25827,
   "arthur_529": 10092,
   "mortgage_bal": 286134,
   "stanford_bal": 27125,
   "lexus_bal": 18835,
   "tesla_bal": 9036,
-  "cc_total": 0,
+  "cc_total": 24036,
   "home_value": 697000,
-  "vehicle_total": 0,
+  "vehicle_total": 59338,
   "lexus_value": 34920,
   "tesla_value": 24418,
   "net_worth": 1375371,
@@ -29,11 +29,7 @@
     {
       "id": "166314504416601073",
       "name": "Citi Mastercard",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": false,
@@ -42,11 +38,7 @@
     {
       "id": "166314976548430099",
       "name": "Membership Savings (...4926)",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 10.01,
       "include_in_nw": true,
       "is_asset": true,
@@ -55,11 +47,7 @@
     {
       "id": "166315121196343650",
       "name": "2019 Lexus GX460 (4.5%)",
-      "type": {
-        "name": "loan",
-        "display": "Loans",
-        "__typename": "AccountType"
-      },
+      "type": "loan",
       "balance": -18835.18,
       "include_in_nw": true,
       "is_asset": false,
@@ -68,11 +56,7 @@
     {
       "id": "166315121740554595",
       "name": "Primary Share Savings (...8280)",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 25.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -81,11 +65,7 @@
     {
       "id": "166315121937686884",
       "name": "Simply Checking (...8318)",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 1.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -94,11 +74,7 @@
     {
       "id": "166315122046738789",
       "name": "2023 Tesla Model 3 (4.5%)",
-      "type": {
-        "name": "loan",
-        "display": "Loans",
-        "__typename": "AccountType"
-      },
+      "type": "loan",
       "balance": -9036.02,
       "include_in_nw": true,
       "is_asset": false,
@@ -107,11 +83,7 @@
     {
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 391404.04,
       "include_in_nw": true,
       "is_asset": true,
@@ -120,11 +92,7 @@
     {
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 130864.82,
       "include_in_nw": true,
       "is_asset": true,
@@ -133,11 +101,7 @@
     {
       "id": "166315464338645527",
       "name": "Vanguard - Deloitte 401(k)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -146,11 +110,7 @@
     {
       "id": "166315464523194904",
       "name": "Vanguard - Rollover IRA",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -159,11 +119,7 @@
     {
       "id": "166315998161347419",
       "name": "Wells Fargo Checking",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 451.77,
       "include_in_nw": true,
       "is_asset": true,
@@ -172,11 +128,7 @@
     {
       "id": "166315998249427804",
       "name": "Wells Fargo Savings",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 200.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -185,11 +137,7 @@
     {
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 88677.89,
       "include_in_nw": true,
       "is_asset": true,
@@ -198,11 +146,7 @@
     {
       "id": "166319078653239744",
       "name": "Wealthfront Investment Account",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 393.74,
       "include_in_nw": true,
       "is_asset": true,
@@ -211,11 +155,7 @@
     {
       "id": "166319078694134209",
       "name": "Wealthfront Automated Bond Portfolio",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.18,
       "include_in_nw": true,
       "is_asset": true,
@@ -224,11 +164,7 @@
     {
       "id": "166319078732931522",
       "name": "Wealthfront Roth Staging Account",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 3761.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -237,11 +173,7 @@
     {
       "id": "166319434691977910",
       "name": "Amazon Prime Card",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": -234.59,
       "include_in_nw": true,
       "is_asset": false,
@@ -250,11 +182,7 @@
     {
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": -16008.95,
       "include_in_nw": true,
       "is_asset": false,
@@ -263,11 +191,7 @@
     {
       "id": "166323459708625820",
       "name": "2019 Lexus GX Base",
-      "type": {
-        "name": "vehicle",
-        "display": "Vehicles",
-        "__typename": "AccountType"
-      },
+      "type": "vehicle",
       "balance": 34920.48,
       "include_in_nw": true,
       "is_asset": true,
@@ -276,11 +200,7 @@
     {
       "id": "166323514962289604",
       "name": "2023 Tesla Model 3 Base",
-      "type": {
-        "name": "vehicle",
-        "display": "Vehicles",
-        "__typename": "AccountType"
-      },
+      "type": "vehicle",
       "balance": 24418.38,
       "include_in_nw": true,
       "is_asset": true,
@@ -289,11 +209,7 @@
     {
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 154673.76,
       "include_in_nw": true,
       "is_asset": true,
@@ -302,11 +218,7 @@
     {
       "id": "166340476717179832",
       "name": "Eleanor 529 Plan",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 25827.54,
       "include_in_nw": true,
       "is_asset": true,
@@ -315,11 +227,7 @@
     {
       "id": "166340476873417657",
       "name": "Arthur 529 Plan",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 10092.68,
       "include_in_nw": true,
       "is_asset": true,
@@ -328,11 +236,7 @@
     {
       "id": "166396829315834201",
       "name": "Membership Savings (...4926)",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 10.01,
       "include_in_nw": true,
       "is_asset": true,
@@ -341,11 +245,7 @@
     {
       "id": "166396829932396890",
       "name": "Stanford Student Loan (3%)",
-      "type": {
-        "name": "loan",
-        "display": "Loans",
-        "__typename": "AccountType"
-      },
+      "type": "loan",
       "balance": -27125.18,
       "include_in_nw": true,
       "is_asset": false,
@@ -354,11 +254,7 @@
     {
       "id": "166412171772633985",
       "name": "THE HOME DEPOT INC EMPLOYEE STOCK PURCHASE PLAN (...3887)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -367,11 +263,7 @@
     {
       "id": "167521854616969709",
       "name": "xxxxxxxxx8818 (...8818)",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": 80.38,
       "include_in_nw": true,
       "is_asset": false,
@@ -380,11 +272,7 @@
     {
       "id": "167522072301347400",
       "name": "Banana Republic Rewards ...9371 (...9371)",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": 76.18,
       "include_in_nw": true,
       "is_asset": false,
@@ -393,11 +281,7 @@
     {
       "id": "167583325498581992",
       "name": "HSA investment account",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 13625.28,
       "include_in_nw": true,
       "is_asset": true,
@@ -406,11 +290,7 @@
     {
       "id": "167583325695714281",
       "name": "HSA deposit account",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 859.05,
       "include_in_nw": true,
       "is_asset": true,
@@ -419,11 +299,7 @@
     {
       "id": "172772382270759039",
       "name": "3149 McCully Dr Atlanta GA 30345",
-      "type": {
-        "name": "real_estate",
-        "display": "Real Estate",
-        "__typename": "AccountType"
-      },
+      "type": "real_estate",
       "balance": 697000.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -432,11 +308,7 @@
     {
       "id": "172875141729952163",
       "name": "The Home Depot RSUs",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 97995.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -445,11 +317,7 @@
     {
       "id": "172875141807546788",
       "name": "The Home Depot Vested Shares",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -458,11 +326,7 @@
     {
       "id": "173279144446993105",
       "name": "SOUTHERN FIRST ACCOUNT *2563 (...2563)",
-      "type": {
-        "name": "depository",
-        "display": "Cash",
-        "__typename": "AccountType"
-      },
+      "type": "depository",
       "balance": 9.99,
       "include_in_nw": true,
       "is_asset": true,
@@ -471,11 +335,7 @@
     {
       "id": "173279144536122066",
       "name": "HELOC Non-Purchase *1910 (...1910)",
-      "type": {
-        "name": "loan",
-        "display": "Loans",
-        "__typename": "AccountType"
-      },
+      "type": "loan",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": false,
@@ -484,11 +344,7 @@
     {
       "id": "175197949084508375",
       "name": "3149 McCully Dr. Mortgage (2.75%)",
-      "type": {
-        "name": "loan",
-        "display": "Loans",
-        "__typename": "AccountType"
-      },
+      "type": "loan",
       "balance": -286134.62,
       "include_in_nw": true,
       "is_asset": false,
@@ -497,11 +353,7 @@
     {
       "id": "190599885034038166",
       "name": "Amex Gold Card",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": -4816.93,
       "include_in_nw": true,
       "is_asset": false,
@@ -510,11 +362,7 @@
     {
       "id": "190599885260530583",
       "name": "Bonvoy Amex Card (...1012)",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": false,
@@ -523,11 +371,7 @@
     {
       "id": "196833246271447445",
       "name": "THD Employee Stock Purchase Plan",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -536,11 +380,7 @@
     {
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 36702.87,
       "include_in_nw": true,
       "is_asset": true,
@@ -549,11 +389,7 @@
     {
       "id": "203897675002618160",
       "name": "Frontier Mastercard",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": -99.0,
       "include_in_nw": true,
       "is_asset": false,
@@ -562,11 +398,7 @@
     {
       "id": "214858633887817806",
       "name": "Citi ThankYou Preferred (...3736)",
-      "type": {
-        "name": "credit",
-        "display": "Credit Cards",
-        "__typename": "AccountType"
-      },
+      "type": "credit",
       "balance": -2877.23,
       "include_in_nw": true,
       "is_asset": false,
@@ -575,11 +407,7 @@
     {
       "id": "222863172382433609",
       "name": "Grace Edwards - Traditional IRA Brokerage Account - ****6932 (...6932)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.0,
       "include_in_nw": true,
       "is_asset": true,
@@ -588,11 +416,7 @@
     {
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 14412.29,
       "include_in_nw": true,
       "is_asset": true,
@@ -601,11 +425,7 @@
     {
       "id": "223855104973808566",
       "name": "LIIA- Vested Brokerage Account (...0_A0)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 14045.95,
       "include_in_nw": true,
       "is_asset": true,
@@ -614,11 +434,7 @@
     {
       "id": "236531355609932558",
       "name": "Nasdaq-100 Direct portfolio (...8065)",
-      "type": {
-        "name": "brokerage",
-        "display": "Investments",
-        "__typename": "AccountType"
-      },
+      "type": "brokerage",
       "balance": 0.02,
       "include_in_nw": true,
       "is_asset": true,
