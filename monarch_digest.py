@@ -182,6 +182,14 @@ def compute_net_worth(accounts):
     return net_worth, assets, liabilities
 
 
+def get_account_type(a):
+    """Monarch returns type as a dict {"name": "brokerage", ...} — extract the string."""
+    t = a.get("type")
+    if isinstance(t, dict):
+        return t.get("name", "")
+    return t or ""
+
+
 # ── Balances JSON Builder ──────────────────────────────────────────────────────
 
 def build_balances_json(accounts, today: date) -> dict:
@@ -206,6 +214,13 @@ def build_balances_json(accounts, today: date) -> dict:
     def bal(a):
         return float(a.get("currentBalance") or 0)
 
+    def atype(a):
+        """Extract type string — Monarch returns type as a dict {'name': 'brokerage', ...}"""
+        t = a.get("type")
+        if isinstance(t, dict):
+            return t.get("name", "")
+        return t or ""
+
     # Names that disqualify a brokerage account from being "taxable"
     NON_TAXABLE_KEYWORDS = [
         "roth", "401", "hsa", "liia", "home depot rsu", "the home depot rsu",
@@ -217,7 +232,7 @@ def build_balances_json(accounts, today: date) -> dict:
     # Taxable brokerage = all brokerage accounts that aren't retirement/HD/529/HSA
     taxable_total = sum(
         bal(a) for a in accounts
-        if a.get("type") == "brokerage"
+        if atype(a) == "brokerage"
         and bal(a) > 0
         and not any(k in name(a) for k in NON_TAXABLE_KEYWORDS)
     )
@@ -231,7 +246,7 @@ def build_balances_json(accounts, today: date) -> dict:
     # Cash = all depository accounts, positive, excluding Roth staging
     cash_total = sum(
         bal(a) for a in accounts
-        if a.get("type") == "depository"
+        if atype(a) == "depository"
         and bal(a) > 0
         and "roth" not in name(a)
     )
@@ -239,22 +254,22 @@ def build_balances_json(accounts, today: date) -> dict:
     # Vehicles = type "vehicle", positive
     vehicle_total = sum(
         bal(a) for a in accounts
-        if a.get("type") == "vehicle" and bal(a) > 0
+        if atype(a) == "vehicle" and bal(a) > 0
     )
 
     # Credit cards = type "credit", negative balances
     cc_total = abs(sum(
         bal(a) for a in accounts
-        if a.get("type") == "credit" and bal(a) < 0
+        if atype(a) == "credit" and bal(a) < 0
     ))
 
-    # Full account list — using correct field names from Monarch API
+    # Full account list — flatten type dict to plain string for dashboard use
     account_list = []
     for a in accounts:
         account_list.append({
             "id":            a.get("id"),
             "name":          a.get("displayName") or a.get("name"),
-            "type":          a.get("type"),           # plain string e.g. "brokerage"
+            "type":          atype(a),   # plain string e.g. "brokerage"
             "balance":       round(bal(a), 2),
             "include_in_nw": a.get("includeInNetWorth", True),
             "is_asset":      a.get("isAsset", True),
