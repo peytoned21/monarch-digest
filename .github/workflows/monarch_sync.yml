@@ -1,0 +1,42 @@
+name: Monarch Daily Sync
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # Every day 7:00 AM ET (12:00 UTC)
+  workflow_dispatch:        # Allow manual trigger anytime
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # Needed to commit balances.json and nw_history.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install git+https://github.com/bradleyseanf/monarchmoneycommunity.git
+
+      - name: Configure git
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Run sync
+        env:
+          MONARCH_EMAIL:      ${{ secrets.MONARCH_EMAIL }}
+          MONARCH_PASSWORD:   ${{ secrets.MONARCH_PASSWORD }}
+          MONARCH_MFA_KEY:    ${{ secrets.MONARCH_MFA_KEY }}
+          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+          GITHUB_USER:        peytoned21
+          GITHUB_REPO:        monarch-digest
+        run: python monarch_digest.py
