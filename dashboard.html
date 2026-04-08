@@ -928,7 +928,7 @@ function buildNWTab() {
       var balStr = bal < 0 ? '-'+fmtK(Math.abs(bal)) : fmtK(bal);
       acctHtml += '<tr style="border-bottom:1px solid var(--border)">'+
         '<td style="padding:8px 0;font-size:12px;color:var(--text)">'+a.name+'</td>'+
-        '<td style="padding:8px 0;font-size:10px;color:var(--muted)">'+（a.type||'')+'</td>'+
+        '<td style="padding:8px 0;font-size:10px;color:var(--muted)">'+(a.type||'')+'</td>'+
         '<td style="padding:8px 0;text-align:right;font-family:DM Mono,monospace;font-size:12px;color:'+balColor+'">'+balStr+'</td>'+
         '</tr>';
     });
