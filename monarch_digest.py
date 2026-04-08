@@ -2500,19 +2500,9 @@ async def main():
           f"recurring={len(recurring)}")
 
     print("Building weekly digest...")
-    # html rebuilt below after calc_url is known
 
-    print("Building retirement calculator...")
-    calc_html = build_retirement_calculator(accounts, week_end)
-
-    # Write calculator to disk so the workflow can git commit it to the repo
-    # GitHub Pages will then serve it at CALC_URL
-    with open(CALC_FILENAME, "w", encoding="utf-8") as f:
-        f.write(calc_html)
-    print(f"  Wrote {CALC_FILENAME} ({len(calc_html):,} chars)")
-
-    week_label = f"{week_start.strftime('%b %-d')}–{week_end.strftime('%-d')}"
-    subject    = f"💰 Monarch Weekly · {week_label} · NW {fmt(net_worth)}"
+    week_label = f"{week_start.strftime('%b %-d')}\u2013{week_end.strftime('%-d')}"
+    subject    = f"\U0001f4b0 Monarch Weekly \u00b7 {week_label} \u00b7 NW {fmt(net_worth)}"
     html = build_email(today, week_start, week_end, week_txns, mtd_txns,
                        accounts, cashflow, history_by_id, budgets, recurring,
                        calc_url=CALC_URL)
