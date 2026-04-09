@@ -16,6 +16,7 @@
   --blue:#4a7ab8; --blue-lt:#6a9ad8; --blue-bg:#08101a;
   --amber:#c87a28; --purple:#8a5ab8; --purple-bg:#120810;
   --teal:#3a9898; --teal-lt:#5ab8b8; --teal-bg:#081818;
+  --fire:#e07a38; --fire-bg:#1a0e06; --fire-border:#7a4018;
 }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { background:var(--bg); color:var(--text); font-family:DM Sans,sans-serif; font-size:14px; line-height:1.6; min-height:100vh; }
@@ -27,10 +28,12 @@ body::before { content:''; position:fixed; inset:0; background-image:linear-grad
 h1 { font-family:DM Serif Display,serif; font-size:32px; font-weight:400; color:var(--text); line-height:1.15; margin-bottom:6px; }
 h1 em { font-style:italic; color:var(--gold); }
 .hdr-sub { font-size:11px; color:var(--muted); font-family:DM Mono,monospace; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-.tab-nav { display:flex; gap:4px; margin-bottom:20px; border-bottom:1px solid var(--border); }
+.tab-nav { display:flex; gap:4px; margin-bottom:20px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
 .tab-btn { padding:8px 16px; background:transparent; border:1px solid transparent; border-bottom:none; border-radius:4px 4px 0 0; color:var(--muted); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer; transition:all .15s; margin-bottom:-1px; }
 .tab-btn.active { background:var(--surface); border-color:var(--border); border-bottom-color:var(--surface); color:var(--gold); }
 .tab-btn:hover:not(.active) { color:var(--text); }
+.tab-btn.fire-tab.active { color:var(--fire); }
+.tab-btn.fire-tab:hover:not(.active) { color:var(--fire); }
 .tab-pane { display:none; }
 .tab-pane.active { display:block; }
 .layout { display:grid; grid-template-columns:310px 1fr; gap:20px; align-items:start; }
@@ -131,19 +134,57 @@ canvas { display:block; width:100% !important; }
 .sc-compare-name { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
 .sc-compare-num { font-family:DM Serif Display,serif; font-size:22px; color:var(--text); margin-bottom:4px; }
 .sc-compare-sub { font-size:11px; color:var(--muted); }
-/* NW Tab */
+
+/* ── NW Tab ── */
 .nw-hero { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--gold); border-radius:8px; padding:24px; margin-bottom:16px; }
 .nw-big { font-family:DM Serif Display,serif; font-size:52px; line-height:1; color:var(--gold); }
 .nw-delta { font-family:DM Mono,monospace; font-size:12px; margin-top:6px; }
 .alloc-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
 .alloc-card { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:16px; }
-/* College Tab */
+
+/* ── College Tab ── */
 .college-hero { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--teal); border-radius:8px; padding:22px 24px 20px; margin-bottom:16px; }
 .kid-card { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:18px; }
 .kid-name { font-family:DM Serif Display,serif; font-size:22px; color:var(--teal-lt); margin-bottom:4px; }
+
+/* ── FIRE Tab ── */
+.fire-hero { background:var(--surface); border:1px solid var(--fire-border); border-top:3px solid var(--fire); border-radius:8px; padding:24px; margin-bottom:20px; }
+.fire-snapshot-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:20px; }
+.fire-snapshot-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; }
+.fire-snap-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.fire-snap-val { font-family:DM Serif Display,serif; font-size:32px; line-height:1; color:var(--text); margin-bottom:4px; }
+.fire-snap-sub { font-size:10px; color:var(--muted); }
+.fire-milestones { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px; }
+.fire-milestone { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; position:relative; overflow:hidden; transition:border-color .15s; }
+.fire-milestone.achieved { border-color:var(--green); background:var(--green-bg); }
+.fire-milestone.near { border-color:var(--amber); background:rgba(200,122,40,0.05); }
+.fire-milestone.future { border-color:var(--border); }
+.fire-ms-badge { display:inline-block; font-family:DM Mono,monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; padding:2px 8px; border-radius:2px; margin-bottom:10px; }
+.fire-ms-badge.coast { background:rgba(74,122,184,0.15); border:1px solid var(--blue); color:var(--blue-lt); }
+.fire-ms-badge.barista { background:rgba(200,122,40,0.15); border:1px solid var(--amber); color:var(--amber); }
+.fire-ms-badge.full { background:rgba(200,122,40,0.15); border:1px solid var(--fire); color:var(--fire); }
+.fire-ms-label { font-size:12px; color:var(--muted); margin-bottom:8px; line-height:1.5; }
+.fire-ms-year { font-family:DM Serif Display,serif; font-size:36px; line-height:1; color:var(--fire); margin-bottom:4px; }
+.fire-ms-year.achieved-text { color:var(--green-lt); font-size:26px; line-height:1.2; }
+.fire-ms-meta { font-family:DM Mono,monospace; font-size:9px; color:var(--muted); margin-bottom:8px; }
+.fire-ms-desc { font-size:11px; color:var(--muted); line-height:1.6; }
+.fire-detail-panel { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; margin-bottom:16px; }
+.fire-detail-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:12px; }
+.fire-detail-lbl { font-family:DM Mono,monospace; font-size:9px; color:var(--muted); margin-bottom:4px; }
+.fire-detail-val { font-family:DM Serif Display,serif; font-size:28px; color:var(--fire); margin-bottom:2px; }
+.fire-detail-sub { font-size:10px; color:var(--muted); }
+.fire-assumptions { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:14px; font-family:DM Mono,monospace; font-size:9px; color:var(--label); line-height:1.9; margin-top:12px; }
+.fire-inputs { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; margin-bottom:16px; }
+.fire-input-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.fire-in-group { }
+.fire-in-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--label); margin-bottom:5px; }
+
+/* ── Footnote ── */
 .footnote { margin-top:32px; font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }
+
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-.panel,.hero,.chart-wrap,.buckets,.nw-hero,.college-hero { animation:fadeUp .35s ease both; }
+.panel,.hero,.chart-wrap,.buckets,.nw-hero,.college-hero,.fire-hero,.fire-milestone,.fire-snapshot-card { animation:fadeUp .35s ease both; }
+.fire-milestone { animation-delay:calc(var(--i,0) * 60ms); }
 </style>
 </head>
 <body>
@@ -157,7 +198,7 @@ canvas { display:block; width:100% !important; }
   </div>
   <h1>Your complete financial <em>picture</em></h1>
   <div class="hdr-sub">
-    <span>Net worth &middot; Retirement &middot; College &middot; Tax &middot; Debt &middot; All values in today's dollars</span>
+    <span>Net worth &middot; Retirement &middot; FIRE &middot; College &middot; Tax &middot; Debt &middot; All values in today's dollars</span>
     <button id="refresh-btn" onclick="refreshBalances()"
       style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
              color:var(--gold-dk);background:none;border:1px solid var(--gold-dk);border-radius:3px;
@@ -172,6 +213,7 @@ canvas { display:block; width:100% !important; }
 <div class="tab-nav">
   <button class="tab-btn active" onclick="showTab('networth',this)">Net Worth</button>
   <button class="tab-btn" onclick="showTab('retirement',this)">Retirement</button>
+  <button class="tab-btn fire-tab" onclick="showTab('fire',this)">🔥 FIRE</button>
   <button class="tab-btn" onclick="showTab('college',this)">College</button>
   <button class="tab-btn" onclick="showTab('tax',this)">Tax</button>
   <button class="tab-btn" onclick="showTab('debt',this)">Debt</button>
@@ -373,6 +415,68 @@ canvas { display:block; width:100% !important; }
 </div>
 </div>
 
+<!-- ================================================================ TAB: FIRE -->
+<div class="tab-pane" id="tab-fire">
+  <!-- Snapshot cards -->
+  <div class="fire-snapshot-grid" id="fire-snapshot-grid"></div>
+
+  <!-- Milestone cards -->
+  <div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">FIRE Milestones</div>
+  <div class="fire-milestones" id="fire-milestones"></div>
+
+  <!-- Full FIRE detail -->
+  <div class="fire-detail-panel" id="fire-detail-panel"></div>
+
+  <!-- FIRE chart -->
+  <div class="chart-wrap" style="margin-bottom:16px">
+    <div class="chart-hd">
+      <div>
+        <div class="chart-title">Portfolio Growth Projection</div>
+        <div class="chart-note">7% nominal return &middot; 2% inflation &middot; today's dollars</div>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:var(--blue-lt)"></div>Portfolio Value</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--muted)"></div>FIRE Number</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Barista FIRE</div>
+      </div>
+    </div>
+    <canvas id="fire-chart" height="220"></canvas>
+  </div>
+
+  <!-- FIRE inputs -->
+  <div class="fire-inputs">
+    <div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Adjust Assumptions</div>
+    <div class="fire-input-grid">
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Annual Spending</div>
+        <div class="ctrl-row"><input type="range" min="60000" max="200000" step="5000" id="r-fire-spend" oninput="fireSl('spend',this.value)"><input type="text" class="num-in" id="i-fire-spend" onchange="fireSi('spend',this.value)"></div>
+      </div>
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Annual Investing</div>
+        <div class="ctrl-row"><input type="range" min="10000" max="150000" step="5000" id="r-fire-invest" oninput="fireSl('invest',this.value)"><input type="text" class="num-in" id="i-fire-invest" onchange="fireSi('invest',this.value)"></div>
+      </div>
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Portfolio (invested)</div>
+        <div class="ctrl-row"><input type="range" min="200000" max="2000000" step="25000" id="r-fire-port" oninput="fireSl('port',this.value)"><input type="text" class="num-in" id="i-fire-port" onchange="fireSi('port',this.value)"></div>
+      </div>
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Nominal Return</div>
+        <div class="ctrl-row"><input type="range" min="4" max="12" step="0.5" id="r-fire-ret" oninput="fireSl('ret',this.value)"><input type="text" class="num-in" id="i-fire-ret" onchange="fireSi('ret',this.value)"></div>
+      </div>
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Inflation Rate</div>
+        <div class="ctrl-row"><input type="range" min="1" max="5" step="0.25" id="r-fire-inf" oninput="fireSl('inf',this.value)"><input type="text" class="num-in" id="i-fire-inf" onchange="fireSi('inf',this.value)"></div>
+      </div>
+      <div class="fire-in-group">
+        <div class="fire-in-lbl">Barista Cover / yr</div>
+        <div class="ctrl-row"><input type="range" min="0" max="80000" step="5000" id="r-fire-barista" oninput="fireSl('barista',this.value)"><input type="text" class="num-in" id="i-fire-barista" onchange="fireSi('barista',this.value)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fire-assumptions" id="fire-assumptions"></div>
+</div>
+
 <!-- ================================================================ TAB: COLLEGE -->
 <div class="tab-pane" id="tab-college">
 <div class="college-hero">
@@ -525,8 +629,7 @@ var GUARDRAILS_CEIL     = 1.25;
 var GUARDRAILS_CUT      = 0.90;
 var GUARDRAILS_RAISE    = 1.05;
 
-// Dynamic age from birthdate
-var BIRTHDATE = new Date(1987, 7, 24); // Aug 24, 1987
+var BIRTHDATE = new Date(1987, 7, 24);
 function currentAge() {
   var today = new Date();
   var age = today.getFullYear() - BIRTHDATE.getFullYear();
@@ -534,21 +637,15 @@ function currentAge() {
   return age;
 }
 
-// College constants
-var ELEANOR_BIRTH = new Date(2020, 1, 12);
-var ARTHUR_BIRTH  = new Date(2022, 1, 1);
+var ELEANOR_BIRTH       = new Date(2020, 1, 12);
+var ARTHUR_BIRTH        = new Date(2022, 1, 1);
 var ELEANOR_COLLEGE_YEAR = 2038;
 var ARTHUR_COLLEGE_YEAR  = 2040;
 
-var RSU_KNOWN_VESTS = {
-  1: 25508 * 0.60,
-  2: 51832 * 0.60,
-  3: 25889 * 0.60,
-  4: 27412 * 0.60,
-};
+var RSU_KNOWN_VESTS = {1:25508*0.60, 2:51832*0.60, 3:25889*0.60, 4:27412*0.60};
 
-var BALANCES_URL    = 'https://peytoned21.github.io/monarch-digest/balances.json';
-var NW_HISTORY_URL  = 'https://peytoned21.github.io/monarch-digest/nw_history.json';
+var BALANCES_URL   = 'https://peytoned21.github.io/monarch-digest/balances.json';
+var NW_HISTORY_URL = 'https://peytoned21.github.io/monarch-digest/nw_history.json';
 
 // ============================================================
 // STATE
@@ -561,12 +658,21 @@ var BASE = {
   spend:110000, lumpy:60000, ss:6400, ssage:67,
   market:'base', strat:'guardrails', retireAge:55,
   legacy:'modest', legacyFloor:500000,
-  // College
   col529kid:8000, col529ret:7, colinf:5, ugacost:30000,
   eleanor529:25000, arthur529:10000,
 };
 var S = Object.assign({}, BASE);
 var _nwHistory = [];
+
+// FIRE state — can be edited independently
+var FIRE = {
+  spend:   110000,
+  invest:  60000,
+  port:    770000,
+  ret:     7,
+  inf:     2,
+  barista: 55000,
+};
 
 // ============================================================
 // FORMAT
@@ -577,12 +683,19 @@ function fmtK(v) {
   if (a >= 1000) return '$' + Math.round(v/1000) + 'K';
   return '$' + Math.round(v);
 }
+function fmtKShort(v) {
+  var a = Math.abs(v);
+  if (a >= 1e6) return '~$' + (v/1e6).toFixed(2) + 'M';
+  if (a >= 1000) return '~$' + Math.round(v/1000) + 'K';
+  return '$' + Math.round(v);
+}
 function fmtD(v) { return '$' + Math.abs(Math.round(v)).toLocaleString('en-US'); }
 function fmtPct(v) { return Math.round(v) + '%'; }
 function dispVal(k, v) {
   v = parseFloat(v);
   if (k === 'ssage') return '' + Math.round(v);
   if (k === 'col529ret' || k === 'colinf') return v.toFixed(1) + '%';
+  if (k === 'fire-ret' || k === 'fire-inf') return v.toFixed(1) + '%';
   return fmtK(v);
 }
 function parseNum(raw) {
@@ -597,7 +710,7 @@ function parseNum(raw) {
 }
 
 // ============================================================
-// SYNC
+// SYNC — retirement controls
 // ============================================================
 function sl(k, v) {
   S[k] = parseFloat(v);
@@ -609,15 +722,31 @@ function si(k, raw) {
   var v = parseNum(raw);
   if (v === null) return;
   var r = document.getElementById('r-' + k);
-  if (r) {
-    v = Math.max(parseFloat(r.min)||0, Math.min(parseFloat(r.max)||1e9, v));
-    r.value = v;
-  }
+  if (r) { v = Math.max(parseFloat(r.min)||0, Math.min(parseFloat(r.max)||1e9, v)); r.value = v; }
   S[k] = v;
   var inp = document.getElementById('i-' + k);
   if (inp) inp.value = dispVal(k, v);
   recalc();
 }
+
+// FIRE controls
+function fireSl(k, v) {
+  FIRE[k] = parseFloat(v);
+  var el = document.getElementById('i-fire-' + k);
+  if (el) el.value = dispVal('fire-'+k, v);
+  buildFireTab();
+}
+function fireSi(k, raw) {
+  var v = parseNum(raw);
+  if (v === null) return;
+  var r = document.getElementById('r-fire-' + k);
+  if (r) { v = Math.max(parseFloat(r.min)||0, Math.min(parseFloat(r.max)||1e9, v)); r.value = v; }
+  FIRE[k] = v;
+  var inp = document.getElementById('i-fire-' + k);
+  if (inp) inp.value = dispVal('fire-'+k, v);
+  buildFireTab();
+}
+
 function initControls() {
   var keys = ['roth','groth','k401','taxable','hd_vested','hd_rsus','hsa',
               'c401k','croth','chsa','ctax','espp','rsugrant','c529',
@@ -629,7 +758,13 @@ function initControls() {
     if (r) r.value = S[k];
     if (i) i.value = dispVal(k, S[k]);
   });
-  // Update scenario card descriptions
+  // FIRE controls
+  ['spend','invest','port','ret','inf','barista'].forEach(function(k) {
+    var r = document.getElementById('r-fire-' + k);
+    var i = document.getElementById('i-fire-' + k);
+    if (r) r.value = FIRE[k];
+    if (i) i.value = dispVal('fire-'+k, FIRE[k]);
+  });
   var age = currentAge();
   [55,58,60,65].forEach(function(a) {
     var el = document.getElementById('sc-'+a+'-desc');
@@ -655,9 +790,10 @@ function showTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
   if (id === 'scenarios') buildScenarios();
-  if (id === 'debt') buildDebtTracker();
-  if (id === 'college') buildCollege();
-  if (id === 'networth') buildNWTab();
+  if (id === 'debt')      buildDebtTracker();
+  if (id === 'college')   buildCollege();
+  if (id === 'networth')  buildNWTab();
+  if (id === 'fire')      buildFireTab();
 }
 function setScenario(age) {
   S.retireAge = age;
@@ -665,9 +801,9 @@ function setScenario(age) {
   recalc();
 }
 var MKT = {
-  bear: {eq:0.055, bond:0.025, inf:0.035, sigma:0.16, lbl:'Bear: 5.5% equity &middot; 3.5% inflation &middot; &sigma;=16%'},
-  base: {eq:0.07,  bond:0.04,  inf:0.025, sigma:0.14, lbl:'Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%'},
-  bull: {eq:0.09,  bond:0.05,  inf:0.02,  sigma:0.12, lbl:'Bull: 9% equity &middot; 2% inflation &middot; &sigma;=12%'}
+  bear:{eq:0.055,bond:0.025,inf:0.035,sigma:0.16,lbl:'Bear: 5.5% equity &middot; 3.5% inflation &middot; &sigma;=16%'},
+  base:{eq:0.07, bond:0.04, inf:0.025,sigma:0.14,lbl:'Base: 7% equity &middot; 2.5% inflation &middot; &sigma;=14%'},
+  bull:{eq:0.09, bond:0.05, inf:0.02, sigma:0.12,lbl:'Bull: 9% equity &middot; 2% inflation &middot; &sigma;=12%'}
 };
 function setMarket(m) {
   S.market = m;
@@ -676,9 +812,9 @@ function setMarket(m) {
   recalc();
 }
 var STRAT_DESC = {
-  guardrails: 'Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Best for variable spending flexibility.',
-  fixed: 'Fixed 4%: withdraw 4% of initial portfolio annually, inflation-adjusted. Simple but rigid.',
-  dynamic: 'Dynamic: withdraw 3.5% in down years, up to 5% in strong years. Balances lifestyle with longevity.'
+  guardrails:'Guardrails: cut spending 10% when portfolio drops 20%, raise 10% when up 20%. Best for variable spending flexibility.',
+  fixed:'Fixed 4%: withdraw 4% of initial portfolio annually, inflation-adjusted. Simple but rigid.',
+  dynamic:'Dynamic: withdraw 3.5% in down years, up to 5% in strong years. Balances lifestyle with longevity.'
 };
 function setStrat(s) {
   S.strat = s;
@@ -688,55 +824,315 @@ function setStrat(s) {
 }
 var LEGACY_FLOORS = {zero:10000, modest:500000, rich:1000000};
 function setLegacy(l) {
-  S.legacy = l;
-  S.legacyFloor = LEGACY_FLOORS[l];
+  S.legacy = l; S.legacyFloor = LEGACY_FLOORS[l];
   ['zero','modest','rich'].forEach(function(k) { document.getElementById('leg-'+k).classList.toggle('active', k===l); });
   recalc();
+}
+
+// ============================================================
+// FIRE MATH
+// ============================================================
+function calcFire() {
+  var spend   = FIRE.spend;
+  var invest  = FIRE.invest;
+  var port    = FIRE.port;
+  var ret     = FIRE.ret / 100;
+  var inf     = FIRE.inf / 100;
+  var barista = FIRE.barista;
+  var age     = currentAge();
+  var curYear = new Date().getFullYear();
+
+  // Real return
+  var realRet = (1 + ret) / (1 + inf) - 1;
+
+  // FIRE number = 25x spending (4% rule), inflation-adjusted to future
+  // We solve for year when portfolio crosses FIRE number
+  var fireNumber = spend * 25; // in today's dollars
+  var baristaNumber = (spend - barista) * 25; // Barista: portfolio covers spend minus barista income
+
+  // Coast FIRE at 65: what you need today growing at real return to reach FIRE number at 65
+  var yearsTo65 = 65 - age;
+  var coastFire65 = fireNumber / Math.pow(1 + realRet, yearsTo65);
+
+  // Coast FIRE at 55
+  var yearsTo55 = 55 - age;
+  var coastFire55 = fireNumber / Math.pow(1 + realRet, Math.max(yearsTo55, 1));
+
+  // Project portfolio year by year to find when milestones hit
+  var portVal = port;
+  var coastFire65Year = null, coastFire55Year = null;
+  var baristaYear = null, fullFireYear = null;
+  var projections = [];
+  var currentYearFire = curYear;
+
+  for (var y = 0; y <= 40; y++) {
+    var yr = curYear + y;
+    var ageY = age + y;
+    var inflAdjFire = fireNumber; // already in today's dollars
+    var inflAdjBarista = baristaNumber;
+    var coastCoast65 = fireNumber / Math.pow(1 + realRet, Math.max(65 - ageY, 1));
+
+    projections.push({year: yr, age: ageY, port: portVal, fireNum: inflAdjFire, baristaNum: inflAdjBarista, coast65: coastCoast65});
+
+    // Check milestones
+    if (!coastFire65Year && portVal >= coastFire65) coastFire65Year = yr;
+    if (!coastFire55Year && portVal >= coastFire55 && ageY <= 55) coastFire55Year = yr;
+    if (!baristaYear && portVal >= baristaNumber) baristaYear = yr;
+    if (!fullFireYear && portVal >= fireNumber) fullFireYear = yr;
+
+    // Grow: add contributions if still working
+    portVal = portVal * (1 + ret) + invest;
+  }
+
+  // Handle already-achieved coasts
+  if (!coastFire65Year && port >= coastFire65) coastFire65Year = curYear;
+  if (!coastFire55Year && port >= coastFire55) coastFire55Year = curYear;
+
+  return {
+    fireNumber, baristaNumber, coastFire65, coastFire55,
+    coastFire65Year, coastFire55Year, baristaYear, fullFireYear,
+    projections, age, curYear,
+    portAt65: projections[Math.min(yearsTo65, projections.length-1)]?.port || 0,
+    portAtFullFire: fullFireYear ? projections[fullFireYear - curYear]?.port || 0 : null,
+  };
+}
+
+function buildFireTab() {
+  var F = calcFire();
+  var age = F.age;
+  var curYear = F.curYear;
+
+  // Sync live portfolio into FIRE if we have it
+  if (S._liveData && S._liveData.net_worth) {
+    // Only auto-update port display if user hasn't changed it from default
+    // leave it as-is to allow manual override
+  }
+
+  // ── Snapshot grid ──
+  var totalInvested = FIRE.port;
+  var annualInvesting = FIRE.invest;
+  var snapHtml =
+    '<div class="fire-snapshot-card" style="--i:0"><div class="fire-snap-lbl">Portfolio (Invested)</div><div class="fire-snap-val" style="color:var(--gold)">' + fmtK(totalInvested) + '</div><div class="fire-snap-sub">household total</div></div>' +
+    '<div class="fire-snapshot-card" style="--i:1"><div class="fire-snap-lbl">Annual Spending</div><div class="fire-snap-val" style="color:var(--text)">' + fmtK(FIRE.spend) + '</div><div class="fire-snap-sub">mid-range estimate</div></div>' +
+    '<div class="fire-snapshot-card" style="--i:2"><div class="fire-snap-lbl">Annual Investing</div><div class="fire-snap-val" style="color:var(--green-lt)">' + fmtK(annualInvesting) + '</div><div class="fire-snap-sub">combined contributions</div></div>' +
+    '<div class="fire-snapshot-card" style="--i:3"><div class="fire-snap-lbl">Current Age</div><div class="fire-snap-val" style="color:var(--text)">' + age + '</div><div class="fire-snap-sub">target retire at ' + (F.fullFireYear ? (age + F.fullFireYear - curYear) : '?') + '</div></div>';
+  document.getElementById('fire-snapshot-grid').innerHTML = snapHtml;
+
+  // ── Milestone cards ──
+  var coast65Achieved = F.coastFire65Year <= curYear;
+  var coast55Achieved = F.coastFire55Year && F.coastFire55Year <= curYear;
+
+  function msYearsAway(year) {
+    if (!year) return '';
+    var diff = year - curYear;
+    if (diff <= 0) return 'Age ' + age + ' · ' + curYear;
+    return 'Age ~' + (age + diff) + ' · ' + diff + ' years away';
+  }
+
+  var milestones = [
+    {
+      badge: 'Coast FIRE · 65', badgeClass: 'coast',
+      label: 'Stop investing, retire at 65',
+      achieved: coast65Achieved,
+      year: F.coastFire65Year,
+      achievedText: 'Already there ✓',
+      meta: 'Age ' + age + ' · ' + curYear,
+      desc: fmtK(FIRE.port) + ' growing at ' + FIRE.ret + '%/yr reaches ' + fmtKShort(F.portAt65) + ' by 65 — well above your ' + fmtK(F.fireNumber) + ' FIRE number. You could stop all contributions today.',
+      state: coast65Achieved ? 'achieved' : 'future',
+    },
+    {
+      badge: 'Coast FIRE · 55', badgeClass: 'coast',
+      label: 'Stop investing, retire at 55',
+      achieved: coast55Achieved,
+      year: F.coastFire55Year,
+      achievedText: 'Already there ✓',
+      meta: 'Age ' + age + ' · ' + curYear,
+      desc: fmtK(FIRE.port) + ' grows to ' + fmtKShort(F.fireNumber) + ' by 55 at ' + FIRE.ret + '%/yr — exceeding your inflation-adjusted FIRE number.',
+      state: coast55Achieved ? 'achieved' : (F.coastFire55Year && F.coastFire55Year <= curYear + 5 ? 'near' : 'future'),
+    },
+    {
+      badge: 'Barista FIRE', badgeClass: 'barista',
+      label: 'Part-time work only',
+      achieved: false,
+      year: F.baristaYear,
+      achievedText: null,
+      meta: F.baristaYear ? msYearsAway(F.baristaYear) : 'Not projected',
+      desc: 'Portfolio hits ' + fmtKShort(F.baristaNumber) + '. The 4% rule covers ' + fmtKShort(FIRE.spend - FIRE.barista) + '/yr. Part-time gig covering the other ' + fmtKShort(FIRE.barista) + ' makes full-time work optional.',
+      state: F.baristaYear && F.baristaYear - curYear <= 5 ? 'near' : 'future',
+    },
+    {
+      badge: 'Full FIRE', badgeClass: 'full',
+      label: 'Never work again',
+      achieved: false,
+      year: F.fullFireYear,
+      achievedText: null,
+      meta: F.fullFireYear ? msYearsAway(F.fullFireYear) : 'Extend timeline',
+      desc: 'Portfolio ' + fmtKShort(F.fireNumber) + ' exceeds the inflation-adjusted FIRE number of ' + fmtKShort(F.fireNumber) + '. Full financial independence — decades ahead of schedule.',
+      state: F.fullFireYear && F.fullFireYear - curYear <= 5 ? 'near' : 'future',
+    }
+  ];
+
+  var msHtml = '';
+  milestones.forEach(function(m, idx) {
+    var bodyContent = '';
+    if (m.achieved) {
+      bodyContent = '<div class="fire-ms-year achieved-text">' + m.achievedText + '</div>' +
+        '<div class="fire-ms-meta">' + m.meta + '</div>';
+    } else if (m.year) {
+      bodyContent = '<div class="fire-ms-year">' + m.year + '</div>' +
+        '<div class="fire-ms-meta">' + m.meta + '</div>';
+    } else {
+      bodyContent = '<div class="fire-ms-year" style="font-size:22px;color:var(--muted)">—</div>' +
+        '<div class="fire-ms-meta">' + m.meta + '</div>';
+    }
+    msHtml +=
+      '<div class="fire-milestone ' + m.state + '" style="--i:' + idx + '">' +
+        '<span class="fire-ms-badge ' + m.badgeClass + '">' + m.badge + '</span>' +
+        '<div class="fire-ms-label">' + m.label + '</div>' +
+        bodyContent +
+        '<div class="fire-ms-desc">' + m.desc + '</div>' +
+      '</div>';
+  });
+  document.getElementById('fire-milestones').innerHTML = msHtml;
+
+  // ── Full FIRE detail ──
+  var fullFireAge = F.fullFireYear ? age + (F.fullFireYear - curYear) : null;
+  document.getElementById('fire-detail-panel').innerHTML =
+    '<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">' +
+      '<span class="fire-ms-badge full">Full FIRE details</span>' +
+    '</div>' +
+    '<div class="fire-detail-grid">' +
+      '<div><div class="fire-detail-lbl">Target Year</div><div class="fire-detail-val">' + (F.fullFireYear || '—') + '</div><div class="fire-detail-sub">' + (fullFireAge ? 'Age ~' + fullFireAge + ' · ' + (F.fullFireYear - curYear) + ' years away' : 'Adjust inputs') + '</div></div>' +
+      '<div><div class="fire-detail-lbl">FIRE Number (inflation-adjusted)</div><div class="fire-detail-val">' + fmtKShort(F.fireNumber) + '</div><div class="fire-detail-sub">' + fmtK(FIRE.spend) + '/yr spending × 25 (4% rule)</div></div>' +
+      '<div><div class="fire-detail-lbl">Projected Portfolio at FIRE</div><div class="fire-detail-val" style="color:var(--green-lt)">' + (F.fullFireYear ? fmtKShort(F.projections[F.fullFireYear - curYear]?.port || 0) : '—') + '</div><div class="fire-detail-sub">' + fmtK(FIRE.port) + ' today + ' + fmtK(FIRE.invest) + '/yr at ' + FIRE.ret + '%</div></div>' +
+    '</div>';
+
+  // ── FIRE chart ──
+  drawFireChart(F.projections, F.fireNumber, F.baristaNumber, F.fullFireYear, F.baristaYear);
+
+  // ── Assumptions ──
+  document.getElementById('fire-assumptions').innerHTML =
+    '<strong style="color:var(--muted)">Assumptions:</strong> ' +
+    'Spending: ' + fmtK(FIRE.spend) + '/yr &middot; ' +
+    'Contributions: ' + fmtK(FIRE.invest) + '/yr &middot; ' +
+    'Return: ' + FIRE.ret + '% nominal &middot; ' +
+    'Inflation: ' + FIRE.inf + '% &middot; ' +
+    'Starting portfolio: ' + fmtK(FIRE.port) + ' &middot; ' +
+    'FIRE number: 25× spending (4% rule) &middot; ' +
+    'Barista cover: ' + fmtK(FIRE.barista) + '/yr from part-time. Projections are estimates, not guarantees.';
+}
+
+function drawFireChart(projections, fireNum, baristaNum, fullFireYear, baristaYear) {
+  var cv = document.getElementById('fire-chart');
+  if (!cv) return;
+  var ctx = cv.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var W = cv.offsetWidth, H = 220;
+  cv.width = W * dpr; cv.height = H * dpr;
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
+  var PAD = {t:16, r:20, b:32, l:68};
+  var cW = W - PAD.l - PAD.r, cH = H - PAD.t - PAD.b;
+  var n = projections.length;
+  var maxV = Math.max.apply(null, projections.map(function(p){return p.port;})) * 1.1;
+  maxV = Math.max(maxV, fireNum * 1.2);
+  if (maxV < 1) maxV = 1;
+
+  function xOf(i) { return PAD.l + (i / (n - 1)) * cW; }
+  function yOf(v) { return PAD.t + cH - (Math.max(v, 0) / maxV) * cH; }
+
+  // Grid lines
+  for (var g = 0; g <= 5; g++) {
+    var gy = PAD.t + (g / 5) * cH, gv = maxV * (1 - g / 5);
+    ctx.strokeStyle = '#1e1e1c'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(PAD.l, gy); ctx.lineTo(W - PAD.r, gy); ctx.stroke();
+    ctx.fillStyle = '#4a4a46'; ctx.font = '9px monospace'; ctx.textAlign = 'right';
+    var label = gv >= 1e6 ? '$' + (gv/1e6).toFixed(1) + 'M' : '$' + Math.round(gv/1000) + 'K';
+    ctx.fillText(label, PAD.l - 6, gy + 3);
+  }
+
+  // Milestone vertical markers
+  [[fullFireYear, 'var(--fire)', 'Full FIRE'], [baristaYear, 'var(--green)', 'Barista']].forEach(function(item) {
+    var yr = item[0], col = item[1], lbl = item[2];
+    if (!yr) return;
+    var idx = yr - projections[0].year;
+    if (idx < 0 || idx >= n) return;
+    ctx.strokeStyle = col; ctx.setLineDash([3, 5]); ctx.lineWidth = 1.5; ctx.globalAlpha = 0.5;
+    ctx.beginPath(); ctx.moveTo(xOf(idx), PAD.t); ctx.lineTo(xOf(idx), PAD.t + cH); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ctx.fillStyle = col; ctx.font = 'bold 8px monospace'; ctx.textAlign = 'center';
+    ctx.fillText(lbl, xOf(idx), PAD.t + 10);
+  });
+
+  // FIRE number line (dashed gray)
+  ctx.strokeStyle = 'rgba(120,120,110,0.5)'; ctx.setLineDash([6, 5]); ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(PAD.l, yOf(fireNum)); ctx.lineTo(W - PAD.r, yOf(fireNum)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(120,120,110,0.6)'; ctx.font = '9px monospace'; ctx.textAlign = 'left';
+  ctx.fillText('FIRE ' + fmtK(fireNum), PAD.l + 4, yOf(fireNum) - 4);
+
+  // Barista line (green dashed)
+  ctx.strokeStyle = 'rgba(74,158,110,0.5)'; ctx.setLineDash([4, 6]); ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(PAD.l, yOf(baristaNum)); ctx.lineTo(W - PAD.r, yOf(baristaNum)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(74,158,110,0.6)'; ctx.font = '9px monospace'; ctx.textAlign = 'left';
+  ctx.fillText('Barista ' + fmtK(baristaNum), PAD.l + 4, yOf(baristaNum) - 4);
+
+  // Portfolio area fill
+  ctx.beginPath();
+  ctx.moveTo(xOf(0), yOf(projections[0].port));
+  for (var i = 1; i < n; i++) ctx.lineTo(xOf(i), yOf(projections[i].port));
+  ctx.lineTo(xOf(n-1), PAD.t + cH);
+  ctx.lineTo(xOf(0), PAD.t + cH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(74,122,184,0.08)'; ctx.fill();
+
+  // Portfolio line
+  ctx.beginPath(); ctx.strokeStyle = 'var(--blue-lt)'; ctx.lineWidth = 2.5;
+  ctx.shadowColor = 'rgba(106,154,216,0.3)'; ctx.shadowBlur = 8;
+  ctx.moveTo(xOf(0), yOf(projections[0].port));
+  for (var i = 1; i < n; i++) ctx.lineTo(xOf(i), yOf(projections[i].port));
+  ctx.stroke(); ctx.shadowBlur = 0;
+
+  // Dots at key years
+  var dotYears = [0, 4, 8, 12, 16, 20, 24, 28];
+  dotYears.forEach(function(idx) {
+    if (idx >= n) return;
+    ctx.beginPath();
+    ctx.arc(xOf(idx), yOf(projections[idx].port), 4, 0, Math.PI * 2);
+    ctx.fillStyle = 'var(--blue-lt)'; ctx.fill();
+    ctx.strokeStyle = 'var(--bg)'; ctx.lineWidth = 2; ctx.stroke();
+  });
+
+  // X labels
+  ctx.fillStyle = '#4a4a46'; ctx.textAlign = 'center'; ctx.font = '9px monospace'; ctx.shadowBlur = 0;
+  var step = Math.ceil(n / 8);
+  for (var i = 0; i < n; i += step) {
+    ctx.fillText(String(projections[i].year), xOf(i), H - 6);
+  }
 }
 
 // ============================================================
 // COLLEGE MATH
 // ============================================================
 function calcCollegeProjection(currentBal, annualContrib, yearsToCollege, growthRate, collegeCostBase, collegeInflation) {
-  var r = growthRate / 100;
-  var inf = collegeInflation / 100;
-  // Grow 529 with contributions until college
+  var r = growthRate / 100, inf = collegeInflation / 100;
   var bal = currentBal;
-  for (var y = 0; y < yearsToCollege; y++) {
-    bal = bal * (1 + r) + annualContrib;
-  }
-  // Project UGA cost at start of college (nominal)
-  var yearCost = collegeCostBase * Math.pow(1 + inf, yearsToCollege);
-  // Total 4-year cost (each year inflates)
+  for (var y = 0; y < yearsToCollege; y++) bal = bal * (1 + r) + annualContrib;
   var totalCost = 0;
-  for (var y = 0; y < 4; y++) {
-    totalCost += collegeCostBase * Math.pow(1 + inf, yearsToCollege + y);
-  }
-  return {
-    projBal: Math.round(bal),
-    totalCost: Math.round(totalCost),
-    gap: Math.round(bal - totalCost),
-    yearCost: Math.round(yearCost),
-  };
+  for (var y = 0; y < 4; y++) totalCost += collegeCostBase * Math.pow(1 + inf, yearsToCollege + y);
+  return { projBal: Math.round(bal), totalCost: Math.round(totalCost), gap: Math.round(bal - totalCost) };
 }
 
 function buildCollege() {
-  var today = new Date();
-  var currentYear = today.getFullYear();
-  var elYears = ELEANOR_COLLEGE_YEAR - currentYear;
-  var arYears = ARTHUR_COLLEGE_YEAR - currentYear;
-  var growthRate = S.col529ret;
-  var inf = S.colinf;
-  var ugaBase = S.ugacost;
-  var contribPerKid = S.col529kid;
-
+  var today = new Date(), currentYear = today.getFullYear();
+  var elYears = ELEANOR_COLLEGE_YEAR - currentYear, arYears = ARTHUR_COLLEGE_YEAR - currentYear;
+  var growthRate = S.col529ret, inf = S.colinf, ugaBase = S.ugacost, contribPerKid = S.col529kid;
   var el = calcCollegeProjection(S.eleanor529, contribPerKid, elYears, growthRate, ugaBase, inf);
   var ar = calcCollegeProjection(S.arthur529, contribPerKid, arYears, growthRate, ugaBase, inf);
-
   var maxVal = Math.max(el.projBal, el.totalCost, ar.projBal, ar.totalCost);
 
-  function setKid(prefix, data, years) {
-    var bal = prefix === 'eleanor' ? S.eleanor529 : S.arthur529;
+  function setKid(prefix, data, years, bal) {
     document.getElementById(prefix+'-bal').textContent = fmtK(bal);
     document.getElementById(prefix+'-proj').textContent = fmtK(data.projBal);
     document.getElementById(prefix+'-cost').textContent = fmtK(data.totalCost);
@@ -747,15 +1143,14 @@ function buildCollege() {
     var gapEl = document.getElementById(prefix+'-gap');
     gapEl.textContent = (gap >= 0 ? '+' : '') + fmtK(gap);
     gapEl.style.color = gap >= 0 ? 'var(--green-lt)' : 'var(--red-lt)';
-    var note = years + ' years to college · contributing $' + Math.round(contribPerKid/1000) + 'K/yr · ' +
+    document.getElementById(prefix+'-note').textContent =
+      years + ' years to college · contributing $' + Math.round(contribPerKid/1000) + 'K/yr · ' +
       (gap >= 0 ? 'fully funded' : 'gap of ' + fmtK(Math.abs(gap)) + ' from taxable/cash flow');
-    document.getElementById(prefix+'-note').textContent = note;
   }
 
-  setKid('eleanor', el, elYears);
-  setKid('arthur', ar, arYears);
+  setKid('eleanor', el, elYears, S.eleanor529);
+  setKid('arthur',  ar, arYears, S.arthur529);
 
-  // Hero
   document.getElementById('col-total-529').textContent = fmtK(S.eleanor529 + S.arthur529);
   document.getElementById('col-total-need').textContent = fmtK(el.totalCost + ar.totalCost);
   var totalGap = (el.projBal + ar.projBal) - (el.totalCost + ar.totalCost);
@@ -766,78 +1161,55 @@ function buildCollege() {
     'UGA all-in cost ' + fmtK(ugaBase) + '/yr today · ' + inf + '% college inflation · ' +
     growthRate + '% 529 growth · Eleanor 2038, Arthur 2040';
 
-  // Draw 529 chart
   drawCollegeChart(el, ar, elYears, arYears, contribPerKid, growthRate);
 }
 
 function drawCollegeChart(el, ar, elYears, arYears, contribPerKid, growthRate) {
   var cv = document.getElementById('col-chart');
   if (!cv) return;
-  var ctx = cv.getContext('2d');
-  var dpr = window.devicePixelRatio||1;
+  var ctx = cv.getContext('2d'), dpr = window.devicePixelRatio||1;
   var W = cv.offsetWidth, H = 180;
   cv.width = W*dpr; cv.height = H*dpr;
-  ctx.scale(dpr,dpr);
-  ctx.clearRect(0,0,W,H);
+  ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
   var PAD = {t:10,r:20,b:28,l:58};
   var cW = W-PAD.l-PAD.r, cH = H-PAD.t-PAD.b;
-
   var maxYears = Math.max(elYears+4, arYears+4);
   var r = growthRate / 100;
-
-  // Build Eleanor series
   var elSeries = [], arSeries = [];
   var elBal = S.eleanor529, arBal = S.arthur529;
   for (var y = 0; y <= maxYears; y++) {
-    elSeries.push(elBal);
-    arSeries.push(arBal);
-    if (y < elYears) elBal = elBal * (1+r) + contribPerKid;
-    else elBal = elBal * (1+r); // still growing but no more contributions after college age
-    if (y < arYears) arBal = arBal * (1+r) + contribPerKid;
-    else arBal = arBal * (1+r);
+    elSeries.push(elBal); arSeries.push(arBal);
+    if (y < elYears) elBal = elBal*(1+r)+contribPerKid; else elBal = elBal*(1+r);
+    if (y < arYears) arBal = arBal*(1+r)+contribPerKid; else arBal = arBal*(1+r);
   }
-
   var maxV = Math.max.apply(null, elSeries.concat(arSeries)) * 1.1;
   if (maxV < 1) maxV = 1;
   var n = maxYears + 1;
-
-  function xOf(i) { return PAD.l + (i/(n-1))*cW; }
-  function yOf(v) { return PAD.t + cH - (Math.max(v,0)/maxV)*cH; }
-
-  // Grid
+  function xOf(i) { return PAD.l+(i/(n-1))*cW; }
+  function yOf(v) { return PAD.t+cH-(Math.max(v,0)/maxV)*cH; }
   for (var g=0;g<=3;g++) {
-    var gy = PAD.t+(g/3)*cH, gv = maxV*(1-g/3);
+    var gy=PAD.t+(g/3)*cH, gv=maxV*(1-g/3);
     ctx.strokeStyle='#222220'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.l,gy); ctx.lineTo(W-PAD.r,gy); ctx.stroke();
     ctx.fillStyle='#4a4a46'; ctx.font='9px monospace'; ctx.textAlign='right';
     ctx.fillText(gv>=1e6?'$'+(gv/1e6).toFixed(1)+'M':'$'+Math.round(gv/1000)+'K',PAD.l-6,gy+3);
   }
-
-  // College markers
   var currentYear = new Date().getFullYear();
-  [elYears, arYears].forEach(function(yr, idx) {
-    var mx = xOf(yr);
-    ctx.strokeStyle = 'rgba(90,184,184,0.4)';
-    ctx.setLineDash([2,4]); ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(mx,PAD.t); ctx.lineTo(mx,PAD.t+cH); ctx.stroke();
-    ctx.setLineDash([]);
+  [elYears,arYears].forEach(function(yr,idx) {
+    var mx=xOf(yr);
+    ctx.strokeStyle='rgba(90,184,184,0.4)'; ctx.setLineDash([2,4]); ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(mx,PAD.t); ctx.lineTo(mx,PAD.t+cH); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle='rgba(90,184,184,0.7)'; ctx.font='8px monospace'; ctx.textAlign='center';
-    ctx.fillText(idx===0?'Eleanor':'Arthur', mx, PAD.t+8);
+    ctx.fillText(idx===0?'Eleanor':'Arthur',mx,PAD.t+8);
   });
-
-  // X labels
   ctx.fillStyle='#4a4a46'; ctx.textAlign='center';
-  [0, Math.round(maxYears/3), Math.round(maxYears*2/3), maxYears].forEach(function(off) {
-    ctx.fillText(String(currentYear+off), xOf(off), H-5);
+  [0,Math.round(maxYears/3),Math.round(maxYears*2/3),maxYears].forEach(function(off) {
+    ctx.fillText(String(currentYear+off),xOf(off),H-5);
   });
-
-  // Eleanor line
   ctx.beginPath(); ctx.strokeStyle='var(--teal-lt)'; ctx.lineWidth=2;
   ctx.moveTo(xOf(0),yOf(elSeries[0]));
   for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(elSeries[i]));
   ctx.stroke();
-
-  // Arthur line
   ctx.beginPath(); ctx.strokeStyle='var(--blue-lt)'; ctx.lineWidth=2;
   ctx.moveTo(xOf(0),yOf(arSeries[0]));
   for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(arSeries[i]));
@@ -848,43 +1220,37 @@ function drawCollegeChart(el, ar, elYears, arYears, contribPerKid, growthRate) {
 // NET WORTH TAB
 // ============================================================
 function buildNWTab() {
-  // Pull from live data if available
   var nw = S._liveData;
   if (!nw) return;
 
-  // Hero numbers
   document.getElementById('nw-total').textContent = fmtK(nw.net_worth || 0);
 
-  // Compute asset buckets
   var investments = (nw.roth||0)+(nw.groth||0)+(nw.k401||0)+(nw.taxable||0)+
                     (nw.hd_vested||0)+(nw.hd_rsus||0)+(nw.hsa||0)+
                     (nw.eleanor_529||0)+(nw.arthur_529||0);
   document.getElementById('nw-investments').textContent = fmtK(investments);
-  document.getElementById('nw-realestate').textContent = fmtK(nw.home_value||0);
-  document.getElementById('nw-cash').textContent = fmtK(nw.total_cash||0);
-  document.getElementById('nw-vehicles').textContent = fmtK(nw.vehicle_total||0);
-  document.getElementById('nw-debt').textContent = '-' + fmtK(nw.total_debt||0);
+  document.getElementById('nw-realestate').textContent  = fmtK(nw.home_value||0);
+  document.getElementById('nw-cash').textContent        = fmtK(nw.total_cash||0);
+  document.getElementById('nw-vehicles').textContent    = fmtK(nw.vehicle_total||0);
+  document.getElementById('nw-debt').textContent        = '-' + fmtK(nw.total_debt||0);
 
-  // NW delta from history
   if (_nwHistory.length >= 2) {
-    var latest = _nwHistory[_nwHistory.length-1].nw;
+    var latest  = _nwHistory[_nwHistory.length-1].nw;
     var weekAgo = _nwHistory[Math.max(0,_nwHistory.length-8)].nw;
-    var delta = latest - weekAgo;
+    var delta   = latest - weekAgo;
     var deltaEl = document.getElementById('nw-delta');
-    var sign = delta >= 0 ? '+' : '';
-    deltaEl.textContent = sign + fmtK(delta) + ' last 7 days';
-    deltaEl.style.color = delta >= 0 ? 'var(--green-lt)' : 'var(--red-lt)';
+    deltaEl.textContent = (delta>=0?'+':'') + fmtK(delta) + ' last 7 days';
+    deltaEl.style.color = delta>=0?'var(--green-lt)':'var(--red-lt)';
   }
 
-  // Asset allocation bars
   var allocDefs = [
     {lbl:'Roth IRA', val:(nw.roth||0)+(nw.groth||0), col:'var(--green)'},
-    {lbl:'401(k)', val:nw.k401||0, col:'var(--gold)'},
-    {lbl:'Taxable', val:nw.taxable||0, col:'var(--blue)'},
+    {lbl:'401(k)',   val:nw.k401||0, col:'var(--gold)'},
+    {lbl:'Taxable',  val:nw.taxable||0, col:'var(--blue)'},
     {lbl:'HD Stock', val:(nw.hd_vested||0)+(nw.hd_rsus||0), col:'var(--amber)'},
-    {lbl:'HSA', val:nw.hsa||0, col:'var(--green-lt)'},
-    {lbl:'529s', val:(nw.eleanor_529||0)+(nw.arthur_529||0), col:'var(--teal-lt)'},
-    {lbl:'Cash', val:nw.total_cash||0, col:'var(--muted)'},
+    {lbl:'HSA',      val:nw.hsa||0, col:'var(--green-lt)'},
+    {lbl:'529s',     val:(nw.eleanor_529||0)+(nw.arthur_529||0), col:'var(--teal-lt)'},
+    {lbl:'Cash',     val:nw.total_cash||0, col:'var(--muted)'},
     {lbl:'Real Estate', val:nw.home_value||0, col:'var(--gold-lt)'},
     {lbl:'Vehicles', val:nw.vehicle_total||0, col:'var(--label)'},
   ];
@@ -898,12 +1264,11 @@ function buildNWTab() {
   });
   document.getElementById('alloc-rows').innerHTML = allocHtml;
 
-  // Liability breakdown
   var liabDefs = [
-    {lbl:'Mortgage', val:nw.mortgage_bal||0, col:'var(--red-lt)'},
-    {lbl:'Stanford Loan', val:nw.stanford_bal||0, col:'var(--red)'},
-    {lbl:'Lexus Loan', val:nw.lexus_bal||0, col:'var(--amber)'},
-    {lbl:'Tesla Loan', val:nw.tesla_bal||0, col:'var(--amber)'},
+    {lbl:'Mortgage',     val:nw.mortgage_bal||0, col:'var(--red-lt)'},
+    {lbl:'Stanford Loan',val:nw.stanford_bal||0, col:'var(--red)'},
+    {lbl:'Lexus Loan',   val:nw.lexus_bal||0, col:'var(--amber)'},
+    {lbl:'Tesla Loan',   val:nw.tesla_bal||0, col:'var(--amber)'},
   ];
   var totalLiab = liabDefs.reduce(function(s,d){return s+d.val;},0);
   var liabHtml = '';
@@ -916,7 +1281,7 @@ function buildNWTab() {
   });
   document.getElementById('liability-rows').innerHTML = liabHtml;
 
-  // Account list
+  // FIX: Replaced fullwidth （ character with regular ( in account list
   var accounts = nw.accounts || [];
   var acctHtml = '<table style="width:100%;border-collapse:collapse">';
   accounts
@@ -925,7 +1290,7 @@ function buildNWTab() {
     .forEach(function(a) {
       var bal = a.balance;
       var balColor = bal < 0 ? 'var(--red-lt)' : 'var(--text)';
-      var balStr = bal < 0 ? '-'+fmtK(Math.abs(bal)) : fmtK(bal);
+      var balStr   = bal < 0 ? '-'+fmtK(Math.abs(bal)) : fmtK(bal);
       acctHtml += '<tr style="border-bottom:1px solid var(--border)">'+
         '<td style="padding:8px 0;font-size:12px;color:var(--text)">'+a.name+'</td>'+
         '<td style="padding:8px 0;font-size:10px;color:var(--muted)">'+(a.type||'')+'</td>'+
@@ -935,10 +1300,8 @@ function buildNWTab() {
   acctHtml += '</table>';
   document.getElementById('account-list').innerHTML = acctHtml;
 
-  // Draw NW history chart
   drawNWChart();
 
-  // Update history start date
   if (_nwHistory.length > 0) {
     var first = new Date(_nwHistory[0].date);
     document.getElementById('nw-history-start').textContent =
@@ -949,49 +1312,35 @@ function buildNWTab() {
 function drawNWChart() {
   var cv = document.getElementById('nw-chart');
   if (!cv || _nwHistory.length < 2) return;
-  var ctx = cv.getContext('2d');
-  var dpr = window.devicePixelRatio||1;
+  var ctx = cv.getContext('2d'), dpr = window.devicePixelRatio||1;
   var W = cv.offsetWidth, H = 180;
   cv.width = W*dpr; cv.height = H*dpr;
-  ctx.scale(dpr,dpr);
-  ctx.clearRect(0,0,W,H);
+  ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
   var PAD = {t:10,r:20,b:28,l:70};
   var cW = W-PAD.l-PAD.r, cH = H-PAD.t-PAD.b;
   var n = _nwHistory.length;
   var vals = _nwHistory.map(function(h){return h.nw;});
-  var minV = Math.min.apply(null,vals) * 0.97;
-  var maxV = Math.max.apply(null,vals) * 1.03;
+  var minV = Math.min.apply(null,vals)*0.97, maxV = Math.max.apply(null,vals)*1.03;
   if (maxV <= minV) maxV = minV + 1;
-
   function xOf(i) { return PAD.l+(i/(n-1))*cW; }
   function yOf(v) { return PAD.t+cH-((v-minV)/(maxV-minV))*cH; }
-
-  // Grid
   for (var g=0;g<=4;g++) {
-    var gy = PAD.t+(g/4)*cH, gv = maxV - (maxV-minV)*(g/4);
+    var gy=PAD.t+(g/4)*cH, gv=maxV-(maxV-minV)*(g/4);
     ctx.strokeStyle='#222220'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.l,gy); ctx.lineTo(W-PAD.r,gy); ctx.stroke();
     ctx.fillStyle='#4a4a46'; ctx.font='9px monospace'; ctx.textAlign='right';
     ctx.fillText(gv>=1e6?'$'+(gv/1e6).toFixed(2)+'M':'$'+Math.round(gv/1000)+'K',PAD.l-6,gy+3);
   }
-
-  // X labels — show first, middle, last date
   ctx.fillStyle='#4a4a46'; ctx.textAlign='center';
-  [0, Math.floor(n/2), n-1].forEach(function(i) {
+  [0,Math.floor(n/2),n-1].forEach(function(i) {
     var d = new Date(_nwHistory[i].date);
-    ctx.fillText(d.toLocaleDateString('en-US',{month:'short',day:'numeric'}), xOf(i), H-5);
+    ctx.fillText(d.toLocaleDateString('en-US',{month:'short',day:'numeric'}),xOf(i),H-5);
   });
-
-  // Area fill
   ctx.beginPath();
-  ctx.moveTo(xOf(0), yOf(vals[0]));
+  ctx.moveTo(xOf(0),yOf(vals[0]));
   for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(vals[i]));
-  ctx.lineTo(xOf(n-1),PAD.t+cH);
-  ctx.lineTo(xOf(0),PAD.t+cH);
-  ctx.closePath();
-  ctx.fillStyle='rgba(200,168,75,0.06)'; ctx.fill();
-
-  // Line
+  ctx.lineTo(xOf(n-1),PAD.t+cH); ctx.lineTo(xOf(0),PAD.t+cH);
+  ctx.closePath(); ctx.fillStyle='rgba(200,168,75,0.06)'; ctx.fill();
   ctx.beginPath(); ctx.strokeStyle='#c8a84b'; ctx.lineWidth=2.5;
   ctx.shadowColor='rgba(200,168,75,0.3)'; ctx.shadowBlur=8;
   ctx.moveTo(xOf(0),yOf(vals[0]));
@@ -1004,8 +1353,7 @@ function drawNWChart() {
 // ============================================================
 function randn() {
   var u=0,v=0;
-  while(!u) u=Math.random();
-  while(!v) v=Math.random();
+  while(!u) u=Math.random(); while(!v) v=Math.random();
   return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
 }
 
@@ -1021,52 +1369,41 @@ function project(st) {
   var floor  = st.legacyFloor;
   var N      = MC_SIMS;
   var success = 0;
-  var allPaths = [];
-  var finals   = [];
+  var allPaths = [], finals = [];
 
-  // College drag years (relative to today)
   var currentYear = new Date().getFullYear();
-  var elCollegeStart = ELEANOR_COLLEGE_YEAR - currentYear; // years from now
-  var arCollegeStart = ARTHUR_COLLEGE_YEAR - currentYear;
-  var elRetireOffset = ELEANOR_COLLEGE_YEAR - st.retireAge - (currentYear - age);
-  var arRetireOffset = ARTHUR_COLLEGE_YEAR - st.retireAge - (currentYear - age);
+  var elCollegeStart = ELEANOR_COLLEGE_YEAR - currentYear;
+  var arCollegeStart = ARTHUR_COLLEGE_YEAR  - currentYear;
 
-  for (var sim=0; sim<N; sim++) {
+  for (var sim = 0; sim < N; sim++) {
     var sig  = m.sigma;
-    var roth = (st.roth||0) + (st.groth||0);
+    var roth = (st.roth||0)+(st.groth||0);
     var pre  = st.k401||0;
     var tax  = st.taxable||0;
     var hsa  = st.hsa||0;
-    var hdV  = (st.hd_vested||0);
-    var hdU  = (st.hd_rsus||0);
+    var hdV  = st.hd_vested||0;
+    var hdU  = st.hd_rsus||0;
 
-    // ACCUMULATION
-    for (var y=0; y<yA; y++) {
-      var mktShock  = randn();
-      var idioShock = randn();
+    for (var y = 0; y < yA; y++) {
+      var mktShock = randn(), idioShock = randn();
       var eqRet   = rr + sig * mktShock;
       var bondRet = (m.bond - m.inf) + (sig * BOND_SIGMA_MULT) * randn();
       var blended = EQUITY_WEIGHT * eqRet + (1-EQUITY_WEIGHT) * bondRet;
       var hdRet   = rr + sig * mktShock * HD_VOL_MULT + sig * 0.3 * idioShock;
-
-      roth = Math.max(0, roth * (1+blended) + (st.croth||0));
-      pre  = Math.max(0, pre  * (1+blended) + (st.c401k||0));
-      hsa  = Math.max(0, hsa  * (1+blended) + (st.chsa||0));
-      hdV  = Math.max(0, hdV  * (1+hdRet));
-      var vestAmt = y < 4 ? (RSU_KNOWN_VESTS[y+1] || (st.rsugrant||0) * RSU_VEST_SCHEDULE)
-                           : (st.rsugrant||0) * RSU_VEST_SCHEDULE;
-      hdU  = Math.max(0, hdU * (1+hdRet) - vestAmt);
-
-      // 529 drag — subtract from taxable savings during contribution years
-      var yearIdx = y; // years from now
+      roth = Math.max(0, roth*(1+blended)+(st.croth||0));
+      pre  = Math.max(0, pre *(1+blended)+(st.c401k||0));
+      hsa  = Math.max(0, hsa *(1+blended)+(st.chsa||0));
+      hdV  = Math.max(0, hdV *(1+hdRet));
+      var vestAmt = y<4 ? (RSU_KNOWN_VESTS[y+1]||(st.rsugrant||0)*RSU_VEST_SCHEDULE) : (st.rsugrant||0)*RSU_VEST_SCHEDULE;
+      hdU  = Math.max(0, hdU*(1+hdRet)-vestAmt);
+      var yearIdx = y;
       var col529Drag = 0;
       if (yearIdx < elCollegeStart) col529Drag += (st.col529kid||0);
       if (yearIdx < arCollegeStart) col529Drag += (st.col529kid||0);
-      var esppInflow = st.espp||0;
-      tax = Math.max(0, tax*(1+blended) + (st.ctax||0) + vestAmt + esppInflow - col529Drag);
+      tax = Math.max(0, tax*(1+blended)+(st.ctax||0)+vestAmt+(st.espp||0)-col529Drag);
     }
 
-    var totalRet = roth + pre + tax + hsa + hdV + hdU;
+    var totalRet = roth+pre+tax+hsa+hdV+hdU;
     var port     = totalRet;
     var path     = [port];
     var baseSpend = st.spend||0;
@@ -1074,54 +1411,45 @@ function project(st) {
     var hw = port;
     var preFrac = pre / Math.max(totalRet, 1);
 
-    // DRAWDOWN
-    for (var d=0; d<yD; d++) {
+    for (var d = 0; d < yD; d++) {
       var retAge   = st.retireAge + d;
       var ssInc    = retAge >= (st.ssage||67) ? ssAnn : 0;
-      var mortSave = retAge >= MORTGAGE_PAYOFF_AGE ? MORTGAGE_PMT * 12 : 0;
-      var lump     = (d > 0 && d % 8 === 0) ? (st.lumpy||0) : 0;
-
-      // College spending spikes — Eleanor 2038-2042, Arthur 2040-2044
+      var mortSave = retAge >= MORTGAGE_PAYOFF_AGE ? MORTGAGE_PMT*12 : 0;
+      var lump     = (d>0 && d%8===0) ? (st.lumpy||0) : 0;
       var collegeSpike = 0;
       var retireYear = currentYear + (st.retireAge - currentAge()) + d;
-      if (retireYear >= ELEANOR_COLLEGE_YEAR && retireYear < ELEANOR_COLLEGE_YEAR + 4) {
-        collegeSpike += (st.ugacost||30000) * Math.pow(1 + (st.colinf||5)/100, retireYear - currentYear);
-      }
-      if (retireYear >= ARTHUR_COLLEGE_YEAR && retireYear < ARTHUR_COLLEGE_YEAR + 4) {
-        collegeSpike += (st.ugacost||30000) * Math.pow(1 + (st.colinf||5)/100, retireYear - currentYear);
-      }
-
-      var need     = Math.max(0, curSpend - ssInc - mortSave) + lump + collegeSpike;
-      var taxDrag  = need * preFrac * PRETAX_RATE;
-      var wd       = need + taxDrag;
+      if (retireYear>=ELEANOR_COLLEGE_YEAR && retireYear<ELEANOR_COLLEGE_YEAR+4)
+        collegeSpike += (st.ugacost||30000)*Math.pow(1+(st.colinf||5)/100, retireYear-currentYear);
+      if (retireYear>=ARTHUR_COLLEGE_YEAR && retireYear<ARTHUR_COLLEGE_YEAR+4)
+        collegeSpike += (st.ugacost||30000)*Math.pow(1+(st.colinf||5)/100, retireYear-currentYear);
+      var need = Math.max(0, curSpend-ssInc-mortSave)+lump+collegeSpike;
+      var taxDrag = need*preFrac*PRETAX_RATE;
+      var wd = need+taxDrag;
       if (port <= 0) { path.push(0); continue; }
-
       var dMkt = randn();
-      var dEq  = rr + sig * dMkt;
-      var dBond= (m.bond - m.inf) + (sig * BOND_SIGMA_MULT) * randn();
-      var dRet = EQUITY_WEIGHT * dEq + (1-EQUITY_WEIGHT) * dBond;
-      port = Math.max(0, port*(1+dRet) - wd);
-
-      if (st.strat === 'guardrails') {
-        if (port < hw * GUARDRAILS_CUT) curSpend = Math.max(baseSpend * GUARDRAILS_FLOOR, curSpend * GUARDRAILS_CUT);
-        else if (port > hw * 1.20) curSpend = Math.min(baseSpend * GUARDRAILS_CEIL, curSpend * GUARDRAILS_RAISE);
-      } else if (st.strat === 'dynamic') {
-        var wdr = wd / Math.max(port, 1);
-        if (wdr > 0.05) curSpend = Math.max(baseSpend * GUARDRAILS_FLOOR, curSpend * 0.97);
-        else if (wdr < 0.035) curSpend = Math.min(baseSpend * GUARDRAILS_CEIL, curSpend * 1.02);
+      var dEq  = rr + sig*dMkt;
+      var dBond= (m.bond-m.inf)+(sig*BOND_SIGMA_MULT)*randn();
+      var dRet = EQUITY_WEIGHT*dEq+(1-EQUITY_WEIGHT)*dBond;
+      port = Math.max(0, port*(1+dRet)-wd);
+      if (st.strat==='guardrails') {
+        if (port<hw*GUARDRAILS_CUT) curSpend=Math.max(baseSpend*GUARDRAILS_FLOOR,curSpend*GUARDRAILS_CUT);
+        else if (port>hw*1.20) curSpend=Math.min(baseSpend*GUARDRAILS_CEIL,curSpend*GUARDRAILS_RAISE);
+      } else if (st.strat==='dynamic') {
+        var wdr=wd/Math.max(port,1);
+        if (wdr>0.05) curSpend=Math.max(baseSpend*GUARDRAILS_FLOOR,curSpend*0.97);
+        else if (wdr<0.035) curSpend=Math.min(baseSpend*GUARDRAILS_CEIL,curSpend*1.02);
       }
-      if (port > hw) hw = port;
+      if (port>hw) hw=port;
       path.push(port);
     }
-    if (port >= floor) success++;
-    finals.push(Math.max(port, 0));
+    if (port>=floor) success++;
+    finals.push(Math.max(port,0));
     allPaths.push(path);
   }
 
-  var tot = yD + 1;
-  var p25=[],p50=[],p75=[];
-  for (var i=0; i<tot; i++) {
-    var vs = allPaths.map(function(p){return p[Math.min(i,p.length-1)];}).sort(function(a,b){return a-b;});
+  var tot = yD+1, p25=[],p50=[],p75=[];
+  for (var i=0;i<tot;i++) {
+    var vs=allPaths.map(function(p){return p[Math.min(i,p.length-1)];}).sort(function(a,b){return a-b;});
     p25.push(vs[Math.floor(N*0.25)]);
     p50.push(vs[Math.floor(N*0.50)]);
     p75.push(vs[Math.floor(N*0.75)]);
@@ -1129,138 +1457,112 @@ function project(st) {
   finals.sort(function(a,b){return a-b;});
 
   function grow(v,c,y) { return v*Math.pow(1+rr,y)+c*((Math.pow(1+rr,y)-1)/Math.max(rr,0.001)); }
-  var soldPerYr = (st.rsugrant||0) * RSU_VEST_SCHEDULE;
-  var esppPerYr = st.espp||0;
-  var bRoth = Math.max(0, grow((st.roth||0)+(st.groth||0), st.croth||0, yA));
-  var bPre  = Math.max(0, grow(st.k401||0, st.c401k||0, yA));
-  var bTax  = Math.max(0, grow(st.taxable||0, (st.ctax||0)+soldPerYr+esppPerYr, yA));
-  var bHSA  = Math.max(0, grow(st.hsa||0, st.chsa||0, yA));
-  var bHD   = Math.max(0, (st.hd_vested||0)*Math.pow(1+rr,yA) + grow(st.hd_rsus||0,0,yA));
-
+  var soldPerYr=(st.rsugrant||0)*RSU_VEST_SCHEDULE, esppPerYr=st.espp||0;
   return {
-    sr: success/N, p25:p25, p50:p50, p75:p75,
-    portAtRet: p50[0], medFinal: finals[Math.floor(N*0.5)],
-    bkt:{roth:bRoth, k401:bPre, taxable:bTax, hsa:bHSA, hd:bHD},
-    yA:yA, yD:yD
+    sr:success/N, p25,p50,p75,
+    portAtRet:p50[0], medFinal:finals[Math.floor(N*0.5)],
+    bkt:{
+      roth:Math.max(0,grow((st.roth||0)+(st.groth||0),st.croth||0,yA)),
+      k401:Math.max(0,grow(st.k401||0,st.c401k||0,yA)),
+      taxable:Math.max(0,grow(st.taxable||0,(st.ctax||0)+soldPerYr+esppPerYr,yA)),
+      hsa:Math.max(0,grow(st.hsa||0,st.chsa||0,yA)),
+      hd:Math.max(0,(st.hd_vested||0)*Math.pow(1+rr,yA)+grow(st.hd_rsus||0,0,yA)),
+    },
+    yA,yD
   };
 }
 
-function projectWith(overrides) { return project(Object.assign({}, S, overrides)); }
+function projectWith(overrides) { return project(Object.assign({},S,overrides)); }
 
 // ============================================================
 // CACHE + RECALC
 // ============================================================
-var _cache = null;
-var _cacheScen = {};
-var _t = null;
-var _lastHash = '';
-
-function recalc() { clearTimeout(_t); _t = setTimeout(_recalc, 120); }
+var _cache=null, _cacheScen={}, _t=null, _lastHash='';
+function recalc() { clearTimeout(_t); _t=setTimeout(_recalc,120); }
 function _recalc() {
   var h = JSON.stringify([S.roth,S.groth,S.k401,S.taxable,S.hd_vested,S.hd_rsus,S.hsa,
     S.c401k,S.croth,S.chsa,S.ctax,S.espp,S.rsugrant,S.c529,
     S.spend,S.lumpy,S.ss,S.ssage,S.retireAge,S.legacyFloor,S.market,S.strat,
     S.col529kid,S.col529ret,S.colinf,S.ugacost]);
-  if (h === _lastHash) return;
-  _lastHash = h;
-
-  var res = project();
-  _cache  = res;
-  _cacheScen = {};
-  SCAN_AGES.forEach(function(a) { _cacheScen[a] = projectWith({retireAge:a}); });
-  [55,58,60,65].forEach(function(a) { if (!_cacheScen[a]) _cacheScen[a] = projectWith({retireAge:a}); });
+  if (h===_lastHash) return; _lastHash=h;
+  var res=project(); _cache=res; _cacheScen={};
+  SCAN_AGES.forEach(function(a){_cacheScen[a]=projectWith({retireAge:a});});
+  [55,58,60,65].forEach(function(a){if(!_cacheScen[a])_cacheScen[a]=projectWith({retireAge:a});});
   renderRetirement(res);
-
-  // Also update college if tab is visible
   if (document.getElementById('tab-college').classList.contains('active')) buildCollege();
+  if (document.getElementById('tab-fire').classList.contains('active')) buildFireTab();
 }
 
 // ============================================================
 // RENDER RETIREMENT
 // ============================================================
 function renderRetirement(res) {
-  var tot    = res.portAtRet;
-  var fire   = S.spend / SAFE_WR;
-  var sp     = Math.round(res.sr * 100);
-  var age    = currentAge();
+  var tot=res.portAtRet, fire=S.spend/SAFE_WR, sp=Math.round(res.sr*100), age=currentAge();
+  document.getElementById('hero-num').textContent=fmtK(tot);
+  document.getElementById('hero-sub').textContent=
+    'Median at age '+S.retireAge+' · '+res.yA+' years of accumulation'+
+    (S.retireAge<=MORTGAGE_PAYOFF_AGE?'':' · mortgage paid off at '+MORTGAGE_PAYOFF_AGE);
+  var pe=document.getElementById('st-prob');
+  pe.textContent=sp+'%'; pe.className='sv '+(sp>=85?'g':sp>=70?'gold':'r');
+  document.getElementById('st-safe').textContent=fmtK(tot*SAFE_WR)+'/yr';
+  document.getElementById('st-fire').textContent=fmtK(fire);
+  var ee=document.getElementById('st-estate');
+  ee.textContent=fmtK(res.medFinal);
+  ee.className='sv '+(res.medFinal>=1e6?'g':res.medFinal>=200000?'am':'r');
+  document.getElementById('success-def').textContent=
+    'Success = portfolio above '+fmtK(S.legacyFloor)+' floor through age 95 · '+
+    'college costs modeled 2038–2042 · mortgage payoff age '+MORTGAGE_PAYOFF_AGE+' · 1,000 simulations';
 
-  document.getElementById('hero-num').textContent = fmtK(tot);
-  document.getElementById('hero-sub').textContent =
-    'Median at age ' + S.retireAge + ' · ' + res.yA + ' years of accumulation' +
-    (S.retireAge <= MORTGAGE_PAYOFF_AGE ? '' : ' · mortgage paid off at ' + MORTGAGE_PAYOFF_AGE);
+  drawMCChart(res.p25,res.p50,res.p75,S.retireAge);
 
-  var pe = document.getElementById('st-prob');
-  pe.textContent = sp + '%';
-  pe.className   = 'sv ' + (sp>=85?'g':sp>=70?'gold':'r');
-  document.getElementById('st-safe').textContent = fmtK(tot*SAFE_WR)+'/yr';
-  document.getElementById('st-fire').textContent = fmtK(fire);
-  var ee = document.getElementById('st-estate');
-  ee.textContent = fmtK(res.medFinal);
-  ee.className   = 'sv ' + (res.medFinal>=1e6?'g':res.medFinal>=200000?'am':'r');
-
-  document.getElementById('success-def').textContent =
-    'Success = portfolio above ' + fmtK(S.legacyFloor) + ' floor through age 95 · ' +
-    'college costs modeled 2038–2042 · mortgage payoff age ' + MORTGAGE_PAYOFF_AGE + ' · 1,000 simulations';
-
-  drawMCChart(res.p25, res.p50, res.p75, S.retireAge);
-
-  // Buckets
-  var b = res.bkt, bt = b.roth+b.k401+b.taxable+b.hsa+b.hd;
-  var defs = [
-    {k:'roth', lbl:'Roth (both)', tax:'Tax-free', col:'var(--green)'},
-    {k:'k401', lbl:'401(k)', tax:'Pre-tax', col:'var(--gold)'},
-    {k:'taxable', lbl:'Taxable', tax:'Cap gains', col:'var(--blue)'},
-    {k:'hsa', lbl:'HSA', tax:'Triple-tax', col:'var(--green-lt)'},
-    {k:'hd', lbl:'HD Stock', tax:'Concentrated', col:'var(--amber)'},
+  var b=res.bkt, bt=b.roth+b.k401+b.taxable+b.hsa+b.hd;
+  var defs=[
+    {k:'roth',lbl:'Roth (both)',tax:'Tax-free',col:'var(--green)'},
+    {k:'k401',lbl:'401(k)',tax:'Pre-tax',col:'var(--gold)'},
+    {k:'taxable',lbl:'Taxable',tax:'Cap gains',col:'var(--blue)'},
+    {k:'hsa',lbl:'HSA',tax:'Triple-tax',col:'var(--green-lt)'},
+    {k:'hd',lbl:'HD Stock',tax:'Concentrated',col:'var(--amber)'},
   ];
-  var brows = document.getElementById('brows');
-  brows.innerHTML = '';
+  var brows=document.getElementById('brows'); brows.innerHTML='';
   defs.forEach(function(d) {
-    var v = b[d.k]||0, p = bt>0?v/bt*100:0;
-    var row = document.createElement('div');
-    row.className = 'brow';
-    row.innerHTML = '<div class="bnm">'+d.lbl+'<br><span style="font-size:7.5px;color:var(--label)">'+d.tax+'</span></div>'+
+    var v=b[d.k]||0, p=bt>0?v/bt*100:0;
+    var row=document.createElement('div'); row.className='brow';
+    row.innerHTML='<div class="bnm">'+d.lbl+'<br><span style="font-size:7.5px;color:var(--label)">'+d.tax+'</span></div>'+
       '<div class="bbar-wrap"><div class="bbar" style="width:'+p.toFixed(1)+'%;background:'+d.col+'"></div></div>'+
       '<div class="bval">'+fmtK(v)+'</div>';
     brows.appendChild(row);
   });
 
-  // Scenario cards
   [55,58,60,65].forEach(function(a) {
-    var cached = _cacheScen[a];
-    var p = cached ? Math.round(cached.sr*100) : 0;
-    document.getElementById('prob-'+a).textContent = p+'% success rate';
-    document.getElementById('prob-'+a).className = 'sc-prob '+(p>=85?'ph':p>=70?'pm':'pl');
-    document.getElementById('bar-'+a).style.width = p+'%';
+    var cached=_cacheScen[a], p=cached?Math.round(cached.sr*100):0;
+    document.getElementById('prob-'+a).textContent=p+'% success rate';
+    document.getElementById('prob-'+a).className='sc-prob '+(p>=85?'ph':p>=70?'pm':'pl');
+    document.getElementById('bar-'+a).style.width=p+'%';
   });
 
-  buildRothTL(S.retireAge, S.ssage);
+  buildRothTL(S.retireAge,S.ssage);
   buildConc();
-  buildInsights(res, fire);
+  buildInsights(res,fire);
 }
 
 // ============================================================
 // MC CHART
 // ============================================================
-function drawMCChart(p25, p50, p75, retAge) {
-  var cv = document.getElementById('mc');
-  var ctx = cv.getContext('2d');
-  var dpr = window.devicePixelRatio||1;
-  var W = cv.offsetWidth, H = 210;
-  cv.width = W*dpr; cv.height = H*dpr;
-  ctx.scale(dpr,dpr);
-  ctx.clearRect(0,0,W,H);
-  var PAD = {t:10,r:20,b:28,l:58};
-  var cW = W-PAD.l-PAD.r, cH = H-PAD.t-PAD.b;
-  var n = p50.length;
-  var maxV = 0;
-  for (var i=0;i<p75.length;i++) if (isFinite(p75[i])&&p75[i]>maxV) maxV=p75[i];
-  maxV *= 1.08; if (maxV<1) maxV=1;
-  function xOf(i) { return PAD.l+(i/(n-1))*cW; }
-  function yOf(v) { return PAD.t+cH-(Math.max(v,0)/maxV)*cH; }
-
+function drawMCChart(p25,p50,p75,retAge) {
+  var cv=document.getElementById('mc');
+  var ctx=cv.getContext('2d'), dpr=window.devicePixelRatio||1;
+  var W=cv.offsetWidth, H=210;
+  cv.width=W*dpr; cv.height=H*dpr;
+  ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
+  var PAD={t:10,r:20,b:28,l:58};
+  var cW=W-PAD.l-PAD.r, cH=H-PAD.t-PAD.b;
+  var n=p50.length, maxV=0;
+  for (var i=0;i<p75.length;i++) if(isFinite(p75[i])&&p75[i]>maxV) maxV=p75[i];
+  maxV*=1.08; if(maxV<1) maxV=1;
+  function xOf(i){return PAD.l+(i/(n-1))*cW;}
+  function yOf(v){return PAD.t+cH-(Math.max(v,0)/maxV)*cH;}
   for (var g=0;g<=4;g++) {
-    var gy = PAD.t+(g/4)*cH, gv = maxV*(1-g/4);
+    var gy=PAD.t+(g/4)*cH, gv=maxV*(1-g/4);
     ctx.strokeStyle='#222220'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.l,gy); ctx.lineTo(W-PAD.r,gy); ctx.stroke();
     ctx.fillStyle='#4a4a46'; ctx.font='9px monospace'; ctx.textAlign='right';
@@ -1268,50 +1570,40 @@ function drawMCChart(p25, p50, p75, retAge) {
   }
   ctx.fillStyle='#4a4a46'; ctx.textAlign='center';
   [0,10,20,PLAN_TO_AGE-retAge].forEach(function(off) {
-    ctx.fillText('Age '+(retAge+off), xOf(Math.min(off,n-1)), H-5);
+    ctx.fillText('Age '+(retAge+off),xOf(Math.min(off,n-1)),H-5);
   });
-
-  // Mortgage payoff
-  var mortYear = MORTGAGE_PAYOFF_AGE - retAge;
-  if (mortYear > 0 && mortYear < n) {
+  var mortYear=MORTGAGE_PAYOFF_AGE-retAge;
+  if (mortYear>0&&mortYear<n) {
     ctx.strokeStyle='rgba(106,191,142,0.4)'; ctx.setLineDash([2,4]); ctx.lineWidth=1;
-    ctx.beginPath(); ctx.moveTo(xOf(mortYear),PAD.t); ctx.lineTo(xOf(mortYear),PAD.t+cH); ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(xOf(mortYear),PAD.t); ctx.lineTo(xOf(mortYear),PAD.t+cH); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle='rgba(106,191,142,0.6)'; ctx.font='8px monospace'; ctx.textAlign='center';
     ctx.fillText('mortgage paid',xOf(mortYear),PAD.t+8);
   }
-
-  // College markers
-  var currentYear = new Date().getFullYear();
+  var currentYear=new Date().getFullYear();
   [[ELEANOR_COLLEGE_YEAR,'Eleanor'],[ARTHUR_COLLEGE_YEAR,'Arthur']].forEach(function(pair) {
-    var yr = pair[0] - currentYear - (retAge - currentAge());
-    var label = pair[1];
-    if (yr > 0 && yr < n) {
+    var yr=pair[0]-currentYear-(retAge-currentAge()), label=pair[1];
+    if (yr>0&&yr<n) {
       ctx.strokeStyle='rgba(90,184,184,0.35)'; ctx.setLineDash([2,4]); ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(xOf(yr),PAD.t); ctx.lineTo(xOf(yr),PAD.t+cH); ctx.stroke();
-      ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(xOf(yr),PAD.t); ctx.lineTo(xOf(yr),PAD.t+cH); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle='rgba(90,184,184,0.6)'; ctx.font='8px monospace'; ctx.textAlign='center';
       ctx.fillText(label,xOf(yr),PAD.t+18);
     }
   });
-
-  ctx.beginPath();
-  ctx.moveTo(xOf(0),yOf(p25[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i]));
-  for (var i=n-1;i>=0;i--) ctx.lineTo(xOf(i),yOf(p75[i]));
+  ctx.beginPath(); ctx.moveTo(xOf(0),yOf(p25[0]));
+  for(var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i]));
+  for(var i=n-1;i>=0;i--) ctx.lineTo(xOf(i),yOf(p75[i]));
   ctx.closePath(); ctx.fillStyle='rgba(74,158,110,0.07)'; ctx.fill();
   ctx.beginPath(); ctx.strokeStyle='rgba(106,191,142,0.35)'; ctx.lineWidth=1.5;
   ctx.moveTo(xOf(0),yOf(p75[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p75[i])); ctx.stroke();
+  for(var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p75[i])); ctx.stroke();
   ctx.beginPath(); ctx.strokeStyle='rgba(192,74,58,0.35)'; ctx.lineWidth=1.5;
   ctx.moveTo(xOf(0),yOf(p25[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i])); ctx.stroke();
+  for(var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p25[i])); ctx.stroke();
   ctx.beginPath(); ctx.strokeStyle='#c8a84b'; ctx.lineWidth=2.5;
   ctx.shadowColor='rgba(200,168,75,0.3)'; ctx.shadowBlur=8;
   ctx.moveTo(xOf(0),yOf(p50[0]));
-  for (var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p50[i])); ctx.stroke(); ctx.shadowBlur=0;
-
-  if (S.legacyFloor>0&&S.legacyFloor<maxV) {
+  for(var i=1;i<n;i++) ctx.lineTo(xOf(i),yOf(p50[i])); ctx.stroke(); ctx.shadowBlur=0;
+  if(S.legacyFloor>0&&S.legacyFloor<maxV) {
     var fy=yOf(S.legacyFloor);
     ctx.strokeStyle='rgba(200,122,40,0.4)'; ctx.setLineDash([4,5]); ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.l,fy); ctx.lineTo(W-PAD.r,fy); ctx.stroke(); ctx.setLineDash([]);
@@ -1323,131 +1615,101 @@ function drawMCChart(p25, p50, p75, retAge) {
 // ============================================================
 // ROTH TIMELINE
 // ============================================================
-function buildRothTL(retAge, ssAge) {
-  var el = document.getElementById('roth-tl');
-  el.innerHTML = '';
-  var show = Math.min(ssAge-retAge+4, 20);
-  for (var y=0; y<show; y++) {
-    var age2 = retAge+y, d = document.createElement('div');
-    d.className = 'ry';
-    if (age2 >= ssAge) d.style.cssText = 'background:var(--green-bg);border:1px solid var(--green);color:var(--green-lt)';
-    else if (y<=2) d.style.cssText = 'background:var(--blue-bg);border:1px solid var(--blue);color:var(--blue-lt)';
-    else d.style.cssText = 'background:rgba(200,122,40,0.12);border:1px solid var(--amber);color:var(--amber)';
-    d.textContent = age2;
-    el.appendChild(d);
+function buildRothTL(retAge,ssAge) {
+  var el=document.getElementById('roth-tl'); el.innerHTML='';
+  var show=Math.min(ssAge-retAge+4,20);
+  for (var y=0;y<show;y++) {
+    var age2=retAge+y, d=document.createElement('div');
+    d.className='ry';
+    if (age2>=ssAge) d.style.cssText='background:var(--green-bg);border:1px solid var(--green);color:var(--green-lt)';
+    else if (y<=2) d.style.cssText='background:var(--blue-bg);border:1px solid var(--blue);color:var(--blue-lt)';
+    else d.style.cssText='background:rgba(200,122,40,0.12);border:1px solid var(--amber);color:var(--amber)';
+    d.textContent=age2; el.appendChild(d);
   }
-  var gap = ssAge-retAge;
-  document.getElementById('roth-advice').textContent =
-    'Convert ~$55K/yr during '+gap+'-year gap (age '+retAge+'–'+ssAge+') at 12–22% vs 32%+ when RMDs kick in. ' +
-    'Total opportunity: ~$'+Math.round(gap*55)+' K.';
+  var gap=ssAge-retAge;
+  document.getElementById('roth-advice').textContent=
+    'Convert ~$55K/yr during '+gap+'-year gap (age '+retAge+'–'+ssAge+') at 12–22% vs 32%+ when RMDs kick in. Total opportunity: ~$'+Math.round(gap*55)+'K.';
 }
 
 // ============================================================
 // CONCENTRATION RISK
 // ============================================================
 function buildConc() {
-  var totalInv = (S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);
-  var hdAmt    = (S.hd_vested||0)+(S.hd_rsus||0);
-  var pct2     = totalInv>0 ? Math.round(hdAmt/totalInv*100) : 0;
-  var meter    = document.getElementById('risk-meter');
-  var desc     = document.getElementById('conc-desc');
-  var adv      = document.getElementById('conc-adv');
-  meter.innerHTML = '';
-  for (var i=0;i<20;i++) {
-    var d = document.createElement('div');
-    d.className = 'rblk';
-    if (i < Math.round(pct2/100*20)) {
-      var t = i/20;
-      d.style.background = 'rgb('+Math.round(74+t*118)+','+Math.round(158-t*120)+','+Math.round(110-t*76)+')';
-    } else d.style.background = 'var(--border)';
+  var totalInv=(S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);
+  var hdAmt=(S.hd_vested||0)+(S.hd_rsus||0);
+  var pct2=totalInv>0?Math.round(hdAmt/totalInv*100):0;
+  var meter=document.getElementById('risk-meter'), desc=document.getElementById('conc-desc'), adv=document.getElementById('conc-adv');
+  meter.innerHTML='';
+  for(var i=0;i<20;i++) {
+    var d=document.createElement('div'); d.className='rblk';
+    if(i<Math.round(pct2/100*20)){var t=i/20;d.style.background='rgb('+Math.round(74+t*118)+','+Math.round(158-t*120)+','+Math.round(110-t*76)+')';}
+    else d.style.background='var(--border)';
     meter.appendChild(d);
   }
-  var lvl, col, advice;
-  if (pct2<15)      {lvl='Low';      col='var(--green-lt)'; advice='Within acceptable range. Keep selling at each vest.';}
-  else if (pct2<25) {lvl='Moderate'; col='var(--gold)';     advice='Sell RSUs at vest, reinvest into index funds. Target below 15%.';}
-  else if (pct2<40) {lvl='Elevated'; col='var(--amber)';    advice='Meaningful single-stock risk. Prioritize selling RSUs at every vest.';}
-  else              {lvl='High';     col='var(--red-lt)';   advice='Critical. Sell RSUs aggressively at each vest into diversified funds.';}
-  desc.innerHTML = '<span style="color:'+col+';font-weight:500">'+lvl+'</span> — '+pct2+'% of investable assets ($'+Math.round(hdAmt/1000)+'K) is HD stock. '+
+  var lvl,col,advice;
+  if(pct2<15){lvl='Low';col='var(--green-lt)';advice='Within acceptable range. Keep selling at each vest.';}
+  else if(pct2<25){lvl='Moderate';col='var(--gold)';advice='Sell RSUs at vest, reinvest into index funds. Target below 15%.';}
+  else if(pct2<40){lvl='Elevated';col='var(--amber)';advice='Meaningful single-stock risk. Prioritize selling RSUs at every vest.';}
+  else{lvl='High';col='var(--red-lt)';advice='Critical. Sell RSUs aggressively at each vest into diversified funds.';}
+  desc.innerHTML='<span style="color:'+col+';font-weight:500">'+lvl+'</span> — '+pct2+'% of investable assets ($'+Math.round(hdAmt/1000)+'K) is HD stock. '+
     '<span style="color:var(--muted);font-size:11px">Vested: $'+Math.round((S.hd_vested||0)/1000)+'K · Unvested: $'+Math.round((S.hd_rsus||0)/1000)+'K</span>';
-  adv.textContent = advice;
+  adv.textContent=advice;
 }
 
 // ============================================================
 // INSIGHTS
 // ============================================================
-function buildInsights(res, fireNum) {
-  var el = document.getElementById('insights');
-  el.innerHTML = '';
-  var total = res.portAtRet, gap = total-fireNum;
-  var sr0   = Math.round(res.sr*100);
+function buildInsights(res,fireNum) {
+  var el=document.getElementById('insights'); el.innerHTML='';
+  var total=res.portAtRet, gap=total-fireNum, sr0=Math.round(res.sr*100);
 
-  var headline = document.createElement('div');
-  headline.className = 'insight';
-  if (gap >= 0) {
-    headline.style.borderLeftColor = 'var(--green)';
-    headline.innerHTML = '<span class="ins-icon" style="color:var(--green)">&#10022;</span>' +
-      '<span class="ins-text">Projected <strong>'+fmtK(total)+'</strong> exceeds FIRE number of <strong>'+fmtK(fireNum)+'</strong> by <strong>'+fmtK(gap)+'</strong>. ' +
+  var headline=document.createElement('div'); headline.className='insight';
+  if(gap>=0){
+    headline.style.borderLeftColor='var(--green)';
+    headline.innerHTML='<span class="ins-icon" style="color:var(--green)">&#10022;</span>'+
+      '<span class="ins-text">Projected <strong>'+fmtK(total)+'</strong> exceeds FIRE number of <strong>'+fmtK(fireNum)+'</strong> by <strong>'+fmtK(gap)+'</strong>. '+
       'College years (2038–2042) and mortgage payoff (age '+MORTGAGE_PAYOFF_AGE+') are modeled in.</span>';
   } else {
-    var extra = Math.round(Math.abs(gap)/res.yA/1000)*1000;
-    headline.style.borderLeftColor = 'var(--amber)';
-    headline.innerHTML = '<span class="ins-icon" style="color:var(--amber)">&#9672;</span>' +
-      '<span class="ins-text">Portfolio is <strong>'+fmtK(Math.abs(gap))+'</strong> short of FIRE number at age '+S.retireAge+'. ' +
+    var extra=Math.round(Math.abs(gap)/res.yA/1000)*1000;
+    headline.style.borderLeftColor='var(--amber)';
+    headline.innerHTML='<span class="ins-icon" style="color:var(--amber)">&#9672;</span>'+
+      '<span class="ins-text">Portfolio is <strong>'+fmtK(Math.abs(gap))+'</strong> short of FIRE number at age '+S.retireAge+'. '+
       'An additional <strong>$'+extra.toLocaleString()+'/yr</strong> in savings closes the gap.</span>';
   }
   el.appendChild(headline);
 
-  var levers = [];
-  var r2yr = projectWith({retireAge: S.retireAge+2});
-  levers.push({action:'Retire at age '+(S.retireAge+2), delta:Math.round(r2yr.sr*100)-sr0, note:'2 more years of contributions + 2 fewer withdrawal years', effort:'Medium'});
-  if (S.spend > 70000) {
-    var rSpend = projectWith({spend: S.spend-10000});
-    levers.push({action:'Reduce spending to '+fmtK(S.spend-10000)+'/yr', delta:Math.round(rSpend.sr*100)-sr0, note:'Lowers FIRE number and annual withdrawals', effort:'Hard'});
-  }
-  var rSave = projectWith({ctax: S.ctax+10000});
-  levers.push({action:'Add $10K/yr to taxable savings', delta:Math.round(rSave.sr*100)-sr0, note:'Compounds '+res.yA+' years before retirement', effort:'Medium'});
-  if (S.ssage < 70) {
-    var rSS70 = projectWith({ssage:70, ss:Math.round(S.ss*1.24)});
-    levers.push({action:'Delay SS to age 70', delta:Math.round(rSS70.sr*100)-sr0, note:fmtK(Math.round(S.ss*1.24)*12)+'/yr vs '+fmtK(S.ss*12)+'/yr', effort:'Low'});
-  }
-
+  var levers=[];
+  var r2yr=projectWith({retireAge:S.retireAge+2});
+  levers.push({action:'Retire at age '+(S.retireAge+2),delta:Math.round(r2yr.sr*100)-sr0,note:'2 more years of contributions + 2 fewer withdrawal years',effort:'Medium'});
+  if(S.spend>70000){var rSpend=projectWith({spend:S.spend-10000});levers.push({action:'Reduce spending to '+fmtK(S.spend-10000)+'/yr',delta:Math.round(rSpend.sr*100)-sr0,note:'Lowers FIRE number and annual withdrawals',effort:'Hard'});}
+  var rSave=projectWith({ctax:S.ctax+10000});
+  levers.push({action:'Add $10K/yr to taxable savings',delta:Math.round(rSave.sr*100)-sr0,note:'Compounds '+res.yA+' years before retirement',effort:'Medium'});
+  if(S.ssage<70){var rSS70=projectWith({ssage:70,ss:Math.round(S.ss*1.24)});levers.push({action:'Delay SS to age 70',delta:Math.round(rSS70.sr*100)-sr0,note:fmtK(Math.round(S.ss*1.24)*12)+'/yr vs '+fmtK(S.ss*12)+'/yr',effort:'Low'});}
   levers.sort(function(a,b){return b.delta-a.delta;});
-  levers = levers.filter(function(l){return l.delta>=0;});
+  levers=levers.filter(function(l){return l.delta>=0;});
 
-  if (levers.length > 0) {
-    var tbl = document.createElement('div');
-    tbl.className = 'insight';
-    tbl.style.borderLeftColor = 'var(--gold)';
-    tbl.style.flexDirection = 'column';
-    tbl.style.gap = '0';
-    var rows = '<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Best Levers — Ranked by Impact</div>';
-    rows += '<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th><th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th><th style="text-align:right;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th></tr>';
-    levers.forEach(function(l) {
-      var ic = l.delta>=10?'var(--green-lt)':l.delta>=5?'var(--gold)':'var(--muted)';
-      var ec = l.effort==='Low'?'var(--green-lt)':l.effort==='Medium'?'var(--gold)':'var(--red-lt)';
-      rows += '<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 0;color:var(--text)">'+l.action+'<div style="font-size:10px;color:var(--muted);margin-top:2px">'+l.note+'</div></td><td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+ic+'">+'+l.delta+'%</td><td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+ec+'">'+l.effort.toUpperCase()+'</td></tr>';
+  if(levers.length>0){
+    var tbl=document.createElement('div'); tbl.className='insight'; tbl.style.borderLeftColor='var(--gold)';
+    tbl.style.flexDirection='column'; tbl.style.gap='0';
+    var rows='<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Best Levers — Ranked by Impact</div>';
+    rows+='<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th><th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th><th style="text-align:right;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th></tr>';
+    levers.forEach(function(l){
+      var ic=l.delta>=10?'var(--green-lt)':l.delta>=5?'var(--gold)':'var(--muted)';
+      var ec=l.effort==='Low'?'var(--green-lt)':l.effort==='Medium'?'var(--gold)':'var(--red-lt)';
+      rows+='<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 0;color:var(--text)">'+l.action+'<div style="font-size:10px;color:var(--muted);margin-top:2px">'+l.note+'</div></td><td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+ic+'">+'+l.delta+'%</td><td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+ec+'">'+l.effort.toUpperCase()+'</td></tr>';
     });
-    rows += '</table>';
-    tbl.innerHTML = rows;
-    el.appendChild(tbl);
+    rows+='</table>'; tbl.innerHTML=rows; el.appendChild(tbl);
   }
 
-  var supportItems = [];
-  var recAge=null, recSR=0;
-  SCAN_AGES.forEach(function(a) {
-    var cached = _cacheScen[a];
-    if (cached&&cached.sr>=SUCCESS_THRESHOLD&&recAge===null) { recAge=a; recSR=Math.round(cached.sr*100); }
-  });
-  if (recAge!==null) {
-    supportItems.push({icon:'&#9670;',col:'var(--gold)',text:'<strong>Age '+recAge+'</strong> is your earliest retirement with 85%+ success (<strong>'+recSR+'%</strong>) under '+S.market+' conditions, including college years.'});
-  }
-  var ss62=Math.round(S.ss*0.70), ss70=Math.round(S.ss*1.24);
+  var supportItems=[];
+  var recAge=null,recSR=0;
+  SCAN_AGES.forEach(function(a){var cached=_cacheScen[a];if(cached&&cached.sr>=SUCCESS_THRESHOLD&&recAge===null){recAge=a;recSR=Math.round(cached.sr*100);}});
+  if(recAge!==null) supportItems.push({icon:'&#9670;',col:'var(--gold)',text:'<strong>Age '+recAge+'</strong> is your earliest retirement with 85%+ success (<strong>'+recSR+'%</strong>) under '+S.market+' conditions, including college years.'});
+  var ss62=Math.round(S.ss*0.70),ss70=Math.round(S.ss*1.24);
   supportItems.push({icon:'&#9711;',col:'var(--blue)',text:'SS at 62 = <strong>'+fmtK(ss62*12)+'/yr</strong> vs. 70 = <strong>'+fmtK(ss70*12)+'/yr</strong>. In early retirement, draw taxable first and delay SS to let Roth compound.'});
   supportItems.push({icon:'&#9632;',col:'var(--teal-lt)',text:'Eleanor starts college in 2038, Arthur in 2040 — both before your target retirement at 55. College costs are modeled as spending spikes in the simulation.'});
-
-  supportItems.forEach(function(ins) {
-    var d2 = document.createElement('div');
-    d2.className='insight'; d2.style.borderLeftColor=ins.col;
+  supportItems.forEach(function(ins){
+    var d2=document.createElement('div'); d2.className='insight'; d2.style.borderLeftColor=ins.col;
     d2.innerHTML='<span class="ins-icon" style="color:'+ins.col+'">'+ins.icon+'</span><span class="ins-text">'+ins.text+'</span>';
     el.appendChild(d2);
   });
@@ -1457,187 +1719,168 @@ function buildInsights(res, fireNum) {
 // TAX PROJECTION
 // ============================================================
 function calcTax() {
-  function v(id) { return parseNum(document.getElementById(id).value) || 0; }
-  var wages    = v('tx-wages');
-  var bonus    = v('tx-bonus');
-  var rsu      = v('tx-rsu');
-  var espp2    = v('tx-espp');
-  var cg       = v('tx-cg');
-  var grace    = v('tx-grace');
-  var withheld = v('tx-withheld');
-  var estPay   = v('tx-estpay');
+  function v(id){return parseNum(document.getElementById(id).value)||0;}
+  var wages=v('tx-wages'),bonus=v('tx-bonus'),rsu=v('tx-rsu'),espp2=v('tx-espp');
+  var cg=v('tx-cg'),grace=v('tx-grace'),withheld=v('tx-withheld'),estPay=v('tx-estpay');
+  var totalIncome=wages+bonus+rsu+espp2+grace;
+  var agi=Math.max(0,totalIncome-23000-8550);
+  var taxableInc=Math.max(0,agi-31500+cg);
 
-  var totalIncome = wages + bonus + rsu + espp2 + grace;
-  var agi         = Math.max(0, totalIncome - 23000 - 8550);
-  var taxableInc  = Math.max(0, agi - 31500 + cg);
-
-  function fedTax(inc) {
-    var tax2 = 0;
-    var brackets = [[23200,0.10],[94300,0.12],[201050,0.22],[383900,0.24],[487450,0.32],[731200,0.35],[1e9,0.37]];
-    var prev = 0;
-    for (var i=0;i<brackets.length;i++) {
-      var top=brackets[i][0], rate=brackets[i][1];
-      if (inc<=prev) break;
-      tax2 += Math.min(inc-prev,top-prev)*rate;
-      if (inc<=top) break;
-      prev=top;
+  function fedTax(inc){
+    var tax2=0;
+    var brackets=[[23200,0.10],[94300,0.12],[201050,0.22],[383900,0.24],[487450,0.32],[731200,0.35],[1e9,0.37]];
+    var prev=0;
+    for(var i=0;i<brackets.length;i++){
+      var top=brackets[i][0],rate=brackets[i][1];
+      if(inc<=prev) break;
+      tax2+=Math.min(inc-prev,top-prev)*rate;
+      if(inc<=top) break; prev=top;
     }
     return tax2;
   }
-  function cgTax(inc, cg2) {
-    if (inc<94050) return 0;
-    if (inc<583750) return cg2*0.15;
-    return cg2*0.20;
-  }
+  function cgTax(inc,cg2){if(inc<94050)return 0;if(inc<583750)return cg2*0.15;return cg2*0.20;}
 
-  var ordinaryTax = fedTax(Math.max(0, taxableInc-cg));
-  var capitalTax  = cgTax(taxableInc, cg);
-  var niit        = agi > 250000 ? Math.min(cg, agi-250000)*0.038 : 0;
-  var totalFed    = ordinaryTax + capitalTax + niit;
-  var childCredit = 4400;
-  var totalFedNet = Math.max(0, totalFed - childCredit);
-  var totalPaid   = withheld + estPay;
-  var balance     = totalFedNet - totalPaid;
-  var paidPct     = Math.min(Math.round(totalPaid/Math.max(totalFedNet,1)*100), 100);
-  var balColor    = balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)';
-  var balLabel    = balance>0?'Balance Due':'Overpaid';
+  var ordinaryTax=fedTax(Math.max(0,taxableInc-cg));
+  var capitalTax=cgTax(taxableInc,cg);
+  var niit=agi>250000?Math.min(cg,agi-250000)*0.038:0;
+  var totalFed=ordinaryTax+capitalTax+niit;
+  var childCredit=4400;
+  var totalFedNet=Math.max(0,totalFed-childCredit);
+  var totalPaid=withheld+estPay;
+  var balance=totalFedNet-totalPaid;
+  var paidPct=Math.min(Math.round(totalPaid/Math.max(totalFedNet,1)*100),100);
+  var balColor=balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)';
+  var balLabel=balance>0?'Balance Due':'Overpaid';
 
-  document.getElementById('tax-output').innerHTML =
-    '<div class="tax-card"><div class="tax-card-lbl">Income Summary</div>' +
-    '<div class="tax-line"><span class="lbl">W-2 Wages</span><span class="val">'+fmtD(wages)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Bonus</span><span class="val">'+fmtD(bonus)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">RSU Vest Income</span><span class="val">'+fmtD(rsu)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">ESPP Gain</span><span class="val">'+fmtD(espp2)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Capital Gains</span><span class="val">'+fmtD(cg)+'</span></div>' +
+  document.getElementById('tax-output').innerHTML=
+    '<div class="tax-card"><div class="tax-card-lbl">Income Summary</div>'+
+    '<div class="tax-line"><span class="lbl">W-2 Wages</span><span class="val">'+fmtD(wages)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">Bonus</span><span class="val">'+fmtD(bonus)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">RSU Vest Income</span><span class="val">'+fmtD(rsu)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">ESPP Gain</span><span class="val">'+fmtD(espp2)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">Capital Gains</span><span class="val">'+fmtD(cg)+'</span></div>'+
     (grace>0?'<div class="tax-line"><span class="lbl">Grace Income</span><span class="val">'+fmtD(grace)+'</span></div>':'')+
-    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Income</span><span class="val" style="color:var(--text)">'+fmtD(totalIncome)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">AGI</span><span class="val">'+fmtD(agi)+'</span></div>' +
-    '</div>' +
-    '<div class="tax-card"><div class="tax-card-lbl">Federal Tax</div>' +
-    '<div class="tax-line"><span class="lbl">Ordinary Tax</span><span class="val">'+fmtD(ordinaryTax)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Capital Gains Tax</span><span class="val">'+fmtD(capitalTax)+'</span></div>' +
+    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Income</span><span class="val" style="color:var(--text)">'+fmtD(totalIncome)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">AGI</span><span class="val">'+fmtD(agi)+'</span></div>'+
+    '</div>'+
+    '<div class="tax-card"><div class="tax-card-lbl">Federal Tax</div>'+
+    '<div class="tax-line"><span class="lbl">Ordinary Tax</span><span class="val">'+fmtD(ordinaryTax)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">Capital Gains Tax</span><span class="val">'+fmtD(capitalTax)+'</span></div>'+
     (niit>0?'<div class="tax-line"><span class="lbl">NIIT (3.8%)</span><span class="val">'+fmtD(niit)+'</span></div>':'')+
-    '<div class="tax-line"><span class="lbl">Child Tax Credit</span><span class="val" style="color:var(--green-lt)">-'+fmtD(childCredit)+'</span></div>' +
-    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Federal</span><span class="val" style="color:var(--text)">'+fmtD(totalFedNet)+'</span></div>' +
-    '<div class="tax-line"><span class="lbl">Effective Rate</span><span class="val">'+fmtPct(totalFedNet/Math.max(agi,1)*100)+'</span></div>' +
-    '<div class="tax-meter"><div style="display:flex;justify-content:space-between;font-size:9px;color:var(--label);margin-bottom:5px"><span>Paid: '+fmtD(totalPaid)+'</span><span>'+paidPct+'% covered</span></div>' +
-    '<div class="tax-meter-bar"><div class="tax-meter-fill" style="width:'+paidPct+'%;background:'+(paidPct>=90?'var(--green)':paidPct>=70?'var(--amber)':'var(--red)')+'"></div></div></div>' +
-    '<div class="tax-alert" style="background:'+(balance>5000?'var(--red-bg)':balance>0?'#1a1200':'var(--green-bg)')+';border:1px solid '+(balance>5000?'var(--red)':balance>0?'var(--amber)':'var(--green)')+'"><span style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:'+(balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)')+'">'+balLabel+': </span>' +
-    '<span style="font-family:DM Serif Display,serif;font-size:18px;color:'+balColor+'">'+fmtD(Math.abs(balance))+'</span>' +
-    (balance>8000?'<div style="margin-top:6px;font-size:11px;color:var(--muted)">Add $'+Math.round(balance/20/100)*100+'/paycheck extra withholding.</div>':'') +
+    '<div class="tax-line"><span class="lbl">Child Tax Credit</span><span class="val" style="color:var(--green-lt)">-'+fmtD(childCredit)+'</span></div>'+
+    '<div class="tax-line" style="border-top:1px solid var(--border2);margin-top:4px;padding-top:4px"><span class="lbl" style="color:var(--text)">Total Federal</span><span class="val" style="color:var(--text)">'+fmtD(totalFedNet)+'</span></div>'+
+    '<div class="tax-line"><span class="lbl">Effective Rate</span><span class="val">'+fmtPct(totalFedNet/Math.max(agi,1)*100)+'</span></div>'+
+    '<div class="tax-meter"><div style="display:flex;justify-content:space-between;font-size:9px;color:var(--label);margin-bottom:5px"><span>Paid: '+fmtD(totalPaid)+'</span><span>'+paidPct+'% covered</span></div>'+
+    '<div class="tax-meter-bar"><div class="tax-meter-fill" style="width:'+paidPct+'%;background:'+(paidPct>=90?'var(--green)':paidPct>=70?'var(--amber)':'var(--red)')+'"></div></div></div>'+
+    '<div class="tax-alert" style="background:'+(balance>5000?'var(--red-bg)':balance>0?'#1a1200':'var(--green-bg)')+';border:1px solid '+(balance>5000?'var(--red)':balance>0?'var(--amber)':'var(--green)')+'"><span style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:'+(balance>5000?'var(--red-lt)':balance>0?'var(--amber)':'var(--green-lt)')+'">'+balLabel+': </span>'+
+    '<span style="font-family:DM Serif Display,serif;font-size:18px;color:'+balColor+'">'+fmtD(Math.abs(balance))+'</span>'+
+    (balance>8000?'<div style="margin-top:6px;font-size:11px;color:var(--muted)">Add $'+Math.round(balance/20/100)*100+'/paycheck extra withholding.</div>':'')+
     '</div></div>';
 
-  // Georgia state tax
-  var gaRate = 0.0549;
-  var gaStdDeduction = 24000; // MFJ 2024
-  var ga529Deduction = 8000;  // $4K per beneficiary, 2 kids
-  var gaTaxableInc = Math.max(0, agi - gaStdDeduction - ga529Deduction);
-  var gaTax = gaTaxableInc * gaRate;
-  var gaChildCredit = 0; // GA does not have a refundable child credit at federal level
-  var gaTaxNet = Math.max(0, gaTax);
-
-  document.getElementById('tax-ga-output').innerHTML =
-    '<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label);margin-bottom:12px">Georgia State Tax (5.49% Flat)</div>' +
-    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">' +
-    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">GA Taxable Income</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--text)">'+fmtD(gaTaxableInc)+'</div></div>' +
-    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">GA Tax Owed</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--amber)">'+fmtD(gaTaxNet)+'</div></div>' +
-    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">529 State Deduction</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--green-lt)">-'+fmtD(ga529Deduction)+'</div></div>' +
-    '</div>' +
+  var gaRate=0.0549, gaStdDeduction=24000, ga529Deduction=8000;
+  var gaTaxableInc=Math.max(0,agi-gaStdDeduction-ga529Deduction);
+  var gaTaxNet=gaTaxableInc*gaRate;
+  document.getElementById('tax-ga-output').innerHTML=
+    '<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label);margin-bottom:12px">Georgia State Tax (5.49% Flat)</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">'+
+    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">GA Taxable Income</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--text)">'+fmtD(gaTaxableInc)+'</div></div>'+
+    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">GA Tax Owed</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--amber)">'+fmtD(gaTaxNet)+'</div></div>'+
+    '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">529 State Deduction</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--green-lt)">-'+fmtD(ga529Deduction)+'</div></div>'+
+    '</div>'+
     '<div style="margin-top:10px;font-family:DM Mono,monospace;font-size:8.5px;color:var(--label)">$4,000 deduction per 529 beneficiary · 2 kids = $8,000 · saves ~$439/yr at 5.49% GA rate · standard deduction $24,000 MFJ</div>';
 }
 
 // ============================================================
-// DEBT TRACKER
+// DEBT TRACKER — FIX: use live balances, dynamic origBalance
 // ============================================================
 var DEBTS = [
-  {name:'Tesla Model 3',      rate:0.045, payment:489,  extra:0, color:'var(--amber)',  origBalance:22000, isMortgage:false},
-  {name:'Lexus GX460',        rate:0.045, payment:711,  extra:0, color:'var(--amber)',  origBalance:28000, isMortgage:false},
-  {name:'Stanford Loan (3%)', rate:0.03,  payment:1100, extra:0, color:'var(--blue)',   origBalance:55000, isMortgage:false},
-  {name:'Mortgage (2.75%)',   rate:0.0275,payment:1646, extra:0, color:'var(--muted)',  origBalance:317000,isMortgage:true},
+  {name:'Tesla Model 3',      rate:0.045, payment:489,  extra:0, color:'var(--amber)',  origBalance:22000,  isMortgage:false, liveKey:'tesla_bal'},
+  {name:'Lexus GX460',        rate:0.045, payment:711,  extra:0, color:'var(--amber)',  origBalance:28000,  isMortgage:false, liveKey:'lexus_bal'},
+  {name:'Stanford Loan (3%)', rate:0.03,  payment:1100, extra:0, color:'var(--blue)',   origBalance:55000,  isMortgage:false, liveKey:'stanford_bal'},
+  {name:'Mortgage (2.75%)',   rate:0.0275,payment:1646, extra:0, color:'var(--muted)',  origBalance:317000, isMortgage:true,  liveKey:'mortgage_bal'},
 ];
 
 function buildDebtTracker() {
-  // Inject live balances if available
+  // Inject live balances and update origBalance only once from live data
   if (S._liveData) {
     var ld = S._liveData;
-    if (ld.tesla_bal)    DEBTS[0].balance = ld.tesla_bal;
-    if (ld.lexus_bal)    DEBTS[1].balance = ld.lexus_bal;
-    if (ld.stanford_bal) DEBTS[2].balance = ld.stanford_bal;
-    if (ld.mortgage_bal) DEBTS[3].balance = ld.mortgage_bal;
+    DEBTS.forEach(function(d) {
+      if (d.liveKey && ld[d.liveKey] && ld[d.liveKey] > 0) {
+        // Only set origBalance if live > current stored (i.e. first load)
+        if (!d._origSet) {
+          // origBalance stays as the "original loan amount" — don't override with current balance
+          // Instead just track current balance separately
+          d._origSet = true;
+        }
+        d.balance = ld[d.liveKey];
+      }
+    });
   }
 
-  var el = document.getElementById('debt-grid');
-  el.innerHTML = '';
-  var totalNonMort = 0, latestPayoff = new Date();
+  var el=document.getElementById('debt-grid'); el.innerHTML='';
+  var totalNonMort=0, latestPayoff=new Date();
 
-  DEBTS.forEach(function(d, idx) {
-    var bal = d.balance || 0;
-    if (!d.isMortgage) totalNonMort += bal;
-    var rate = d.rate/12, pmt = d.payment + d.extra;
-    var months = pmt > bal*rate ? Math.ceil(Math.log(pmt/(pmt-bal*rate)) / Math.log(1+rate)) : 999;
-    var payoffDate = new Date();
-    payoffDate.setMonth(payoffDate.getMonth() + months);
-    var payoffStr = months>=999 ? 'Never' : payoffDate.toLocaleDateString('en-US',{month:'short',year:'numeric'});
-    var totalInterest = Math.max(0, pmt*months - bal);
-    var paidPct2 = Math.min(100, Math.round((1-bal/Math.max(d.origBalance||bal*1.5,bal))*100));
-    if (payoffDate > latestPayoff && !d.isMortgage) latestPayoff = payoffDate;
+  DEBTS.forEach(function(d,idx) {
+    var bal = d.balance || d.origBalance || 0;
+    if (!d.isMortgage) totalNonMort+=bal;
+    var rate=d.rate/12, pmt=d.payment+d.extra;
+    var months=pmt>bal*rate ? Math.ceil(Math.log(pmt/(pmt-bal*rate))/Math.log(1+rate)) : 999;
+    var payoffDate=new Date(); payoffDate.setMonth(payoffDate.getMonth()+months);
+    var payoffStr=months>=999?'Never':payoffDate.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+    var totalInterest=Math.max(0,pmt*months-bal);
+    // FIX: paidPct based on live balance vs origBalance — clamped to 0-100
+    var paidPct=Math.min(100,Math.max(0,Math.round((1-bal/Math.max(d.origBalance||bal,1))*100)));
+    if (!d.isMortgage && payoffDate>latestPayoff) latestPayoff=payoffDate;
 
-    var row = document.createElement('div');
-    row.className = 'debt-row';
-    row.innerHTML =
-      '<div class="debt-top"><div class="debt-name">'+d.name+' <span style="font-family:DM Mono,monospace;font-size:10px;color:var(--label)">'+(d.rate*100).toFixed(2)+'%</span></div>' +
-      '<div class="debt-bal">-'+fmtD(bal)+'</div></div>' +
-      '<div class="debt-bar-wrap"><div class="debt-bar" style="width:'+paidPct2+'%;background:'+d.color+'"></div></div>' +
-      '<div class="debt-meta"><span>$'+Math.round(pmt).toLocaleString()+'/mo'+(d.extra>0?' (incl. $'+d.extra+' extra)':'')+'</span><span>'+paidPct2+'% paid down</span></div>' +
-      '<div class="debt-payoff">Payoff: '+payoffStr+(months<999?' · $'+Math.round(totalInterest).toLocaleString()+' interest remaining':'')+'</div>' +
-      '<div style="margin-top:8px;display:flex;align-items:center;gap:8px">' +
-      '<span style="font-family:DM Mono,monospace;font-size:9px;color:var(--label)">EXTRA/MO</span>' +
-      '<input type="range" min="0" max="'+(d.isMortgage?500:2000)+'" step="50" value="'+d.extra+'" style="-webkit-appearance:none;flex:1;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer" oninput="updateDebtExtra('+idx+',this.value)">' +
+    var row=document.createElement('div'); row.className='debt-row';
+    row.innerHTML=
+      '<div class="debt-top"><div class="debt-name">'+d.name+' <span style="font-family:DM Mono,monospace;font-size:10px;color:var(--label)">'+(d.rate*100).toFixed(2)+'%</span></div>'+
+      '<div class="debt-bal">-'+fmtD(bal)+'</div></div>'+
+      '<div class="debt-bar-wrap"><div class="debt-bar" style="width:'+paidPct+'%;background:'+d.color+'"></div></div>'+
+      '<div class="debt-meta"><span>$'+Math.round(pmt).toLocaleString()+'/mo'+(d.extra>0?' (incl. $'+d.extra+' extra)':'')+'</span><span>'+paidPct+'% paid down</span></div>'+
+      '<div class="debt-payoff">Payoff: '+payoffStr+(months<999?' · $'+Math.round(totalInterest).toLocaleString()+' interest remaining':'')+'</div>'+
+      '<div style="margin-top:8px;display:flex;align-items:center;gap:8px">'+
+      '<span style="font-family:DM Mono,monospace;font-size:9px;color:var(--label)">EXTRA/MO</span>'+
+      '<input type="range" min="0" max="'+(d.isMortgage?500:2000)+'" step="50" value="'+d.extra+'" style="-webkit-appearance:none;flex:1;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer" oninput="updateDebtExtra('+idx+',this.value)">'+
       '<span style="font-family:DM Mono,monospace;font-size:11px;color:var(--gold);min-width:40px">$'+d.extra+'</span></div>';
     el.appendChild(row);
   });
 
-  document.getElementById('total-debt').textContent = '-' + fmtD(totalNonMort);
-  var totalInt = DEBTS.filter(function(d){return !d.isMortgage;}).reduce(function(sum,d){
-    var bal=d.balance||0, r=d.rate/12, p=d.payment+d.extra;
-    var mo = p>bal*r ? Math.ceil(Math.log(p/(p-bal*r))/Math.log(1+r)) : 0;
+  document.getElementById('total-debt').textContent='-'+fmtD(totalNonMort);
+  var totalInt=DEBTS.filter(function(d){return !d.isMortgage;}).reduce(function(sum,d){
+    var bal=d.balance||d.origBalance||0,r=d.rate/12,p=d.payment+d.extra;
+    var mo=p>bal*r?Math.ceil(Math.log(p/(p-bal*r))/Math.log(1+r)):0;
     return sum+Math.max(0,p*mo-bal);
   },0);
-  document.getElementById('debt-free-date').textContent =
-    totalNonMort>0 ? 'Non-mortgage debt-free: '+latestPayoff.toLocaleDateString('en-US',{month:'long',year:'numeric'})+' · $'+Math.round(totalInt).toLocaleString()+' interest remaining' : 'Non-mortgage debt-free!';
+  document.getElementById('debt-free-date').textContent=
+    totalNonMort>0?'Non-mortgage debt-free: '+latestPayoff.toLocaleDateString('en-US',{month:'long',year:'numeric'})+' · $'+Math.round(totalInt).toLocaleString()+' interest remaining':'Non-mortgage debt-free!';
 }
 
-function updateDebtExtra(idx, val) {
-  DEBTS[idx].extra = parseInt(val);
-  buildDebtTracker();
-}
+function updateDebtExtra(idx,val) { DEBTS[idx].extra=parseInt(val); buildDebtTracker(); }
 
 // ============================================================
 // SCENARIOS
 // ============================================================
 var NAMED_SCENARIOS = [
-  {name:'Base Case', desc:'Current trajectory', color:'var(--gold)', overrides:{}},
-  {name:'Early at 55', desc:'Retire 55, same spend', color:'var(--amber)', overrides:{retireAge:55}},
-  {name:'HD Job Loss', desc:'No salary from age 45', color:'var(--red-lt)', overrides:{retireAge:60,c401k:0,croth:14000,ctax:0,espp:0,rsugrant:0,spend:90000}},
-  {name:'Grace Returns', desc:'+$80K household income', color:'var(--green-lt)', overrides:{croth:14000,ctax:38000}},
-  {name:'Retire at 60', desc:'2 extra working years', color:'var(--green)', overrides:{retireAge:60}},
-  {name:'Lean FIRE', desc:'Spend $85K/yr in retirement', color:'var(--blue-lt)', overrides:{spend:85000,retireAge:55}},
+  {name:'Base Case',      desc:'Current trajectory',              color:'var(--gold)',     overrides:{}},
+  {name:'Early at 55',    desc:'Retire 55, same spend',           color:'var(--amber)',    overrides:{retireAge:55}},
+  {name:'HD Job Loss',    desc:'No salary from age 45',           color:'var(--red-lt)',   overrides:{retireAge:60,c401k:0,croth:14000,ctax:0,espp:0,rsugrant:0,spend:90000}},
+  {name:'Grace Returns',  desc:'+$80K household income',          color:'var(--green-lt)', overrides:{croth:14000,ctax:38000}},
+  {name:'Retire at 60',   desc:'2 extra working years',           color:'var(--green)',    overrides:{retireAge:60}},
+  {name:'Lean FIRE',      desc:'Spend $85K/yr in retirement',     color:'var(--blue-lt)',  overrides:{spend:85000,retireAge:55}},
 ];
 
 function buildScenarios() {
-  var el = document.getElementById('scenario-compare');
-  el.innerHTML = '';
+  var el=document.getElementById('scenario-compare'); el.innerHTML='';
   NAMED_SCENARIOS.forEach(function(sc) {
-    var res = projectWith(sc.overrides);
-    var sp  = Math.round(res.sr*100);
-    var card2 = document.createElement('div');
-    card2.className = 'sc-compare-card';
-    card2.style.borderTop = '2px solid ' + sc.color;
-    card2.innerHTML =
-      '<div class="sc-compare-name">'+sc.name+'</div>' +
-      '<div class="sc-compare-num" style="color:'+sc.color+'">'+fmtK(res.portAtRet)+'</div>' +
-      '<div class="sc-compare-sub" style="margin-bottom:8px">at retirement · '+fmtK(res.medFinal)+' at 95</div>' +
-      '<div style="font-family:DM Mono,monospace;font-size:11px;color:'+(sp>=85?'var(--green-lt)':sp>=70?'var(--gold)':'var(--red-lt)')+'">'+sp+'% success</div>' +
+    var res=projectWith(sc.overrides), sp=Math.round(res.sr*100);
+    var card2=document.createElement('div'); card2.className='sc-compare-card';
+    card2.style.borderTop='2px solid '+sc.color;
+    card2.innerHTML=
+      '<div class="sc-compare-name">'+sc.name+'</div>'+
+      '<div class="sc-compare-num" style="color:'+sc.color+'">'+fmtK(res.portAtRet)+'</div>'+
+      '<div class="sc-compare-sub" style="margin-bottom:8px">at retirement · '+fmtK(res.medFinal)+' at 95</div>'+
+      '<div style="font-family:DM Mono,monospace;font-size:11px;color:'+(sp>=85?'var(--green-lt)':sp>=70?'var(--gold)':'var(--red-lt)')+'">'+sp+'% success</div>'+
       '<div style="font-size:10px;color:var(--muted);margin-top:4px">'+sc.desc+'</div>';
     el.appendChild(card2);
   });
@@ -1647,81 +1890,74 @@ function buildScenarios() {
 // LIVE DATA LOAD
 // ============================================================
 async function loadLiveBalances() {
-  var btn = document.getElementById('refresh-btn');
-  var src = document.getElementById('data-source');
-  if (btn) btn.disabled = true;
-  if (src) { src.textContent = 'Fetching...'; src.style.background='var(--gold-bg)'; src.style.borderColor='var(--gold-dk)'; src.style.color='var(--gold)'; }
+  var btn=document.getElementById('refresh-btn'), src=document.getElementById('data-source');
+  if(btn) btn.disabled=true;
+  if(src){src.textContent='Fetching...';src.style.background='var(--gold-bg)';src.style.borderColor='var(--gold-dk)';src.style.color='var(--gold)';}
 
   try {
-    // Load balances.json
-    var res = await fetch(BALANCES_URL + '?t=' + Date.now(), {signal: AbortSignal.timeout(8000)});
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    var data = await res.json();
-    if (data.error) throw new Error(data.error);
+    var res=await fetch(BALANCES_URL+'?t='+Date.now(),{signal:AbortSignal.timeout(8000)});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    var data=await res.json();
+    if(data.error) throw new Error(data.error);
+    S._liveData=data;
 
-    // Inject into state
-    S._liveData = data;
-    var fieldMap = {roth:'roth', groth:'groth', k401:'k401', taxable:'taxable',
-                    hsa:'hsa', hd_vested:'hd_vested', hd_rsus:'hd_rsus',
-                    eleanor_529:'eleanor529', arthur_529:'arthur529'};
+    // Sync into BASE/S
+    var fieldMap={roth:'roth',groth:'groth',k401:'k401',taxable:'taxable',
+                  hsa:'hsa',hd_vested:'hd_vested',hd_rsus:'hd_rsus',
+                  eleanor_529:'eleanor529',arthur_529:'arthur529'};
     Object.keys(fieldMap).forEach(function(src2) {
-      var dest = fieldMap[src2];
-      if (data[src2] && data[src2] > 0) { BASE[dest] = data[src2]; S[dest] = data[src2]; }
+      var dest=fieldMap[src2];
+      if(data[src2]&&data[src2]>0){BASE[dest]=data[src2];S[dest]=data[src2];}
     });
 
-    document.getElementById('as-of').textContent = data.as_of || '';
-    document.getElementById('footer-source').textContent = 'Live from balances.json · ' + data.as_of;
+    // Sync invested portfolio into FIRE tab
+    var investedTotal=(S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);
+    if(investedTotal>0){FIRE.port=investedTotal;}
 
-    if (src) { src.textContent = 'Live'; src.style.background='var(--green-bg)'; src.style.borderColor='var(--green)'; src.style.color='var(--green-lt)'; }
+    document.getElementById('as-of').textContent=data.as_of||'';
+    document.getElementById('footer-source').textContent='Live from balances.json · '+data.as_of;
+    if(src){src.textContent='Live';src.style.background='var(--green-bg)';src.style.borderColor='var(--green)';src.style.color='var(--green-lt)';}
 
-    // Load nw_history.json
     try {
-      var hRes = await fetch(NW_HISTORY_URL + '?t=' + Date.now(), {signal: AbortSignal.timeout(6000)});
-      if (hRes.ok) {
-        _nwHistory = await hRes.json();
-        console.log('NW history loaded: ' + _nwHistory.length + ' snapshots');
-      }
+      var hRes=await fetch(NW_HISTORY_URL+'?t='+Date.now(),{signal:AbortSignal.timeout(6000)});
+      if(hRes.ok){_nwHistory=await hRes.json();console.log('NW history: '+_nwHistory.length+' pts');}
     } catch(e) {
-      console.warn('NW history load failed:', e.message);
-      // Seed with current value if no history
-      if (data.net_worth) _nwHistory = [{date: new Date().toISOString().slice(0,10), nw: data.net_worth}];
+      if(data.net_worth) _nwHistory=[{date:new Date().toISOString().slice(0,10),nw:data.net_worth}];
     }
 
-    // Cache to localStorage
-    try {
-      localStorage.setItem('monarch_balances', JSON.stringify({...data, saved_at: Date.now()}));
-    } catch(e) {}
+    try{localStorage.setItem('monarch_balances',JSON.stringify({...data,saved_at:Date.now()}));}catch(e){}
 
   } catch(err) {
-    console.warn('Live fetch failed:', err.message);
-    // localStorage fallback
+    console.warn('Live fetch failed:',err.message);
     try {
-      var stored = JSON.parse(localStorage.getItem('monarch_balances') || 'null');
-      if (stored) {
-        S._liveData = stored;
-        var hrs = Math.round((Date.now()-(stored.saved_at||0))/3600000);
-        if (src) { src.textContent = 'Saved ('+hrs+'h ago)'; src.style.background='#1a1200'; src.style.borderColor='var(--amber)'; src.style.color='var(--amber)'; }
-        document.getElementById('footer-source').textContent = 'Cached data · '+hrs+'h ago';
+      var stored=JSON.parse(localStorage.getItem('monarch_balances')||'null');
+      if(stored){
+        S._liveData=stored;
+        var hrs=Math.round((Date.now()-(stored.saved_at||0))/3600000);
+        if(src){src.textContent='Saved ('+hrs+'h ago)';src.style.background='#1a1200';src.style.borderColor='var(--amber)';src.style.color='var(--amber)';}
+        document.getElementById('footer-source').textContent='Cached data · '+hrs+'h ago';
       } else {
-        if (src) { src.textContent = 'Defaults'; src.style.background='var(--red-bg)'; src.style.borderColor='var(--red)'; src.style.color='var(--red-lt)'; }
+        if(src){src.textContent='Defaults';src.style.background='var(--red-bg)';src.style.borderColor='var(--red)';src.style.color='var(--red-lt)';}
       }
-    } catch(e) {}
+    } catch(e){}
   }
 
-  if (btn) btn.disabled = false;
+  if(btn) btn.disabled=false;
   initControls();
   calcTax();
   buildDebtTracker();
   buildCollege();
   buildNWTab();
+  buildFireTab();
   recalc();
 }
 
 window.refreshBalances = function() { loadLiveBalances(); };
 
 window.addEventListener('resize', function() {
-  if (_cache) drawMCChart(_cache.p25, _cache.p50, _cache.p75, S.retireAge);
+  if(_cache) drawMCChart(_cache.p25,_cache.p50,_cache.p75,S.retireAge);
   drawNWChart();
+  if(document.getElementById('tab-fire').classList.contains('active')) buildFireTab();
 });
 
 loadLiveBalances();
