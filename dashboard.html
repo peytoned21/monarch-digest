@@ -2279,6 +2279,17 @@ async function loadLiveBalances() {
   recalc();
 }
 
+window.refreshBalances = function() { loadLiveBalances(); };
+
+window.addEventListener('resize', function() {
+  if(_cache) drawMCChart(_cache.p25,_cache.p50,_cache.p75,S.retireAge);
+  drawNWChart();
+  if(document.getElementById('tab-fire').classList.contains('active')) buildFireTab();
+});
+
+loadLiveBalances();
+</script>
+
 <!-- ================================================================ AI ADVISOR -->
 <div class="ai-overlay" id="ai-overlay" onclick="closeAI()"></div>
 
