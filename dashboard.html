@@ -179,8 +179,57 @@ canvas { display:block; width:100% !important; }
 .fire-in-group { }
 .fire-in-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--label); margin-bottom:5px; }
 
-/* ── Footnote ── */
-.footnote { margin-top:32px; font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }
+/* ── AI Financial Advisor ── */
+.ai-fab { position:fixed; bottom:28px; right:28px; z-index:1000; width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dk),var(--gold)); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 20px rgba(200,168,75,.35); transition:transform .2s,box-shadow .2s; }
+.ai-fab:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(200,168,75,.5); }
+.ai-fab-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid var(--gold); opacity:0; animation:fabPulse 2.5s ease-out infinite; }
+@keyframes fabPulse { 0%{opacity:.6;transform:scale(1)} 100%{opacity:0;transform:scale(1.5)} }
+
+.ai-drawer { position:fixed; top:0; right:0; bottom:0; width:420px; max-width:100vw; background:var(--surface); border-left:1px solid var(--border); z-index:999; display:flex; flex-direction:column; transform:translateX(100%); transition:transform .3s cubic-bezier(.4,0,.2,1); box-shadow:-8px 0 40px rgba(0,0,0,.5); }
+.ai-drawer.open { transform:translateX(0); }
+.ai-drawer-hd { padding:16px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.ai-drawer-title { font-family:DM Serif Display,serif; font-size:18px; color:var(--text); flex:1; }
+.ai-drawer-sub { font-family:DM Mono,monospace; font-size:8px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+.ai-close { background:none; border:none; color:var(--muted); cursor:pointer; font-size:18px; padding:4px; border-radius:4px; transition:color .15s; line-height:1; }
+.ai-close:hover { color:var(--text); }
+.ai-context-bar { padding:10px 18px; background:var(--gold-bg); border-bottom:1px solid var(--gold-dk); font-family:DM Mono,monospace; font-size:8.5px; color:var(--gold-dk); display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.ai-context-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+.ai-messages { flex:1; overflow-y:auto; padding:16px 18px; display:flex; flex-direction:column; gap:12px; scroll-behavior:smooth; }
+.ai-msg { display:flex; flex-direction:column; gap:4px; }
+.ai-msg-role { font-family:DM Mono,monospace; font-size:8px; letter-spacing:.15em; text-transform:uppercase; }
+.ai-msg.user .ai-msg-role { color:var(--gold-dk); text-align:right; }
+.ai-msg.assistant .ai-msg-role { color:var(--muted); }
+.ai-msg-bubble { padding:10px 13px; border-radius:8px; font-size:12.5px; line-height:1.7; max-width:100%; }
+.ai-msg.user .ai-msg-bubble { background:var(--gold-bg); border:1px solid var(--gold-dk); color:var(--text); align-self:flex-end; border-radius:8px 2px 8px 8px; }
+.ai-msg.assistant .ai-msg-bubble { background:var(--surface2); border:1px solid var(--border); color:var(--text); align-self:flex-start; border-radius:2px 8px 8px 8px; }
+.ai-msg.assistant .ai-msg-bubble strong { color:var(--gold-lt); font-weight:500; }
+.ai-msg.assistant .ai-msg-bubble em { color:var(--green-lt); font-style:normal; }
+.ai-typing { display:flex; gap:4px; align-items:center; padding:10px 14px; }
+.ai-dot { width:6px; height:6px; border-radius:50%; background:var(--muted); animation:aiDot .8s ease-in-out infinite; }
+.ai-dot:nth-child(2){ animation-delay:.15s; }
+.ai-dot:nth-child(3){ animation-delay:.3s; }
+@keyframes aiDot { 0%,80%,100%{transform:scale(.7);opacity:.4} 40%{transform:scale(1);opacity:1} }
+.ai-suggestions { padding:10px 18px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:6px; flex-shrink:0; }
+.ai-suggestion { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.06em; padding:5px 10px; border-radius:4px; background:var(--surface2); border:1px solid var(--border2); color:var(--muted); cursor:pointer; transition:all .15s; white-space:nowrap; }
+.ai-suggestion:hover { border-color:var(--gold-dk); color:var(--gold); background:var(--gold-bg); }
+.ai-input-row { padding:12px 18px; border-top:1px solid var(--border); display:flex; gap:8px; flex-shrink:0; }
+.ai-input { flex:1; background:var(--surface2); border:1px solid var(--border2); border-radius:6px; color:var(--text); font-family:DM Sans,sans-serif; font-size:13px; padding:10px 12px; outline:none; resize:none; line-height:1.5; max-height:120px; transition:border-color .15s; }
+.ai-input:focus { border-color:var(--gold-dk); }
+.ai-send { background:var(--gold); border:none; border-radius:6px; width:38px; height:38px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:16px; transition:background .15s,transform .1s; flex-shrink:0; align-self:flex-end; }
+.ai-send:hover { background:var(--gold-lt); }
+.ai-send:active { transform:scale(.92); }
+.ai-send:disabled { background:var(--border2); cursor:not-allowed; }
+.ai-overlay { position:fixed; inset:0; z-index:998; background:rgba(0,0,0,.4); opacity:0; pointer-events:none; transition:opacity .3s; }
+.ai-overlay.open { opacity:1; pointer-events:auto; }
+.ai-error { font-family:DM Mono,monospace; font-size:10px; color:var(--red-lt); padding:8px 12px; background:var(--red-bg); border:1px solid var(--red); border-radius:4px; margin:0 18px; }
+.ai-key-form { padding:18px; display:flex; flex-direction:column; gap:10px; }
+.ai-key-lbl { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+.ai-key-in { width:100%; background:var(--surface2); border:1px solid var(--border2); border-radius:4px; color:var(--text); font-family:DM Mono,monospace; font-size:11px; padding:8px 12px; outline:none; }
+.ai-key-in:focus { border-color:var(--gold-dk); }
+.ai-key-btn { padding:8px 16px; background:var(--gold-bg); border:1px solid var(--gold-dk); border-radius:4px; color:var(--gold); font-family:DM Mono,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; transition:all .15s; }
+.ai-key-btn:hover { background:var(--gold); color:var(--bg); }
+.ai-key-note { font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.7; }
+
 
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 /* FIX: was missing dots on class selectors — hero, chart-wrap, etc. were matching HTML elements */
@@ -2230,15 +2279,376 @@ async function loadLiveBalances() {
   recalc();
 }
 
-window.refreshBalances = function() { loadLiveBalances(); };
+<!-- ================================================================ AI ADVISOR -->
+<div class="ai-overlay" id="ai-overlay" onclick="closeAI()"></div>
 
-window.addEventListener('resize', function() {
-  if(_cache) drawMCChart(_cache.p25,_cache.p50,_cache.p75,S.retireAge);
-  drawNWChart();
-  if(document.getElementById('tab-fire').classList.contains('active')) buildFireTab();
-});
+<button class="ai-fab" id="ai-fab" onclick="toggleAI()" title="Ask your financial advisor">
+  <div class="ai-fab-pulse"></div>
+  ✦
+</button>
 
-loadLiveBalances();
+<div class="ai-drawer" id="ai-drawer">
+  <div class="ai-drawer-hd">
+    <div>
+      <div class="ai-drawer-title">Financial Advisor</div>
+      <div class="ai-drawer-sub">Powered by Claude · reads your live dashboard</div>
+    </div>
+    <button class="ai-close" onclick="closeAI()">✕</button>
+  </div>
+  <div class="ai-context-bar" id="ai-context-bar">
+    <div class="ai-context-dot"></div>
+    <span id="ai-context-summary">Loading dashboard context...</span>
+  </div>
+  <div id="ai-key-gate" style="display:none">
+    <div class="ai-key-form">
+      <div class="ai-key-lbl">Anthropic API Key</div>
+      <input type="password" class="ai-key-in" id="ai-key-input" placeholder="sk-ant-..." autocomplete="off">
+      <button class="ai-key-btn" onclick="saveKey()">Save Key &amp; Start</button>
+      <div class="ai-key-note">
+        Your key is stored in localStorage only — never sent anywhere except api.anthropic.com.<br>
+        Get a key at console.anthropic.com → API Keys.
+      </div>
+    </div>
+  </div>
+  <div class="ai-messages" id="ai-messages" style="display:none"></div>
+  <div id="ai-error-slot"></div>
+  <div class="ai-suggestions" id="ai-suggestions" style="display:none">
+    <span class="ai-suggestion" onclick="askSuggestion(this)">Am I on track to retire at 55?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">What's my biggest risk right now?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">Should I pay off the Stanford loan early?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">Optimize my Roth conversion strategy</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">How does HD concentration affect my plan?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">Are the 529s on track for UGA?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">What should I prioritize in 2026?</span>
+    <span class="ai-suggestion" onclick="askSuggestion(this)">Explain my tax situation</span>
+  </div>
+  <div class="ai-input-row" id="ai-input-row" style="display:none">
+    <textarea class="ai-input" id="ai-input" placeholder="Ask anything about your finances..." rows="1"
+      oninput="autoGrow(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
+    <button class="ai-send" id="ai-send-btn" onclick="sendMessage()">↑</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// AI ADVISOR
+// ============================================================
+var AI_MODEL   = 'claude-sonnet-4-20250514';
+var AI_MAX_TOK = 1500;
+var _aiHistory = [];
+var _aiReady   = false;
+
+function getApiKey() {
+  return localStorage.getItem('fcc_api_key') || '';
+}
+function saveKey() {
+  var k = document.getElementById('ai-key-input').value.trim();
+  if (!k.startsWith('sk-ant-')) {
+    showAIError('Key should start with sk-ant-'); return;
+  }
+  localStorage.setItem('fcc_api_key', k);
+  initAIChat();
+}
+
+function buildFinancialContext() {
+  // Snapshot of current dashboard state for Claude's system prompt
+  var age = currentAge();
+  var nw  = S._liveData;
+  var ret = _cache;
+  var F   = typeof calcFire === 'function' ? calcFire() : null;
+
+  var ctx = [];
+  ctx.push('You are a personal financial advisor for Peyton Edwards, age ' + age + ', and his wife Grace.');
+  ctx.push('You have real-time access to their complete financial dashboard. Be specific, direct, and use their actual numbers.');
+  ctx.push('Do not give generic advice — reference their exact balances, projections, and situation.');
+  ctx.push('Keep responses concise (3-5 paragraphs max). Use **bold** for key numbers and action items.');
+  ctx.push('You are NOT a licensed advisor; always note that major decisions should involve a CPA or CFP.');
+  ctx.push('');
+  ctx.push('=== CURRENT FINANCIAL SNAPSHOT ===');
+  ctx.push('Age: ' + age + ' (born Aug 24, 1987) | Wife: Grace | Kids: Eleanor (6, college 2038), Arthur (4, college 2040)');
+  ctx.push('Employer: The Home Depot | Role: Director, Pricing & Merch Solutions | Location: Tucker, GA');
+  ctx.push('');
+
+  if (nw) {
+    ctx.push('NET WORTH: ' + fmtK(nw.net_worth || 0));
+    ctx.push('  Home value: ' + fmtK(nw.home_value || 0) + ' | Mortgage balance: ' + fmtK(nw.mortgage_bal || 0) + ' @ 2.75%');
+    ctx.push('  Cash: ' + fmtK(nw.total_cash || 0) + ' | Vehicles: ' + fmtK(nw.vehicle_total || 0));
+  }
+
+  ctx.push('');
+  ctx.push('INVESTMENT ACCOUNTS:');
+  ctx.push('  Roth IRA (Peyton): ' + fmtK(S.roth || 0));
+  ctx.push('  Roth IRA (Grace): '  + fmtK(S.groth || 0));
+  ctx.push('  401(k) pre-tax: '    + fmtK(S.k401 || 0) + ' — allocated 55% Large Cap / 20% Sm-Mid / 25% Intl');
+  ctx.push('  Taxable brokerage: ' + fmtK(S.taxable || 0) + ' (recently transferred to Vanguard, VTI/VXUS core)');
+  ctx.push('  HSA (Inspira): '     + fmtK(S.hsa || 0) + ' — invested, paying medical OOP and reimbursing later');
+  ctx.push('  HD Vested stock: '   + fmtK(S.hd_vested || 0));
+  ctx.push('  HD Unvested RSUs: '  + fmtK(S.hd_rsus || 0) + ' (vest quarterly; next ~$51K in yr 2)');
+  ctx.push('  Eleanor 529: '       + fmtK(S.eleanor529 || 0));
+  ctx.push('  Arthur 529: '        + fmtK(S.arthur529 || 0));
+  var totalInv = (S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);
+  var hdPct = totalInv > 0 ? Math.round(((S.hd_vested||0)+(S.hd_rsus||0))/totalInv*100) : 0;
+  ctx.push('  HD concentration: ' + hdPct + '% of investable assets (target: <15%)');
+
+  ctx.push('');
+  ctx.push('ANNUAL CASH FLOW:');
+  ctx.push('  401(k) contributions: ' + fmtK(S.c401k || 0) + '/yr (incl employer match)');
+  ctx.push('  Roth IRA contributions: ' + fmtK(S.croth || 0) + '/yr (backdoor, both)');
+  ctx.push('  HSA contributions: ' + fmtK(S.chsa || 0) + '/yr');
+  ctx.push('  Taxable savings: ' + fmtK(S.ctax || 0) + '/yr');
+  ctx.push('  ESPP: ' + fmtK(S.espp || 0) + '/yr | RSU grant: ~' + fmtK(S.rsugrant || 0) + '/yr');
+  ctx.push('  529 contributions: ' + fmtK((S.col529kid || 0) * 2) + '/yr total (both kids)');
+  ctx.push('  Retirement spending target: ' + fmtK(S.spend || 0) + '/yr (today\'s dollars)');
+
+  ctx.push('');
+  ctx.push('DEBT:');
+  ctx.push('  Mortgage: ~' + fmtK(nw ? nw.mortgage_bal||0 : 317000) + ' @ 2.75% (do NOT pay early)');
+  ctx.push('  Tesla loan: @ 4.5% | Lexus loan: @ 4.5% | Stanford loan: @ 3.0%');
+  ctx.push('  All credit cards paid in full monthly. Debt-free goal (non-mortgage): August 2027');
+
+  ctx.push('');
+  ctx.push('RETIREMENT PROJECTIONS (Monte Carlo, 1,000 simulations, base market 7%/yr):');
+  if (ret) {
+    var sp = Math.round(ret.sr * 100);
+    ctx.push('  Target retirement age: ' + S.retireAge);
+    ctx.push('  Success rate: ' + sp + '% (>85% = strong)');
+    ctx.push('  Median portfolio at retirement: ' + fmtK(ret.portAtRet));
+    ctx.push('  FIRE number: ' + fmtK(S.spend / 0.04) + ' (25x spending)');
+    ctx.push('  Est. estate at 95: ' + fmtK(ret.medFinal));
+    ctx.push('  Mortgage payoff modeled at age 60 (-$1,646/mo)');
+    ctx.push('  College costs modeled as spending spikes 2038-2042');
+    ctx.push('  Social Security: ' + fmtK(S.ss) + '/mo, claiming at age ' + S.ssage);
+    ctx.push('  Roth conversion opportunity: ~$55K/yr during ' + (S.ssage - S.retireAge) + '-yr gap before SS at ' + S.ssage);
+  }
+
+  if (F) {
+    ctx.push('');
+    ctx.push('FIRE STATUS:');
+    ctx.push('  FIRE number: ' + fmtK(F.fireNumber) + ' | Barista FIRE: ' + fmtK(F.baristaNumber));
+    ctx.push('  Coast FIRE at 65: ' + (F.coastFire65Year <= new Date().getFullYear() ? 'ACHIEVED' : F.coastFire65Year));
+    ctx.push('  Coast FIRE at 55: ' + (F.coastFire55Year && F.coastFire55Year <= new Date().getFullYear() ? 'ACHIEVED' : F.coastFire55Year || 'N/A'));
+    ctx.push('  Barista FIRE: ' + (F.baristaYear || 'beyond 40yr window'));
+    ctx.push('  Full FIRE: ' + (F.fullFireYear || 'beyond 40yr window'));
+  }
+
+  ctx.push('');
+  ctx.push('TAX SITUATION (2026, MFJ):');
+  ctx.push('  Base salary + bonus income; RSU vest income ~$25K+ this year');
+  ctx.push('  Backdoor Roth completed for both Peyton and Grace');
+  ctx.push('  GA 529 deduction: $4K/beneficiary = $8K/yr state deduction');
+  ctx.push('  HSA strategy: pay OOP, reimburse later for tax-free growth');
+  ctx.push('  Effective federal rate approx 24-28% bracket');
+
+  ctx.push('');
+  ctx.push('KEY CONTEXT:');
+  ctx.push('  Grace had a double mastectomy in early 2026 with strong surgical outcome; OOP max largely exhausted this year');
+  ctx.push('  Critical Illness claim filed ($5K) through The Home Depot / The Standard');
+  ctx.push('  Active homeowners insurance claim (tree damage, Allstate)');
+  ctx.push('  Peyton has Stanford GSB MBA (2015), UGA BBA Finance/Econ');
+  ctx.push('  Goal: debt-free by Aug 2027 (40th birthday), Japan trip Oct 2026');
+  ctx.push('  Amex Platinum (125K SUB), Amex Gold (daily driver), CSP (bench card)');
+
+  return ctx.join('\n');
+}
+
+function updateContextBar() {
+  var nw = S._liveData;
+  var ret = _cache;
+  var parts = [];
+  if (nw) parts.push('NW: ' + fmtK(nw.net_worth || 0));
+  if (ret) parts.push('Retire ' + S.retireAge + ': ' + Math.round(ret.sr*100) + '% success');
+  var hdPct = 0;
+  var ti = (S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);
+  if (ti > 0) hdPct = Math.round(((S.hd_vested||0)+(S.hd_rsus||0))/ti*100);
+  parts.push('HD: ' + hdPct + '%');
+  document.getElementById('ai-context-summary').textContent = parts.join(' · ');
+}
+
+function toggleAI() {
+  var drawer = document.getElementById('ai-drawer');
+  if (drawer.classList.contains('open')) {
+    closeAI();
+  } else {
+    openAI();
+  }
+}
+
+function openAI() {
+  document.getElementById('ai-drawer').classList.add('open');
+  document.getElementById('ai-overlay').classList.add('open');
+  updateContextBar();
+  var key = getApiKey();
+  if (!key) {
+    showKeyGate();
+  } else if (!_aiReady) {
+    initAIChat();
+  }
+  setTimeout(function() {
+    document.getElementById('ai-input') && document.getElementById('ai-input').focus();
+  }, 350);
+}
+
+function closeAI() {
+  document.getElementById('ai-drawer').classList.remove('open');
+  document.getElementById('ai-overlay').classList.remove('open');
+}
+
+function showKeyGate() {
+  document.getElementById('ai-key-gate').style.display = 'block';
+  document.getElementById('ai-messages').style.display = 'none';
+  document.getElementById('ai-suggestions').style.display = 'none';
+  document.getElementById('ai-input-row').style.display = 'none';
+}
+
+function initAIChat() {
+  _aiReady = true;
+  _aiHistory = [];
+  document.getElementById('ai-key-gate').style.display = 'none';
+  document.getElementById('ai-messages').style.display = 'flex';
+  document.getElementById('ai-suggestions').style.display = 'flex';
+  document.getElementById('ai-input-row').style.display = 'flex';
+  clearAIError();
+
+  // Greeting message
+  addAIMessage('assistant',
+    'Hi Peyton — I\'ve read your full dashboard. I can see your current balances, retirement projections, FIRE status, college funding, debt, and tax situation.\n\n' +
+    '**Quick take:** Your net worth trajectory is strong and Coast FIRE at 55 looks achieved. HD concentration at ' +
+    (function(){var ti=(S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hsa||0)+(S.hd_vested||0)+(S.hd_rsus||0);return ti>0?Math.round(((S.hd_vested||0)+(S.hd_rsus||0))/ti*100):0;})() +
+    '% is your most actionable risk right now.\n\nWhat would you like to dig into?'
+  );
+}
+
+function addAIMessage(role, content) {
+  var msgs = document.getElementById('ai-messages');
+  var div = document.createElement('div');
+  div.className = 'ai-msg ' + role;
+
+  var roleLabel = document.createElement('div');
+  roleLabel.className = 'ai-msg-role';
+  roleLabel.textContent = role === 'user' ? 'You' : 'Advisor';
+  div.appendChild(roleLabel);
+
+  var bubble = document.createElement('div');
+  bubble.className = 'ai-msg-bubble';
+  // Simple markdown: **bold** and line breaks
+  bubble.innerHTML = content
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\n/g,'<br>');
+  div.appendChild(bubble);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
+
+function showTyping() {
+  var msgs = document.getElementById('ai-messages');
+  var div = document.createElement('div');
+  div.className = 'ai-msg assistant';
+  div.id = 'ai-typing-indicator';
+  div.innerHTML = '<div class="ai-msg-role">Advisor</div>' +
+    '<div class="ai-msg-bubble ai-typing">' +
+    '<div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div>' +
+    '</div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function hideTyping() {
+  var t = document.getElementById('ai-typing-indicator');
+  if (t) t.remove();
+}
+
+function showAIError(msg) {
+  document.getElementById('ai-error-slot').innerHTML =
+    '<div class="ai-error">' + msg + '</div>';
+}
+function clearAIError() {
+  document.getElementById('ai-error-slot').innerHTML = '';
+}
+
+function askSuggestion(el) {
+  document.getElementById('ai-input').value = el.textContent;
+  sendMessage();
+}
+
+function autoGrow(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+async function sendMessage() {
+  var input = document.getElementById('ai-input');
+  var text  = input.value.trim();
+  if (!text || !_aiReady) return;
+
+  var key = getApiKey();
+  if (!key) { showKeyGate(); return; }
+
+  input.value = '';
+  input.style.height = 'auto';
+  clearAIError();
+
+  // Hide suggestions after first real message
+  document.getElementById('ai-suggestions').style.display = 'none';
+
+  addAIMessage('user', text);
+  _aiHistory.push({ role: 'user', content: text });
+
+  document.getElementById('ai-send-btn').disabled = true;
+  showTyping();
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: AI_MODEL,
+        max_tokens: AI_MAX_TOK,
+        system: buildFinancialContext(),
+        messages: _aiHistory,
+      }),
+    });
+
+    if (!response.ok) {
+      var err = await response.json().catch(function(){return {};});
+      throw new Error(err.error?.message || 'API error ' + response.status);
+    }
+
+    var data = await response.json();
+    var reply = (data.content || []).filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join('');
+
+    hideTyping();
+    _aiHistory.push({ role: 'assistant', content: reply });
+    addAIMessage('assistant', reply);
+
+    // Trim history to last 10 turns to avoid token creep
+    if (_aiHistory.length > 20) _aiHistory = _aiHistory.slice(-20);
+
+  } catch(err) {
+    hideTyping();
+    var msg = err.message || 'Unknown error';
+    if (msg.includes('401') || msg.includes('auth')) {
+      localStorage.removeItem('fcc_api_key');
+      _aiReady = false;
+      showKeyGate();
+      showAIError('API key invalid or expired. Please re-enter.');
+    } else {
+      showAIError('Error: ' + msg);
+      // Re-add to history so user can retry
+      _aiHistory.pop();
+    }
+  }
+
+  document.getElementById('ai-send-btn').disabled = false;
+  document.getElementById('ai-input').focus();
+}
 </script>
+
 </body>
 </html>
