@@ -183,8 +183,49 @@ canvas { display:block; width:100% !important; }
 .footnote { margin-top:32px; font-family:DM Mono,monospace; font-size:8.5px; color:var(--label); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; }
 
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-.panel,.hero,.chart-wrap,.buckets,.nw-hero,.college-hero,.fire-hero,.fire-milestone,.fire-snapshot-card { animation:fadeUp .35s ease both; }
+/* FIX: was missing dots on class selectors — hero, chart-wrap, etc. were matching HTML elements */
+.panel, .hero, .chart-wrap, .buckets, .nw-hero, .college-hero, .fire-hero, .fire-milestone, .fire-snapshot-card { animation:fadeUp .35s ease both; }
 .fire-milestone { animation-delay:calc(var(--i,0) * 60ms); }
+
+/* ── Decision Cards ("What matters now") ── */
+.decision-bar { display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
+.decision-card { display:flex; align-items:flex-start; gap:10px; padding:11px 14px; border-radius:6px; border:1px solid; font-size:12px; line-height:1.5; }
+.decision-card.ok   { background:var(--green-bg); border-color:rgba(74,158,110,.4); }
+.decision-card.warn { background:rgba(200,122,40,.07); border-color:rgba(200,122,40,.4); }
+.decision-card.risk { background:var(--red-bg); border-color:rgba(192,74,58,.4); }
+.decision-card.tip  { background:var(--blue-bg); border-color:rgba(74,122,184,.4); }
+.dc-icon { font-size:13px; flex-shrink:0; margin-top:1px; }
+.dc-text { color:var(--muted); }
+.dc-text strong { color:var(--text); font-weight:500; }
+.dc-section-lbl { font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--label); margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+
+/* ── Tooltip ── */
+.tip-wrap { position:relative; display:inline-flex; align-items:center; }
+.tip-icon { width:14px; height:14px; border-radius:50%; background:var(--border2); border:1px solid var(--border2); color:var(--muted); font-size:8px; font-family:DM Mono,monospace; display:inline-flex; align-items:center; justify-content:center; cursor:help; margin-left:5px; flex-shrink:0; transition:border-color .15s; }
+.tip-icon:hover { border-color:var(--gold-dk); color:var(--gold); }
+.tip-box { position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); background:#1e1e1c; border:1px solid var(--border2); border-radius:6px; padding:10px 12px; width:240px; font-size:11px; color:var(--muted); line-height:1.6; z-index:100; pointer-events:none; opacity:0; transition:opacity .15s; white-space:normal; }
+.tip-wrap:hover .tip-box { opacity:1; }
+.tip-box::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:#1e1e1c; }
+
+/* ── Collapsible control sections ── */
+.ctrl-section { border-top:1px solid var(--border); margin-top:14px; padding-top:0; }
+.ctrl-section-hd { display:flex; justify-content:space-between; align-items:center; padding:10px 0; cursor:pointer; user-select:none; }
+.ctrl-section-hd:hover .ctrl-section-lbl { color:var(--muted); }
+.ctrl-section-lbl { font-family:DM Mono,monospace; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--label); transition:color .15s; }
+.ctrl-section-arrow { font-size:10px; color:var(--label); transition:transform .2s; }
+.ctrl-section-arrow.open { transform:rotate(180deg); }
+.ctrl-section-body { overflow:hidden; transition:max-height .25s ease; }
+.ctrl-section-body.collapsed { max-height:0 !important; }
+
+/* ── Refresh button (moved from inline) ── */
+.refresh-btn { font-family:DM Mono,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-dk); background:none; border:1px solid var(--gold-dk); border-radius:3px; padding:4px 10px; cursor:pointer; transition:color .15s, border-color .15s; }
+.refresh-btn:hover { color:var(--gold); border-color:var(--gold); }
+
+/* ── Lever clickable rows ── */
+.lever-row { cursor:pointer; transition:background .15s; }
+.lever-row:hover td { background:rgba(200,168,75,.06); }
+.lever-apply-btn { font-family:DM Mono,monospace; font-size:8px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; border-radius:3px; border:1px solid var(--gold-dk); background:none; color:var(--gold-dk); cursor:pointer; white-space:nowrap; transition:all .15s; }
+.lever-apply-btn:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-bg); }
 </style>
 </head>
 <body>
@@ -199,14 +240,7 @@ canvas { display:block; width:100% !important; }
   <h1>Your complete financial <em>picture</em></h1>
   <div class="hdr-sub">
     <span>Net worth &middot; Retirement &middot; FIRE &middot; College &middot; Tax &middot; Debt &middot; All values in today's dollars</span>
-    <button id="refresh-btn" onclick="refreshBalances()"
-      style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-             color:var(--gold-dk);background:none;border:1px solid var(--gold-dk);border-radius:3px;
-             padding:4px 10px;cursor:pointer"
-      onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'"
-      onmouseout="this.style.color='var(--gold-dk)';this.style.borderColor='var(--gold-dk)'">
-      &#8635; Refresh
-    </button>
+    <button id="refresh-btn" class="refresh-btn" onclick="refreshBalances()">&#8635; Refresh</button>
   </div>
 </div>
 
@@ -222,6 +256,9 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: NET WORTH -->
 <div class="tab-pane active" id="tab-networth">
+  <!-- Decision bar -->
+  <div class="decision-bar" id="nw-decisions"></div>
+
   <div class="nw-hero">
     <div class="hero-lbl">Total Net Worth</div>
     <div class="nw-big" id="nw-total">--</div>
@@ -269,6 +306,7 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: RETIREMENT -->
 <div class="tab-pane" id="tab-retirement">
+<div class="decision-bar" id="ret-decisions"></div>
 <div class="scenarios">
   <div class="sc-card active" onclick="setScenario(55)" id="sc-55">
     <div class="sc-name">Aggressive</div><div class="sc-age">55</div>
@@ -301,16 +339,31 @@ canvas { display:block; width:100% !important; }
 <div class="panel">
   <div class="panel-hd">Your Numbers <button class="reset-btn" onclick="resetAll()">Reset</button></div>
   <div class="panel-bd">
-    <div class="sec-lbl">Current Portfolio</div>
+    <div class="sec-lbl" style="margin-bottom:12px">Core Portfolio</div>
     <div class="ctrl"><div class="ctrl-lbl">Roth IRA (Peyton)</div><div class="ctrl-row"><input type="range" min="0" max="800000" step="5000" id="r-roth" oninput="sl('roth',this.value)"><input type="text" class="num-in" id="i-roth" onchange="si('roth',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Roth IRA (Grace)</div><div class="ctrl-row"><input type="range" min="0" max="200000" step="1000" id="r-groth" oninput="sl('groth',this.value)"><input type="text" class="num-in" id="i-groth" onchange="si('groth',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">401(k) Pre-Tax</div><div class="ctrl-row"><input type="range" min="0" max="800000" step="5000" id="r-k401" oninput="sl('k401',this.value)"><input type="text" class="num-in" id="i-k401" onchange="si('k401',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Taxable Brokerage</div><div class="ctrl-row"><input type="range" min="0" max="600000" step="5000" id="r-taxable" oninput="sl('taxable',this.value)"><input type="text" class="num-in" id="i-taxable" onchange="si('taxable',this.value)"></div></div>
+    <div class="ctrl"><div class="ctrl-lbl">Annual Spending (today $)</div><div class="ctrl-row"><input type="range" min="50000" max="250000" step="5000" id="r-spend" oninput="sl('spend',this.value)"><input type="text" class="num-in" id="i-spend" onchange="si('spend',this.value)"></div></div>
+
+    <div class="ctrl-section">
+      <div class="ctrl-section-hd" onclick="toggleSection('adv-balances')">
+        <span class="ctrl-section-lbl">HD Stock &amp; HSA</span>
+        <span class="ctrl-section-arrow" id="arrow-adv-balances">▼</span>
+      </div>
+      <div class="ctrl-section-body collapsed" id="adv-balances" style="max-height:0">
     <div class="ctrl"><div class="ctrl-lbl">HD Vested (LIIA)</div><div class="ctrl-row"><input type="range" min="0" max="200000" step="1000" id="r-hd_vested" oninput="sl('hd_vested',this.value)"><input type="text" class="num-in" id="i-hd_vested" onchange="si('hd_vested',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">HD RSUs (Unvested)</div><div class="ctrl-row"><input type="range" min="0" max="500000" step="5000" id="r-hd_rsus" oninput="sl('hd_rsus',this.value)"><input type="text" class="num-in" id="i-hd_rsus" onchange="si('hd_rsus',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">HSA (Total)</div><div class="ctrl-row"><input type="range" min="0" max="100000" step="1000" id="r-hsa" oninput="sl('hsa',this.value)"><input type="text" class="num-in" id="i-hsa" onchange="si('hsa',this.value)"></div></div>
+      </div>
+    </div>
 
-    <div class="sec"><div class="sec-lbl">Annual Contributions</div>
+    <div class="ctrl-section">
+      <div class="ctrl-section-hd" onclick="toggleSection('adv-contribs')">
+        <span class="ctrl-section-lbl">Annual Contributions</span>
+        <span class="ctrl-section-arrow" id="arrow-adv-contribs">▼</span>
+      </div>
+      <div class="ctrl-section-body collapsed" id="adv-contribs" style="max-height:0">
     <div class="ctrl"><div class="ctrl-lbl">401(k) / yr</div><div class="ctrl-row"><input type="range" min="0" max="69000" step="500" id="r-c401k" oninput="sl('c401k',this.value)"><input type="text" class="num-in" id="i-c401k" onchange="si('c401k',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Roth IRA (both) / yr</div><div class="ctrl-row"><input type="range" min="0" max="14000" step="500" id="r-croth" oninput="sl('croth',this.value)"><input type="text" class="num-in" id="i-croth" onchange="si('croth',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">HSA / yr</div><div class="ctrl-row"><input type="range" min="0" max="8300" step="100" id="r-chsa" oninput="sl('chsa',this.value)"><input type="text" class="num-in" id="i-chsa" onchange="si('chsa',this.value)"></div></div>
@@ -318,13 +371,19 @@ canvas { display:block; width:100% !important; }
     <div class="ctrl"><div class="ctrl-lbl">ESPP / yr</div><div class="ctrl-row"><input type="range" min="0" max="40000" step="1000" id="r-espp" oninput="sl('espp',this.value)"><input type="text" class="num-in" id="i-espp" onchange="si('espp',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Annual RSU Grant</div><div class="ctrl-row"><input type="range" min="0" max="150000" step="2500" id="r-rsugrant" oninput="sl('rsugrant',this.value)"><input type="text" class="num-in" id="i-rsugrant" onchange="si('rsugrant',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">529 / yr (both kids)</div><div class="ctrl-row"><input type="range" min="0" max="32000" step="1000" id="r-c529" oninput="sl('c529',this.value)"><input type="text" class="num-in" id="i-c529" onchange="si('c529',this.value)"></div></div>
+      </div>
     </div>
 
-    <div class="sec"><div class="sec-lbl">Retirement Assumptions</div>
-    <div class="ctrl"><div class="ctrl-lbl">Annual Spending (today $)</div><div class="ctrl-row"><input type="range" min="50000" max="250000" step="5000" id="r-spend" oninput="sl('spend',this.value)"><input type="text" class="num-in" id="i-spend" onchange="si('spend',this.value)"></div></div>
+    <div class="ctrl-section">
+      <div class="ctrl-section-hd" onclick="toggleSection('adv-assumptions')">
+        <span class="ctrl-section-lbl">Advanced Assumptions</span>
+        <span class="ctrl-section-arrow" id="arrow-adv-assumptions">▼</span>
+      </div>
+      <div class="ctrl-section-body collapsed" id="adv-assumptions" style="max-height:0">
     <div class="ctrl"><div class="ctrl-lbl">Lumpy Expenses (every 8yr)</div><div class="ctrl-row"><input type="range" min="0" max="150000" step="5000" id="r-lumpy" oninput="sl('lumpy',this.value)"><input type="text" class="num-in" id="i-lumpy" onchange="si('lumpy',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">Social Security / mo</div><div class="ctrl-row"><input type="range" min="500" max="6000" step="100" id="r-ss" oninput="sl('ss',this.value)"><input type="text" class="num-in" id="i-ss" onchange="si('ss',this.value)"></div></div>
     <div class="ctrl"><div class="ctrl-lbl">SS Claim Age</div><div class="ctrl-row"><input type="range" min="62" max="70" step="1" id="r-ssage" oninput="sl('ssage',this.value)"><input type="text" class="num-in" id="i-ssage" onchange="si('ssage',this.value)"></div></div>
+      </div>
     </div>
 
     <div class="sec">
@@ -352,10 +411,10 @@ canvas { display:block; width:100% !important; }
     <div class="hero-num" id="hero-num">--</div>
     <div class="hero-sub" id="hero-sub">calculating...</div>
     <div class="stat-row">
-      <div class="stat"><div class="sv gold" id="st-prob">--</div><div class="sl">Success Rate</div></div>
-      <div class="stat"><div class="sv g" id="st-safe">--</div><div class="sl">4% Withdrawal</div></div>
-      <div class="stat"><div class="sv" id="st-fire">--</div><div class="sl">FIRE Number</div></div>
-      <div class="stat"><div class="sv am" id="st-estate">--</div><div class="sl">Est. Estate (95)</div></div>
+      <div class="stat"><div class="sv gold" id="st-prob">--</div><div class="sl">Success Rate <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">% of 1,000 Monte Carlo simulations where portfolio stays above your legacy floor through age 95. 85%+ = strong. Below 70% = revisit the plan.</span></span></div></div>
+      <div class="stat"><div class="sv g" id="st-safe">--</div><div class="sl">4% Withdrawal <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">Annual income your portfolio could sustain using the 4% rule (withdraw 4% of starting balance, inflation-adjusted). This is income on top of Social Security.</span></span></div></div>
+      <div class="stat"><div class="sv" id="st-fire">--</div><div class="sl">FIRE Number <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">25× your annual spending — the portfolio size where a 4% withdrawal covers all expenses indefinitely. Excludes home equity; investable assets only.</span></span></div></div>
+      <div class="stat"><div class="sv am" id="st-estate">--</div><div class="sl">Est. Estate (95) <span class="tip-wrap"><span class="tip-icon">?</span><span class="tip-box">Median remaining portfolio value at age 95 across all simulations. Represents your expected legacy — what you'd leave to Eleanor, Arthur, and Grace.</span></span></div></div>
     </div>
     <div class="success-def" id="success-def"></div>
   </div>
@@ -417,6 +476,7 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: FIRE -->
 <div class="tab-pane" id="tab-fire">
+  <div class="decision-bar" id="fire-decisions"></div>
   <!-- Snapshot cards -->
   <div class="fire-snapshot-grid" id="fire-snapshot-grid"></div>
 
@@ -479,6 +539,7 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: COLLEGE -->
 <div class="tab-pane" id="tab-college">
+<div class="decision-bar" id="col-decisions"></div>
 <div class="college-hero">
   <div class="hero-lbl">College Funding Overview</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
@@ -558,6 +619,7 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: TAX -->
 <div class="tab-pane" id="tab-tax">
+<div class="decision-bar" id="tax-decisions"></div>
 <div style="margin-bottom:20px">
   <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px">
     2026 federal + Georgia state tax projection. MFJ filing, standard deduction. Updates automatically.
@@ -579,6 +641,7 @@ canvas { display:block; width:100% !important; }
 
 <!-- ================================================================ TAB: DEBT -->
 <div class="tab-pane" id="tab-debt">
+<div class="decision-bar" id="debt-decisions"></div>
 <div style="margin-bottom:16px;font-size:13px;color:var(--muted);line-height:1.7">
   Payoff projections based on current Monarch balances. Credit cards paid in full monthly — not shown here.
 </div>
@@ -790,10 +853,11 @@ function showTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
   if (id === 'scenarios') buildScenarios();
-  if (id === 'debt')      buildDebtTracker();
+  if (id === 'debt')      { buildDebtTracker(); }
   if (id === 'college')   buildCollege();
   if (id === 'networth')  buildNWTab();
   if (id === 'fire')      buildFireTab();
+  if (id === 'tax')       { calcTax(); }
 }
 function setScenario(age) {
   S.retireAge = age;
@@ -1010,6 +1074,9 @@ function buildFireTab() {
   // ── FIRE chart ──
   drawFireChart(F.projections, F.fireNumber, F.baristaNumber, F.fullFireYear, F.baristaYear);
 
+  // ── Decision cards ──
+  buildFireDecisions(F);
+
   // ── Assumptions ──
   document.getElementById('fire-assumptions').innerHTML =
     '<strong style="color:var(--muted)">Assumptions:</strong> ' +
@@ -1162,6 +1229,7 @@ function buildCollege() {
     growthRate + '% 529 growth · Eleanor 2038, Arthur 2040';
 
   drawCollegeChart(el, ar, elYears, arYears, contribPerKid, growthRate);
+  buildCollegeDecisions(el, ar);
 }
 
 function drawCollegeChart(el, ar, elYears, arYears, contribPerKid, growthRate) {
@@ -1301,6 +1369,7 @@ function buildNWTab() {
   document.getElementById('account-list').innerHTML = acctHtml;
 
   drawNWChart();
+  buildNWDecisions(nw);
 
   if (_nwHistory.length > 0) {
     var first = new Date(_nwHistory[0].date);
@@ -1543,6 +1612,7 @@ function renderRetirement(res) {
   buildRothTL(S.retireAge,S.ssage);
   buildConc();
   buildInsights(res,fire);
+  buildRetirementDecisions(res, fire);
 }
 
 // ============================================================
@@ -1680,23 +1750,30 @@ function buildInsights(res,fireNum) {
 
   var levers=[];
   var r2yr=projectWith({retireAge:S.retireAge+2});
-  levers.push({action:'Retire at age '+(S.retireAge+2),delta:Math.round(r2yr.sr*100)-sr0,note:'2 more years of contributions + 2 fewer withdrawal years',effort:'Medium'});
-  if(S.spend>70000){var rSpend=projectWith({spend:S.spend-10000});levers.push({action:'Reduce spending to '+fmtK(S.spend-10000)+'/yr',delta:Math.round(rSpend.sr*100)-sr0,note:'Lowers FIRE number and annual withdrawals',effort:'Hard'});}
+  levers.push({action:'Retire at age '+(S.retireAge+2),delta:Math.round(r2yr.sr*100)-sr0,note:'2 more years of contributions + 2 fewer withdrawal years',effort:'Medium',applyFn:function(){setScenario(S.retireAge+2);}});
+  if(S.spend>70000){var rSpend=projectWith({spend:S.spend-10000});levers.push({action:'Reduce spending to '+fmtK(S.spend-10000)+'/yr',delta:Math.round(rSpend.sr*100)-sr0,note:'Lowers FIRE number and annual withdrawals',effort:'Hard',applyFn:function(){si('spend',S.spend-10000);}});}
   var rSave=projectWith({ctax:S.ctax+10000});
-  levers.push({action:'Add $10K/yr to taxable savings',delta:Math.round(rSave.sr*100)-sr0,note:'Compounds '+res.yA+' years before retirement',effort:'Medium'});
-  if(S.ssage<70){var rSS70=projectWith({ssage:70,ss:Math.round(S.ss*1.24)});levers.push({action:'Delay SS to age 70',delta:Math.round(rSS70.sr*100)-sr0,note:fmtK(Math.round(S.ss*1.24)*12)+'/yr vs '+fmtK(S.ss*12)+'/yr',effort:'Low'});}
+  levers.push({action:'Add $10K/yr to taxable savings',delta:Math.round(rSave.sr*100)-sr0,note:'Compounds '+res.yA+' years before retirement',effort:'Medium',applyFn:function(){si('ctax',S.ctax+10000);}});
+  if(S.ssage<70){var rSS70=projectWith({ssage:70,ss:Math.round(S.ss*1.24)});levers.push({action:'Delay SS to age 70',delta:Math.round(rSS70.sr*100)-sr0,note:fmtK(Math.round(S.ss*1.24)*12)+'/yr vs '+fmtK(S.ss*12)+'/yr',effort:'Low',applyFn:function(){si('ssage',70);si('ss',Math.round(S.ss*1.24));}});}
   levers.sort(function(a,b){return b.delta-a.delta;});
   levers=levers.filter(function(l){return l.delta>=0;});
+  // Store lever fns globally for click handler
+  window._leverFns = levers.map(function(l){return l.applyFn;});
 
   if(levers.length>0){
     var tbl=document.createElement('div'); tbl.className='insight'; tbl.style.borderLeftColor='var(--gold)';
     tbl.style.flexDirection='column'; tbl.style.gap='0';
-    var rows='<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Best Levers — Ranked by Impact</div>';
-    rows+='<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th><th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th><th style="text-align:right;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th></tr>';
-    levers.forEach(function(l){
+    var rows='<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Best Levers — click any row to apply</div>';
+    rows+='<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:4px 0;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Action</th><th style="text-align:center;padding:4px 8px;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Impact</th><th style="text-align:right;font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--label);font-weight:400">Effort</th><th style="width:1px"></th></tr>';
+    levers.forEach(function(l,idx){
       var ic=l.delta>=10?'var(--green-lt)':l.delta>=5?'var(--gold)':'var(--muted)';
       var ec=l.effort==='Low'?'var(--green-lt)':l.effort==='Medium'?'var(--gold)':'var(--red-lt)';
-      rows+='<tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 0;color:var(--text)">'+l.action+'<div style="font-size:10px;color:var(--muted);margin-top:2px">'+l.note+'</div></td><td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+ic+'">+'+l.delta+'%</td><td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+ec+'">'+l.effort.toUpperCase()+'</td></tr>';
+      rows+='<tr class="lever-row" onclick="applyLever('+idx+')" style="border-bottom:1px solid var(--border)">'+
+        '<td style="padding:8px 0;color:var(--text)">'+l.action+'<div style="font-size:10px;color:var(--muted);margin-top:2px">'+l.note+'</div></td>'+
+        '<td style="text-align:center;padding:8px;font-family:DM Mono,monospace;font-size:13px;font-weight:600;color:'+ic+'">+'+l.delta+'%</td>'+
+        '<td style="text-align:right;padding:8px 0;font-family:DM Mono,monospace;font-size:9px;letter-spacing:.1em;color:'+ec+'">'+l.effort.toUpperCase()+'</td>'+
+        '<td style="padding:8px 0 8px 10px"><button class="lever-apply-btn" onclick="event.stopPropagation();applyLever('+idx+')">Apply</button></td>'+
+        '</tr>';
     });
     rows+='</table>'; tbl.innerHTML=rows; el.appendChild(tbl);
   }
@@ -1713,6 +1790,21 @@ function buildInsights(res,fireNum) {
     d2.innerHTML='<span class="ins-icon" style="color:'+ins.col+'">'+ins.icon+'</span><span class="ins-text">'+ins.text+'</span>';
     el.appendChild(d2);
   });
+}
+
+// ============================================================
+// APPLY LEVER (click-to-apply from Best Levers table)
+// ============================================================
+function applyLever(idx) {
+  if (window._leverFns && window._leverFns[idx]) {
+    window._leverFns[idx]();
+    // Visual feedback: briefly highlight the retirement tab
+    var retTab = document.querySelector('.tab-btn.active');
+    if (retTab) {
+      retTab.style.background = 'var(--gold-bg)';
+      setTimeout(function(){ retTab.style.background = ''; }, 400);
+    }
+  }
 }
 
 // ============================================================
@@ -1788,6 +1880,8 @@ function calcTax() {
     '<div><div style="font-family:DM Mono,monospace;font-size:9px;color:var(--muted)">529 State Deduction</div><div style="font-family:DM Serif Display,serif;font-size:18px;color:var(--green-lt)">-'+fmtD(ga529Deduction)+'</div></div>'+
     '</div>'+
     '<div style="margin-top:10px;font-family:DM Mono,monospace;font-size:8.5px;color:var(--label)">$4,000 deduction per 529 beneficiary · 2 kids = $8,000 · saves ~$439/yr at 5.49% GA rate · standard deduction $24,000 MFJ</div>';
+
+  buildTaxDecisions();
 }
 
 // ============================================================
@@ -1854,6 +1948,7 @@ function buildDebtTracker() {
   },0);
   document.getElementById('debt-free-date').textContent=
     totalNonMort>0?'Non-mortgage debt-free: '+latestPayoff.toLocaleDateString('en-US',{month:'long',year:'numeric'})+' · $'+Math.round(totalInt).toLocaleString()+' interest remaining':'Non-mortgage debt-free!';
+  buildDebtDecisions();
 }
 
 function updateDebtExtra(idx,val) { DEBTS[idx].extra=parseInt(val); buildDebtTracker(); }
@@ -1884,6 +1979,189 @@ function buildScenarios() {
       '<div style="font-size:10px;color:var(--muted);margin-top:4px">'+sc.desc+'</div>';
     el.appendChild(card2);
   });
+}
+
+// ============================================================
+// COLLAPSIBLE SECTIONS
+// ============================================================
+function toggleSection(id) {
+  var body  = document.getElementById(id);
+  var arrow = document.getElementById('arrow-' + id);
+  var isOpen = !body.classList.contains('collapsed');
+  if (isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(function() {
+      body.style.maxHeight = '0';
+      body.classList.add('collapsed');
+      if (arrow) arrow.classList.remove('open');
+    });
+  } else {
+    body.classList.remove('collapsed');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    if (arrow) arrow.classList.add('open');
+    // After transition, set to 'none' so content can grow freely
+    body.addEventListener('transitionend', function handler() {
+      if (!body.classList.contains('collapsed')) body.style.maxHeight = 'none';
+      body.removeEventListener('transitionend', handler);
+    });
+  }
+}
+
+// ============================================================
+// DECISION CARDS
+// ============================================================
+function dc(type, icon, html) {
+  return '<div class="decision-card ' + type + '"><span class="dc-icon">' + icon + '</span><div class="dc-text">' + html + '</div></div>';
+}
+
+function buildNWDecisions(nw) {
+  if (!nw) return;
+  var el = document.getElementById('nw-decisions');
+  if (!el) return;
+  var cards = [];
+  var totalInv = (nw.roth||0)+(nw.groth||0)+(nw.k401||0)+(nw.taxable||0)+(nw.hd_vested||0)+(nw.hd_rsus||0)+(nw.hsa||0);
+  var hdAmt   = (nw.hd_vested||0)+(nw.hd_rsus||0);
+  var hdPct   = totalInv > 0 ? Math.round(hdAmt/totalInv*100) : 0;
+  var nwVal   = nw.net_worth || 0;
+
+  if (nwVal > 1200000) {
+    cards.push(dc('ok','✅','<strong>Net worth on track.</strong> ' + fmtK(nwVal) + ' puts you ahead of the median 38-year-old household by a wide margin.'));
+  }
+  if (hdPct >= 25) {
+    cards.push(dc('risk','⚠️','<strong>HD concentration is ' + hdPct + '%</strong> of investable assets — above the 15% target. Sell RSUs at every vest and redirect to index funds.'));
+  } else if (hdPct >= 15) {
+    cards.push(dc('warn','⚠️','<strong>HD stock is ' + hdPct + '%</strong> of investable assets. Approaching concentration risk; continue selling at each vest.'));
+  }
+  if ((nw.total_cash||0) > 80000) {
+    cards.push(dc('tip','💡','<strong>' + fmtK(nw.total_cash) + ' in cash</strong> — above 6-month emergency reserve. Consider sweeping excess into taxable brokerage or paying down the Stanford loan.'));
+  }
+  if (!cards.length) cards.push(dc('ok','✅','<strong>Balance sheet looks clean.</strong> No major concentration or liquidity flags.'));
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
+}
+
+function buildRetirementDecisions(res, fireNum) {
+  var el = document.getElementById('ret-decisions');
+  if (!el) return;
+  var sp  = Math.round(res.sr * 100);
+  var tot = res.portAtRet;
+  var hdPct = 0;
+  var totalInv = (S.roth||0)+(S.groth||0)+(S.k401||0)+(S.taxable||0)+(S.hd_vested||0)+(S.hd_rsus||0)+(S.hsa||0);
+  if (totalInv > 0) hdPct = Math.round(((S.hd_vested||0)+(S.hd_rsus||0))/totalInv*100);
+
+  var cards = [];
+  // Track status
+  if (sp >= 85) {
+    cards.push(dc('ok','✅','<strong>On track for age ' + S.retireAge + '</strong> with ' + sp + '% success rate. Portfolio projects to ' + fmtK(tot) + ', exceeding your FIRE number of ' + fmtK(fireNum) + '.'));
+  } else if (sp >= 70) {
+    var sc58 = _cacheScen[58], sr58 = sc58 ? Math.round(sc58.sr*100) : 0;
+    cards.push(dc('warn','⚠️','<strong>Age ' + S.retireAge + ' is borderline</strong> (' + sp + '% success). Age 58 improves this to ' + sr58 + '%. Consider adding $10K/yr to taxable savings.'));
+  } else {
+    cards.push(dc('risk','⚠️','<strong>Plan needs adjustment</strong> — ' + sp + '% success rate is below 70%. Retire later, spend less, or save more to hit the 85% threshold.'));
+  }
+  // HD concentration
+  if (hdPct >= 25) {
+    cards.push(dc('risk','⚠️','<strong>HD concentration is ' + hdPct + '%</strong> — your biggest portfolio-specific risk. A single-stock drawdown could meaningfully shift your retirement outcome.'));
+  }
+  // SS delay tip
+  if (S.ssage < 70) {
+    var ss70Ann = Math.round(S.ss * 1.24 * 12);
+    var ssCurAnn = S.ss * 12;
+    cards.push(dc('tip','💡','<strong>Delay Social Security to 70</strong> for ' + fmtK(ss70Ann) + '/yr vs ' + fmtK(ssCurAnn) + '/yr — a ' + fmtK(ss70Ann - ssCurAnn) + '/yr increase. Draw taxable first in early retirement.'));
+  }
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
+}
+
+function buildFireDecisions(F) {
+  var el = document.getElementById('fire-decisions');
+  if (!el) return;
+  var cards = [];
+  var age = F.age, curYear = F.curYear;
+
+  if (F.coastFire65Year <= curYear && F.coastFire55Year <= curYear) {
+    cards.push(dc('ok','✅','<strong>Coast FIRE at both 55 and 65 already achieved.</strong> Your portfolio could grow to your FIRE number with zero additional contributions.'));
+  } else if (F.coastFire65Year <= curYear) {
+    cards.push(dc('ok','✅','<strong>Coast FIRE at 65 achieved.</strong> You could stop all investing today and still retire at 65.'));
+  }
+  if (F.fullFireYear) {
+    var yrs = F.fullFireYear - curYear;
+    var typ = yrs <= 5 ? 'ok' : yrs <= 10 ? 'warn' : 'tip';
+    var ico = yrs <= 5 ? '✅' : '💡';
+    cards.push(dc(typ, ico, '<strong>Full FIRE projected in ' + yrs + ' years</strong> (' + F.fullFireYear + '). Biggest lever: ' + (FIRE.invest > 50000 ? 'savings rate is strong — market returns now drive the timeline.' : 'increasing annual investing accelerates the date significantly.')));
+  }
+  if (F.baristaYear && (!F.fullFireYear || F.baristaYear < F.fullFireYear)) {
+    var bYrs = F.baristaYear - curYear;
+    cards.push(dc('tip','💡','<strong>Barista FIRE in ' + bYrs + ' years</strong> (' + F.baristaYear + ') — part-time work covering ' + fmtK(FIRE.barista) + '/yr makes full-time optional well before Full FIRE.'));
+  }
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
+}
+
+function buildCollegeDecisions(el_data, ar_data) {
+  var el = document.getElementById('col-decisions');
+  if (!el) return;
+  var cards = [];
+  var totalGap = (el_data.projBal + ar_data.projBal) - (el_data.totalCost + ar_data.totalCost);
+
+  if (totalGap >= 0) {
+    cards.push(dc('ok','✅','<strong>College funding on track</strong> at current contribution rate. Projected surplus of ' + fmtK(totalGap) + ' across both kids.'));
+  } else if (totalGap > -50000) {
+    cards.push(dc('warn','⚠️','<strong>Small gap of ' + fmtK(Math.abs(totalGap)) + '</strong> across both accounts. Manageable from cash flow during college years — Eleanor 2038, Arthur 2040.'));
+  } else {
+    var extraPerKid = Math.round(Math.abs(totalGap) / 2 / 14 / 1000) * 1000;
+    cards.push(dc('risk','⚠️','<strong>Gap of ' + fmtK(Math.abs(totalGap)) + '</strong> at current contributions. Adding ~' + fmtK(extraPerKid) + '/yr per kid closes it by college.'));
+  }
+  cards.push(dc('tip','💡','<strong>GA 529 deduction:</strong> $4,000/beneficiary saves ~$439/yr in state taxes. Max both accounts before investing in taxable for college.'));
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
+}
+
+function buildTaxDecisions() {
+  var el = document.getElementById('tax-decisions');
+  if (!el) return;
+  function v(id){return parseNum(document.getElementById(id).value)||0;}
+  var wages=v('tx-wages'),bonus=v('tx-bonus'),rsu=v('tx-rsu'),espp2=v('tx-espp'),cg=v('tx-cg'),grace=v('tx-grace');
+  var totalIncome=wages+bonus+rsu+espp2+grace;
+  var agi=Math.max(0,totalIncome-23000-8550);
+  var withheld=v('tx-withheld'), estPay=v('tx-estpay');
+  var cards = [];
+
+  if (agi > 250000) {
+    cards.push(dc('warn','⚠️','<strong>AGI over $250K</strong> triggers 3.8% NIIT on investment income and phases out some deductions. RSU vesting strategy matters at this income level.'));
+  }
+  var totalPaid = withheld + estPay;
+  var roughTax = agi * 0.28; // rough estimate for decision card
+  var gap = roughTax - totalPaid;
+  if (gap > 10000) {
+    cards.push(dc('risk','⚠️','<strong>Potential underwithholding.</strong> Check the tax projection below — you may owe more than expected. Consider adding withholding per paycheck.'));
+  } else if (gap < -5000) {
+    cards.push(dc('tip','💡','<strong>Likely overpaying</strong> via withholding. Consider adjusting W-4 to free up cash flow — you are lending the IRS money interest-free.'));
+  } else {
+    cards.push(dc('ok','✅','<strong>Withholding appears calibrated.</strong> Review the full calculation below for precision.'));
+  }
+  cards.push(dc('tip','💡','<strong>Backdoor Roth + HSA</strong> are your most tax-efficient moves this year — both reduce future RMDs and taxable estate without affecting current AGI.'));
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
+}
+
+function buildDebtDecisions() {
+  var el = document.getElementById('debt-decisions');
+  if (!el) return;
+  var cards = [];
+  var totalNonMort = DEBTS.filter(function(d){return !d.isMortgage;}).reduce(function(s,d){return s+(d.balance||d.origBalance||0);},0);
+  var mortgage = DEBTS.find(function(d){return d.isMortgage;});
+  var mortBal = mortgage ? (mortgage.balance||mortgage.origBalance||0) : 0;
+
+  if (totalNonMort < 30000) {
+    cards.push(dc('ok','✅','<strong>Non-mortgage debt is manageable</strong> at ' + fmtK(totalNonMort) + '. On track for debt-free by August 2027.'));
+  } else if (totalNonMort < 60000) {
+    cards.push(dc('warn','⚠️','<strong>' + fmtK(totalNonMort) + ' in non-mortgage debt.</strong> Both car loans and Stanford loan at low fixed rates — prioritize taxable investing over extra payments.'));
+  }
+  // Stanford loan at 3% vs market
+  var stanford = DEBTS.find(function(d){return d.name.includes('Stanford');});
+  if (stanford && (stanford.balance||stanford.origBalance||0) > 0) {
+    cards.push(dc('tip','💡','<strong>Stanford loan at 3%</strong> is below expected market returns. Minimum payment is mathematically optimal — extra cash earns more invested.'));
+  }
+  if (mortBal > 0) {
+    cards.push(dc('ok','✅','<strong>Mortgage at 2.75%</strong> — do not pay this down early. That rate is below long-run equity returns by a wide margin.'));
+  }
+  el.innerHTML = '<div class="dc-section-lbl">What matters now</div>' + cards.join('');
 }
 
 // ============================================================
