@@ -7,8 +7,8 @@
   "k401": 154784,
   "taxable": 171558,
   "hsa": 14484,
-  "hd_vested": 13707,
-  "hd_rsus": 97995,
+  "hd_vested": 14454,
+  "hd_rsus": 95631,
   "roth_staging": 3761,
   "total_cash": 89505,
   "eleanor_529": 25827,
@@ -22,8 +22,8 @@
   "vehicle_total": 59338,
   "lexus_value": 34920,
   "tesla_value": 24418,
-  "net_worth": 1391696,
-  "total_assets": 1756895,
+  "net_worth": 1390080,
+  "total_assets": 1755279,
   "total_debt": 365199,
   "accounts": [
     {
@@ -309,7 +309,7 @@
       "id": "172875141729952163",
       "name": "The Home Depot RSUs",
       "type": "brokerage",
-      "balance": 97995.0,
+      "balance": 95631.0,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Merrill Lynch - Benefits"
@@ -426,7 +426,7 @@
       "id": "223855104973808566",
       "name": "LIIA- Vested Brokerage Account (...0_A0)",
       "type": "brokerage",
-      "balance": 13707.11,
+      "balance": 14454.88,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Merrill Lynch - Benefits"
