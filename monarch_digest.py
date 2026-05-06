@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
 Monarch Money — Daily Balance Sync + Weekly Financial Digest
-Daily (7am ET):  fetches all Monarch accounts → writes balances.json + appends nw_history.json
+Daily (7am ET):  fetches all Monarch accounts → writes balances.json, nw_history.json,
+                 cashflow.json, debts.json, transactions.json
 Monday (7am ET): also sends the weekly HTML digest email
 
 Files committed to GitHub:
-  balances.json    — current account balances, pre-computed dashboard fields
-  nw_history.json  — daily net worth snapshots for trend charting
+  balances.json      — current account balances, pre-computed dashboard fields
+  nw_history.json    — daily net worth snapshots for trend charting
+  cashflow.json      — MTD income/expenses/surplus/savings rate + top categories
+  debts.json         — debt balances, rates, days-to-40 countdown
+  transactions.json  — rolling 90-day transaction log (lean fields, no transfers)
 """
 
 import asyncio
@@ -33,8 +37,9 @@ GITHUB_USER      = os.environ.get("GITHUB_USER", "peytoned21")
 GITHUB_REPO      = os.environ.get("GITHUB_REPO", "monarch-digest")
 DASHBOARD_URL    = f"https://{GITHUB_USER}.github.io/{GITHUB_REPO}/dashboard.html"
 
-# Peyton's birthdate for age calculation
-PEYTON_BIRTHDATE = date(1987, 8, 24)
+PEYTON_BIRTHDATE   = date(1987, 8, 24)
+PEYTON_40TH        = date(2027, 8, 24)
+TRANSACTION_WINDOW = 90  # rolling days to keep in transactions.json
 
 HSA_KEYWORDS      = ["medical", "pharmacy", "dental", "vision", "health", "doctor", "hospital"]
 TRANSFER_KEYWORDS = ["transfer", "transfers to investments", "credit card payment"]
@@ -42,6 +47,13 @@ INCOME_KEYWORDS   = ["paycheck", "income", "salary", "bonus", "direct deposit", 
 NW_DELTA_THRESHOLD = 100.0
 BILL_LOOKAHEAD     = 7
 DEBT_ACCOUNTS      = ["mortgage", "tesla", "lexus", "stanford", "heloc"]
+
+# Debts tracked for payoff goal (excludes mortgage)
+PAYOFF_DEBTS = [
+    {"keywords": ["gx460"],              "name": "Lexus",    "rate": 4.5, "is_target": True},
+    {"keywords": ["tesla", "model 3"],   "name": "Tesla",    "rate": 4.5, "is_target": True},
+    {"keywords": ["stanford"],           "name": "Stanford", "rate": 3.0, "is_target": False},
+]
 
 FIXED_EXPENSE_KEYWORDS = {
     "mortgage":  {"label": "Mortgage",       "category": "housing"},
@@ -86,6 +98,10 @@ def current_age(birthdate: date = PEYTON_BIRTHDATE) -> int:
     return today.year - birthdate.year - (
         (today.month, today.day) < (birthdate.month, birthdate.day)
     )
+
+def days_to_40(today: date = None) -> int:
+    today = today or date.today()
+    return (PEYTON_40TH - today).days
 
 def is_hsa(cat: str) -> bool:
     return any(k in (cat or "").lower() for k in HSA_KEYWORDS)
@@ -142,7 +158,6 @@ def get_week_range(today: date):
 # ── Account Helpers ────────────────────────────────────────────────────────────
 
 def find_balance(accounts, keywords, must_be_positive=True):
-    """Find account balance by name keywords."""
     for a in accounts:
         acct_name = (a.get("displayName") or a.get("name") or "").lower()
         if any(k.lower() in acct_name for k in keywords):
@@ -154,7 +169,6 @@ def find_balance(accounts, keywords, must_be_positive=True):
     return 0
 
 def sum_by_type(accounts, type_names, positive_only=False, negative_only=False):
-    """Sum balances for accounts matching given type names."""
     total = 0.0
     for a in accounts:
         t = (a.get("type") or {}).get("name", "")
@@ -183,7 +197,6 @@ def compute_net_worth(accounts):
 
 
 def get_account_type(a):
-    """Monarch returns type as a dict {"name": "brokerage", ...} — extract the string."""
     t = a.get("type")
     if isinstance(t, dict):
         return t.get("name", "")
@@ -193,21 +206,8 @@ def get_account_type(a):
 # ── Balances JSON Builder ──────────────────────────────────────────────────────
 
 def build_balances_json(accounts, today: date) -> dict:
-    """
-    Build the complete balances.json snapshot.
-    Includes pre-computed dashboard fields AND full account list.
-
-    Monarch returns these type strings (confirmed from live data):
-      "brokerage"   — all investment accounts (Roth, 401k, taxable, HSA, 529, RSUs, etc.)
-      "depository"  — checking and savings accounts
-      "loan"        — mortgages, auto loans, student loans
-      "credit"      — credit cards
-      "vehicle"     — car values (KBB via VinAudit)
-      "real_estate" — home value (Zillow)
-    """
     net_worth, assets, liabilities = compute_net_worth(accounts)
 
-    # Helper: get name string for an account
     def name(a):
         return (a.get("displayName") or a.get("name") or "").lower()
 
@@ -215,13 +215,11 @@ def build_balances_json(accounts, today: date) -> dict:
         return float(a.get("currentBalance") or 0)
 
     def atype(a):
-        """Extract type string — Monarch returns type as a dict {'name': 'brokerage', ...}"""
         t = a.get("type")
         if isinstance(t, dict):
             return t.get("name", "")
         return t or ""
 
-    # Names that disqualify a brokerage account from being "taxable"
     NON_TAXABLE_KEYWORDS = [
         "roth", "401", "hsa", "liia", "home depot rsu", "the home depot rsu",
         "eleanor", "arthur", "529", "espp", "vested shares", "bond portfolio",
@@ -229,7 +227,6 @@ def build_balances_json(accounts, today: date) -> dict:
         "traditional ira", "thd employee", "employee stock purchase",
     ]
 
-    # Taxable brokerage = all brokerage accounts that aren't retirement/HD/529/HSA
     taxable_total = sum(
         bal(a) for a in accounts
         if atype(a) == "brokerage"
@@ -237,13 +234,11 @@ def build_balances_json(accounts, today: date) -> dict:
         and not any(k in name(a) for k in NON_TAXABLE_KEYWORDS)
     )
 
-    # HSA = both HSA accounts combined
     hsa_total = sum(
         bal(a) for a in accounts
         if "hsa" in name(a) and bal(a) > 0
     )
 
-    # Cash = all depository accounts, positive, excluding Roth staging
     cash_total = sum(
         bal(a) for a in accounts
         if atype(a) == "depository"
@@ -251,25 +246,22 @@ def build_balances_json(accounts, today: date) -> dict:
         and "roth" not in name(a)
     )
 
-    # Vehicles = type "vehicle", positive
     vehicle_total = sum(
         bal(a) for a in accounts
         if atype(a) == "vehicle" and bal(a) > 0
     )
 
-    # Credit cards = type "credit", negative balances
     cc_total = abs(sum(
         bal(a) for a in accounts
         if atype(a) == "credit" and bal(a) < 0
     ))
 
-    # Full account list — flatten type dict to plain string for dashboard use
     account_list = []
     for a in accounts:
         account_list.append({
             "id":            a.get("id"),
             "name":          a.get("displayName") or a.get("name"),
-            "type":          atype(a),   # plain string e.g. "brokerage"
+            "type":          atype(a),
             "balance":       round(bal(a), 2),
             "include_in_nw": a.get("includeInNetWorth", True),
             "is_asset":      a.get("isAsset", True),
@@ -280,8 +272,6 @@ def build_balances_json(accounts, today: date) -> dict:
         "as_of":        today.strftime("%B %-d, %Y"),
         "generated_at": today.isoformat(),
         "_cached":      False,
-
-        # ── Retirement accounts ────────────────────────────────────────
         "roth":         find_balance(accounts, ["peyton - roth"]),
         "groth":        find_balance(accounts, ["grace - roth"]),
         "k401":         find_balance(accounts, ["home depot 401"]),
@@ -289,48 +279,208 @@ def build_balances_json(accounts, today: date) -> dict:
         "hsa":          int(hsa_total),
         "hd_vested":    find_balance(accounts, ["liia-", "liia "]),
         "hd_rsus":      find_balance(accounts, ["the home depot rsus"]),
-
-        # ── Cash ───────────────────────────────────────────────────────
         "roth_staging": find_balance(accounts, ["roth staging"]),
         "total_cash":   int(cash_total),
-
-        # ── 529s ───────────────────────────────────────────────────────
         "eleanor_529":  find_balance(accounts, ["eleanor"]),
         "arthur_529":   find_balance(accounts, ["arthur"]),
-
-        # ── Debt ───────────────────────────────────────────────────────
         "mortgage_bal": find_balance(accounts, ["mccully", "mortgage"], must_be_positive=False),
         "stanford_bal": find_balance(accounts, ["stanford"], must_be_positive=False),
         "lexus_bal":    find_balance(accounts, ["gx460"], must_be_positive=False),
         "tesla_bal":    find_balance(accounts, ["tesla", "model 3"], must_be_positive=False),
         "cc_total":     int(cc_total),
-
-        # ── Real estate & vehicles ─────────────────────────────────────
         "home_value":   find_balance(accounts, ["mccully", "3149"]),
         "vehicle_total": int(vehicle_total),
         "lexus_value":  find_balance(accounts, ["lexus gx base", "2019 lexus gx"]),
         "tesla_value":  find_balance(accounts, ["tesla model 3 base", "2023 tesla"]),
-
-        # ── Summary ────────────────────────────────────────────────────
         "net_worth":    int(net_worth),
         "total_assets": int(assets),
         "total_debt":   int(liabilities),
-
-        # ── Full account list ──────────────────────────────────────────
         "accounts":     account_list,
-
-        # ── Meta ───────────────────────────────────────────────────────
         "peyton_age":   current_age(),
     }
+
+
+# ── NEW: Cashflow JSON Builder ─────────────────────────────────────────────────
+
+def build_cashflow_json(cashflow, mtd_txns, today: date) -> dict:
+    """
+    Build cashflow.json from MTD transaction data.
+    Provides daily-updated income/expense/surplus numbers for Claude context.
+    """
+    # Try Monarch cashflow API first, fall back to transaction parsing
+    api_income = api_expense = 0.0
+    if cashflow:
+        for fn in [
+            lambda c: (c["summary"][0]["sumIncome"], abs(c["summary"][0]["sumExpense"])) if isinstance(c.get("summary"), list) and c["summary"] else None,
+            lambda c: (c["summary"]["sumIncome"], abs(c["summary"]["sumExpense"])) if isinstance(c.get("summary"), dict) else None,
+            lambda c: (c["sumIncome"], abs(c["sumExpense"])) if "sumIncome" in c else None,
+            lambda c: (c["income"], abs(c["expense"])) if "income" in c else None,
+        ]:
+            try:
+                r = fn(cashflow)
+                if r:
+                    api_income, api_expense = float(r[0] or 0), float(r[1] or 0)
+                    break
+            except Exception:
+                pass
+
+    # Parse transactions for category breakdown regardless
+    by_category = defaultdict(float)
+    txn_income = txn_expense = 0.0
+    for txn in (mtd_txns or []):
+        amount = float(txn.get("amount", 0))
+        cat    = (txn.get("category") or {}).get("name", "Uncategorized")
+        if is_transfer(cat):
+            continue
+        if amount > 0:
+            txn_income += amount
+        else:
+            txn_expense += abs(amount)
+            by_category[cat] += abs(amount)
+
+    mtd_income  = api_income  if api_income  > 0 else txn_income
+    mtd_expense = api_expense if api_expense > 0 else txn_expense
+    surplus     = mtd_income - mtd_expense
+    savings_rate = round((surplus / mtd_income * 100), 1) if mtd_income > 0 else 0.0
+
+    days_elapsed  = today.day
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    run_rate      = round((mtd_expense / days_elapsed * days_in_month), 2) if days_elapsed > 0 else 0.0
+    projected_savings = round(mtd_income - run_rate, 2)
+
+    top_categories = [
+        {"category": cat, "amount": round(amt, 2)}
+        for cat, amt in sorted(by_category.items(), key=lambda x: x[1], reverse=True)[:8]
+        if not is_transfer(cat)
+    ]
+
+    return {
+        "as_of":               today.isoformat(),
+        "month":               today.strftime("%B %Y"),
+        "days_elapsed":        days_elapsed,
+        "days_in_month":       days_in_month,
+        "mtd_income":          round(mtd_income, 2),
+        "mtd_expenses":        round(mtd_expense, 2),
+        "mtd_surplus":         round(surplus, 2),
+        "savings_rate_pct":    savings_rate,
+        "projected_month_expense": run_rate,
+        "projected_savings":   projected_savings,
+        "top_categories":      top_categories,
+    }
+
+
+# ── NEW: Debts JSON Builder ────────────────────────────────────────────────────
+
+def build_debts_json(accounts, today: date) -> dict:
+    """
+    Build debts.json from account balances.
+    Tracks payoff progress toward Peyton's debt-free-by-40 goal.
+    """
+    debts = []
+    total_target_debt = 0.0
+
+    for debt_def in PAYOFF_DEBTS:
+        bal = 0.0
+        for a in accounts:
+            acct_name = (a.get("displayName") or a.get("name") or "").lower()
+            if any(k in acct_name for k in debt_def["keywords"]):
+                raw = float(a.get("currentBalance") or 0)
+                if raw < 0:
+                    bal = abs(raw)
+                    break
+        debts.append({
+            "name":       debt_def["name"],
+            "balance":    round(bal, 2),
+            "rate":       debt_def["rate"],
+            "is_target":  debt_def["is_target"],  # included in debt-free-by-40 goal
+        })
+        if debt_def["is_target"]:
+            total_target_debt += bal
+
+    # Mortgage for reference only
+    mortgage_bal = 0.0
+    for a in accounts:
+        acct_name = (a.get("displayName") or a.get("name") or "").lower()
+        if "mccully" in acct_name or "mortgage" in acct_name:
+            raw = float(a.get("currentBalance") or 0)
+            if raw < 0:
+                mortgage_bal = abs(raw)
+                break
+
+    d_to_40  = days_to_40(today)
+    on_track = total_target_debt > 0 and d_to_40 > 0
+
+    return {
+        "as_of":                 today.isoformat(),
+        "days_to_40":            d_to_40,
+        "payoff_target_date":    PEYTON_40TH.isoformat(),
+        "debts":                 debts,
+        "total_target_debt":     round(total_target_debt, 2),
+        "mortgage_balance":      round(mortgage_bal, 2),
+        "monthly_payoff_needed": round(total_target_debt / (d_to_40 / 30.44), 2) if d_to_40 > 0 else 0,
+    }
+
+
+# ── NEW: Transactions JSON Builder ────────────────────────────────────────────
+
+def build_transactions_json(mtd_txns, today: date,
+                             existing_path="transactions.json") -> list:
+    """
+    Build/update transactions.json with a rolling 90-day window.
+    Merges today's MTD transactions with existing history, deduplicates,
+    and prunes entries older than TRANSACTION_WINDOW days.
+    Excludes transfers. Keeps lean fields only.
+    """
+    cutoff = (today - timedelta(days=TRANSACTION_WINDOW)).isoformat()
+
+    # Load existing transactions
+    existing = []
+    if os.path.exists(existing_path):
+        try:
+            with open(existing_path) as f:
+                existing = json.load(f)
+        except Exception:
+            existing = []
+
+    # Build lookup of existing IDs to avoid duplicates
+    existing_ids = {t["id"] for t in existing if t.get("id")}
+
+    # Parse and add new transactions from today's fetch
+    new_txns = []
+    for txn in (mtd_txns or []):
+        cat = (txn.get("category") or {}).get("name", "Uncategorized")
+        if is_transfer(cat):
+            continue
+        txn_id   = str(txn.get("id") or "")
+        txn_date = (txn.get("date") or "")[:10]
+        if txn_date < cutoff:
+            continue
+        if txn_id and txn_id in existing_ids:
+            continue  # already have it
+        merchant = (txn.get("merchant") or {}).get("name") or txn.get("plaidName") or "Unknown"
+        account  = (txn.get("account") or {}).get("displayName") or ""
+        amount   = float(txn.get("amount", 0))
+        new_txns.append({
+            "id":       txn_id,
+            "date":     txn_date,
+            "merchant": merchant,
+            "category": cat,
+            "amount":   round(amount, 2),
+            "account":  account,
+        })
+
+    # Merge, prune to window, sort descending
+    all_txns = existing + new_txns
+    all_txns = [t for t in all_txns if t.get("date", "") >= cutoff]
+    all_txns.sort(key=lambda x: x["date"], reverse=True)
+
+    print(f"  Transactions: {len(all_txns)} total ({len(new_txns)} new), window={TRANSACTION_WINDOW}d")
+    return all_txns
 
 
 # ── Net Worth History ──────────────────────────────────────────────────────────
 
 def update_nw_history(net_worth: float, today: date, history_path="nw_history.json") -> list:
-    """
-    Load existing history, append today's snapshot if not already present,
-    return updated list. Keeps rolling 3-year window.
-    """
     history = []
     if os.path.exists(history_path):
         try:
@@ -340,19 +490,14 @@ def update_nw_history(net_worth: float, today: date, history_path="nw_history.js
             history = []
 
     today_str = today.isoformat()
-
-    # Update or append today's entry
     existing = next((h for h in history if h["date"] == today_str), None)
     if existing:
         existing["nw"] = int(net_worth)
     else:
         history.append({"date": today_str, "nw": int(net_worth)})
 
-    # Keep rolling 3-year window (1095 days)
     cutoff = (today - timedelta(days=1095)).isoformat()
     history = [h for h in history if h["date"] >= cutoff]
-
-    # Sort by date
     history.sort(key=lambda x: x["date"])
 
     with open(history_path, "w") as f:
@@ -365,7 +510,6 @@ def update_nw_history(net_worth: float, today: date, history_path="nw_history.js
 # ── Git Commit ─────────────────────────────────────────────────────────────────
 
 def git_commit(files: list, message: str):
-    """Stage, commit, and push specified files."""
     try:
         subprocess.run(["git", "config", "user.email", "action@github.com"], check=True)
         subprocess.run(["git", "config", "user.name", "GitHub Action"], check=True)
@@ -396,32 +540,48 @@ async def fetch_data():
 
     today       = date.today()
     week_start, week_end = get_week_range(today)
-    month_start = week_end.replace(day=1)
+    month_start = today.replace(day=1)  # always MTD from day 1 of current month
 
     print(f"Week: {week_start} → {week_end}")
+    print(f"MTD window: {month_start} → {today}")
 
     print("Fetching accounts...")
-    acct_resp    = await mm.get_accounts()
-    accounts     = acct_resp.get("accounts", [])
+    acct_resp = await mm.get_accounts()
+    accounts  = acct_resp.get("accounts", [])
 
-    # Only fetch transaction/budget data on Monday (digest day) to save API calls
+    # ── Daily fetches (moved out of Monday-only block) ──────────────────────
+    print("Fetching MTD transactions...")
+    try:
+        mtd_resp = await mm.get_transactions(
+            start_date=str(month_start), end_date=str(today))
+        mtd_txns = mtd_resp.get("allTransactions", {}).get("results", [])
+    except Exception as e:
+        print(f"  MTD transactions failed: {e}")
+        mtd_txns = []
+
+    print("Fetching cashflow summary...")
+    try:
+        cashflow = await mm.get_cashflow_summary(
+            start_date=str(month_start), end_date=str(today))
+    except Exception as e:
+        print(f"  Cashflow failed: {e}")
+        cashflow = {}
+
+    # ── Monday-only fetches (digest email only) ─────────────────────────────
     is_monday = today.weekday() == 0
-    week_txns = mtd_txns = []
-    cashflow  = {}
+    week_txns = []
     budgets   = {}
     recurring = []
     history_by_id = {}
 
     if is_monday:
         print("Fetching week transactions...")
-        txn_resp  = await mm.get_transactions(
-            start_date=str(week_start), end_date=str(week_end))
-        week_txns = txn_resp.get("allTransactions", {}).get("results", [])
-
-        print("Fetching MTD transactions...")
-        mtd_resp  = await mm.get_transactions(
-            start_date=str(month_start), end_date=str(week_end))
-        mtd_txns  = mtd_resp.get("allTransactions", {}).get("results", [])
+        try:
+            txn_resp  = await mm.get_transactions(
+                start_date=str(week_start), end_date=str(week_end))
+            week_txns = txn_resp.get("allTransactions", {}).get("results", [])
+        except Exception as e:
+            print(f"  Week transactions failed: {e}")
 
         print("Fetching account history...")
         target_dates = {str(week_end), str(week_start - timedelta(days=1))}
@@ -465,13 +625,6 @@ async def fetch_data():
             recurring = raw_list or []
         except Exception as e:
             print(f"  Recurring failed: {e}")
-
-        print("Fetching cashflow...")
-        try:
-            cashflow = await mm.get_cashflow_summary(
-                start_date=str(month_start), end_date=str(week_end))
-        except Exception as e:
-            print(f"  Cashflow failed: {e}")
 
     return (today, week_start, week_end, week_txns, mtd_txns,
             accounts, cashflow, history_by_id, budgets, recurring)
@@ -913,7 +1066,7 @@ def build_debt_html(accounts):
     debts = []
     for a in accounts:
         acct_name = (a.get("displayName") or a.get("name") or "").lower()
-        if not any(k in name for k in DEBT_ACCOUNTS):
+        if not any(k in acct_name for k in DEBT_ACCOUNTS):
             continue
         bal = float(a.get("currentBalance") or 0)
         if bal >= 0:
@@ -1062,7 +1215,7 @@ async def main():
     today = date.today()
     is_monday = today.weekday() == 0
 
-    print(f"Running {'Monday digest' if is_monday else 'daily balance sync'} for {today}")
+    print(f"Running {'Monday digest + ' if is_monday else ''}daily sync for {today}")
 
     print("Fetching Monarch data...")
     (today, week_start, week_end, week_txns, mtd_txns,
@@ -1070,7 +1223,7 @@ async def main():
 
     net_worth, assets, liabilities = compute_net_worth(accounts)
     print(f"  NW: {fmt(net_worth)} · assets: {fmt(assets)} · debt: {fmt(liabilities)}")
-    print(f"  Accounts: {len(accounts)}")
+    print(f"  Accounts: {len(accounts)} · MTD transactions: {len(mtd_txns)}")
 
     # ── Always: write balances.json ──────────────────────────────────────────
     print("Building balances.json...")
@@ -1083,10 +1236,33 @@ async def main():
     print("Updating nw_history.json...")
     update_nw_history(net_worth, today, "nw_history.json")
 
-    # ── Commit both files ────────────────────────────────────────────────────
+    # ── Always: write cashflow.json ──────────────────────────────────────────
+    print("Building cashflow.json...")
+    cashflow_data = build_cashflow_json(cashflow, mtd_txns, today)
+    with open("cashflow.json", "w") as f:
+        json.dump(cashflow_data, f, indent=2)
+    print(f"  Surplus: {fmt(cashflow_data['mtd_surplus'])} · Savings rate: {cashflow_data['savings_rate_pct']}%")
+    print("✓ cashflow.json written")
+
+    # ── Always: write debts.json ─────────────────────────────────────────────
+    print("Building debts.json...")
+    debts_data = build_debts_json(accounts, today)
+    with open("debts.json", "w") as f:
+        json.dump(debts_data, f, indent=2)
+    print(f"  Target debt: {fmt(debts_data['total_target_debt'])} · Days to 40: {debts_data['days_to_40']}")
+    print("✓ debts.json written")
+
+    # ── Always: update transactions.json ────────────────────────────────────
+    print("Updating transactions.json...")
+    txns_data = build_transactions_json(mtd_txns, today, "transactions.json")
+    with open("transactions.json", "w") as f:
+        json.dump(txns_data, f, indent=2)
+    print("✓ transactions.json written")
+
+    # ── Commit all files ─────────────────────────────────────────────────────
     git_commit(
-        ["balances.json", "nw_history.json"],
-        f"Daily balance sync {today} · NW ${net_worth:,.0f}"
+        ["balances.json", "nw_history.json", "cashflow.json", "debts.json", "transactions.json"],
+        f"Daily sync {today} · NW ${net_worth:,.0f} · surplus {fmt(cashflow_data['mtd_surplus'])}"
     )
 
     # ── Monday only: send digest email ───────────────────────────────────────
