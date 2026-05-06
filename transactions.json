@@ -1,0 +1,362 @@
+[
+  {
+    "id": "243031201988682389",
+    "date": "2026-05-05",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "243031201988682388",
+    "date": "2026-05-05",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -87.28,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "242988976010371678",
+    "date": "2026-05-05",
+    "merchant": "Hightower Drinks",
+    "category": "Restaurants & Bars",
+    "amount": -57.21,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242964215408567104",
+    "date": "2026-05-05",
+    "merchant": "Tower Beer Wine & Spirits",
+    "category": "Liquor Store",
+    "amount": -52.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242964215408567103",
+    "date": "2026-05-05",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243030514609364996",
+    "date": "2026-05-04",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": 14.13,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "243030513062716229",
+    "date": "2026-05-04",
+    "merchant": "Starbucks",
+    "category": "Coffee Shops",
+    "amount": -10.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243030513062716228",
+    "date": "2026-05-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "242988976010371681",
+    "date": "2026-05-04",
+    "merchant": "Mudwtr",
+    "category": "Shopping",
+    "amount": -92.7,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242988976010371680",
+    "date": "2026-05-04",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -47.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242988976010371679",
+    "date": "2026-05-04",
+    "merchant": "Spotify",
+    "category": "Entertainment & Recreation",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242964215408567106",
+    "date": "2026-05-04",
+    "merchant": "Instacart",
+    "category": "Groceries",
+    "amount": -62.22,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242964215408567105",
+    "date": "2026-05-04",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": 69.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242931653021737026",
+    "date": "2026-05-04",
+    "merchant": "Zelle",
+    "category": "Shopping",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "242931653021737024",
+    "date": "2026-05-04",
+    "merchant": "Dekalb County",
+    "category": "Water",
+    "amount": -100.73,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "242931653021737023",
+    "date": "2026-05-04",
+    "merchant": "Brightwheel",
+    "category": "Child Care",
+    "amount": -150.91,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "242904850303492470",
+    "date": "2026-05-04",
+    "merchant": "AliExpress",
+    "category": "Shopping",
+    "amount": -29.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242866521031779225",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": -223.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242866521031779224",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "Shopping",
+    "amount": -2.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242866521031779223",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "Shopping",
+    "amount": -1.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242866521031779222",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "Shopping",
+    "amount": -3.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242866521031779221",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": -400.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242841530128081915",
+    "date": "2026-05-04",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 60.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242841530128081914",
+    "date": "2026-05-04",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242841530128081913",
+    "date": "2026-05-04",
+    "merchant": "First Tech Federal Credit Union",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242841530128081912",
+    "date": "2026-05-04",
+    "merchant": "State of Georgia",
+    "category": "Tax Refund",
+    "amount": 500.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242988976010371682",
+    "date": "2026-05-03",
+    "merchant": "City of Tucker Parks",
+    "category": "Utilities",
+    "amount": -188.89,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242964215408567107",
+    "date": "2026-05-03",
+    "merchant": "Antico",
+    "category": "Restaurants & Bars",
+    "amount": -31.68,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242939440781009895",
+    "date": "2026-05-03",
+    "merchant": "Dunwoody Tavern",
+    "category": "Restaurants",
+    "amount": -11.72,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "242904850303492472",
+    "date": "2026-05-03",
+    "merchant": "Barn",
+    "category": "DHS Reunion",
+    "amount": -5583.78,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242988976010371683",
+    "date": "2026-05-02",
+    "merchant": "Solawave Skincare",
+    "category": "Personal",
+    "amount": -443.47,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242904850303492473",
+    "date": "2026-05-02",
+    "merchant": "US Postal Service",
+    "category": "Postage & Shipping",
+    "amount": -17.6,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242787506827764551",
+    "date": "2026-05-02",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -69.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242722458434479071",
+    "date": "2026-05-02",
+    "merchant": "Solawave Skincare",
+    "category": "Beauty and Grooming",
+    "amount": -443.47,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242988976010371684",
+    "date": "2026-05-01",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -160.33,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242841693913555813",
+    "date": "2026-05-01",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -14.13,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "242841692858688257",
+    "date": "2026-05-01",
+    "merchant": "Google Cloud",
+    "category": "Miscellaneous",
+    "amount": -0.5,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "242787506827764552",
+    "date": "2026-05-01",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -122.91,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242722458434479072",
+    "date": "2026-05-01",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -160.33,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "242707472055214115",
+    "date": "2026-05-01",
+    "merchant": "Zelle",
+    "category": "DHS Reunion",
+    "amount": 60.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "242671634042790830",
+    "date": "2026-05-01",
+    "merchant": "HS & D",
+    "category": "Work Lunch",
+    "amount": -9.28,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "242573406957937266",
+    "date": "2026-05-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 4.45,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "242573405825475067",
+    "date": "2026-05-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 125.97,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242573405825475066",
+    "date": "2026-05-01",
+    "merchant": "Tree Payments",
+    "category": "Interest",
+    "amount": 68.42,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "242573405825475065",
+    "date": "2026-05-01",
+    "merchant": "DHS Reunion",
+    "category": "Interest",
+    "amount": 9.45,
+    "account": "Wealthfront Checking"
+  }
+]

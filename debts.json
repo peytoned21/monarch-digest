@@ -1,0 +1,28 @@
+{
+  "as_of": "2026-05-06",
+  "days_to_40": 475,
+  "payoff_target_date": "2027-08-24",
+  "debts": [
+    {
+      "name": "Lexus",
+      "balance": 18189.16,
+      "rate": 4.5,
+      "is_target": true
+    },
+    {
+      "name": "Tesla",
+      "balance": 8578.25,
+      "rate": 4.5,
+      "is_target": true
+    },
+    {
+      "name": "Stanford",
+      "balance": 26071.24,
+      "rate": 3.0,
+      "is_target": false
+    }
+  ],
+  "total_target_debt": 26767.41,
+  "mortgage_balance": 286134.62,
+  "monthly_payoff_needed": 1715.37
+}
