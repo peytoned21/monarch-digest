@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-06",
+  "as_of": "2026-05-07",
   "month": "May 2026",
-  "days_elapsed": 6,
+  "days_elapsed": 7,
   "days_in_month": 31,
   "mtd_income": 912.41,
-  "mtd_expenses": 9810.99,
-  "mtd_surplus": -8898.58,
-  "savings_rate_pct": -975.3,
-  "projected_month_expense": 50690.11,
-  "projected_savings": -49777.7,
+  "mtd_expenses": 10269.51,
+  "mtd_surplus": -9357.1,
+  "savings_rate_pct": -1025.5,
+  "projected_month_expense": 45479.26,
+  "projected_savings": -44566.85,
   "top_categories": [
     {
       "category": "DHS Reunion",
@@ -19,16 +19,20 @@
       "amount": 1120.6
     },
     {
+      "category": "Miscellaneous",
+      "amount": 600.5
+    },
+    {
       "category": "Shopping",
-      "amount": 559.48
+      "amount": 577.93
     },
     {
       "category": "Personal",
       "amount": 443.47
     },
     {
-      "category": "Beauty and Grooming",
-      "amount": 443.47
+      "category": "Child Activities",
+      "amount": 188.89
     },
     {
       "category": "Utilities",
@@ -37,10 +41,6 @@
     {
       "category": "Groceries",
       "amount": 185.13
-    },
-    {
-      "category": "Child Care",
-      "amount": 150.91
     }
   ]
 }

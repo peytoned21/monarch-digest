@@ -1,5 +1,45 @@
 [
   {
+    "id": "243122294077989861",
+    "date": "2026-05-06",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -35.99,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "243122293227594627",
+    "date": "2026-05-06",
+    "merchant": "Hope And Restoration",
+    "category": "Charity",
+    "amount": -35.61,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243084034751537998",
+    "date": "2026-05-06",
+    "merchant": "iHerb.com",
+    "category": "Medical",
+    "amount": -37.04,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243084034751537997",
+    "date": "2026-05-06",
+    "merchant": "Dignitana",
+    "category": "Miscellaneous",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243082096015253620",
+    "date": "2026-05-06",
+    "merchant": "SSP Expressions",
+    "category": "Shopping",
+    "amount": -151.8,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "243031201988682389",
     "date": "2026-05-05",
     "merchant": "AIG",
@@ -38,6 +78,22 @@
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243084034751537999",
+    "date": "2026-05-05",
+    "merchant": "HS & D Enterp",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243082096015253621",
+    "date": "2026-05-05",
+    "merchant": "Citibank Online",
+    "category": "Financial Fees",
+    "amount": 0.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243030514609364996",
@@ -208,6 +264,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "243084034751538000",
+    "date": "2026-05-04",
+    "merchant": "AliExpress",
+    "category": "Shopping",
+    "amount": -29.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243082096015253622",
+    "date": "2026-05-04",
+    "merchant": "Spotify",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "242988976010371682",
     "date": "2026-05-03",
     "merchant": "City of Tucker Parks",
@@ -238,6 +310,14 @@
     "category": "DHS Reunion",
     "amount": -5583.78,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243082096015253623",
+    "date": "2026-05-03",
+    "merchant": "City of Tucker Parks",
+    "category": "Child Activities",
+    "amount": -188.89,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "242988976010371683",
