@@ -1,5 +1,69 @@
 [
   {
+    "id": "243210265786524217",
+    "date": "2026-05-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -25.92,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243210265786524216",
+    "date": "2026-05-07",
+    "merchant": "American Express",
+    "category": "Charity",
+    "amount": -50.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243171339796423065",
+    "date": "2026-05-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -68.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243171339796423064",
+    "date": "2026-05-07",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -55.95,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243156898254102845",
+    "date": "2026-05-07",
+    "merchant": "Money Market Fund",
+    "category": "Interest",
+    "amount": 0.03,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "243156896378200505",
+    "date": "2026-05-07",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 0.23,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243143720346526500",
+    "date": "2026-05-07",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -175.52,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243143720346526499",
+    "date": "2026-05-07",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -11.13,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243122294077989861",
     "date": "2026-05-06",
     "merchant": "Amazon",
@@ -94,6 +158,30 @@
     "category": "Financial Fees",
     "amount": 0.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243171339796423067",
+    "date": "2026-05-05",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -47.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243171339796423066",
+    "date": "2026-05-05",
+    "merchant": "Hightower Drinks",
+    "category": "Liquor Store",
+    "amount": -57.21,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243143720346526501",
+    "date": "2026-05-05",
+    "merchant": "Tower Of Beer Wine & Spirits",
+    "category": "Liquor Store",
+    "amount": -52.34,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243030514609364996",

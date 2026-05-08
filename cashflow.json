@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-07",
+  "as_of": "2026-05-08",
   "month": "May 2026",
-  "days_elapsed": 7,
+  "days_elapsed": 8,
   "days_in_month": 31,
-  "mtd_income": 912.41,
-  "mtd_expenses": 10269.51,
-  "mtd_surplus": -9357.1,
-  "savings_rate_pct": -1025.5,
-  "projected_month_expense": 45479.26,
-  "projected_savings": -44566.85,
+  "mtd_income": 912.67,
+  "mtd_expenses": 10559.35,
+  "mtd_surplus": -9646.68,
+  "savings_rate_pct": -1057.0,
+  "projected_month_expense": 40917.48,
+  "projected_savings": -40004.81,
   "top_categories": [
     {
       "category": "DHS Reunion",
@@ -19,12 +19,12 @@
       "amount": 1120.6
     },
     {
-      "category": "Miscellaneous",
-      "amount": 600.5
+      "category": "Shopping",
+      "amount": 786.92
     },
     {
-      "category": "Shopping",
-      "amount": 577.93
+      "category": "Miscellaneous",
+      "amount": 600.5
     },
     {
       "category": "Personal",
@@ -35,12 +35,12 @@
       "amount": 188.89
     },
     {
-      "category": "Utilities",
-      "amount": 188.89
-    },
-    {
       "category": "Groceries",
       "amount": 185.13
+    },
+    {
+      "category": "Clothing",
+      "amount": 175.52
     }
   ]
 }
