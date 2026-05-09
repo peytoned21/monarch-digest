@@ -1,5 +1,45 @@
 [
   {
+    "id": "243273266975679003",
+    "date": "2026-05-08",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -23.66,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243245096819958423",
+    "date": "2026-05-08",
+    "merchant": "HS & D Enterprises",
+    "category": "Shopping",
+    "amount": -12.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243245089501946861",
+    "date": "2026-05-08",
+    "merchant": "Mentavi",
+    "category": "Medical",
+    "amount": -199.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243245087224439433",
+    "date": "2026-05-08",
+    "merchant": "Euhm Parking",
+    "category": "Parking & Tolls",
+    "amount": -6.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243225507679641986",
+    "date": "2026-05-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "243210265786524217",
     "date": "2026-05-07",
     "merchant": "Target",
@@ -64,6 +104,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "243245096819958425",
+    "date": "2026-05-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -25.92,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243245096819958424",
+    "date": "2026-05-07",
+    "merchant": "HS & D Enterprises",
+    "category": "Shopping",
+    "amount": -11.13,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243122294077989861",
     "date": "2026-05-06",
     "merchant": "Amazon",
@@ -102,6 +158,38 @@
     "category": "Shopping",
     "amount": -151.8,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243245096819958427",
+    "date": "2026-05-06",
+    "merchant": "Dignitana Inc",
+    "category": "Miscellaneous",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243245096819958426",
+    "date": "2026-05-06",
+    "merchant": "iHerb",
+    "category": "Groceries",
+    "amount": -37.04,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243245087224439434",
+    "date": "2026-05-06",
+    "merchant": "SSP Expressions",
+    "category": "Child Activities",
+    "amount": -151.8,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243225507679641987",
+    "date": "2026-05-06",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -35.61,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "243031201988682389",
