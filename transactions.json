@@ -1,5 +1,29 @@
 [
   {
+    "id": "243365765651046497",
+    "date": "2026-05-09",
+    "merchant": "Michaels",
+    "category": "Hobbies",
+    "amount": -27.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243332358542926107",
+    "date": "2026-05-09",
+    "merchant": "Baddie's Burgers",
+    "category": "Restaurants & Bars",
+    "amount": -58.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243315474287239885",
+    "date": "2026-05-09",
+    "merchant": "The New York Times",
+    "category": "Shopping",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "243273266975679003",
     "date": "2026-05-08",
     "merchant": "Publix",
@@ -38,6 +62,14 @@
     "category": "Subscriptions",
     "amount": -8.99,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243332358542926108",
+    "date": "2026-05-08",
+    "merchant": "HS & D",
+    "category": "Work Lunch",
+    "amount": -12.08,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243210265786524217",
@@ -120,6 +152,38 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "243365765651046499",
+    "date": "2026-05-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -63.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243365765651046498",
+    "date": "2026-05-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -5.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243332358542926110",
+    "date": "2026-05-07",
+    "merchant": "Wetlandsc",
+    "category": "Home Improvement",
+    "amount": -50.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243332358542926109",
+    "date": "2026-05-07",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -175.52,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243122294077989861",
     "date": "2026-05-06",
     "merchant": "Amazon",
@@ -190,6 +254,14 @@
     "category": "Therapy",
     "amount": -35.61,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243315475767829315",
+    "date": "2026-05-06",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -35.99,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "243031201988682389",
