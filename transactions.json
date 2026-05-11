@@ -1,5 +1,101 @@
 [
   {
+    "id": "243473098903331764",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331763",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331762",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331761",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 150.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331760",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 50.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331759",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331758",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 50.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331757",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 250.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331756",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243473098903331755",
+    "date": "2026-05-11",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 50.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243448346343056340",
+    "date": "2026-05-10",
+    "merchant": "Bakeries",
+    "category": "Restaurants & Bars",
+    "amount": -83.53,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243448346343056339",
+    "date": "2026-05-10",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -99.89,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243365765651046497",
     "date": "2026-05-09",
     "merchant": "Michaels",
@@ -69,6 +165,14 @@
     "merchant": "HS & D",
     "category": "Work Lunch",
     "amount": -12.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243448346343056341",
+    "date": "2026-05-08",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -23.66,
     "account": "Amex Gold Card"
   },
   {

@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-10",
+  "as_of": "2026-05-11",
   "month": "May 2026",
-  "days_elapsed": 10,
+  "days_elapsed": 11,
   "days_in_month": 31,
-  "mtd_income": 912.67,
-  "mtd_expenses": 10867.1,
-  "mtd_surplus": -9954.43,
-  "savings_rate_pct": -1090.7,
-  "projected_month_expense": 33688.01,
-  "projected_savings": -32775.34,
+  "mtd_income": 2062.67,
+  "mtd_expenses": 10981.53,
+  "mtd_surplus": -8918.86,
+  "savings_rate_pct": -432.4,
+  "projected_month_expense": 30947.95,
+  "projected_savings": -28885.28,
   "top_categories": [
     {
       "category": "DHS Reunion",
@@ -19,24 +19,24 @@
       "amount": 1120.6
     },
     {
-      "category": "Shopping",
-      "amount": 653.98
-    },
-    {
       "category": "Miscellaneous",
       "amount": 600.5
+    },
+    {
+      "category": "Shopping",
+      "amount": 584.99
     },
     {
       "category": "Medical - HSA",
       "amount": 443.47
     },
     {
-      "category": "Child Activities",
-      "amount": 340.69
+      "category": "Groceries",
+      "amount": 345.72
     },
     {
-      "category": "Groceries",
-      "amount": 245.83
+      "category": "Child Activities",
+      "amount": 340.69
     },
     {
       "category": "Medical",
