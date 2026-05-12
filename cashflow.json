@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-05-11",
+  "as_of": "2026-05-12",
   "month": "May 2026",
-  "days_elapsed": 11,
+  "days_elapsed": 12,
   "days_in_month": 31,
-  "mtd_income": 2062.67,
-  "mtd_expenses": 10981.53,
-  "mtd_surplus": -8918.86,
-  "savings_rate_pct": -432.4,
-  "projected_month_expense": 30947.95,
-  "projected_savings": -28885.28,
+  "mtd_income": 2053.22,
+  "mtd_expenses": 12139.07,
+  "mtd_surplus": -10085.85,
+  "savings_rate_pct": -491.2,
+  "projected_month_expense": 31359.26,
+  "projected_savings": -29306.04,
   "top_categories": [
     {
       "category": "DHS Reunion",
-      "amount": 6206.78
+      "amount": 7356.78
     },
     {
       "category": "Student Loans",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 584.99
+      "amount": 584.53
     },
     {
       "category": "Medical - HSA",

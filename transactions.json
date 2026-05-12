@@ -80,6 +80,14 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "243497389596287643",
+    "date": "2026-05-11",
+    "merchant": "DHS Reunion",
+    "category": "DHS Reunion",
+    "amount": -1150.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "243448346343056340",
     "date": "2026-05-10",
     "merchant": "Bakeries",
@@ -94,6 +102,14 @@
     "category": "Groceries",
     "amount": -99.89,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243498200981250257",
+    "date": "2026-05-10",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -7.54,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "243365765651046497",
@@ -118,6 +134,22 @@
     "category": "Shopping",
     "amount": -8.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243498199725056821",
+    "date": "2026-05-09",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243495510510346847",
+    "date": "2026-05-09",
+    "merchant": "Baddies",
+    "category": "Restaurants & Bars",
+    "amount": -58.24,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243273266975679003",
@@ -174,6 +206,22 @@
     "category": "Groceries",
     "amount": -23.66,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243498199725056823",
+    "date": "2026-05-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243498199725056822",
+    "date": "2026-05-08",
+    "merchant": "Mentavi",
+    "category": "Medical",
+    "amount": -199.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "243210265786524217",
