@@ -1,5 +1,61 @@
 [
   {
+    "id": "243665705924239571",
+    "date": "2026-05-13",
+    "merchant": "DHS",
+    "category": "DHS Reunion",
+    "amount": -500.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243643131873927444",
+    "date": "2026-05-13",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 500.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243641475896647777",
+    "date": "2026-05-12",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -14.27,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243633286310470270",
+    "date": "2026-05-12",
+    "merchant": "Rebelstork",
+    "category": "Miscellaneous",
+    "amount": -68.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243633286310470269",
+    "date": "2026-05-12",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -140.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243633286310470268",
+    "date": "2026-05-12",
+    "merchant": "iHerb.com",
+    "category": "Groceries",
+    "amount": -43.19,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243633286310470267",
+    "date": "2026-05-12",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243473098903331764",
     "date": "2026-05-11",
     "merchant": "Venmo",
@@ -112,6 +168,54 @@
     "account": "Amazon Prime Card"
   },
   {
+    "id": "243641475896647780",
+    "date": "2026-05-10",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -64.26,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243641475896647779",
+    "date": "2026-05-10",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -40.82,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243641475896647778",
+    "date": "2026-05-10",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -49.48,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243589513808388330",
+    "date": "2026-05-10",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -7.54,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "243584352406938131",
+    "date": "2026-05-10",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -98.89,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243584352406938130",
+    "date": "2026-05-10",
+    "merchant": "Bakeries",
+    "category": "Restaurants & Bars",
+    "amount": -83.53,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243365765651046497",
     "date": "2026-05-09",
     "merchant": "Michaels",
@@ -150,6 +254,14 @@
     "category": "Restaurants & Bars",
     "amount": -58.24,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243641475896647781",
+    "date": "2026-05-09",
+    "merchant": "Michaels",
+    "category": "Hobbies",
+    "amount": -27.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243273266975679003",
@@ -222,6 +334,14 @@
     "category": "Medical",
     "amount": -199.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "243641475896647782",
+    "date": "2026-05-08",
+    "merchant": "Emory University Hospital Midtown",
+    "category": "Parking & Tolls",
+    "amount": -6.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243210265786524217",
@@ -334,6 +454,14 @@
     "category": "Clothing",
     "amount": -175.52,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "243641475896647783",
+    "date": "2026-05-07",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -15.12,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243122294077989861",

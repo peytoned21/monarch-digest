@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-05-12",
+  "as_of": "2026-05-13",
   "month": "May 2026",
-  "days_elapsed": 12,
+  "days_elapsed": 13,
   "days_in_month": 31,
-  "mtd_income": 2053.22,
-  "mtd_expenses": 12139.07,
-  "mtd_surplus": -10085.85,
-  "savings_rate_pct": -491.2,
-  "projected_month_expense": 31359.26,
-  "projected_savings": -29306.04,
+  "mtd_income": 2294.38,
+  "mtd_expenses": 12738.89,
+  "mtd_surplus": -10444.51,
+  "savings_rate_pct": -455.2,
+  "projected_month_expense": 30377.35,
+  "projected_savings": -28082.97,
   "top_categories": [
     {
       "category": "DHS Reunion",
-      "amount": 7356.78
+      "amount": 7856.78
     },
     {
       "category": "Student Loans",
@@ -20,11 +20,11 @@
     },
     {
       "category": "Miscellaneous",
-      "amount": 600.5
+      "amount": 668.81
     },
     {
       "category": "Shopping",
-      "amount": 584.53
+      "amount": 603.03
     },
     {
       "category": "Medical - HSA",
@@ -32,7 +32,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 345.72
+      "amount": 405.0
     },
     {
       "category": "Child Activities",
