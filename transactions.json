@@ -16,6 +16,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "243695544820506638",
+    "date": "2026-05-13",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -12.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243695544820506637",
+    "date": "2026-05-13",
+    "merchant": "Apple",
+    "category": "Shopping",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243641475896647777",
     "date": "2026-05-12",
     "merchant": "Walmart",
@@ -51,6 +67,14 @@
     "id": "243633286310470267",
     "date": "2026-05-12",
     "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243695544820506639",
+    "date": "2026-05-12",
+    "merchant": "HS & D Enter",
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
@@ -142,6 +166,14 @@
     "category": "DHS Reunion",
     "amount": -1150.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243695544820506640",
+    "date": "2026-05-11",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 102.61,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243448346343056340",
