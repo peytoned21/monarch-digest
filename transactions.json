@@ -8,6 +8,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "243915681038279346",
+    "date": "2026-05-15",
+    "merchant": "Defy Atlanta",
+    "category": "Entertainment & Recreation",
+    "amount": -69.1,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243859032515747865",
+    "date": "2026-05-15",
+    "merchant": "RoundPoint Mortgage Servicing Corporation",
+    "category": "Mortgage",
+    "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "243807499075920663",
     "date": "2026-05-14",
     "merchant": "Twin Lakes Bolts",
@@ -54,6 +70,22 @@
     "category": "Paychecks",
     "amount": 6555.88,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243915681038279348",
+    "date": "2026-05-14",
+    "merchant": "Twin Lakes Bolts",
+    "category": "Auto Maintenance",
+    "amount": -19.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243915681038279347",
+    "date": "2026-05-14",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 29.94,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243665705924239571",
@@ -125,6 +157,22 @@
     "merchant": "Chevron",
     "category": "Gas & Fuel",
     "amount": -74.44,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243915681038279350",
+    "date": "2026-05-13",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -74.44,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243915681038279349",
+    "date": "2026-05-13",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -10.25,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
