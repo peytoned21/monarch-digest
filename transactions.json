@@ -1,5 +1,37 @@
 [
   {
+    "id": "244000062166737363",
+    "date": "2026-05-16",
+    "merchant": "Outrun Brewing",
+    "category": "Restaurants",
+    "amount": -8.6,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244000062166737362",
+    "date": "2026-05-16",
+    "merchant": "Live Oak Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -54.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243965421608182649",
+    "date": "2026-05-16",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.79,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "243941126316171637",
+    "date": "2026-05-16",
+    "merchant": "Apple",
+    "category": "Shopping",
+    "amount": -7.98,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "243834582238962267",
     "date": "2026-05-15",
     "merchant": "Path2College 529 Plan",
@@ -22,6 +54,22 @@
     "category": "Mortgage",
     "amount": -1345.16,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "243941126316171639",
+    "date": "2026-05-15",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -55.74,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "243941126316171638",
+    "date": "2026-05-15",
+    "merchant": "K Martial Arts",
+    "category": "Fitness",
+    "amount": -1.01,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243807499075920663",
@@ -86,6 +134,22 @@
     "category": "Shopping",
     "amount": 29.94,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "243965421608182651",
+    "date": "2026-05-14",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -24.27,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "243965421608182650",
+    "date": "2026-05-14",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -51.69,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "243665705924239571",
@@ -238,6 +302,22 @@
     "category": "Shopping",
     "amount": -14.27,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244000062166737365",
+    "date": "2026-05-12",
+    "merchant": "Rebelstork",
+    "category": "Shopping",
+    "amount": -51.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244000062166737364",
+    "date": "2026-05-12",
+    "merchant": "Rebelstork",
+    "category": "Shopping",
+    "amount": -17.0,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243473098903331764",
