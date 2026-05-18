@@ -1,5 +1,29 @@
 [
   {
+    "id": "244117432958918934",
+    "date": "2026-05-17",
+    "merchant": "The Plaza",
+    "category": "Restaurants & Bars",
+    "amount": -25.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244117432958918933",
+    "date": "2026-05-17",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -73.96,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244058614469173920",
+    "date": "2026-05-17",
+    "merchant": "J R Crickets",
+    "category": "Restaurants & Bars",
+    "amount": -19.41,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244000062166737363",
     "date": "2026-05-16",
     "merchant": "Outrun Brewing",
@@ -28,6 +52,30 @@
     "date": "2026-05-16",
     "merchant": "Apple",
     "category": "Shopping",
+    "amount": -7.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244081590436570066",
+    "date": "2026-05-16",
+    "merchant": "BP",
+    "category": "Shopping",
+    "amount": -7.55,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244081590436570065",
+    "date": "2026-05-16",
+    "merchant": "DoorDash",
+    "category": "Groceries",
+    "amount": -5.94,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244058614469173921",
+    "date": "2026-05-16",
+    "merchant": "Apple",
+    "category": "Internet",
     "amount": -7.98,
     "account": "Amex Gold Card"
   },
@@ -69,6 +117,14 @@
     "merchant": "K Martial Arts",
     "category": "Fitness",
     "amount": -1.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244058614469173922",
+    "date": "2026-05-15",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -55.74,
     "account": "Amex Gold Card"
   },
   {
