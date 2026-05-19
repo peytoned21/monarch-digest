@@ -1,5 +1,29 @@
 [
   {
+    "id": "244171296474079749",
+    "date": "2026-05-18",
+    "merchant": "Read Shop",
+    "category": "Shopping",
+    "amount": -7.1,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244171296474079748",
+    "date": "2026-05-18",
+    "merchant": "K Martial Arts",
+    "category": "Fitness",
+    "amount": -129.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244171296474079747",
+    "date": "2026-05-18",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244117432958918934",
     "date": "2026-05-17",
     "merchant": "The Plaza",
@@ -78,6 +102,30 @@
     "category": "Internet",
     "amount": -7.98,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "244173320056938727",
+    "date": "2026-05-16",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.79,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244173318159016047",
+    "date": "2026-05-16",
+    "merchant": "DoorDash",
+    "category": "Groceries",
+    "amount": -5.94,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244173318159016046",
+    "date": "2026-05-16",
+    "merchant": "BP",
+    "category": "Shopping",
+    "amount": -7.55,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "243834582238962267",
