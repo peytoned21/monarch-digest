@@ -1,5 +1,37 @@
 [
   {
+    "id": "244272340715642906",
+    "date": "2026-05-19",
+    "merchant": "Dunwoody High School",
+    "category": "Education",
+    "amount": -2600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244269521690370275",
+    "date": "2026-05-19",
+    "merchant": "DHS Reunion",
+    "category": "DHS Reunion",
+    "amount": 2523.22,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "244221724530254543",
+    "date": "2026-05-19",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -26.31,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244221724530254542",
+    "date": "2026-05-19",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244171296474079749",
     "date": "2026-05-18",
     "merchant": "Read Shop",
@@ -24,6 +56,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "244244479272231873",
+    "date": "2026-05-18",
+    "merchant": "Brightwheel",
+    "category": "Shopping",
+    "amount": -150.91,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "244221724530254544",
+    "date": "2026-05-18",
+    "merchant": "Read Shop",
+    "category": "Shopping",
+    "amount": -7.1,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244117432958918934",
     "date": "2026-05-17",
     "merchant": "The Plaza",
@@ -43,6 +91,30 @@
     "id": "244058614469173920",
     "date": "2026-05-17",
     "merchant": "J R Crickets",
+    "category": "Restaurants & Bars",
+    "amount": -19.41,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244221724530254547",
+    "date": "2026-05-17",
+    "merchant": "Outrun Brewing",
+    "category": "Restaurants",
+    "amount": -8.6,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244221724530254546",
+    "date": "2026-05-17",
+    "merchant": "Plaza",
+    "category": "Restaurants & Bars",
+    "amount": -25.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244221724530254545",
+    "date": "2026-05-17",
+    "merchant": "Jr Crickets",
     "category": "Restaurants & Bars",
     "amount": -19.41,
     "account": "Amex Gold Card"
@@ -342,6 +414,22 @@
     "category": "Restaurants & Bars",
     "amount": -10.25,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244221724530254549",
+    "date": "2026-05-13",
+    "merchant": "Apple",
+    "category": "Internet",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244221724530254548",
+    "date": "2026-05-13",
+    "merchant": "Apple",
+    "category": "Electronics",
+    "amount": 9.99,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243641475896647777",
