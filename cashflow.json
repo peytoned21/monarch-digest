@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-20",
+  "as_of": "2026-05-21",
   "month": "May 2026",
-  "days_elapsed": 20,
+  "days_elapsed": 21,
   "days_in_month": 31,
-  "mtd_income": 10871.9,
-  "mtd_expenses": 10968.27,
-  "mtd_surplus": -96.37,
-  "savings_rate_pct": -0.9,
-  "projected_month_expense": 17000.82,
-  "projected_savings": -6128.92,
+  "mtd_income": 10903.82,
+  "mtd_expenses": 11805.73,
+  "mtd_surplus": -901.91,
+  "savings_rate_pct": -8.3,
+  "projected_month_expense": 17427.51,
+  "projected_savings": -6523.69,
   "top_categories": [
     {
       "category": "Education",
@@ -27,20 +27,20 @@
       "amount": 1345.16
     },
     {
+      "category": "Cash & ATM",
+      "amount": 1200.0
+    },
+    {
       "category": "Shopping",
-      "amount": 688.65
-    },
-    {
-      "category": "Miscellaneous",
-      "amount": 600.0
-    },
-    {
-      "category": "Groceries",
-      "amount": 381.05
+      "amount": 701.67
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 251.37
+      "amount": 433.23
+    },
+    {
+      "category": "Groceries",
+      "amount": 399.99
     }
   ]
 }

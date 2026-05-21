@@ -1,5 +1,69 @@
 [
   {
+    "id": "244386905182904561",
+    "date": "2026-05-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 32.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244364994014028486",
+    "date": "2026-05-21",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Cash & ATM",
+    "amount": -1200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "244350013902102835",
+    "date": "2026-05-21",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -49.6,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244386911906373990",
+    "date": "2026-05-20",
+    "merchant": "Mart Disco",
+    "category": "Restaurants & Bars",
+    "amount": -214.62,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244361942014042428",
+    "date": "2026-05-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244323044850344422",
+    "date": "2026-05-20",
+    "merchant": "CiCi's Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -14.88,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244323044850344421",
+    "date": "2026-05-20",
+    "merchant": "LIFESTANCE HEALTH",
+    "category": "Medical",
+    "amount": -97.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244323044850344420",
+    "date": "2026-05-20",
+    "merchant": "Dunkin'",
+    "category": "Restaurants & Bars",
+    "amount": -6.81,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244272340715642906",
     "date": "2026-05-19",
     "merchant": "Dunwoody High School",
@@ -28,6 +92,54 @@
     "date": "2026-05-19",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244386911906373993",
+    "date": "2026-05-19",
+    "merchant": "Spiller Park Coffee",
+    "category": "Coffee Shops",
+    "amount": -10.95,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244386911906373992",
+    "date": "2026-05-19",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -21.29,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244386911906373991",
+    "date": "2026-05-19",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -61.74,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244350013902102837",
+    "date": "2026-05-19",
+    "merchant": "Spiller Park Coffee",
+    "category": "Restaurants & Bars",
+    "amount": -10.95,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244350013902102836",
+    "date": "2026-05-19",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -83.03,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244323044850344423",
+    "date": "2026-05-19",
+    "merchant": "HS & D ENTERTAINMENT",
+    "category": "Work Lunch",
     "amount": -6.63,
     "account": "Amex Gold Card"
   },
@@ -69,6 +181,38 @@
     "merchant": "Read Shop",
     "category": "Shopping",
     "amount": -7.1,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244350013902102838",
+    "date": "2026-05-18",
+    "merchant": "Spiller Park Coffee",
+    "category": "Restaurants",
+    "amount": -10.08,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244323044850344426",
+    "date": "2026-05-18",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -67.94,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244323044850344425",
+    "date": "2026-05-18",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -129.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244323044850344424",
+    "date": "2026-05-18",
+    "merchant": "HS & D ENTERTAINMENT",
+    "category": "Work Lunch",
+    "amount": -6.63,
     "account": "Amex Gold Card"
   },
   {
@@ -118,6 +262,14 @@
     "category": "Restaurants & Bars",
     "amount": -19.41,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "244350013902102839",
+    "date": "2026-05-17",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -26.31,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "244000062166737363",
@@ -198,6 +350,22 @@
     "category": "Shopping",
     "amount": -7.55,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244350013902102841",
+    "date": "2026-05-16",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -25.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244350013902102840",
+    "date": "2026-05-16",
+    "merchant": "Sephora",
+    "category": "Beauty and Grooming",
+    "amount": -49.68,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "243834582238962267",
