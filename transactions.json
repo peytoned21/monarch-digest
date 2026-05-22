@@ -24,6 +24,78 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "244475776497295508",
+    "date": "2026-05-21",
+    "merchant": "Dignitana",
+    "category": "Miscellaneous",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244457826242470895",
+    "date": "2026-05-21",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -152.27,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244457826242470894",
+    "date": "2026-05-21",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -239.12,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244457825081697165",
+    "date": "2026-05-21",
+    "merchant": "Hope And Restoration",
+    "category": "Charity",
+    "amount": -62.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244425793160028569",
+    "date": "2026-05-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -91.23,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425793160028568",
+    "date": "2026-05-21",
+    "merchant": "RLI Insurance",
+    "category": "Life Insurance",
+    "amount": -758.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425793160028567",
+    "date": "2026-05-21",
+    "merchant": "Apple",
+    "category": "Shopping",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425790611988492",
+    "date": "2026-05-21",
+    "merchant": "Google",
+    "category": "Miscellaneous",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "244387952071746261",
+    "date": "2026-05-21",
+    "merchant": "American Express",
+    "category": "DHS Reunion",
+    "amount": -2599.61,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "244386911906373990",
     "date": "2026-05-20",
     "merchant": "Mart Disco",
@@ -62,6 +134,14 @@
     "category": "Restaurants & Bars",
     "amount": -6.81,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "244457825081697167",
+    "date": "2026-05-20",
+    "merchant": "Newsitems",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "244272340715642906",
@@ -141,6 +221,22 @@
     "merchant": "HS & D ENTERTAINMENT",
     "category": "Work Lunch",
     "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425793160028572",
+    "date": "2026-05-19",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -26.31,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425793160028571",
+    "date": "2026-05-19",
+    "merchant": "Bring It Home",
+    "category": "Furniture & Housewares",
+    "amount": -2600.0,
     "account": "Amex Gold Card"
   },
   {
