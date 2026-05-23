@@ -1,5 +1,53 @@
 [
   {
+    "id": "244554624565977180",
+    "date": "2026-05-22",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -62.63,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244554623219606023",
+    "date": "2026-05-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -75.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244527312205193266",
+    "date": "2026-05-22",
+    "merchant": "Runnerbo",
+    "category": "Shopping",
+    "amount": -250.88,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193265",
+    "date": "2026-05-22",
+    "merchant": "Rugs.com",
+    "category": "Furniture & Housewares",
+    "amount": -360.72,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193264",
+    "date": "2026-05-22",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -70.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193263",
+    "date": "2026-05-22",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -3.98,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244386905182904561",
     "date": "2026-05-21",
     "merchant": "Shein",
@@ -96,6 +144,54 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "244554623219606024",
+    "date": "2026-05-21",
+    "merchant": "Hope And Restoration",
+    "category": "Charity",
+    "amount": -62.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244527312205193259",
+    "date": "2026-05-21",
+    "merchant": "CiCi's Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -14.88,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193258",
+    "date": "2026-05-21",
+    "merchant": "RLI Corp.",
+    "category": "Life Insurance",
+    "amount": -758.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193257",
+    "date": "2026-05-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 32.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193256",
+    "date": "2026-05-21",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527308414591119",
+    "date": "2026-05-21",
+    "merchant": "YouTube",
+    "category": "Entertainment & Recreation",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "244386911906373990",
     "date": "2026-05-20",
     "merchant": "Mart Disco",
@@ -142,6 +238,22 @@
     "category": "Subscriptions",
     "amount": -12.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244527312205193261",
+    "date": "2026-05-20",
+    "merchant": "LIFESTANCE HEALTH",
+    "category": "Personal",
+    "amount": -97.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244527312205193260",
+    "date": "2026-05-20",
+    "merchant": "Dunkin' & Baskin-Robbins",
+    "category": "Coffee Shops",
+    "amount": -6.81,
+    "account": "Amex Gold Card"
   },
   {
     "id": "244272340715642906",
@@ -462,6 +574,14 @@
     "category": "Beauty and Grooming",
     "amount": -49.68,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244527312205193262",
+    "date": "2026-05-16",
+    "merchant": "Live Oak Restaurant",
+    "category": "Restaurants",
+    "amount": -64.36,
+    "account": "Amex Gold Card"
   },
   {
     "id": "243834582238962267",
