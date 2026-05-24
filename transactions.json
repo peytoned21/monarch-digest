@@ -1,5 +1,37 @@
 [
   {
+    "id": "244619117515972771",
+    "date": "2026-05-24",
+    "merchant": "eBay",
+    "category": "Shopping",
+    "amount": -16.17,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244644388097958773",
+    "date": "2026-05-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244628019194307045",
+    "date": "2026-05-23",
+    "merchant": "Stripe",
+    "category": "Furniture & Housewares",
+    "amount": -462.05,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244628019194307044",
+    "date": "2026-05-23",
+    "merchant": "Fork in the Road",
+    "category": "Restaurants & Bars",
+    "amount": -17.27,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244554624565977180",
     "date": "2026-05-22",
     "merchant": "Amazon",
@@ -44,6 +76,22 @@
     "date": "2026-05-22",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
+    "amount": -3.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244619117515972772",
+    "date": "2026-05-22",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -39.48,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244577666468881097",
+    "date": "2026-05-22",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
     "amount": -3.98,
     "account": "Amex Gold Card"
   },
@@ -192,6 +240,38 @@
     "account": "Amex Platinum Card"
   },
   {
+    "id": "244619117515972775",
+    "date": "2026-05-21",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -49.6,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244619117515972773",
+    "date": "2026-05-21",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -40.8,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244577666468881098",
+    "date": "2026-05-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -91.23,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244577663717417402",
+    "date": "2026-05-21",
+    "merchant": "Platinum Digital Entertainment",
+    "category": "Internet & Cable",
+    "amount": 15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "244386911906373990",
     "date": "2026-05-20",
     "merchant": "Mart Disco",
@@ -253,6 +333,14 @@
     "merchant": "Dunkin' & Baskin-Robbins",
     "category": "Coffee Shops",
     "amount": -6.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244577666468881099",
+    "date": "2026-05-20",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 6.81,
     "account": "Amex Gold Card"
   },
   {
