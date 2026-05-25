@@ -32,6 +32,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "244735284012327890",
+    "date": "2026-05-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "244554624565977180",
     "date": "2026-05-22",
     "merchant": "Amazon",
@@ -93,6 +101,46 @@
     "merchant": "HS & D Enter",
     "category": "Work Lunch",
     "amount": -3.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244735285986796032",
+    "date": "2026-05-22",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -62.63,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244735284012327891",
+    "date": "2026-05-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -75.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244677759818736408",
+    "date": "2026-05-22",
+    "merchant": "Rugs.com",
+    "category": "Furniture & Housewares",
+    "amount": -360.72,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244677759818736407",
+    "date": "2026-05-22",
+    "merchant": "Dignitana Inc",
+    "category": "Medical - HSA",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244677759818736406",
+    "date": "2026-05-22",
+    "merchant": "Boutique Retailers",
+    "category": "Clothing",
+    "amount": -250.88,
     "account": "Amex Gold Card"
   },
   {
@@ -272,6 +320,22 @@
     "account": "Amex Platinum Card"
   },
   {
+    "id": "244735285986796034",
+    "date": "2026-05-21",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -239.12,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244735285986796033",
+    "date": "2026-05-21",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -152.27,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "244386911906373990",
     "date": "2026-05-20",
     "merchant": "Mart Disco",
@@ -341,6 +405,14 @@
     "merchant": "Dunkin'",
     "category": "Coffee Shops",
     "amount": 6.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244425793160028570",
+    "date": "2026-05-20",
+    "merchant": "American Express",
+    "category": "DHS Reunion",
+    "amount": 2599.61,
     "account": "Amex Gold Card"
   },
   {

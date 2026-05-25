@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-05-24",
-  "days_to_40": 457,
+  "as_of": "2026-05-25",
+  "days_to_40": 456,
   "payoff_target_date": "2027-08-24",
   "debts": [
     {
@@ -11,7 +11,7 @@
     },
     {
       "name": "Tesla",
-      "balance": 8578.25,
+      "balance": 8126.31,
       "rate": 4.5,
       "is_target": true
     },
@@ -22,7 +22,7 @@
       "is_target": false
     }
   ],
-  "total_target_debt": 26134.85,
+  "total_target_debt": 25682.91,
   "mortgage_balance": 284754.18,
-  "monthly_payoff_needed": 1740.8
+  "monthly_payoff_needed": 1714.45
 }
