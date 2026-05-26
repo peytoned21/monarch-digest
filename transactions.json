@@ -40,6 +40,22 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "244778196053992159",
+    "date": "2026-05-23",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -71.48,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244778196053992158",
+    "date": "2026-05-23",
+    "merchant": "Fork in the Road",
+    "category": "Restaurants & Bars",
+    "amount": -17.27,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244554624565977180",
     "date": "2026-05-22",
     "merchant": "Amazon",

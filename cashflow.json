@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-25",
+  "as_of": "2026-05-26",
   "month": "May 2026",
-  "days_elapsed": 25,
+  "days_elapsed": 26,
   "days_in_month": 31,
-  "mtd_income": 12958.41,
-  "mtd_expenses": 16508.16,
-  "mtd_surplus": -3549.75,
-  "savings_rate_pct": -27.4,
-  "projected_month_expense": 20470.12,
-  "projected_savings": -7511.71,
+  "mtd_income": 12476.23,
+  "mtd_expenses": 16507.16,
+  "mtd_surplus": -4030.93,
+  "savings_rate_pct": -32.3,
+  "projected_month_expense": 19681.61,
+  "projected_savings": -7205.38,
   "top_categories": [
     {
       "category": "DHS Reunion",
