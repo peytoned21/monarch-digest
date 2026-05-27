@@ -1,10 +1,66 @@
 [
   {
+    "id": "244937644598829536",
+    "date": "2026-05-27",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -12.85,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "244937644417425867",
+    "date": "2026-05-27",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244880590621320151",
+    "date": "2026-05-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -16.2,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244880590621320150",
+    "date": "2026-05-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -5.62,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244880590621320149",
+    "date": "2026-05-26",
+    "merchant": "BWBC",
+    "category": "Entertainment & Recreation",
+    "amount": -10.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "244619117515972771",
     "date": "2026-05-24",
     "merchant": "eBay",
     "category": "Shopping",
     "amount": -16.17,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244889845033280500",
+    "date": "2026-05-24",
+    "merchant": "eBay",
+    "category": "Shopping",
+    "amount": -16.17,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "244889845033280499",
+    "date": "2026-05-24",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -20.4,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -54,6 +110,14 @@
     "category": "Restaurants & Bars",
     "amount": -17.27,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "244889845033280501",
+    "date": "2026-05-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -39.48,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "244554624565977180",
