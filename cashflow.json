@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-27",
+  "as_of": "2026-05-28",
   "month": "May 2026",
-  "days_elapsed": 27,
+  "days_elapsed": 28,
   "days_in_month": 31,
-  "mtd_income": 12273.62,
-  "mtd_expenses": 15544.6,
-  "mtd_surplus": -3270.98,
-  "savings_rate_pct": -26.7,
-  "projected_month_expense": 17847.5,
-  "projected_savings": -5573.88,
+  "mtd_income": 17336.5,
+  "mtd_expenses": 15882.56,
+  "mtd_surplus": 1453.94,
+  "savings_rate_pct": 8.4,
+  "projected_month_expense": 17584.26,
+  "projected_savings": -247.76,
   "top_categories": [
     {
       "category": "DHS Reunion",
@@ -19,16 +19,16 @@
       "amount": 2000.0
     },
     {
+      "category": "Cash & ATM",
+      "amount": 1500.0
+    },
+    {
       "category": "Mortgage",
       "amount": 1345.16
     },
     {
-      "category": "Cash & ATM",
-      "amount": 1200.0
-    },
-    {
       "category": "Shopping",
-      "amount": 1008.55
+      "amount": 895.1
     },
     {
       "category": "Furniture & Housewares",

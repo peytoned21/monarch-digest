@@ -1,5 +1,13 @@
 [
   {
+    "id": "245018193253311038",
+    "date": "2026-05-28",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5062.88,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "244937644598829536",
     "date": "2026-05-27",
     "merchant": "Amazon",
@@ -14,6 +22,14 @@
     "category": "Internet & Cable",
     "amount": -90.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "244984517234729945",
+    "date": "2026-05-27",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -35.12,
+    "account": "Amex Gold Card"
   },
   {
     "id": "244880590621320151",
@@ -38,6 +54,46 @@
     "category": "Entertainment & Recreation",
     "amount": -10.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "244984517234729947",
+    "date": "2026-05-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -16.2,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244984517234729946",
+    "date": "2026-05-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -5.62,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "244966286950342820",
+    "date": "2026-05-26",
+    "merchant": "Wells Fargo",
+    "category": "Check",
+    "amount": -150.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "244966286950342819",
+    "date": "2026-05-26",
+    "merchant": "Purchase Authorized on Your Dekalb Far Decatur Ga",
+    "category": "Groceries",
+    "amount": -106.29,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "244966286950342818",
+    "date": "2026-05-26",
+    "merchant": "Atm Withdrawal Authorized on Lavista Rd Tucker Ga Atm Id",
+    "category": "Cash & ATM",
+    "amount": -300.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "244619117515972771",
