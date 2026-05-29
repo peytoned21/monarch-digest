@@ -1,11 +1,75 @@
 [
   {
+    "id": "245115758666785639",
+    "date": "2026-05-29",
+    "merchant": "Georgia Power",
+    "category": "Gas & Electric",
+    "amount": -285.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "245018193253311038",
     "date": "2026-05-28",
     "merchant": "The Home Depot",
     "category": "Paychecks",
     "amount": 5062.88,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "245114906982948981",
+    "date": "2026-05-28",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -9.49,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245110009098084522",
+    "date": "2026-05-28",
+    "merchant": "Wealthfront",
+    "category": "Income",
+    "amount": 1000.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245110009098084521",
+    "date": "2026-05-28",
+    "merchant": "Zelle",
+    "category": "Shopping",
+    "amount": -10.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245096696007041829",
+    "date": "2026-05-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "245096696007041828",
+    "date": "2026-05-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "245096696007041827",
+    "date": "2026-05-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "245045601160339506",
+    "date": "2026-05-28",
+    "merchant": "Antico Pizza Battery",
+    "category": "Restaurants & Bars",
+    "amount": -102.84,
+    "account": "Amex Gold Card"
   },
   {
     "id": "244937644598829536",
@@ -30,6 +94,22 @@
     "category": "Clothing",
     "amount": -35.12,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "245114906982948983",
+    "date": "2026-05-27",
+    "merchant": "Kroger",
+    "category": "Gas & Fuel",
+    "amount": -71.35,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245114906982948982",
+    "date": "2026-05-27",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": -4.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "244880590621320151",
@@ -94,6 +174,22 @@
     "category": "Cash & ATM",
     "amount": -300.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245045601160339508",
+    "date": "2026-05-26",
+    "merchant": "BWBC",
+    "category": "Restaurants & Bars",
+    "amount": -10.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245045601160339507",
+    "date": "2026-05-26",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 12.23,
+    "account": "Amex Gold Card"
   },
   {
     "id": "244619117515972771",
@@ -174,6 +270,14 @@
     "category": "Shopping",
     "amount": -39.48,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245045601160339509",
+    "date": "2026-05-23",
+    "merchant": "Wayfair",
+    "category": "Furniture & Housewares",
+    "amount": -462.05,
+    "account": "Amex Gold Card"
   },
   {
     "id": "244554624565977180",

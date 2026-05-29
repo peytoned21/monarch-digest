@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-05-28",
+  "as_of": "2026-05-29",
   "month": "May 2026",
-  "days_elapsed": 28,
+  "days_elapsed": 29,
   "days_in_month": 31,
-  "mtd_income": 17336.5,
-  "mtd_expenses": 15882.56,
-  "mtd_surplus": 1453.94,
-  "savings_rate_pct": 8.4,
-  "projected_month_expense": 17584.26,
-  "projected_savings": -247.76,
+  "mtd_income": 11252.92,
+  "mtd_expenses": 15737.83,
+  "mtd_surplus": -4484.91,
+  "savings_rate_pct": -39.9,
+  "projected_month_expense": 16823.2,
+  "projected_savings": -5570.28,
   "top_categories": [
     {
       "category": "DHS Reunion",
-      "amount": 5699.61
+      "amount": 5199.61
     },
     {
       "category": "E&A 529 Plan",
@@ -28,11 +28,11 @@
     },
     {
       "category": "Shopping",
-      "amount": 895.1
+      "amount": 853.29
     },
     {
       "category": "Furniture & Housewares",
-      "amount": 822.77
+      "amount": 826.77
     },
     {
       "category": "Life Insurance",
