@@ -8,6 +8,14 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "245140013998612509",
+    "date": "2026-05-29",
+    "merchant": "Family Dollar",
+    "category": "Clothing",
+    "amount": -12.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "245018193253311038",
     "date": "2026-05-28",
     "merchant": "The Home Depot",
@@ -72,6 +80,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "245140013998612511",
+    "date": "2026-05-28",
+    "merchant": "R & R Properties",
+    "category": "Rent",
+    "amount": -2665.36,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "245140013998612510",
+    "date": "2026-05-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "244937644598829536",
     "date": "2026-05-27",
     "merchant": "Amazon",
@@ -110,6 +134,30 @@
     "category": "Furniture & Housewares",
     "amount": -4.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245148510811267804",
+    "date": "2026-05-27",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -35.12,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245140015886049991",
+    "date": "2026-05-27",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -12.85,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "245140013998612512",
+    "date": "2026-05-27",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "244880590621320151",
