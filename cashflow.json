@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-05-30",
+  "as_of": "2026-05-31",
   "month": "May 2026",
-  "days_elapsed": 30,
+  "days_elapsed": 31,
   "days_in_month": 31,
-  "mtd_income": 11252.92,
-  "mtd_expenses": 15015.03,
-  "mtd_surplus": -3762.11,
-  "savings_rate_pct": -33.4,
-  "projected_month_expense": 15515.53,
-  "projected_savings": -4262.61,
+  "mtd_income": 11283.8,
+  "mtd_expenses": 15007.31,
+  "mtd_surplus": -3723.51,
+  "savings_rate_pct": -33.0,
+  "projected_month_expense": 15007.31,
+  "projected_savings": -3723.51,
   "top_categories": [
     {
       "category": "DHS Reunion",
@@ -28,7 +28,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 777.33
+      "amount": 788.48
     },
     {
       "category": "Life Insurance",
@@ -39,8 +39,8 @@
       "amount": 600.0
     },
     {
-      "category": "Clothing",
-      "amount": 445.93
+      "category": "Restaurants & Bars",
+      "amount": 505.13
     }
   ]
 }
