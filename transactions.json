@@ -1,5 +1,37 @@
 [
   {
+    "id": "245402536857510008",
+    "date": "2026-06-01",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245379987019866267",
+    "date": "2026-06-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 15.55,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "245379985673494533",
+    "date": "2026-06-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 212.98,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "245379985673494532",
+    "date": "2026-06-01",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 25.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "245251025226637553",
     "date": "2026-05-30",
     "merchant": "Frostys Griddle Shake",
