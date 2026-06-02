@@ -1,5 +1,13 @@
 [
   {
+    "id": "245475446083232758",
+    "date": "2026-06-02",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "245402536857510008",
     "date": "2026-06-01",
     "merchant": "HS D Enterprises",
@@ -30,6 +38,14 @@
     "category": "DHS Reunion",
     "amount": 25.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "245486570724860266",
+    "date": "2026-06-01",
+    "merchant": "External Loan Payment Olb Transfer",
+    "category": "Student Loan",
+    "amount": 1120.6,
+    "account": "Stanford Student Loan (3%)"
   },
   {
     "id": "245251025226637553",

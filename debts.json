@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-06-01",
-  "days_to_40": 449,
+  "as_of": "2026-06-02",
+  "days_to_40": 448,
   "payoff_target_date": "2027-08-24",
   "debts": [
     {
@@ -17,12 +17,12 @@
     },
     {
       "name": "Stanford",
-      "balance": 26071.24,
+      "balance": 25016.84,
       "rate": 3.0,
       "is_target": false
     }
   ],
   "total_target_debt": 25682.91,
   "mortgage_balance": 284754.18,
-  "monthly_payoff_needed": 1741.18
+  "monthly_payoff_needed": 1745.06
 }

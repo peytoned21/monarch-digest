@@ -1,15 +1,19 @@
 {
-  "as_of": "2026-06-01",
+  "as_of": "2026-06-02",
   "month": "June 2026",
-  "days_elapsed": 1,
+  "days_elapsed": 2,
   "days_in_month": 30,
-  "mtd_income": 253.53,
-  "mtd_expenses": 9.01,
-  "mtd_surplus": 244.52,
-  "savings_rate_pct": 96.4,
-  "projected_month_expense": 270.3,
-  "projected_savings": -16.77,
+  "mtd_income": 1374.13,
+  "mtd_expenses": 19.8,
+  "mtd_surplus": 1354.33,
+  "savings_rate_pct": 98.6,
+  "projected_month_expense": 297.0,
+  "projected_savings": 1077.13,
   "top_categories": [
+    {
+      "category": "Subscriptions",
+      "amount": 10.79
+    },
     {
       "category": "Shopping",
       "amount": 9.01
