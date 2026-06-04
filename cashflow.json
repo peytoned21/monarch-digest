@@ -1,38 +1,46 @@
 {
-  "as_of": "2026-06-03",
+  "as_of": "2026-06-04",
   "month": "June 2026",
-  "days_elapsed": 3,
+  "days_elapsed": 4,
   "days_in_month": 30,
   "mtd_income": 253.53,
-  "mtd_expenses": 1393.96,
-  "mtd_surplus": -1140.43,
-  "savings_rate_pct": -449.8,
-  "projected_month_expense": 13939.6,
-  "projected_savings": -13686.07,
+  "mtd_expenses": 2254.15,
+  "mtd_surplus": -2000.62,
+  "savings_rate_pct": -789.1,
+  "projected_month_expense": 16906.13,
+  "projected_savings": -16652.6,
   "top_categories": [
     {
       "category": "Student Loans",
       "amount": 1120.6
     },
     {
+      "category": "Miscellaneous",
+      "amount": 600.0
+    },
+    {
+      "category": "Cash & ATM",
+      "amount": 200.0
+    },
+    {
       "category": "Groceries",
-      "amount": 116.59
+      "amount": 134.01
     },
     {
       "category": "Shopping",
-      "amount": 91.51
+      "amount": 102.21
     },
     {
       "category": "Clothing",
       "amount": 45.46
     },
     {
-      "category": "Subscriptions",
-      "amount": 10.79
+      "category": "Restaurants",
+      "amount": 32.07
     },
     {
-      "category": "Work Lunch",
-      "amount": 9.01
+      "category": "Subscriptions",
+      "amount": 10.79
     }
   ]
 }

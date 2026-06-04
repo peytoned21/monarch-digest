@@ -1,5 +1,45 @@
 [
   {
+    "id": "245609626651795580",
+    "date": "2026-06-03",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -17.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245609626651795579",
+    "date": "2026-06-03",
+    "merchant": "Dignitana",
+    "category": "Miscellaneous",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245607987934077787",
+    "date": "2026-06-03",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.71,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "245599926337085974",
+    "date": "2026-06-03",
+    "merchant": "Lan Zhou Noodle",
+    "category": "Restaurants",
+    "amount": -18.95,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245599926337085973",
+    "date": "2026-06-03",
+    "merchant": "Chong Qing Hot Pot",
+    "category": "Restaurants",
+    "amount": -13.12,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "245475446083232758",
     "date": "2026-06-02",
     "merchant": "Tesla",
@@ -38,6 +78,30 @@
     "category": "Student Loans",
     "amount": -1120.6,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "245609626651795582",
+    "date": "2026-06-02",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -45.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245609626651795581",
+    "date": "2026-06-02",
+    "merchant": "HS & D Enterp",
+    "category": "Shopping",
+    "amount": -9.28,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245582567779017108",
+    "date": "2026-06-02",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -200.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "245402536857510008",
@@ -102,6 +166,38 @@
     "category": "Work Lunch",
     "amount": -9.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "245599926337085978",
+    "date": "2026-06-01",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -116.59,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245599926337085977",
+    "date": "2026-06-01",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -12.96,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245599926337085976",
+    "date": "2026-06-01",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -30.42,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245599926337085975",
+    "date": "2026-06-01",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -10.69,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "245251025226637553",
