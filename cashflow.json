@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-04",
+  "as_of": "2026-06-05",
   "month": "June 2026",
-  "days_elapsed": 4,
+  "days_elapsed": 5,
   "days_in_month": 30,
   "mtd_income": 253.53,
-  "mtd_expenses": 2254.15,
-  "mtd_surplus": -2000.62,
-  "savings_rate_pct": -789.1,
-  "projected_month_expense": 16906.13,
-  "projected_savings": -16652.6,
+  "mtd_expenses": 2973.84,
+  "mtd_surplus": -2720.31,
+  "savings_rate_pct": -1073.0,
+  "projected_month_expense": 17843.04,
+  "projected_savings": -17589.51,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -17,6 +17,10 @@
     {
       "category": "Miscellaneous",
       "amount": 600.0
+    },
+    {
+      "category": "Furniture & Housewares",
+      "amount": 490.84
     },
     {
       "category": "Cash & ATM",
@@ -28,19 +32,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 102.21
+      "amount": 121.08
     },
     {
-      "category": "Clothing",
-      "amount": 45.46
+      "category": "Life Insurance",
+      "amount": 114.44
     },
     {
-      "category": "Restaurants",
-      "amount": 32.07
-    },
-    {
-      "category": "Subscriptions",
-      "amount": 10.79
+      "category": "Home Improvement",
+      "amount": 49.59
     }
   ]
 }

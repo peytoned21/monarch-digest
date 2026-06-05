@@ -1,5 +1,37 @@
 [
   {
+    "id": "245713005778510325",
+    "date": "2026-06-04",
+    "merchant": "Bed Bath & Beyond",
+    "category": "Furniture & Housewares",
+    "amount": -490.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245703891891462398",
+    "date": "2026-06-04",
+    "merchant": "ESPN+",
+    "category": "Entertainment & Recreation",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "245701997880091499",
+    "date": "2026-06-04",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -49.59,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245701997880091498",
+    "date": "2026-06-04",
+    "merchant": "Spotify",
+    "category": "Entertainment & Recreation",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "245609626651795580",
     "date": "2026-06-03",
     "merchant": "Publix",
@@ -38,6 +70,30 @@
     "category": "Restaurants",
     "amount": -13.12,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245703891891462399",
+    "date": "2026-06-03",
+    "merchant": "BP",
+    "category": "Gas",
+    "amount": -10.69,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "245685808760038395",
+    "date": "2026-06-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245685808760038393",
+    "date": "2026-06-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -87.28,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "245475446083232758",
@@ -102,6 +158,14 @@
     "category": "Cash & ATM",
     "amount": -200.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245701997880091500",
+    "date": "2026-06-02",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -28.15,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "245402536857510008",
