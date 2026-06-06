@@ -1,5 +1,37 @@
 [
   {
+    "id": "245801376948363316",
+    "date": "2026-06-05",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -19.43,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "245765054189740198",
+    "date": "2026-06-05",
+    "merchant": "Panera Bread",
+    "category": "Restaurants & Bars",
+    "amount": -12.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245765054189740197",
+    "date": "2026-06-05",
+    "merchant": "Euhm Parking",
+    "category": "Parking & Tolls",
+    "amount": -6.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245765054189740196",
+    "date": "2026-06-05",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -6.62,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "245713005778510325",
     "date": "2026-06-04",
     "merchant": "Bed Bath & Beyond",
@@ -30,6 +62,14 @@
     "category": "Entertainment & Recreation",
     "amount": -12.99,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245786586037298043",
+    "date": "2026-06-04",
+    "merchant": "Dekalb County",
+    "category": "Water",
+    "amount": -200.68,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "245609626651795580",
@@ -94,6 +134,38 @@
     "category": "Life Insurance",
     "amount": -87.28,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "245801376948363317",
+    "date": "2026-06-03",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.71,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "245801374627865343",
+    "date": "2026-06-03",
+    "merchant": "BP",
+    "category": "Gas",
+    "amount": -10.69,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "245765054189740200",
+    "date": "2026-06-03",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -17.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245765054189740199",
+    "date": "2026-06-03",
+    "merchant": "Dignitana Inc",
+    "category": "Medical - HSA",
+    "amount": -600.0,
+    "account": "Amex Gold Card"
   },
   {
     "id": "245475446083232758",

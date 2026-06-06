@@ -1,21 +1,21 @@
 {
-  "as_of": "2026-06-05",
+  "as_of": "2026-06-06",
   "month": "June 2026",
-  "days_elapsed": 5,
+  "days_elapsed": 6,
   "days_in_month": 30,
   "mtd_income": 253.53,
-  "mtd_expenses": 2973.84,
-  "mtd_surplus": -2720.31,
-  "savings_rate_pct": -1073.0,
-  "projected_month_expense": 17843.04,
-  "projected_savings": -17589.51,
+  "mtd_expenses": 3191.37,
+  "mtd_surplus": -2937.84,
+  "savings_rate_pct": -1158.8,
+  "projected_month_expense": 15956.85,
+  "projected_savings": -15703.32,
   "top_categories": [
     {
       "category": "Student Loans",
       "amount": 1120.6
     },
     {
-      "category": "Miscellaneous",
+      "category": "Medical - HSA",
       "amount": 600.0
     },
     {
@@ -23,24 +23,24 @@
       "amount": 490.84
     },
     {
+      "category": "Water",
+      "amount": 200.68
+    },
+    {
       "category": "Cash & ATM",
       "amount": 200.0
     },
     {
       "category": "Groceries",
-      "amount": 134.01
-    },
-    {
-      "category": "Shopping",
-      "amount": 121.08
+      "amount": 140.63
     },
     {
       "category": "Life Insurance",
       "amount": 114.44
     },
     {
-      "category": "Home Improvement",
-      "amount": 49.59
+      "category": "Shopping",
+      "amount": 112.36
     }
   ]
 }
