@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-06",
+  "as_of": "2026-06-07",
   "month": "June 2026",
-  "days_elapsed": 6,
+  "days_elapsed": 7,
   "days_in_month": 30,
   "mtd_income": 253.53,
-  "mtd_expenses": 3191.37,
-  "mtd_surplus": -2937.84,
-  "savings_rate_pct": -1158.8,
-  "projected_month_expense": 15956.85,
-  "projected_savings": -15703.32,
+  "mtd_expenses": 3326.71,
+  "mtd_surplus": -3073.18,
+  "savings_rate_pct": -1212.2,
+  "projected_month_expense": 14257.33,
+  "projected_savings": -14003.8,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -35,12 +35,12 @@
       "amount": 140.63
     },
     {
-      "category": "Life Insurance",
-      "amount": 114.44
+      "category": "Shopping",
+      "amount": 123.05
     },
     {
-      "category": "Shopping",
-      "amount": 112.36
+      "category": "Life Insurance",
+      "amount": 114.44
     }
   ]
 }
