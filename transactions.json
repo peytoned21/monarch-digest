@@ -1,5 +1,37 @@
 [
   {
+    "id": "245969287537173265",
+    "date": "2026-06-07",
+    "merchant": "Quickly Bubble Tea",
+    "category": "Coffee Shops",
+    "amount": -14.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173264",
+    "date": "2026-06-07",
+    "merchant": "Pho Bac",
+    "category": "Restaurants & Bars",
+    "amount": -39.15,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173263",
+    "date": "2026-06-07",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -134.41,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173262",
+    "date": "2026-06-07",
+    "merchant": "Clays Sports Cafe",
+    "category": "Restaurants",
+    "amount": -36.87,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "245892803380323207",
     "date": "2026-06-06",
     "merchant": "The New York Times",
@@ -54,6 +86,38 @@
     "category": "Gas & Fuel",
     "amount": -74.23,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "245969287537173269",
+    "date": "2026-06-05",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 49.06,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173268",
+    "date": "2026-06-05",
+    "merchant": "Panera Bread",
+    "category": "Restaurants & Bars",
+    "amount": -12.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173267",
+    "date": "2026-06-05",
+    "merchant": "Beyond, Inc.",
+    "category": "Utilities",
+    "amount": -490.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "245969287537173266",
+    "date": "2026-06-05",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -6.62,
+    "account": "Amex Gold Card"
   },
   {
     "id": "245713005778510325",
