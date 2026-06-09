@@ -1,5 +1,45 @@
 [
   {
+    "id": "246100937451446824",
+    "date": "2026-06-09",
+    "merchant": "American Heritage",
+    "category": "Other Income",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "246076434562359762",
+    "date": "2026-06-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246072420346044818",
+    "date": "2026-06-08",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -20.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246072420346044817",
+    "date": "2026-06-08",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -18.02,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246072420346044816",
+    "date": "2026-06-08",
+    "merchant": "Bobo Izakaya",
+    "category": "Restaurants & Bars",
+    "amount": -106.73,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "245969287537173265",
     "date": "2026-06-07",
     "merchant": "Quickly Bubble Tea",
@@ -44,6 +84,22 @@
     "date": "2026-06-06",
     "merchant": "DinoDash",
     "category": "Entertainment & Recreation",
+    "amount": -4.66,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246076434562359763",
+    "date": "2026-06-06",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246072420346044819",
+    "date": "2026-06-06",
+    "merchant": "DinoDash",
+    "category": "Coffee Shops",
     "amount": -4.66,
     "account": "Amex Gold Card"
   },
@@ -117,6 +173,22 @@
     "merchant": "365 Retail Markets",
     "category": "Groceries",
     "amount": -6.62,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246076435997860696",
+    "date": "2026-06-05",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -19.43,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "246072420346044820",
+    "date": "2026-06-05",
+    "merchant": "Euhm Parking",
+    "category": "Parking & Tolls",
+    "amount": -6.0,
     "account": "Amex Gold Card"
   },
   {
