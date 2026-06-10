@@ -8,6 +8,30 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "246175144921211796",
+    "date": "2026-06-09",
+    "merchant": "King of Pops",
+    "category": "Restaurants",
+    "amount": -15.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246170489405252424",
+    "date": "2026-06-09",
+    "merchant": "Allstate",
+    "category": "Life Insurance",
+    "amount": -2421.27,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246124123295523523",
+    "date": "2026-06-09",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246076434562359762",
     "date": "2026-06-08",
     "merchant": "Netflix",
@@ -40,6 +64,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "246170489405252425",
+    "date": "2026-06-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246136794588848244",
+    "date": "2026-06-08",
+    "merchant": "Zelle",
+    "category": "Income",
+    "amount": 22.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "246124123295523524",
+    "date": "2026-06-08",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -18.02,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "245969287537173265",
     "date": "2026-06-07",
     "merchant": "Quickly Bubble Tea",
@@ -69,6 +117,46 @@
     "merchant": "Clays Sports Cafe",
     "category": "Restaurants",
     "amount": -36.87,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246166671870337046",
+    "date": "2026-06-07",
+    "merchant": "City of Industry",
+    "category": "Clothing",
+    "amount": -806.76,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246166671870337045",
+    "date": "2026-06-07",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -42.65,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246124123295523527",
+    "date": "2026-06-07",
+    "merchant": "Clay's Sports Cafe",
+    "category": "Restaurants",
+    "amount": -44.87,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246124123295523526",
+    "date": "2026-06-07",
+    "merchant": "Quickly Bubble Tea",
+    "category": "Coffee Shops",
+    "amount": -14.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246124123295523525",
+    "date": "2026-06-07",
+    "merchant": "Pho Bac",
+    "category": "Restaurants & Bars",
+    "amount": -39.15,
     "account": "Amex Gold Card"
   },
   {
@@ -192,6 +280,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "246166671870337047",
+    "date": "2026-06-05",
+    "merchant": "RaceTrac",
+    "category": "Gas & Fuel",
+    "amount": -74.23,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "245713005778510325",
     "date": "2026-06-04",
     "merchant": "Bed Bath & Beyond",
@@ -245,6 +341,14 @@
     "merchant": "Spotify",
     "category": "Subscriptions",
     "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246166671870337048",
+    "date": "2026-06-04",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -49.59,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
