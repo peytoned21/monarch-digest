@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-10",
+  "as_of": "2026-06-11",
   "month": "June 2026",
-  "days_elapsed": 10,
+  "days_elapsed": 11,
   "days_in_month": 30,
-  "mtd_income": 424.59,
-  "mtd_expenses": 7087.61,
-  "mtd_surplus": -6663.02,
-  "savings_rate_pct": -1569.3,
-  "projected_month_expense": 21262.83,
-  "projected_savings": -20838.24,
+  "mtd_income": 5590.32,
+  "mtd_expenses": 7350.46,
+  "mtd_surplus": -1760.14,
+  "savings_rate_pct": -31.5,
+  "projected_month_expense": 20046.71,
+  "projected_savings": -14456.39,
   "top_categories": [
     {
       "category": "Life Insurance",
@@ -31,16 +31,16 @@
       "amount": 490.84
     },
     {
+      "category": "Dentist",
+      "amount": 320.33
+    },
+    {
       "category": "Groceries",
       "amount": 297.86
     },
     {
-      "category": "Water",
-      "amount": 200.68
-    },
-    {
-      "category": "Cash & ATM",
-      "amount": 200.0
+      "category": "Restaurants & Bars",
+      "amount": 217.64
     }
   ]
 }

@@ -1,5 +1,37 @@
 [
   {
+    "id": "246286971753669270",
+    "date": "2026-06-11",
+    "merchant": "The Home Depot",
+    "category": "Paycheck",
+    "amount": 5165.73,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "246278159183323171",
+    "date": "2026-06-10",
+    "merchant": "Lightricks",
+    "category": "Miscellaneous",
+    "amount": -39.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246262438905717236",
+    "date": "2026-06-10",
+    "merchant": "DoorDash",
+    "category": "Restaurants & Bars",
+    "amount": -2.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246227305098059866",
+    "date": "2026-06-10",
+    "merchant": "Limeres Dental Group",
+    "category": "Dentist",
+    "amount": -320.33,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246100937451446824",
     "date": "2026-06-09",
     "merchant": "American Heritage",
@@ -28,6 +60,38 @@
     "date": "2026-06-09",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246262438905717237",
+    "date": "2026-06-09",
+    "merchant": "Allstate",
+    "category": "Life Insurance",
+    "amount": -2421.27,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246227305098059869",
+    "date": "2026-06-09",
+    "merchant": "Bobo Izakaya",
+    "category": "Restaurants & Bars",
+    "amount": -128.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246227305098059868",
+    "date": "2026-06-09",
+    "merchant": "King of Pops",
+    "category": "Restaurants",
+    "amount": -18.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246227305098059867",
+    "date": "2026-06-09",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
     "amount": -6.63,
     "account": "Amex Gold Card"
   },
@@ -85,6 +149,22 @@
     "merchant": "HS & D Enter",
     "category": "Work Lunch",
     "amount": -18.02,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246227305098059871",
+    "date": "2026-06-08",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -20.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246227305098059870",
+    "date": "2026-06-08",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -136.44,
     "account": "Amex Gold Card"
   },
   {
