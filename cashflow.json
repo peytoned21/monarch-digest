@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-11",
+  "as_of": "2026-06-12",
   "month": "June 2026",
-  "days_elapsed": 11,
+  "days_elapsed": 12,
   "days_in_month": 30,
   "mtd_income": 5590.32,
-  "mtd_expenses": 7350.46,
-  "mtd_surplus": -1760.14,
-  "savings_rate_pct": -31.5,
-  "projected_month_expense": 20046.71,
-  "projected_savings": -14456.39,
+  "mtd_expenses": 7380.65,
+  "mtd_surplus": -1790.33,
+  "savings_rate_pct": -32.0,
+  "projected_month_expense": 18451.62,
+  "projected_savings": -12861.3,
   "top_categories": [
     {
       "category": "Life Insurance",
@@ -36,7 +36,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 297.86
+      "amount": 304.48
     },
     {
       "category": "Restaurants & Bars",

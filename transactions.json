@@ -8,6 +8,30 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "246354633070420266",
+    "date": "2026-06-11",
+    "merchant": "Khuan's Hair Design",
+    "category": "Beauty and Grooming",
+    "amount": -18.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246329937936458706",
+    "date": "2026-06-11",
+    "merchant": "Rev Coffee",
+    "category": "Coffee Shops",
+    "amount": -5.57,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246329937936458705",
+    "date": "2026-06-11",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -6.62,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246278159183323171",
     "date": "2026-06-10",
     "merchant": "Lightricks",
