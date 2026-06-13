@@ -1,5 +1,13 @@
 [
   {
+    "id": "246434423901201145",
+    "date": "2026-06-12",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -28.55,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246286971753669270",
     "date": "2026-06-11",
     "merchant": "The Home Depot",
@@ -32,6 +40,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "246445659826103289",
+    "date": "2026-06-11",
+    "merchant": "Khuan's Hair Design",
+    "category": "Beauty and Grooming",
+    "amount": -28.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246434423901201146",
+    "date": "2026-06-11",
+    "merchant": "Rev Coffee",
+    "category": "Coffee Shops",
+    "amount": -6.57,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246278159183323171",
     "date": "2026-06-10",
     "merchant": "Lightricks",
@@ -51,6 +75,22 @@
     "id": "246227305098059866",
     "date": "2026-06-10",
     "merchant": "Limeres Dental Group",
+    "category": "Dentist",
+    "amount": -320.33,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246445659826103288",
+    "date": "2026-06-10",
+    "merchant": "DoorDash",
+    "category": "Restaurants & Bars",
+    "amount": -2.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246434423901201147",
+    "date": "2026-06-10",
+    "merchant": "Limres Dental Group",
     "category": "Dentist",
     "amount": -320.33,
     "account": "Amex Gold Card"

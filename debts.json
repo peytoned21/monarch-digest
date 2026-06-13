@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-06-12",
-  "days_to_40": 438,
+  "as_of": "2026-06-13",
+  "days_to_40": 437,
   "payoff_target_date": "2027-08-24",
   "debts": [
     {
@@ -24,5 +24,5 @@
   ],
   "total_target_debt": 25682.91,
   "mortgage_balance": 284754.18,
-  "monthly_payoff_needed": 1784.9
+  "monthly_payoff_needed": 1788.99
 }
