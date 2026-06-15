@@ -1,18 +1,22 @@
 {
-  "as_of": "2026-06-14",
+  "as_of": "2026-06-15",
   "month": "June 2026",
-  "days_elapsed": 14,
+  "days_elapsed": 15,
   "days_in_month": 30,
   "mtd_income": 5590.32,
-  "mtd_expenses": 7777.45,
-  "mtd_surplus": -2187.13,
-  "savings_rate_pct": -39.1,
-  "projected_month_expense": 16665.96,
-  "projected_savings": -11075.64,
+  "mtd_expenses": 9172.45,
+  "mtd_surplus": -3582.13,
+  "savings_rate_pct": -64.1,
+  "projected_month_expense": 18344.9,
+  "projected_savings": -12754.58,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
       "amount": 2421.27
+    },
+    {
+      "category": "Mortgage",
+      "amount": 1345.16
     },
     {
       "category": "Student Loans",
@@ -20,7 +24,7 @@
     },
     {
       "category": "Clothing",
-      "amount": 852.22
+      "amount": 914.49
     },
     {
       "category": "Medical - HSA",
@@ -32,15 +36,11 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 416.16
+      "amount": 434.16
     },
     {
       "category": "Groceries",
       "amount": 370.27
-    },
-    {
-      "category": "Dentist",
-      "amount": 320.33
     }
   ]
 }

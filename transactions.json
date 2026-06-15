@@ -1,5 +1,29 @@
 [
   {
+    "id": "246653855788376896",
+    "date": "2026-06-15",
+    "merchant": "RoundPoint Mortgage Servicing Corporation",
+    "category": "Mortgage",
+    "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "246638415884264330",
+    "date": "2026-06-14",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -62.27,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246587476399825226",
+    "date": "2026-06-14",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -27.56,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246536449466245221",
     "date": "2026-06-13",
     "merchant": "Inns & Hotels",
@@ -24,6 +48,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "246587476399825227",
+    "date": "2026-06-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246434423901201145",
     "date": "2026-06-12",
     "merchant": "Publix",
@@ -38,6 +70,14 @@
     "category": "Shopping",
     "amount": -26.13,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246587476399825228",
+    "date": "2026-06-12",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -28.55,
+    "account": "Amex Gold Card"
   },
   {
     "id": "246286971753669270",
