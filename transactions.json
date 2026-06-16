@@ -8,6 +8,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "246691206340223172",
+    "date": "2026-06-15",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -132.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246691206340223171",
+    "date": "2026-06-15",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246638415884264330",
     "date": "2026-06-14",
     "merchant": "Shein",
@@ -17,6 +33,14 @@
   },
   {
     "id": "246587476399825226",
+    "date": "2026-06-14",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -27.56,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246691206340223173",
     "date": "2026-06-14",
     "merchant": "Temu",
     "category": "Shopping",
@@ -53,6 +77,14 @@
     "merchant": "Apple",
     "category": "Subscriptions",
     "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246691206340223174",
+    "date": "2026-06-13",
+    "merchant": "48th Street Market",
+    "category": "Restaurants",
+    "amount": -37.24,
     "account": "Amex Gold Card"
   },
   {
@@ -141,6 +173,14 @@
     "merchant": "365 Retail Markets",
     "category": "Groceries",
     "amount": -6.62,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246691206340223175",
+    "date": "2026-06-11",
+    "merchant": "Lightricks",
+    "category": "Miscellaneous",
+    "amount": -39.99,
     "account": "Amex Gold Card"
   },
   {
