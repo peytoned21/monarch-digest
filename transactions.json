@@ -1,5 +1,37 @@
 [
   {
+    "id": "246809806039360261",
+    "date": "2026-06-16",
+    "merchant": "Hope And Restoration",
+    "category": "Charity",
+    "amount": -62.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246796225634836886",
+    "date": "2026-06-16",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 45.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246796225634836885",
+    "date": "2026-06-16",
+    "merchant": "HS & D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246796225634836884",
+    "date": "2026-06-16",
+    "merchant": "ELA",
+    "category": "Shopping",
+    "amount": -44.8,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246653855788376896",
     "date": "2026-06-15",
     "merchant": "RoundPoint Mortgage Servicing Corporation",
@@ -19,6 +51,14 @@
     "id": "246691206340223171",
     "date": "2026-06-15",
     "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246796225634836887",
+    "date": "2026-06-15",
+    "merchant": "HS & D Enterprises",
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
@@ -45,6 +85,14 @@
     "merchant": "Temu",
     "category": "Shopping",
     "amount": -27.56,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246796225634836888",
+    "date": "2026-06-14",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -62.27,
     "account": "Amex Gold Card"
   },
   {
@@ -85,6 +133,14 @@
     "merchant": "48th Street Market",
     "category": "Restaurants",
     "amount": -37.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246796225634836889",
+    "date": "2026-06-13",
+    "merchant": "Tiny Lou's",
+    "category": "Restaurants & Bars",
+    "amount": -238.52,
     "account": "Amex Gold Card"
   },
   {
