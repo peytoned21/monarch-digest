@@ -1,5 +1,77 @@
 [
   {
+    "id": "246964482841977729",
+    "date": "2026-06-18",
+    "merchant": "Burlington",
+    "category": "Clothing",
+    "amount": -26.96,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246964482841977728",
+    "date": "2026-06-18",
+    "merchant": "Scrap Tucker",
+    "category": "Coffee Shops",
+    "amount": -15.12,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246964482841977727",
+    "date": "2026-06-18",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -48.56,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246952070339306038",
+    "date": "2026-06-18",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -85.61,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246942477454353308",
+    "date": "2026-06-18",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -1200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "246900242910225240",
+    "date": "2026-06-17",
+    "merchant": "Wok Provisions",
+    "category": "Restaurants & Bars",
+    "amount": -12.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246900242910225239",
+    "date": "2026-06-17",
+    "merchant": "Atlanta",
+    "category": "Restaurants",
+    "amount": -48.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246881888139944337",
+    "date": "2026-06-17",
+    "merchant": "Kroger",
+    "category": "Gas",
+    "amount": -70.9,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246848235332641614",
+    "date": "2026-06-17",
+    "merchant": "Dignitana",
+    "category": "Miscellaneous",
+    "amount": -300.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246809806039360261",
     "date": "2026-06-16",
     "merchant": "Hope And Restoration",
@@ -29,6 +101,78 @@
     "merchant": "ELA",
     "category": "Shopping",
     "amount": -44.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246964482841977732",
+    "date": "2026-06-16",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -53.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246964482841977731",
+    "date": "2026-06-16",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -74.68,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246964482841977730",
+    "date": "2026-06-16",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": -170.62,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246952070339306040",
+    "date": "2026-06-16",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -132.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246952070339306039",
+    "date": "2026-06-16",
+    "merchant": "ELA",
+    "category": "Restaurants & Bars",
+    "amount": -54.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246901172909056133",
+    "date": "2026-06-16",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -62.96,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "246881888139944339",
+    "date": "2026-06-16",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -38.71,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "246848235332641616",
+    "date": "2026-06-16",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": 45.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "246848235332641615",
+    "date": "2026-06-16",
+    "merchant": "HS & D Enterprise",
+    "category": "Work Lunch",
+    "amount": -6.36,
     "account": "Amex Gold Card"
   },
   {
@@ -62,6 +206,14 @@
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "246881888139944342",
+    "date": "2026-06-15",
+    "merchant": "First United Methodist Church",
+    "category": "Charity",
+    "amount": -25.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "246638415884264330",

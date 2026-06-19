@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-17",
+  "as_of": "2026-06-19",
   "month": "June 2026",
-  "days_elapsed": 17,
+  "days_elapsed": 19,
   "days_in_month": 30,
-  "mtd_income": 5635.78,
-  "mtd_expenses": 9508.97,
-  "mtd_surplus": -3873.19,
-  "savings_rate_pct": -68.7,
-  "projected_month_expense": 16780.54,
-  "projected_savings": -11144.76,
+  "mtd_income": 5681.24,
+  "mtd_expenses": 11689.33,
+  "mtd_surplus": -6008.09,
+  "savings_rate_pct": -105.8,
+  "projected_month_expense": 18456.84,
+  "projected_savings": -12775.6,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
@@ -19,28 +19,28 @@
       "amount": 1345.16
     },
     {
+      "category": "Auto Payment",
+      "amount": 1200.0
+    },
+    {
       "category": "Student Loans",
       "amount": 1120.6
     },
     {
       "category": "Clothing",
-      "amount": 914.49
+      "amount": 941.45
+    },
+    {
+      "category": "Furniture & Housewares",
+      "amount": 661.46
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 623.49
     },
     {
       "category": "Medical - HSA",
       "amount": 600.0
-    },
-    {
-      "category": "Furniture & Housewares",
-      "amount": 490.84
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 474.16
-    },
-    {
-      "category": "Groceries",
-      "amount": 466.43
     }
   ]
 }
