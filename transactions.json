@@ -1,5 +1,37 @@
 [
   {
+    "id": "247107197537821480",
+    "date": "2026-06-20",
+    "merchant": "Thomas County Central",
+    "category": "Education",
+    "amount": -26.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247082873321890752",
+    "date": "2026-06-19",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -30.79,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247056319860646367",
+    "date": "2026-06-19",
+    "merchant": "QuikTrip",
+    "category": "Gas & Fuel",
+    "amount": -7.39,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247056319860646366",
+    "date": "2026-06-19",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "246964482841977729",
     "date": "2026-06-18",
     "merchant": "Burlington",
@@ -40,6 +72,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "247082873321890754",
+    "date": "2026-06-18",
+    "merchant": "Scrap Tucker",
+    "category": "Restaurants",
+    "amount": -15.12,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247082873321890753",
+    "date": "2026-06-18",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -48.56,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "246900242910225240",
     "date": "2026-06-17",
     "merchant": "Wok Provisions",
@@ -69,6 +117,46 @@
     "merchant": "Dignitana",
     "category": "Miscellaneous",
     "amount": -300.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247082873321890756",
+    "date": "2026-06-17",
+    "merchant": "Kroger",
+    "category": "Gas & Fuel",
+    "amount": -70.9,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247082873321890755",
+    "date": "2026-06-17",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -38.71,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247056319860646370",
+    "date": "2026-06-17",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -48.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247056319860646369",
+    "date": "2026-06-17",
+    "merchant": "Dignitana Inc",
+    "category": "Medical - HSA",
+    "amount": -300.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247056319860646368",
+    "date": "2026-06-17",
+    "merchant": "Wok Provision",
+    "category": "Restaurants & Bars",
+    "amount": -14.42,
     "account": "Amex Gold Card"
   },
   {
