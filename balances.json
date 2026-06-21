@@ -1,6 +1,6 @@
 {
-  "as_of": "June 20, 2026",
-  "generated_at": "2026-06-20",
+  "as_of": "June 21, 2026",
+  "generated_at": "2026-06-21",
   "_cached": false,
   "roth": 440028,
   "groth": 16385,
@@ -17,14 +17,14 @@
   "stanford_bal": 25016,
   "lexus_bal": 16904,
   "tesla_bal": 7664,
-  "cc_total": 27259,
+  "cc_total": 27354,
   "home_value": 717700,
   "vehicle_total": 59502,
   "lexus_value": 34770,
   "tesla_value": 24732,
-  "net_worth": 1521089,
+  "net_worth": 1520995,
   "total_assets": 1882689,
-  "total_debt": 361599,
+  "total_debt": 361693,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -17076.53,
+      "balance": -17171.15,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"

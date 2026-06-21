@@ -8,6 +8,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "247174351765315910",
+    "date": "2026-06-20",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -24.71,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247174350820548882",
+    "date": "2026-06-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247158592135700927",
+    "date": "2026-06-20",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -10.42,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247082873321890752",
     "date": "2026-06-19",
     "merchant": "Target",
@@ -27,6 +51,14 @@
     "id": "247056319860646366",
     "date": "2026-06-19",
     "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247158592135700928",
+    "date": "2026-06-19",
+    "merchant": "HS & D Enterprises",
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
@@ -86,6 +118,14 @@
     "category": "Shopping",
     "amount": -48.56,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247158592135700929",
+    "date": "2026-06-18",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -85.61,
+    "account": "Amex Gold Card"
   },
   {
     "id": "246900242910225240",
