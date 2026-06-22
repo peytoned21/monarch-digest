@@ -1,5 +1,45 @@
 [
   {
+    "id": "247264890769580132",
+    "date": "2026-06-21",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -15.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247264890769580131",
+    "date": "2026-06-21",
+    "merchant": "Pickle Barrel Cafe",
+    "category": "Restaurants & Bars",
+    "amount": -23.27,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247261029368538000",
+    "date": "2026-06-21",
+    "merchant": "RaceTrac",
+    "category": "Gas & Fuel",
+    "amount": -9.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247261029368537999",
+    "date": "2026-06-21",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247261027082642121",
+    "date": "2026-06-21",
+    "merchant": "Google",
+    "category": "Miscellaneous",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "247107197537821480",
     "date": "2026-06-20",
     "merchant": "Thomas County Central",
@@ -32,6 +72,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "247261029368538002",
+    "date": "2026-06-20",
+    "merchant": "Thomas County",
+    "category": "Miscellaneous",
+    "amount": -26.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247082873321890752",
     "date": "2026-06-19",
     "merchant": "Target",
@@ -61,6 +109,14 @@
     "merchant": "HS & D Enterprises",
     "category": "Shopping",
     "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247261029368538003",
+    "date": "2026-06-19",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -7.39,
     "account": "Amex Gold Card"
   },
   {
