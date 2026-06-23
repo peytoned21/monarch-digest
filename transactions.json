@@ -1,5 +1,53 @@
 [
   {
+    "id": "247356260527055111",
+    "date": "2026-06-22",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -2.62,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247356260527055110",
+    "date": "2026-06-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -67.2,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247312741283340348",
+    "date": "2026-06-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -30.93,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247312741283340347",
+    "date": "2026-06-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -1.1,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247312741283340346",
+    "date": "2026-06-22",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -31.75,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247312741283340345",
+    "date": "2026-06-22",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -10.37,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247264890769580132",
     "date": "2026-06-21",
     "merchant": "Tesla",
@@ -36,6 +84,30 @@
     "date": "2026-06-21",
     "merchant": "Google",
     "category": "Miscellaneous",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "247356260527055113",
+    "date": "2026-06-21",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -15.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247312741283340349",
+    "date": "2026-06-21",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247312739449381798",
+    "date": "2026-06-21",
+    "merchant": "YouTube",
+    "category": "Entertainment & Recreation",
     "amount": -15.99,
     "account": "Amex Platinum Card"
   },
@@ -78,6 +150,22 @@
     "category": "Miscellaneous",
     "amount": -26.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "247356263118086601",
+    "date": "2026-06-20",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -24.71,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247356260527055112",
+    "date": "2026-06-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "247082873321890752",

@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-22",
+  "as_of": "2026-06-23",
   "month": "June 2026",
-  "days_elapsed": 22,
+  "days_elapsed": 23,
   "days_in_month": 30,
   "mtd_income": 5382.25,
-  "mtd_expenses": 10578.0,
-  "mtd_surplus": -5195.75,
-  "savings_rate_pct": -96.5,
-  "projected_month_expense": 14424.55,
-  "projected_savings": -9042.3,
+  "mtd_expenses": 10439.08,
+  "mtd_surplus": -5056.83,
+  "savings_rate_pct": -94.0,
+  "projected_month_expense": 13616.19,
+  "projected_savings": -8233.94,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Clothing",
-      "amount": 941.45
+      "amount": 927.74
     },
     {
       "category": "Medical - HSA",
@@ -40,7 +40,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 522.13
+      "amount": 526.01
     }
   ]
 }
