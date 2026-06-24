@@ -1,5 +1,45 @@
 [
   {
+    "id": "247447699599597756",
+    "date": "2026-06-24",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -9.76,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247447699599597758",
+    "date": "2026-06-23",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -54.52,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247447699599597757",
+    "date": "2026-06-23",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -7.96,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247447697992130571",
+    "date": "2026-06-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247416854674350734",
+    "date": "2026-06-23",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247356260527055111",
     "date": "2026-06-22",
     "merchant": "Tesla",
@@ -45,6 +85,38 @@
     "merchant": "QuikTrip",
     "category": "Gas",
     "amount": -10.37,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247447697992130573",
+    "date": "2026-06-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -67.2,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247447697992130572",
+    "date": "2026-06-22",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -2.62,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247416854674350736",
+    "date": "2026-06-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -30.93,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247416854674350735",
+    "date": "2026-06-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -1.1,
     "account": "Amex Gold Card"
   },
   {
@@ -112,6 +184,30 @@
     "account": "Amex Platinum Card"
   },
   {
+    "id": "247447697992130574",
+    "date": "2026-06-21",
+    "merchant": "Pickle Barrel Cafe",
+    "category": "Restaurants & Bars",
+    "amount": -27.92,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247416854674350737",
+    "date": "2026-06-21",
+    "merchant": "RaceTrac",
+    "category": "Gas & Fuel",
+    "amount": -9.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247416852021453003",
+    "date": "2026-06-21",
+    "merchant": "American Express",
+    "category": "Internet & Cable",
+    "amount": 15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "247107197537821480",
     "date": "2026-06-20",
     "merchant": "Thomas County Central",
@@ -166,6 +262,14 @@
     "category": "Subscriptions",
     "amount": -12.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247416854674350738",
+    "date": "2026-06-20",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -10.42,
+    "account": "Amex Gold Card"
   },
   {
     "id": "247082873321890752",
