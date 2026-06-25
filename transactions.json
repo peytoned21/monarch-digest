@@ -1,11 +1,43 @@
 [
   {
+    "id": "247554546606220019",
+    "date": "2026-06-25",
+    "merchant": "The Home Depot",
+    "category": "Paycheck",
+    "amount": 5784.43,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "247539141321892366",
+    "date": "2026-06-25",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -17.25,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "247447699599597756",
     "date": "2026-06-24",
     "merchant": "Amazon",
     "category": "Shopping",
     "amount": -9.76,
     "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247535565119889617",
+    "date": "2026-06-24",
+    "merchant": "White Windmill",
+    "category": "Restaurants",
+    "amount": -10.71,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247521143302332672",
+    "date": "2026-06-24",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
   },
   {
     "id": "247447699599597758",
@@ -35,6 +67,46 @@
     "id": "247416854674350734",
     "date": "2026-06-23",
     "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247539140263879064",
+    "date": "2026-06-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247535565119889620",
+    "date": "2026-06-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -11.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247535565119889619",
+    "date": "2026-06-23",
+    "merchant": "Tower Beer & Wine",
+    "category": "Restaurants & Bars",
+    "amount": -137.07,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247535565119889618",
+    "date": "2026-06-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -37.44,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "247521143302332673",
+    "date": "2026-06-23",
+    "merchant": "HS & D Enterprises",
     "category": "Work Lunch",
     "amount": -9.01,
     "account": "Amex Gold Card"
@@ -117,6 +189,22 @@
     "merchant": "Temu",
     "category": "Shopping",
     "amount": -1.1,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247521143302332675",
+    "date": "2026-06-22",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -31.75,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247521143302332674",
+    "date": "2026-06-22",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -10.37,
     "account": "Amex Gold Card"
   },
   {
@@ -312,6 +400,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "247535565119889622",
+    "date": "2026-06-19",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -30.79,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "246964482841977729",
     "date": "2026-06-18",
     "merchant": "Burlington",
@@ -374,6 +470,14 @@
     "category": "Groceries",
     "amount": -85.61,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "247535565119889623",
+    "date": "2026-06-18",
+    "merchant": "Burlington",
+    "category": "Clothing",
+    "amount": -26.96,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "246900242910225240",

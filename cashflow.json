@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-24",
+  "as_of": "2026-06-25",
   "month": "June 2026",
-  "days_elapsed": 24,
+  "days_elapsed": 25,
   "days_in_month": 30,
-  "mtd_income": 5398.24,
-  "mtd_expenses": 9813.12,
-  "mtd_surplus": -4414.88,
-  "savings_rate_pct": -81.8,
-  "projected_month_expense": 12266.4,
-  "projected_savings": -6868.16,
+  "mtd_income": 11182.67,
+  "mtd_expenses": 9202.65,
+  "mtd_surplus": 1980.02,
+  "savings_rate_pct": 17.7,
+  "projected_month_expense": 11043.18,
+  "projected_savings": 139.49,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
@@ -27,20 +27,20 @@
       "amount": 927.74
     },
     {
-      "category": "Furniture & Housewares",
-      "amount": 661.46
-    },
-    {
       "category": "Restaurants & Bars",
-      "amount": 653.41
+      "amount": 755.02
     },
     {
       "category": "Shopping",
-      "amount": 598.25
+      "amount": 642.54
     },
     {
       "category": "Groceries",
-      "amount": 476.24
+      "amount": 469.62
+    },
+    {
+      "category": "Dentist",
+      "amount": 320.33
     }
   ]
 }
