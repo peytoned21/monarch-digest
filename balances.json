@@ -1,11 +1,11 @@
 {
-  "as_of": "June 25, 2026",
-  "generated_at": "2026-06-25",
+  "as_of": "June 26, 2026",
+  "generated_at": "2026-06-26",
   "_cached": false,
-  "roth": 430212,
-  "groth": 16104,
+  "roth": 431797,
+  "groth": 16119,
   "k401": 178527,
-  "taxable": 173496,
+  "taxable": 174145,
   "hsa": 17558,
   "hd_vested": 14745,
   "hd_rsus": 148273,
@@ -17,14 +17,14 @@
   "stanford_bal": 25016,
   "lexus_bal": 16904,
   "tesla_bal": 7664,
-  "cc_total": 12514,
+  "cc_total": 11054,
   "home_value": 717700,
   "vehicle_total": 59502,
   "lexus_value": 34770,
   "tesla_value": 24732,
-  "net_worth": 1503203,
-  "total_assets": 1850057,
-  "total_debt": 346854,
+  "net_worth": 1506911,
+  "total_assets": 1852305,
+  "total_debt": 345393,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 430212.69,
+      "balance": 431797.18,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 123052.55,
+      "balance": 123748.74,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -174,7 +174,7 @@
       "id": "166319434691977910",
       "name": "Amazon Prime Card",
       "type": "credit",
-      "balance": -935.26,
+      "balance": -144.31,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -183,7 +183,7 @@
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
       "type": "credit",
-      "balance": -6075.17,
+      "balance": -5398.95,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 178527.44,
+      "balance": 178527.5,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -3524.77,
+      "balance": -3531.4,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 44575.79,
+      "balance": 44526.31,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16104.61,
+      "balance": 16119.22,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -453,7 +453,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5868.58,
+      "balance": 5870.7,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"

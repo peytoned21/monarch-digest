@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-06-25",
+  "as_of": "2026-06-26",
   "month": "June 2026",
-  "days_elapsed": 25,
+  "days_elapsed": 26,
   "days_in_month": 30,
-  "mtd_income": 11182.67,
-  "mtd_expenses": 9202.65,
-  "mtd_surplus": 1980.02,
-  "savings_rate_pct": 17.7,
-  "projected_month_expense": 11043.18,
-  "projected_savings": 139.49,
+  "mtd_income": 11133.61,
+  "mtd_expenses": 9221.75,
+  "mtd_surplus": 1911.86,
+  "savings_rate_pct": 17.2,
+  "projected_month_expense": 10640.48,
+  "projected_savings": 493.13,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
@@ -28,11 +28,11 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 755.02
+      "amount": 742.07
     },
     {
       "category": "Shopping",
-      "amount": 642.54
+      "amount": 651.55
     },
     {
       "category": "Groceries",

@@ -16,6 +16,30 @@
     "account": "Amazon Prime Card"
   },
   {
+    "id": "247628748175647202",
+    "date": "2026-06-25",
+    "merchant": "Stillfire Brewing",
+    "category": "Restaurants",
+    "amount": -28.04,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247628748175647201",
+    "date": "2026-06-25",
+    "merchant": "Stillfire Brewing",
+    "category": "Restaurants",
+    "amount": -1.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247577027212681538",
+    "date": "2026-06-25",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247447699599597756",
     "date": "2026-06-24",
     "merchant": "Amazon",
@@ -36,6 +60,22 @@
     "date": "2026-06-24",
     "merchant": "HS D Enterprises",
     "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247630874574529001",
+    "date": "2026-06-24",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -9.76,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247577027212681539",
+    "date": "2026-06-24",
+    "merchant": "HS & D Enter",
+    "category": "Restaurants",
     "amount": -6.63,
     "account": "Amex Gold Card"
   },
@@ -110,6 +150,22 @@
     "category": "Work Lunch",
     "amount": -9.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "247630874574529000",
+    "date": "2026-06-23",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -7.96,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247630874574528999",
+    "date": "2026-06-23",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -54.52,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "247356260527055111",
