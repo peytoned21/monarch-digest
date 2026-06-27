@@ -1,5 +1,13 @@
 [
   {
+    "id": "247681358913020715",
+    "date": "2026-06-26",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247554546606220019",
     "date": "2026-06-25",
     "merchant": "The Home Depot",
@@ -36,6 +44,22 @@
     "date": "2026-06-25",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247721833243026280",
+    "date": "2026-06-25",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -17.25,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "247681358913020716",
+    "date": "2026-06-25",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
     "amount": -9.01,
     "account": "Amex Gold Card"
   },
