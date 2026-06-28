@@ -1,9 +1,33 @@
 [
   {
+    "id": "247784834865242170",
+    "date": "2026-06-27",
+    "merchant": "Shrimp Basket",
+    "category": "Restaurants & Bars",
+    "amount": -81.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247784834865242169",
+    "date": "2026-06-27",
+    "merchant": "Marathon",
+    "category": "Gas",
+    "amount": -73.77,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247681358913020715",
     "date": "2026-06-26",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
+    "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247784834865242171",
+    "date": "2026-06-26",
+    "merchant": "HS & D",
+    "category": "Work Lunch",
     "amount": -10.07,
     "account": "Amex Gold Card"
   },
