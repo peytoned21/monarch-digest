@@ -1,5 +1,77 @@
 [
   {
+    "id": "247903154849391496",
+    "date": "2026-06-29",
+    "merchant": "Georgia Power",
+    "category": "Gas & Electric",
+    "amount": -266.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "247903124928275184",
+    "date": "2026-06-28",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247903124928275183",
+    "date": "2026-06-28",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -22.81,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247903124928275182",
+    "date": "2026-06-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247888383980806743",
+    "date": "2026-06-28",
+    "merchant": "The Point Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -115.45,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247888383980806742",
+    "date": "2026-06-28",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -15.13,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247888381833322956",
+    "date": "2026-06-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "247888381833322955",
+    "date": "2026-06-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "247888381833322954",
+    "date": "2026-06-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "247784834865242170",
     "date": "2026-06-27",
     "merchant": "Shrimp Basket",
@@ -29,6 +101,14 @@
     "merchant": "HS & D",
     "category": "Work Lunch",
     "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247888383980806744",
+    "date": "2026-06-26",
+    "merchant": "Stillfire Brewing",
+    "category": "Liquor Store",
+    "amount": -29.04,
     "account": "Amex Gold Card"
   },
   {
