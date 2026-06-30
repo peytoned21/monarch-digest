@@ -8,6 +8,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "247993726268285560",
+    "date": "2026-06-29",
+    "merchant": "Luna's Eat & Drink",
+    "category": "Restaurants & Bars",
+    "amount": -48.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247993726268285559",
+    "date": "2026-06-29",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -3.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "247903124928275184",
     "date": "2026-06-28",
     "merchant": "AT&T",
@@ -72,6 +88,30 @@
     "account": "Amex Platinum Card"
   },
   {
+    "id": "247995540164256548",
+    "date": "2026-06-28",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -22.81,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247995540164256547",
+    "date": "2026-06-28",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "247995540164256546",
+    "date": "2026-06-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "247784834865242170",
     "date": "2026-06-27",
     "merchant": "Shrimp Basket",
@@ -81,6 +121,22 @@
   },
   {
     "id": "247784834865242169",
+    "date": "2026-06-27",
+    "merchant": "Marathon",
+    "category": "Gas",
+    "amount": -73.77,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247941043718136671",
+    "date": "2026-06-27",
+    "merchant": "Shrimp Basket",
+    "category": "Restaurants & Bars",
+    "amount": -100.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "247941043718136670",
     "date": "2026-06-27",
     "merchant": "Marathon",
     "category": "Gas",
