@@ -1,5 +1,29 @@
 [
   {
+    "id": "248094619016831147",
+    "date": "2026-07-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 18.67,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "248094617510028277",
+    "date": "2026-07-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 141.81,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "248072003845562761",
+    "date": "2026-07-01",
+    "merchant": "Wells Fargo",
+    "category": "Cash & ATM",
+    "amount": -114.44,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "247903154849391496",
     "date": "2026-06-29",
     "merchant": "Georgia Power",
