@@ -1,5 +1,29 @@
 [
   {
+    "id": "248190566687252977",
+    "date": "2026-07-02",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "248190566687252976",
+    "date": "2026-07-02",
+    "merchant": "First Tech Federal Credit Union",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "248151616078684314",
+    "date": "2026-07-02",
+    "merchant": "The Gulf",
+    "category": "Restaurants & Bars",
+    "amount": -111.05,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "248094619016831147",
     "date": "2026-07-01",
     "merchant": "Wealthfront",
@@ -22,6 +46,30 @@
     "category": "Cash & ATM",
     "amount": -114.44,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "248195718992307029",
+    "date": "2026-07-01",
+    "merchant": "External Loan Payment Olb Transfer",
+    "category": "Student Loan",
+    "amount": 1120.6,
+    "account": "Stanford Student Loan (3%)"
+  },
+  {
+    "id": "248180422796583423",
+    "date": "2026-07-01",
+    "merchant": "The Gulf Retail",
+    "category": "Shopping",
+    "amount": -30.8,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248151616078684315",
+    "date": "2026-07-01",
+    "merchant": "Henderson",
+    "category": "Child Activities",
+    "amount": -25.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "247903154849391496",
