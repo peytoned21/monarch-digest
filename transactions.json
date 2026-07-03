@@ -24,6 +24,22 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "248258521303294799",
+    "date": "2026-07-02",
+    "merchant": "Lartigue Fresh Seafood",
+    "category": "Groceries",
+    "amount": -33.35,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248232500054139032",
+    "date": "2026-07-02",
+    "merchant": "State Road and Toll Authority",
+    "category": "Parking & Tolls",
+    "amount": -20.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "248094619016831147",
     "date": "2026-07-01",
     "merchant": "Wealthfront",
@@ -70,6 +86,22 @@
     "category": "Child Activities",
     "amount": -25.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248272566084378791",
+    "date": "2026-07-01",
+    "merchant": "The Gulf Retail",
+    "category": "Shopping",
+    "amount": -30.8,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248205746019181511",
+    "date": "2026-07-01",
+    "merchant": "Goodwill",
+    "category": "Other Income",
+    "amount": 50.0,
+    "account": "Amex Platinum Card"
   },
   {
     "id": "247903154849391496",
