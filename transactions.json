@@ -1,5 +1,61 @@
 [
   {
+    "id": "248363041991631267",
+    "date": "2026-07-04",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248362705303314609",
+    "date": "2026-07-03",
+    "merchant": "Willy's Mexicana Grill",
+    "category": "Restaurants & Bars",
+    "amount": -26.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248326806520668768",
+    "date": "2026-07-03",
+    "merchant": "The Point Restaurant",
+    "category": "Restaurants",
+    "amount": -135.77,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248326806520668767",
+    "date": "2026-07-03",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -11.21,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248326806520668766",
+    "date": "2026-07-03",
+    "merchant": "Sunstop",
+    "category": "Gas & Fuel",
+    "amount": -5.09,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248326806520668765",
+    "date": "2026-07-03",
+    "merchant": "Shell",
+    "category": "Gas & Fuel",
+    "amount": -3.73,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248310975338324370",
+    "date": "2026-07-03",
+    "merchant": "Sun Stop",
+    "category": "Gas",
+    "amount": -72.2,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248190566687252977",
     "date": "2026-07-02",
     "merchant": "Tesla",
@@ -38,6 +94,14 @@
     "category": "Parking & Tolls",
     "amount": -20.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248316598467633371",
+    "date": "2026-07-02",
+    "merchant": "Zelle",
+    "category": "Shopping",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "248094619016831147",
@@ -102,6 +166,30 @@
     "category": "Other Income",
     "amount": 50.0,
     "account": "Amex Platinum Card"
+  },
+  {
+    "id": "248326806520668770",
+    "date": "2026-07-01",
+    "merchant": "Flora-Bama Oyster Bar",
+    "category": "Restaurants",
+    "amount": -6.69,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248326806520668769",
+    "date": "2026-07-01",
+    "merchant": "The Gulf",
+    "category": "Restaurants",
+    "amount": -137.05,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248310975338324371",
+    "date": "2026-07-01",
+    "merchant": "Flora Bama Lounge",
+    "category": "Restaurants & Bars",
+    "amount": -25.75,
+    "account": "Amex Gold Card"
   },
   {
     "id": "247903154849391496",
