@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-04",
+  "as_of": "2026-07-05",
   "month": "July 2026",
-  "days_elapsed": 4,
+  "days_elapsed": 5,
   "days_in_month": 31,
   "mtd_income": 1331.08,
-  "mtd_expenses": 1912.98,
-  "mtd_surplus": -581.9,
-  "savings_rate_pct": -43.7,
-  "projected_month_expense": 14825.59,
-  "projected_savings": -13494.51,
+  "mtd_expenses": 2180.75,
+  "mtd_surplus": -849.67,
+  "savings_rate_pct": -63.8,
+  "projected_month_expense": 13520.65,
+  "projected_savings": -12189.57,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -16,11 +16,19 @@
     },
     {
       "category": "Restaurants",
-      "amount": 279.51
+      "amount": 291.89
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 174.47
+      "category": "Groceries",
+      "amount": 144.14
+    },
+    {
+      "category": "Water",
+      "amount": 128.22
+    },
+    {
+      "category": "Life Insurance",
+      "amount": 114.44
     },
     {
       "category": "Cash & ATM",
@@ -33,14 +41,6 @@
     {
       "category": "Shopping",
       "amount": 70.8
-    },
-    {
-      "category": "Groceries",
-      "amount": 33.35
-    },
-    {
-      "category": "Parking & Tolls",
-      "amount": 20.0
     }
   ]
 }

@@ -8,6 +8,30 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "248453320454119454",
+    "date": "2026-07-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248414876720898268",
+    "date": "2026-07-04",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -105.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248414876720898267",
+    "date": "2026-07-04",
+    "merchant": "Atlanta",
+    "category": "Restaurants",
+    "amount": -12.38,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248362705303314609",
     "date": "2026-07-03",
     "merchant": "Willy's Mexicana Grill",
@@ -56,6 +80,38 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "248414876720898269",
+    "date": "2026-07-03",
+    "merchant": "Willys Mexican",
+    "category": "Restaurants & Bars",
+    "amount": -26.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248395758168908391",
+    "date": "2026-07-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "248395758168908390",
+    "date": "2026-07-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -87.28,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "248395758168908388",
+    "date": "2026-07-03",
+    "merchant": "Dekalb County",
+    "category": "Water",
+    "amount": -128.22,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "248190566687252977",
     "date": "2026-07-02",
     "merchant": "Tesla",
@@ -102,6 +158,14 @@
     "category": "Shopping",
     "amount": -40.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "248414876720898270",
+    "date": "2026-07-02",
+    "merchant": "Lartigue Fresh Seafood",
+    "category": "Groceries",
+    "amount": -38.35,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248094619016831147",
