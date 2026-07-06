@@ -1,5 +1,53 @@
 [
   {
+    "id": "248543949256335495",
+    "date": "2026-07-05",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -24.36,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248518632197267912",
+    "date": "2026-07-05",
+    "merchant": "White Windmill Bakery",
+    "category": "Restaurants & Bars",
+    "amount": -12.76,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248518632197267911",
+    "date": "2026-07-05",
+    "merchant": "Wine and Spirits",
+    "category": "Liquor Store",
+    "amount": -177.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248518632197267910",
+    "date": "2026-07-05",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -16.75,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248518632197267909",
+    "date": "2026-07-05",
+    "merchant": "Home Run Derby",
+    "category": "Auto Maintenance",
+    "amount": -47.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248518632197267908",
+    "date": "2026-07-05",
+    "merchant": "Hightower Drinks",
+    "category": "Coffee Shops",
+    "amount": -16.19,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248363041991631267",
     "date": "2026-07-04",
     "merchant": "The New York Times",
@@ -30,6 +78,22 @@
     "category": "Restaurants",
     "amount": -12.38,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "248543949256335497",
+    "date": "2026-07-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248543949256335496",
+    "date": "2026-07-04",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "248362705303314609",
@@ -110,6 +174,14 @@
     "category": "Water",
     "amount": -128.22,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "248518632197267913",
+    "date": "2026-07-03",
+    "merchant": "Sunstop",
+    "category": "Gas & Fuel",
+    "amount": -72.2,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248190566687252977",
