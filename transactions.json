@@ -1,5 +1,21 @@
 [
   {
+    "id": "248624514580029771",
+    "date": "2026-07-06",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248571479125336884",
+    "date": "2026-07-06",
+    "merchant": "Yager Family Medicine",
+    "category": "Medical",
+    "amount": -49.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248543949256335495",
     "date": "2026-07-05",
     "merchant": "Publix",
@@ -44,6 +60,22 @@
     "date": "2026-07-05",
     "merchant": "Hightower Drinks",
     "category": "Coffee Shops",
+    "amount": -16.19,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248636449376641525",
+    "date": "2026-07-05",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -24.36,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248624514580029772",
+    "date": "2026-07-05",
+    "merchant": "Hightower",
+    "category": "Liquor Store",
     "amount": -16.19,
     "account": "Amex Gold Card"
   },
@@ -94,6 +126,22 @@
     "category": "Subscriptions",
     "amount": -8.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248624514580029774",
+    "date": "2026-07-04",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -12.38,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248624514580029773",
+    "date": "2026-07-04",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -105.79,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248362705303314609",
