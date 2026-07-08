@@ -1,5 +1,45 @@
 [
   {
+    "id": "248727966338458472",
+    "date": "2026-07-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248730770761261130",
+    "date": "2026-07-07",
+    "merchant": "La Grotta Ristorante",
+    "category": "Restaurants & Bars",
+    "amount": -66.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248727967513912281",
+    "date": "2026-07-07",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -83.82,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "248678532507443344",
+    "date": "2026-07-07",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -7.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248674315710439671",
+    "date": "2026-07-07",
+    "merchant": "Boutique Rugs",
+    "category": "Clothing",
+    "amount": -191.01,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "248624514580029771",
     "date": "2026-07-06",
     "merchant": "HS D Enterprises",
@@ -14,6 +54,38 @@
     "category": "Medical",
     "amount": -49.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "248678532507443346",
+    "date": "2026-07-06",
+    "merchant": "White",
+    "category": "Restaurants & Bars",
+    "amount": -12.76,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248678532507443345",
+    "date": "2026-07-06",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248674315710439673",
+    "date": "2026-07-06",
+    "merchant": "Jiffy Lube",
+    "category": "Auto Maintenance",
+    "amount": -216.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439672",
+    "date": "2026-07-06",
+    "merchant": "Home Run Derby",
+    "category": "Auto Maintenance",
+    "amount": -39.99,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "248543949256335495",
@@ -80,6 +152,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "248678532507443349",
+    "date": "2026-07-05",
+    "merchant": "Home Run Derby",
+    "category": "Restaurants & Bars",
+    "amount": -47.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248678532507443348",
+    "date": "2026-07-05",
+    "merchant": "Tower of Beer",
+    "category": "Liquor Store",
+    "amount": -177.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248678532507443347",
+    "date": "2026-07-05",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -16.75,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248363041991631267",
     "date": "2026-07-04",
     "merchant": "The New York Times",
@@ -142,6 +238,38 @@
     "category": "Groceries",
     "amount": -105.79,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "248674315710439677",
+    "date": "2026-07-04",
+    "merchant": "Spotify",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439676",
+    "date": "2026-07-04",
+    "merchant": "Kroger",
+    "category": "Gas & Fuel",
+    "amount": -60.42,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439675",
+    "date": "2026-07-04",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -37.98,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439674",
+    "date": "2026-07-04",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -77.44,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "248362705303314609",
@@ -232,6 +360,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "248674315710439680",
+    "date": "2026-07-03",
+    "merchant": "Shell",
+    "category": "Gas & Fuel",
+    "amount": -3.73,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439679",
+    "date": "2026-07-03",
+    "merchant": "Sunstop",
+    "category": "Gas",
+    "amount": -5.09,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439678",
+    "date": "2026-07-03",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -11.21,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "248190566687252977",
     "date": "2026-07-02",
     "merchant": "Tesla",
@@ -286,6 +438,22 @@
     "category": "Groceries",
     "amount": -38.35,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "248674315710439682",
+    "date": "2026-07-02",
+    "merchant": "State Road and Tollway Authority",
+    "category": "Parking & Tolls",
+    "amount": -20.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248674315710439681",
+    "date": "2026-07-02",
+    "merchant": "The Point Restaurant",
+    "category": "Restaurants",
+    "amount": -160.11,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "248094619016831147",
