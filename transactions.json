@@ -1,5 +1,13 @@
 [
   {
+    "id": "248815403760820780",
+    "date": "2026-07-09",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5088.46,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "248727966338458472",
     "date": "2026-07-08",
     "merchant": "Netflix",
@@ -38,6 +46,38 @@
     "category": "Clothing",
     "amount": -191.01,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248828773775909880",
+    "date": "2026-07-07",
+    "merchant": "Boutique Rugs",
+    "category": "Clothing",
+    "amount": -191.01,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248819191843332774",
+    "date": "2026-07-07",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -83.82,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "248784244716806568",
+    "date": "2026-07-07",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 11.37,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248784244716806567",
+    "date": "2026-07-07",
+    "merchant": "HS & D Enterprise",
+    "category": "Restaurants",
+    "amount": -7.95,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248624514580029771",
@@ -85,6 +125,54 @@
     "merchant": "Home Run Derby",
     "category": "Auto Maintenance",
     "amount": -39.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248828773775909883",
+    "date": "2026-07-06",
+    "merchant": "Jiffy Lube",
+    "category": "Auto Maintenance",
+    "amount": -216.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248828773775909882",
+    "date": "2026-07-06",
+    "merchant": "Target",
+    "category": "Groceries",
+    "amount": 22.66,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248828773775909881",
+    "date": "2026-07-06",
+    "merchant": "Target",
+    "category": "Groceries",
+    "amount": 42.62,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248784244716806569",
+    "date": "2026-07-06",
+    "merchant": "Yager Family Medicine",
+    "category": "Medical",
+    "amount": -49.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248754661096366134",
+    "date": "2026-07-06",
+    "merchant": "Home Run Derby",
+    "category": "Auto Maintenance",
+    "amount": -39.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248754661096366133",
+    "date": "2026-07-06",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -77.44,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
