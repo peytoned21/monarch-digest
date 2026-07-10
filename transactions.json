@@ -1,5 +1,13 @@
 [
   {
+    "id": "248911173916762407",
+    "date": "2026-07-10",
+    "merchant": "Venmo",
+    "category": "Restaurants & Bars",
+    "amount": -27.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "248815403760820780",
     "date": "2026-07-09",
     "merchant": "The Home Depot",
@@ -8,12 +16,52 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "248911910007677569",
+    "date": "2026-07-09",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248889901257270119",
+    "date": "2026-07-09",
+    "merchant": "Dekalb County Tax Commissioner",
+    "category": "Taxes",
+    "amount": -301.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248836872446353949",
+    "date": "2026-07-09",
+    "merchant": "Waffle House",
+    "category": "Restaurants & Bars",
+    "amount": -11.31,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248727966338458472",
     "date": "2026-07-08",
     "merchant": "Netflix",
     "category": "Subscriptions",
     "amount": -8.99,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248911910007677570",
+    "date": "2026-07-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "248836872446353950",
+    "date": "2026-07-08",
+    "merchant": "Patreon",
+    "category": "Entertainment & Recreation",
+    "amount": -4.86,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248730770761261130",
@@ -77,6 +125,14 @@
     "merchant": "HS & D Enterprise",
     "category": "Restaurants",
     "amount": -7.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248836872446353951",
+    "date": "2026-07-07",
+    "merchant": "La Grotta Ristorante",
+    "category": "Restaurants & Bars",
+    "amount": -80.24,
     "account": "Amex Gold Card"
   },
   {
@@ -174,6 +230,14 @@
     "category": "Shopping",
     "amount": -77.44,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "248550182430384770",
+    "date": "2026-07-06",
+    "merchant": "Venmo",
+    "category": "Travel & Vacation",
+    "amount": -150.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "248543949256335495",
