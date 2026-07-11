@@ -8,6 +8,14 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "248995085889249459",
+    "date": "2026-07-10",
+    "merchant": "Wine and Spirits",
+    "category": "Liquor Store",
+    "amount": -348.73,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248815403760820780",
     "date": "2026-07-09",
     "merchant": "The Home Depot",
@@ -37,6 +45,14 @@
     "merchant": "Waffle House",
     "category": "Restaurants & Bars",
     "amount": -11.31,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "248943007881961793",
+    "date": "2026-07-09",
+    "merchant": "Patreon",
+    "category": "Entertainment & Recreation",
+    "amount": -4.86,
     "account": "Amex Gold Card"
   },
   {
