@@ -16,6 +16,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "249036114199782350",
+    "date": "2026-07-10",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -300.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "248815403760820780",
     "date": "2026-07-09",
     "merchant": "The Home Depot",
@@ -53,6 +61,22 @@
     "merchant": "Patreon",
     "category": "Entertainment & Recreation",
     "amount": -4.86,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249047815145071312",
+    "date": "2026-07-09",
+    "merchant": "Dekalb Vehicle Tag",
+    "category": "Auto Payment",
+    "amount": -301.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249047815145071311",
+    "date": "2026-07-09",
+    "merchant": "Waffle House",
+    "category": "Restaurants & Bars",
+    "amount": -11.31,
     "account": "Amex Gold Card"
   },
   {
