@@ -1,5 +1,45 @@
 [
   {
+    "id": "249184356858274167",
+    "date": "2026-07-12",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -8.26,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249151705262793425",
+    "date": "2026-07-12",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -14.02,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249151705262793424",
+    "date": "2026-07-12",
+    "merchant": "Little Thistle Studio",
+    "category": "Child Care",
+    "amount": -75.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249151705262793423",
+    "date": "2026-07-12",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -71.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249151705262793422",
+    "date": "2026-07-12",
+    "merchant": "Fork in the Road",
+    "category": "Restaurants & Bars",
+    "amount": -28.44,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248911173916762407",
     "date": "2026-07-10",
     "merchant": "Venmo",
@@ -22,6 +62,14 @@
     "category": "Cash & ATM",
     "amount": -300.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "249151705262793426",
+    "date": "2026-07-10",
+    "merchant": "Tower Of Beer Wine & Spirits",
+    "category": "Restaurants",
+    "amount": -348.73,
+    "account": "Amex Gold Card"
   },
   {
     "id": "248815403760820780",
@@ -78,6 +126,14 @@
     "category": "Restaurants & Bars",
     "amount": -11.31,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249184356858274168",
+    "date": "2026-07-09",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "248727966338458472",

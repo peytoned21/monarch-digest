@@ -1,6 +1,6 @@
 {
-  "as_of": "July 12, 2026",
-  "generated_at": "2026-07-12",
+  "as_of": "July 13, 2026",
+  "generated_at": "2026-07-13",
   "_cached": false,
   "roth": 438793,
   "groth": 16551,
@@ -17,14 +17,14 @@
   "stanford_bal": 23957,
   "lexus_bal": 16904,
   "tesla_bal": 7664,
-  "cc_total": 14276,
+  "cc_total": 14627,
   "home_value": 719300,
   "vehicle_total": 61331,
   "lexus_value": 34686,
   "tesla_value": 26645,
-  "net_worth": 1546939,
+  "net_worth": 1546589,
   "total_assets": 1894497,
-  "total_debt": 347557,
+  "total_debt": 347908,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -183,7 +183,7 @@
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
       "type": "credit",
-      "balance": -5616.9,
+      "balance": -5619.07,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -5094.93,
+      "balance": -5443.66,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
