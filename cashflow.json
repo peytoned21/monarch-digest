@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-13",
+  "as_of": "2026-07-14",
   "month": "July 2026",
-  "days_elapsed": 13,
+  "days_elapsed": 14,
   "days_in_month": 31,
   "mtd_income": 5375.59,
-  "mtd_expenses": 4715.98,
-  "mtd_surplus": 659.61,
-  "savings_rate_pct": 12.3,
-  "projected_month_expense": 11245.8,
-  "projected_savings": -5870.21,
+  "mtd_expenses": 5283.74,
+  "mtd_surplus": 91.85,
+  "savings_rate_pct": 1.7,
+  "projected_month_expense": 11699.71,
+  "projected_savings": -6324.12,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -19,12 +19,20 @@
       "amount": 565.37
     },
     {
+      "category": "Dentist",
+      "amount": 546.0
+    },
+    {
+      "category": "Liquor Store",
+      "amount": 541.99
+    },
+    {
       "category": "Cash & ATM",
       "amount": 414.44
     },
     {
-      "category": "Restaurants",
-      "amount": 348.73
+      "category": "Shopping",
+      "amount": 351.67
     },
     {
       "category": "Auto Maintenance",
@@ -33,14 +41,6 @@
     {
       "category": "Auto Payment",
       "amount": 301.4
-    },
-    {
-      "category": "Shopping",
-      "amount": 270.04
-    },
-    {
-      "category": "Groceries",
-      "amount": 233.25
     }
   ]
 }

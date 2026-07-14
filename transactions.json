@@ -1,5 +1,37 @@
 [
   {
+    "id": "249204519200563668",
+    "date": "2026-07-13",
+    "merchant": "Wesley D Powell DDS",
+    "category": "Dentist",
+    "amount": -546.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249204519200563667",
+    "date": "2026-07-13",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -5.14,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249204519200563666",
+    "date": "2026-07-13",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249204519200563665",
+    "date": "2026-07-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249184356858274167",
     "date": "2026-07-12",
     "merchant": "Tesla",
@@ -37,6 +69,22 @@
     "merchant": "Fork in the Road",
     "category": "Restaurants & Bars",
     "amount": -28.44,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249277290188316890",
+    "date": "2026-07-12",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -8.26,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249204519200563669",
+    "date": "2026-07-12",
+    "merchant": "Little Thistle",
+    "category": "Shopping",
+    "amount": -75.0,
     "account": "Amex Gold Card"
   },
   {
