@@ -1,22 +1,26 @@
 {
-  "as_of": "2026-07-14",
+  "as_of": "2026-07-15",
   "month": "July 2026",
-  "days_elapsed": 14,
+  "days_elapsed": 15,
   "days_in_month": 31,
-  "mtd_income": 5375.59,
-  "mtd_expenses": 5283.74,
-  "mtd_surplus": 91.85,
-  "savings_rate_pct": 1.7,
-  "projected_month_expense": 11699.71,
-  "projected_savings": -6324.12,
+  "mtd_income": 5460.9,
+  "mtd_expenses": 7346.27,
+  "mtd_surplus": -1885.37,
+  "savings_rate_pct": -34.5,
+  "projected_month_expense": 15182.29,
+  "projected_savings": -9721.39,
   "top_categories": [
+    {
+      "category": "E&A 529 Plan",
+      "amount": 2000.0
+    },
     {
       "category": "Student Loans",
       "amount": 1120.6
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 565.37
+      "amount": 575.04
     },
     {
       "category": "Dentist",
@@ -32,15 +36,11 @@
     },
     {
       "category": "Shopping",
-      "amount": 351.67
+      "amount": 389.69
     },
     {
       "category": "Auto Maintenance",
       "amount": 304.29
-    },
-    {
-      "category": "Auto Payment",
-      "amount": 301.4
     }
   ]
 }

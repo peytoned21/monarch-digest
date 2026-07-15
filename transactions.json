@@ -1,5 +1,45 @@
 [
   {
+    "id": "249353267454091870",
+    "date": "2026-07-15",
+    "merchant": "Path2College 529 Plan",
+    "category": "E&A 529 Plan",
+    "amount": -2000.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "249373504506372139",
+    "date": "2026-07-14",
+    "merchant": "Dignitana",
+    "category": "Miscellaneous",
+    "amount": -10.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249332334674781144",
+    "date": "2026-07-14",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -38.02,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249332334674781143",
+    "date": "2026-07-14",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -9.67,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249332334674781142",
+    "date": "2026-07-14",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": 85.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "249204519200563668",
     "date": "2026-07-13",
     "merchant": "Wesley D Powell DDS",
@@ -25,6 +65,22 @@
   },
   {
     "id": "249204519200563665",
+    "date": "2026-07-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249310580129604482",
+    "date": "2026-07-13",
+    "merchant": "HS & D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249310580129604481",
     "date": "2026-07-13",
     "merchant": "Apple",
     "category": "Subscriptions",
@@ -88,6 +144,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "249310580129604485",
+    "date": "2026-07-12",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -71.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249310580129604484",
+    "date": "2026-07-12",
+    "merchant": "Fork in the Road",
+    "category": "Restaurants & Bars",
+    "amount": -28.44,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249310580129604483",
+    "date": "2026-07-12",
+    "merchant": "QuikTrip",
+    "category": "Gas & Fuel",
+    "amount": -14.02,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "248911173916762407",
     "date": "2026-07-10",
     "merchant": "Venmo",
@@ -118,6 +198,14 @@
     "category": "Restaurants",
     "amount": -348.73,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249332334674781145",
+    "date": "2026-07-10",
+    "merchant": "Goodwill",
+    "category": "Clothing",
+    "amount": -4.84,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "248815403760820780",
