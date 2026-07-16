@@ -1,18 +1,22 @@
 {
-  "as_of": "2026-07-15",
+  "as_of": "2026-07-16",
   "month": "July 2026",
-  "days_elapsed": 15,
+  "days_elapsed": 16,
   "days_in_month": 31,
   "mtd_income": 5460.9,
-  "mtd_expenses": 7346.27,
-  "mtd_surplus": -1885.37,
-  "savings_rate_pct": -34.5,
-  "projected_month_expense": 15182.29,
-  "projected_savings": -9721.39,
+  "mtd_expenses": 8739.61,
+  "mtd_surplus": -3278.71,
+  "savings_rate_pct": -60.0,
+  "projected_month_expense": 16932.99,
+  "projected_savings": -11472.09,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
       "amount": 2000.0
+    },
+    {
+      "category": "Mortgage",
+      "amount": 1345.16
     },
     {
       "category": "Student Loans",
@@ -36,11 +40,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 389.69
-    },
-    {
-      "category": "Auto Maintenance",
-      "amount": 304.29
+      "amount": 392.87
     }
   ]
 }
