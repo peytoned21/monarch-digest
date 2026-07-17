@@ -1,5 +1,45 @@
 [
   {
+    "id": "249540563006596064",
+    "date": "2026-07-16",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -55.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249521982656160766",
+    "date": "2026-07-16",
+    "merchant": "Bebanhmi",
+    "category": "Restaurants",
+    "amount": -8.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249481276460835508",
+    "date": "2026-07-16",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -120.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249481276460835507",
+    "date": "2026-07-16",
+    "merchant": "Portillo's",
+    "category": "Restaurants & Bars",
+    "amount": -192.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249481276460835506",
+    "date": "2026-07-16",
+    "merchant": "Buford Highway Farmers Market",
+    "category": "Groceries",
+    "amount": -30.34,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249353267454091870",
     "date": "2026-07-15",
     "merchant": "Path2College 529 Plan",
@@ -32,6 +72,30 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "249481276460835510",
+    "date": "2026-07-15",
+    "merchant": "Little Thistle",
+    "category": "Shopping",
+    "amount": -45.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249481276460835509",
+    "date": "2026-07-15",
+    "merchant": "HS & D Enterprise",
+    "category": "Shopping",
+    "amount": -3.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249474358915834767",
+    "date": "2026-07-15",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -23.56,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "249373504506372139",
     "date": "2026-07-14",
     "merchant": "Dignitana",
@@ -57,6 +121,38 @@
   },
   {
     "id": "249332334674781142",
+    "date": "2026-07-14",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": 85.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249521982657208322",
+    "date": "2026-07-14",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -4.85,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249521982657208321",
+    "date": "2026-07-14",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -33.17,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249521982657208320",
+    "date": "2026-07-14",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": 85.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249521982656160767",
     "date": "2026-07-14",
     "merchant": "Michaels",
     "category": "Furniture & Housewares",
