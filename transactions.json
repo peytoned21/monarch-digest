@@ -1,5 +1,21 @@
 [
   {
+    "id": "249594336114582267",
+    "date": "2026-07-17",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249570973547700778",
+    "date": "2026-07-17",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 18.35,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "249540563006596064",
     "date": "2026-07-16",
     "merchant": "Temu",
@@ -38,6 +54,14 @@
     "category": "Groceries",
     "amount": -30.34,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249567164819776180",
+    "date": "2026-07-16",
+    "merchant": "Tum Pok Pok",
+    "category": "Restaurants & Bars",
+    "amount": -30.72,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "249353267454091870",
@@ -157,6 +181,22 @@
     "merchant": "Michaels",
     "category": "Furniture & Housewares",
     "amount": 85.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249594336114582268",
+    "date": "2026-07-14",
+    "merchant": "Dignitana Inc",
+    "category": "Miscellaneous",
+    "amount": -10.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249570973547700779",
+    "date": "2026-07-14",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -9.67,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {

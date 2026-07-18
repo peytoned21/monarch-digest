@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-17",
+  "as_of": "2026-07-18",
   "month": "July 2026",
-  "days_elapsed": 17,
+  "days_elapsed": 18,
   "days_in_month": 31,
-  "mtd_income": 5631.52,
-  "mtd_expenses": 9207.97,
-  "mtd_surplus": -3576.45,
-  "savings_rate_pct": -63.5,
-  "projected_month_expense": 16791.0,
-  "projected_savings": -11159.48,
+  "mtd_income": 5564.56,
+  "mtd_expenses": 9202.84,
+  "mtd_surplus": -3638.28,
+  "savings_rate_pct": -65.4,
+  "projected_month_expense": 15849.34,
+  "projected_savings": -10284.78,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -24,11 +24,7 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 767.74
-    },
-    {
-      "category": "Shopping",
-      "amount": 555.03
+      "amount": 798.46
     },
     {
       "category": "Dentist",
@@ -37,6 +33,10 @@
     {
       "category": "Liquor Store",
       "amount": 541.99
+    },
+    {
+      "category": "Shopping",
+      "amount": 517.01
     },
     {
       "category": "Cash & ATM",
