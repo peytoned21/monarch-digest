@@ -1,5 +1,13 @@
 [
   {
+    "id": "249699637339824206",
+    "date": "2026-07-18",
+    "merchant": "Down Wind Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -44.55,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249594336114582267",
     "date": "2026-07-17",
     "merchant": "365 Retail Markets",
@@ -64,6 +72,38 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "249699637339824210",
+    "date": "2026-07-16",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -120.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249699637339824209",
+    "date": "2026-07-16",
+    "merchant": "Buford Highway",
+    "category": "Groceries",
+    "amount": -30.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249699637339824208",
+    "date": "2026-07-16",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -55.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249699637339824207",
+    "date": "2026-07-16",
+    "merchant": "Portillo's",
+    "category": "Restaurants & Bars",
+    "amount": -192.7,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249353267454091870",
     "date": "2026-07-15",
     "merchant": "Path2College 529 Plan",
@@ -113,6 +153,14 @@
   },
   {
     "id": "249474358915834767",
+    "date": "2026-07-15",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -23.56,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "249658079730147854",
     "date": "2026-07-15",
     "merchant": "Amazon",
     "category": "Shopping",

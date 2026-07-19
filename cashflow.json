@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-18",
+  "as_of": "2026-07-19",
   "month": "July 2026",
-  "days_elapsed": 18,
+  "days_elapsed": 19,
   "days_in_month": 31,
   "mtd_income": 5564.56,
-  "mtd_expenses": 9202.84,
-  "mtd_surplus": -3638.28,
-  "savings_rate_pct": -65.4,
-  "projected_month_expense": 15849.34,
-  "projected_savings": -10284.78,
+  "mtd_expenses": 9247.39,
+  "mtd_surplus": -3682.83,
+  "savings_rate_pct": -66.2,
+  "projected_month_expense": 15087.85,
+  "projected_savings": -9523.29,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 798.46
+      "amount": 843.01
     },
     {
       "category": "Dentist",
