@@ -1,5 +1,13 @@
 [
   {
+    "id": "249751949294903659",
+    "date": "2026-07-19",
+    "merchant": "Old Hickory House",
+    "category": "Restaurants & Bars",
+    "amount": -30.13,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249699637339824206",
     "date": "2026-07-18",
     "merchant": "Down Wind Restaurant",
@@ -22,6 +30,14 @@
     "category": "Shopping",
     "amount": 18.35,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249751949294903660",
+    "date": "2026-07-17",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
+    "account": "Amex Gold Card"
   },
   {
     "id": "249540563006596064",
