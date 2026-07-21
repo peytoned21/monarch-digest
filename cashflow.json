@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-20",
+  "as_of": "2026-07-21",
   "month": "July 2026",
-  "days_elapsed": 20,
+  "days_elapsed": 21,
   "days_in_month": 31,
-  "mtd_income": 5564.56,
-  "mtd_expenses": 9277.52,
-  "mtd_surplus": -3712.96,
-  "savings_rate_pct": -66.7,
-  "projected_month_expense": 14380.16,
-  "projected_savings": -8815.6,
+  "mtd_income": 5404.08,
+  "mtd_expenses": 9184.59,
+  "mtd_surplus": -3780.51,
+  "savings_rate_pct": -70.0,
+  "projected_month_expense": 13558.2,
+  "projected_savings": -8154.12,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -39,8 +39,8 @@
       "amount": 507.2
     },
     {
-      "category": "Cash & ATM",
-      "amount": 414.44
+      "category": "Groceries",
+      "amount": 403.56
     }
   ]
 }

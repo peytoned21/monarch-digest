@@ -1,5 +1,21 @@
 [
   {
+    "id": "249857988282491753",
+    "date": "2026-07-20",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -12.5,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249857988282491752",
+    "date": "2026-07-20",
+    "merchant": "HS D Enterprises",
+    "category": "Restaurants",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249751949294903659",
     "date": "2026-07-19",
     "merchant": "Old Hickory House",
@@ -11,6 +27,14 @@
     "id": "249699637339824206",
     "date": "2026-07-18",
     "merchant": "Down Wind Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -44.55,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249857988282491754",
+    "date": "2026-07-18",
+    "merchant": "The Down",
     "category": "Restaurants & Bars",
     "amount": -44.55,
     "account": "Amex Gold Card"
@@ -118,6 +142,14 @@
     "category": "Restaurants & Bars",
     "amount": -192.7,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249839411984802555",
+    "date": "2026-07-16",
+    "merchant": "Tum Pok Pok",
+    "category": "Restaurants & Bars",
+    "amount": -30.72,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "249353267454091870",
