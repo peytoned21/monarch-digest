@@ -1,5 +1,37 @@
 [
   {
+    "id": "249964412478103663",
+    "date": "2026-07-21",
+    "merchant": "Google",
+    "category": "Shopping",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "249932103273095860",
+    "date": "2026-07-21",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249932103273095859",
+    "date": "2026-07-21",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249919793347371326",
+    "date": "2026-07-21",
+    "merchant": "Vista Yoga",
+    "category": "Fitness",
+    "amount": -95.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "249857988282491753",
     "date": "2026-07-20",
     "merchant": "Publix",
@@ -16,12 +48,76 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "249932103273095862",
+    "date": "2026-07-20",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249931887124881443",
+    "date": "2026-07-20",
+    "merchant": "Open Minds",
+    "category": "Education",
+    "amount": -55.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249931887124881442",
+    "date": "2026-07-20",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249931887124881441",
+    "date": "2026-07-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249931887124881440",
+    "date": "2026-07-20",
+    "merchant": "Regal Theaters",
+    "category": "Entertainment & Recreation",
+    "amount": -73.12,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "249751949294903659",
     "date": "2026-07-19",
     "merchant": "Old Hickory House",
     "category": "Restaurants & Bars",
     "amount": -30.13,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249932103273095863",
+    "date": "2026-07-19",
+    "merchant": "Old Hickory",
+    "category": "Restaurants & Bars",
+    "amount": -30.13,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "249919793347371328",
+    "date": "2026-07-19",
+    "merchant": "Waffle House",
+    "category": "Restaurants & Bars",
+    "amount": -15.75,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "249919793347371327",
+    "date": "2026-07-19",
+    "merchant": "Scrap Tucker",
+    "category": "Child Activities",
+    "amount": -5.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "249699637339824206",
@@ -38,6 +134,14 @@
     "category": "Restaurants & Bars",
     "amount": -44.55,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249919793347371329",
+    "date": "2026-07-18",
+    "merchant": "RaceTrac",
+    "category": "Gas",
+    "amount": -48.03,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "249594336114582267",
@@ -62,6 +166,14 @@
     "category": "Groceries",
     "amount": -2.17,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "249919793347371330",
+    "date": "2026-07-17",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 18.35,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "249540563006596064",
@@ -150,6 +262,14 @@
     "category": "Restaurants & Bars",
     "amount": -30.72,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "249919793347371331",
+    "date": "2026-07-16",
+    "merchant": "Bebanhmi",
+    "category": "Restaurants & Bars",
+    "amount": -8.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "249353267454091870",
