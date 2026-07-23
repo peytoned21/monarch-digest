@@ -1,5 +1,45 @@
 [
   {
+    "id": "250098813774012856",
+    "date": "2026-07-23",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5347.17,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "250096320030647268",
+    "date": "2026-07-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -64.09,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250073501947338816",
+    "date": "2026-07-22",
+    "merchant": "Salama Tires Company",
+    "category": "Auto Maintenance",
+    "amount": -440.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250071907250938638",
+    "date": "2026-07-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -24.11,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250071907250938637",
+    "date": "2026-07-22",
+    "merchant": "Nakato Japanese Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -93.24,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "249964412478103663",
     "date": "2026-07-21",
     "merchant": "Google",
@@ -30,6 +70,30 @@
     "category": "Fitness",
     "amount": -95.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250073501947338818",
+    "date": "2026-07-21",
+    "merchant": "HS & D Enter",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250073501947338817",
+    "date": "2026-07-21",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250073499300733798",
+    "date": "2026-07-21",
+    "merchant": "YouTube",
+    "category": "Entertainment & Recreation",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
   },
   {
     "id": "249857988282491753",
@@ -86,6 +150,46 @@
     "category": "Entertainment & Recreation",
     "amount": -73.12,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250096320030647272",
+    "date": "2026-07-20",
+    "merchant": "News Items",
+    "category": "Miscellaneous",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250096320030647271",
+    "date": "2026-07-20",
+    "merchant": "Hope And Restoration",
+    "category": "Charity",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250096320030647270",
+    "date": "2026-07-20",
+    "merchant": "Regal Theaters",
+    "category": "Entertainment & Recreation",
+    "amount": -73.12,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250096320030647269",
+    "date": "2026-07-20",
+    "merchant": "Open Minds",
+    "category": "Education",
+    "amount": -55.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250073501947338819",
+    "date": "2026-07-20",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -12.5,
+    "account": "Amex Gold Card"
   },
   {
     "id": "249751949294903659",

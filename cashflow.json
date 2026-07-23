@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-07-22",
+  "as_of": "2026-07-23",
   "month": "July 2026",
-  "days_elapsed": 22,
+  "days_elapsed": 23,
   "days_in_month": 31,
-  "mtd_income": 5354.08,
-  "mtd_expenses": 7985.44,
-  "mtd_surplus": -2631.36,
-  "savings_rate_pct": -49.1,
-  "projected_month_expense": 11252.21,
-  "projected_savings": -5898.13,
+  "mtd_income": 10701.25,
+  "mtd_expenses": 8371.38,
+  "mtd_surplus": 2329.87,
+  "savings_rate_pct": 21.8,
+  "projected_month_expense": 11283.16,
+  "projected_savings": -581.91,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -19,6 +19,10 @@
       "amount": 1345.16
     },
     {
+      "category": "Auto Maintenance",
+      "amount": 744.29
+    },
+    {
       "category": "Medical - HSA",
       "amount": 546.0
     },
@@ -27,20 +31,16 @@
       "amount": 541.99
     },
     {
+      "category": "Restaurants & Bars",
+      "amount": 429.48
+    },
+    {
       "category": "Groceries",
       "amount": 403.56
     },
     {
       "category": "Shopping",
-      "amount": 339.02
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 336.24
-    },
-    {
-      "category": "Auto Maintenance",
-      "amount": 304.29
+      "amount": 347.14
     }
   ]
 }
