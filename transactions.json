@@ -8,6 +8,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "250178802065285185",
+    "date": "2026-07-23",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -80.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250125339868471429",
+    "date": "2026-07-23",
+    "merchant": "Brello",
+    "category": "Rent",
+    "amount": -474.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "250096320030647268",
     "date": "2026-07-22",
     "merchant": "XOOM Energy",
@@ -38,6 +54,30 @@
     "category": "Restaurants & Bars",
     "amount": -93.24,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250138533188018899",
+    "date": "2026-07-22",
+    "merchant": "QuikTrip",
+    "category": "Gas & Fuel",
+    "amount": -35.01,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250125339868471430",
+    "date": "2026-07-22",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -24.11,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250125337652831167",
+    "date": "2026-07-22",
+    "merchant": "Dr Adj Redist Cadv Prin",
+    "category": "Loan Repayment",
+    "amount": -50.0,
+    "account": "Amex Platinum Card"
   },
   {
     "id": "249964412478103663",
@@ -93,6 +133,22 @@
     "merchant": "YouTube",
     "category": "Entertainment & Recreation",
     "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250138533188018901",
+    "date": "2026-07-21",
+    "merchant": "Vista Yoga",
+    "category": "Fitness",
+    "amount": -95.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250125337652831168",
+    "date": "2026-07-21",
+    "merchant": "American Express",
+    "category": "Internet & Cable",
+    "amount": 15.99,
     "account": "Amex Platinum Card"
   },
   {
