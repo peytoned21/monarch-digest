@@ -1,5 +1,37 @@
 [
   {
+    "id": "250232815362187889",
+    "date": "2026-07-24",
+    "merchant": "Walgreens",
+    "category": "Groceries",
+    "amount": -6.47,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250232815362187888",
+    "date": "2026-07-24",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -28.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250232815362187887",
+    "date": "2026-07-24",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -8.09,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250232815362187886",
+    "date": "2026-07-24",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -5.7,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "250098813774012856",
     "date": "2026-07-23",
     "merchant": "The Home Depot",
@@ -22,6 +54,22 @@
     "category": "Rent",
     "amount": -474.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250232815362187890",
+    "date": "2026-07-23",
+    "merchant": "Brello",
+    "category": "Rent",
+    "amount": -474.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250210835524166222",
+    "date": "2026-07-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "250096320030647268",
@@ -78,6 +126,30 @@
     "category": "Loan Repayment",
     "amount": -50.0,
     "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250232815362187892",
+    "date": "2026-07-22",
+    "merchant": "Nakato Japanese",
+    "category": "Restaurants & Bars",
+    "amount": -113.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250232815362187891",
+    "date": "2026-07-22",
+    "merchant": "Salama Tires",
+    "category": "Auto Maintenance",
+    "amount": -440.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250210835524166223",
+    "date": "2026-07-22",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -64.09,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "249964412478103663",
