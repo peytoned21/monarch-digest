@@ -1,5 +1,21 @@
 [
   {
+    "id": "250339233153098071",
+    "date": "2026-07-25",
+    "merchant": "Don Eduardo Mexican Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -60.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250301510106161191",
+    "date": "2026-07-25",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -21.58,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "250232815362187889",
     "date": "2026-07-24",
     "merchant": "Walgreens",
@@ -30,6 +46,22 @@
     "category": "Groceries",
     "amount": -5.7,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250319506989064671",
+    "date": "2026-07-24",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -411.34,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250301877185355961",
+    "date": "2026-07-24",
+    "merchant": "Zelle",
+    "category": "DHS Reunion",
+    "amount": 100.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "250098813774012856",
@@ -65,6 +97,14 @@
   },
   {
     "id": "250210835524166222",
+    "date": "2026-07-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250301508879327656",
     "date": "2026-07-23",
     "merchant": "OpenAI",
     "category": "Subscriptions",
@@ -150,6 +190,14 @@
     "category": "Gas & Electric",
     "amount": -64.09,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250319506989064672",
+    "date": "2026-07-22",
+    "merchant": "QuikTrip",
+    "category": "Gas & Fuel",
+    "amount": -35.01,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "249964412478103663",
