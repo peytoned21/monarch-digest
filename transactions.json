@@ -1,5 +1,29 @@
 [
   {
+    "id": "250391962633314922",
+    "date": "2026-07-26",
+    "merchant": "Kids Empire",
+    "category": "Entertainment & Recreation",
+    "amount": -42.98,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250391962633314921",
+    "date": "2026-07-26",
+    "merchant": "Kids Empire",
+    "category": "Entertainment & Recreation",
+    "amount": -1.89,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250391915596292407",
+    "date": "2026-07-26",
+    "merchant": "Fellinis Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -23.98,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "250339233153098071",
     "date": "2026-07-25",
     "merchant": "Don Eduardo Mexican Restaurant",
@@ -62,6 +86,46 @@
     "category": "DHS Reunion",
     "amount": 100.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "250391915596292412",
+    "date": "2026-07-24",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -28.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250391915596292411",
+    "date": "2026-07-24",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -8.09,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250391915596292410",
+    "date": "2026-07-24",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -81.09,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250391915596292409",
+    "date": "2026-07-24",
+    "merchant": "Walgreens",
+    "category": "Medical",
+    "amount": -6.47,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250391915596292408",
+    "date": "2026-07-24",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -5.7,
+    "account": "Amex Gold Card"
   },
   {
     "id": "250098813774012856",
