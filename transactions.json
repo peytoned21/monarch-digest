@@ -1,5 +1,29 @@
 [
   {
+    "id": "250551886328832316",
+    "date": "2026-07-27",
+    "merchant": "Sprig Restaurant",
+    "category": "Restaurants",
+    "amount": -44.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250498522703405137",
+    "date": "2026-07-27",
+    "merchant": "HS D Enterprises",
+    "category": "Restaurants",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250483328622207622",
+    "date": "2026-07-27",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "250391962633314922",
     "date": "2026-07-26",
     "merchant": "Kids Empire",
@@ -24,6 +48,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "250498522703405138",
+    "date": "2026-07-26",
+    "merchant": "Fellini's Pizza",
+    "category": "Restaurants",
+    "amount": -23.98,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "250339233153098071",
     "date": "2026-07-25",
     "merchant": "Don Eduardo Mexican Restaurant",
@@ -33,6 +65,22 @@
   },
   {
     "id": "250301510106161191",
+    "date": "2026-07-25",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -21.58,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "250498522703405139",
+    "date": "2026-07-25",
+    "merchant": "Don Eduardo's Mexican",
+    "category": "Restaurants & Bars",
+    "amount": -71.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250483330497061670",
     "date": "2026-07-25",
     "merchant": "Amazon",
     "category": "Shopping",
