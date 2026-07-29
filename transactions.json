@@ -1,5 +1,69 @@
 [
   {
+    "id": "250628694240862928",
+    "date": "2026-07-29",
+    "merchant": "Georgia Power",
+    "category": "Gas & Electric",
+    "amount": -266.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "250605737865060722",
+    "date": "2026-07-28",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -88.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250605737865060721",
+    "date": "2026-07-28",
+    "merchant": "Kanpai",
+    "category": "Restaurants & Bars",
+    "amount": -57.13,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250605735255155240",
+    "date": "2026-07-28",
+    "merchant": "Google",
+    "category": "Shopping",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250605735255155239",
+    "date": "2026-07-28",
+    "merchant": "Google",
+    "category": "Shopping",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250605735255155238",
+    "date": "2026-07-28",
+    "merchant": "Google",
+    "category": "Shopping",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250597032663654798",
+    "date": "2026-07-28",
+    "merchant": "Select Blinds",
+    "category": "Home Improvement",
+    "amount": -191.25,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250575079487775591",
+    "date": "2026-07-28",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "250551886328832316",
     "date": "2026-07-27",
     "merchant": "Sprig Restaurant",
@@ -22,6 +86,14 @@
     "category": "Internet & Cable",
     "amount": -90.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250605737865060723",
+    "date": "2026-07-27",
+    "merchant": "HS & D Enterp",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
   },
   {
     "id": "250391962633314922",
@@ -54,6 +126,30 @@
     "category": "Restaurants",
     "amount": -23.98,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250597032663654799",
+    "date": "2026-07-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -52.27,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250575079487775593",
+    "date": "2026-07-26",
+    "merchant": "Kids Empire",
+    "category": "Entertainment & Recreation",
+    "amount": -42.98,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250575079487775592",
+    "date": "2026-07-26",
+    "merchant": "Kids Empire",
+    "category": "Entertainment & Recreation",
+    "amount": -1.89,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "250339233153098071",
@@ -174,6 +270,14 @@
     "category": "Groceries",
     "amount": -5.7,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250597032663654800",
+    "date": "2026-07-24",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -411.34,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "250098813774012856",
