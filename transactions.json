@@ -1,11 +1,43 @@
 [
   {
+    "id": "250723756631073735",
+    "date": "2026-07-30",
+    "merchant": "American Heritage",
+    "category": "Other Income",
+    "amount": 5002.47,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "250628694240862928",
     "date": "2026-07-29",
     "merchant": "Georgia Power",
     "category": "Gas & Electric",
     "amount": -266.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "250712919019299717",
+    "date": "2026-07-29",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -39.74,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250682777667576203",
+    "date": "2026-07-29",
+    "merchant": "Kroger",
+    "category": "Gas & Fuel",
+    "amount": -69.08,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250659275020378499",
+    "date": "2026-07-29",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -8.75,
+    "account": "Amex Gold Card"
   },
   {
     "id": "250605737865060722",
@@ -64,6 +96,22 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "250667983718785090",
+    "date": "2026-07-28",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -48.31,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "250667982373462437",
+    "date": "2026-07-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "250551886328832316",
     "date": "2026-07-27",
     "merchant": "Sprig Restaurant",
@@ -93,6 +141,30 @@
     "merchant": "HS & D Enterp",
     "category": "Shopping",
     "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250682777667576204",
+    "date": "2026-07-27",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -52.27,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250667982373462438",
+    "date": "2026-07-27",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250659275020378500",
+    "date": "2026-07-27",
+    "merchant": "Sprig",
+    "category": "Restaurants & Bars",
+    "amount": -54.7,
     "account": "Amex Gold Card"
   },
   {
