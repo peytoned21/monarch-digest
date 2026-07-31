@@ -1,11 +1,59 @@
 [
   {
+    "id": "250817938528871158",
+    "date": "2026-07-31",
+    "merchant": "Marshalls",
+    "category": "Shopping",
+    "amount": -210.57,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250817938528871157",
+    "date": "2026-07-31",
+    "merchant": "Walmart",
+    "category": "Groceries",
+    "amount": 0.01,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "250723756631073735",
     "date": "2026-07-30",
     "merchant": "American Heritage",
     "category": "Other Income",
     "amount": 5002.47,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "250820959658779316",
+    "date": "2026-07-30",
+    "merchant": "Tum Pok Pok",
+    "category": "Restaurants & Bars",
+    "amount": -25.6,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250768518221341258",
+    "date": "2026-07-30",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -89.42,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250767390380335737",
+    "date": "2026-07-30",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -37.45,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250767390380335736",
+    "date": "2026-07-30",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
   },
   {
     "id": "250628694240862928",
@@ -38,6 +86,30 @@
     "category": "Shopping",
     "amount": -8.75,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "250817938528871159",
+    "date": "2026-07-29",
+    "merchant": "Kroger",
+    "category": "Gas",
+    "amount": -69.08,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250767390380335738",
+    "date": "2026-07-29",
+    "merchant": "HS & D Enter",
+    "category": "Restaurants",
+    "amount": -8.75,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250759600414859976",
+    "date": "2026-07-29",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -200.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "250605737865060722",
@@ -109,6 +181,70 @@
     "merchant": "Anthropic",
     "category": "Subscriptions",
     "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250768518221341259",
+    "date": "2026-07-28",
+    "merchant": "Select Blinds",
+    "category": "Home Improvement",
+    "amount": -191.25,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250767390380335740",
+    "date": "2026-07-28",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -88.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250767390380335739",
+    "date": "2026-07-28",
+    "merchant": "Kanpai",
+    "category": "Restaurants & Bars",
+    "amount": -66.66,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250767387041670034",
+    "date": "2026-07-28",
+    "merchant": "Youtube TV",
+    "category": "Internet & Cable",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250767387041670033",
+    "date": "2026-07-28",
+    "merchant": "Youtube TV",
+    "category": "Internet & Cable",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250767387041670032",
+    "date": "2026-07-28",
+    "merchant": "Youtube TV",
+    "category": "Internet & Cable",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "250760888452064044",
+    "date": "2026-07-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "250760888452064043",
+    "date": "2026-07-28",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
     "account": "Chase Sapphire Preferred "
   },
   {
@@ -486,6 +622,14 @@
     "category": "Gas & Fuel",
     "amount": -35.01,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "250125337652831166",
+    "date": "2026-07-22",
+    "merchant": "Adj Redist Purchase Bal",
+    "category": "Shopping",
+    "amount": 50.0,
+    "account": "Amex Platinum Card"
   },
   {
     "id": "249964412478103663",
@@ -5982,93 +6126,5 @@
     "category": "Beauty and Grooming",
     "amount": -443.47,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242988976010371684",
-    "date": "2026-05-01",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -160.33,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242841693913555813",
-    "date": "2026-05-01",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -14.13,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "242841692858688257",
-    "date": "2026-05-01",
-    "merchant": "Google Cloud",
-    "category": "Miscellaneous",
-    "amount": -0.5,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "242787506827764552",
-    "date": "2026-05-01",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -122.91,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242722458434479072",
-    "date": "2026-05-01",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -160.33,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242707472055214115",
-    "date": "2026-05-01",
-    "merchant": "Zelle",
-    "category": "DHS Reunion",
-    "amount": 60.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "242671634042790830",
-    "date": "2026-05-01",
-    "merchant": "HS & D",
-    "category": "Work Lunch",
-    "amount": -9.28,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242573406957937266",
-    "date": "2026-05-01",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 4.45,
-    "account": "Wealthfront Roth Staging Account"
-  },
-  {
-    "id": "242573405825475067",
-    "date": "2026-05-01",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 125.97,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242573405825475066",
-    "date": "2026-05-01",
-    "merchant": "Tree Payments",
-    "category": "Interest",
-    "amount": 68.42,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242573405825475065",
-    "date": "2026-05-01",
-    "merchant": "DHS Reunion",
-    "category": "Interest",
-    "amount": 9.45,
-    "account": "Wealthfront Checking"
   }
 ]
