@@ -6094,37 +6094,5 @@
     "category": "Child Activities",
     "amount": -188.89,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242988976010371683",
-    "date": "2026-05-02",
-    "merchant": "Solawave Skincare",
-    "category": "Personal",
-    "amount": -443.47,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242904850303492473",
-    "date": "2026-05-02",
-    "merchant": "US Postal Service",
-    "category": "Postage & Shipping",
-    "amount": -17.6,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242787506827764551",
-    "date": "2026-05-02",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -69.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242722458434479071",
-    "date": "2026-05-02",
-    "merchant": "Solawave Skincare",
-    "category": "Beauty and Grooming",
-    "amount": -443.47,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
