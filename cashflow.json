@@ -1,13 +1,26 @@
 {
-  "as_of": "2026-08-01",
+  "as_of": "2026-08-02",
   "month": "August 2026",
-  "days_elapsed": 1,
+  "days_elapsed": 2,
   "days_in_month": 31,
   "mtd_income": 0.0,
-  "mtd_expenses": 0.0,
-  "mtd_surplus": 0.0,
+  "mtd_expenses": 101.22,
+  "mtd_surplus": -101.22,
   "savings_rate_pct": 0.0,
-  "projected_month_expense": 0.0,
-  "projected_savings": 0.0,
-  "top_categories": []
+  "projected_month_expense": 1568.91,
+  "projected_savings": -1568.91,
+  "top_categories": [
+    {
+      "category": "Shopping",
+      "amount": 52.82
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 40.4
+    },
+    {
+      "category": "Subscriptions",
+      "amount": 8.0
+    }
+  ]
 }

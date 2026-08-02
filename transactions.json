@@ -1,5 +1,45 @@
 [
   {
+    "id": "250982847083389769",
+    "date": "2026-08-01",
+    "merchant": "Pizza Hut",
+    "category": "Restaurants & Bars",
+    "amount": -7.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250982847083389768",
+    "date": "2026-08-01",
+    "merchant": "Napoleons Grill",
+    "category": "Restaurants & Bars",
+    "amount": -32.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "250947091929441033",
+    "date": "2026-08-01",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -9.63,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "250947091929441032",
+    "date": "2026-08-01",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -43.19,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "250947089535541658",
+    "date": "2026-08-01",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "250817938528871158",
     "date": "2026-07-31",
     "merchant": "Marshalls",
@@ -6053,46 +6093,6 @@
     "merchant": "Spotify",
     "category": "Subscriptions",
     "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242988976010371682",
-    "date": "2026-05-03",
-    "merchant": "City of Tucker Parks",
-    "category": "Utilities",
-    "amount": -188.89,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242964215408567107",
-    "date": "2026-05-03",
-    "merchant": "Antico",
-    "category": "Restaurants & Bars",
-    "amount": -31.68,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242939440781009895",
-    "date": "2026-05-03",
-    "merchant": "Dunwoody Tavern",
-    "category": "Restaurants",
-    "amount": -11.72,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "242904850303492472",
-    "date": "2026-05-03",
-    "merchant": "Barn",
-    "category": "DHS Reunion",
-    "amount": -5583.78,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243082096015253623",
-    "date": "2026-05-03",
-    "merchant": "City of Tucker Parks",
-    "category": "Child Activities",
-    "amount": -188.89,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

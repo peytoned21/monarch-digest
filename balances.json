@@ -1,11 +1,11 @@
 {
-  "as_of": "August 1, 2026",
-  "generated_at": "2026-08-01",
+  "as_of": "August 2, 2026",
+  "generated_at": "2026-08-02",
   "_cached": false,
-  "roth": 433347,
+  "roth": 434855,
   "groth": 16352,
-  "k401": 183627,
-  "taxable": 176612,
+  "k401": 184424,
+  "taxable": 176876,
   "hsa": 18745,
   "hd_vested": 14395,
   "hd_rsus": 152340,
@@ -17,14 +17,14 @@
   "stanford_bal": 23957,
   "lexus_bal": 16253,
   "tesla_bal": 7202,
-  "cc_total": 7621,
+  "cc_total": 7714,
   "home_value": 708100,
   "vehicle_total": 60623,
   "lexus_value": 33989,
   "tesla_value": 26633,
-  "net_worth": 1526881,
-  "total_assets": 1866671,
-  "total_debt": 339789,
+  "net_worth": 1529357,
+  "total_assets": 1869239,
+  "total_debt": 339882,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 433347.98,
+      "balance": 434855.57,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 123553.4,
+      "balance": 123834.12,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 183627.66,
+      "balance": 184424.83,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -4749.38,
+      "balance": -4842.63,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 47842.75,
+      "balance": 47853.0,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16352.55,
+      "balance": 16352.56,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -453,7 +453,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5216.43,
+      "balance": 5189.41,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
