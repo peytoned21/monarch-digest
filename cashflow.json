@@ -1,18 +1,26 @@
 {
-  "as_of": "2026-08-02",
+  "as_of": "2026-08-03",
   "month": "August 2026",
-  "days_elapsed": 2,
+  "days_elapsed": 3,
   "days_in_month": 31,
-  "mtd_income": 0.0,
-  "mtd_expenses": 101.22,
-  "mtd_surplus": -101.22,
-  "savings_rate_pct": 0.0,
-  "projected_month_expense": 1568.91,
-  "projected_savings": -1568.91,
+  "mtd_income": 132.88,
+  "mtd_expenses": 382.91,
+  "mtd_surplus": -250.03,
+  "savings_rate_pct": -188.2,
+  "projected_month_expense": 3956.74,
+  "projected_savings": -3823.86,
   "top_categories": [
     {
+      "category": "Child Activities",
+      "amount": 175.0
+    },
+    {
       "category": "Shopping",
-      "amount": 52.82
+      "amount": 110.94
+    },
+    {
+      "category": "Groceries",
+      "amount": 48.57
     },
     {
       "category": "Restaurants & Bars",

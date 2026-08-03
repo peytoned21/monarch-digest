@@ -1,5 +1,45 @@
 [
   {
+    "id": "251083976264852045",
+    "date": "2026-08-03",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 22.85,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "251083974498001310",
+    "date": "2026-08-03",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 110.03,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "251089813970559112",
+    "date": "2026-08-02",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -58.12,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251089813970559111",
+    "date": "2026-08-02",
+    "merchant": "Dauphin Dance Center",
+    "category": "Child Activities",
+    "amount": -175.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251036378447421933",
+    "date": "2026-08-02",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -48.57,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "250982847083389769",
     "date": "2026-08-01",
     "merchant": "Pizza Hut",
@@ -5910,189 +5950,5 @@
     "category": "Liquor Store",
     "amount": -52.34,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "243030514609364996",
-    "date": "2026-05-04",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": 14.13,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243030513062716229",
-    "date": "2026-05-04",
-    "merchant": "Starbucks",
-    "category": "Coffee Shops",
-    "amount": -10.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243030513062716228",
-    "date": "2026-05-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "242988976010371681",
-    "date": "2026-05-04",
-    "merchant": "Mudwtr",
-    "category": "Shopping",
-    "amount": -92.7,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242988976010371680",
-    "date": "2026-05-04",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -47.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242988976010371679",
-    "date": "2026-05-04",
-    "merchant": "Spotify",
-    "category": "Entertainment & Recreation",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242964215408567106",
-    "date": "2026-05-04",
-    "merchant": "Instacart",
-    "category": "Groceries",
-    "amount": -62.22,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242964215408567105",
-    "date": "2026-05-04",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": 69.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242931653021737026",
-    "date": "2026-05-04",
-    "merchant": "Zelle",
-    "category": "Shopping",
-    "amount": -40.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "242931653021737024",
-    "date": "2026-05-04",
-    "merchant": "Dekalb County",
-    "category": "Water",
-    "amount": -100.73,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "242931653021737023",
-    "date": "2026-05-04",
-    "merchant": "Brightwheel",
-    "category": "Child Care",
-    "amount": -150.91,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "242904850303492470",
-    "date": "2026-05-04",
-    "merchant": "AliExpress",
-    "category": "Shopping",
-    "amount": -29.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242866521031779225",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": -223.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242866521031779224",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "Shopping",
-    "amount": -2.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242866521031779223",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "Shopping",
-    "amount": -1.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242866521031779222",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "Shopping",
-    "amount": -3.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242866521031779221",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": -400.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242841530128081915",
-    "date": "2026-05-04",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 60.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242841530128081914",
-    "date": "2026-05-04",
-    "merchant": "Tesla",
-    "category": "Subscriptions",
-    "amount": -10.79,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242841530128081913",
-    "date": "2026-05-04",
-    "merchant": "First Tech Federal Credit Union",
-    "category": "Student Loans",
-    "amount": -1120.6,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "242841530128081912",
-    "date": "2026-05-04",
-    "merchant": "State of Georgia",
-    "category": "Tax Refund",
-    "amount": 500.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243084034751538000",
-    "date": "2026-05-04",
-    "merchant": "AliExpress",
-    "category": "Shopping",
-    "amount": -29.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243082096015253622",
-    "date": "2026-05-04",
-    "merchant": "Spotify",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
