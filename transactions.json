@@ -1,5 +1,21 @@
 [
   {
+    "id": "251179947656159987",
+    "date": "2026-08-04",
+    "merchant": "First Tech Federal Credit Union",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "251179947656159986",
+    "date": "2026-08-04",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "251083976264852045",
     "date": "2026-08-03",
     "merchant": "Wealthfront",
@@ -14,6 +30,54 @@
     "category": "Interest",
     "amount": 110.03,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "251145843645555381",
+    "date": "2026-08-03",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -8.22,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251145843645555380",
+    "date": "2026-08-03",
+    "merchant": "Parkside Cabin Rentals",
+    "category": "Travel & Vacation",
+    "amount": -240.89,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251129338789831254",
+    "date": "2026-08-03",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -39.95,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251129338789831253",
+    "date": "2026-08-03",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -46.44,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251129337295610336",
+    "date": "2026-08-03",
+    "merchant": "Fantasypros",
+    "category": "Entertainment & Recreation",
+    "amount": -53.94,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251128175035097667",
+    "date": "2026-08-03",
+    "merchant": "External Loan Payment Olb Transfer",
+    "category": "Student Loan",
+    "amount": 1120.6,
+    "account": "Stanford Student Loan (3%)"
   },
   {
     "id": "251089813970559112",
@@ -73,6 +137,38 @@
   },
   {
     "id": "250947089535541658",
+    "date": "2026-08-01",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251145843645555383",
+    "date": "2026-08-01",
+    "merchant": "Napoleons Grill",
+    "category": "Restaurants & Bars",
+    "amount": -39.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251145843645555382",
+    "date": "2026-08-01",
+    "merchant": "Pizza Hut",
+    "category": "Restaurants",
+    "amount": -7.7,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251129338789831255",
+    "date": "2026-08-01",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -9.63,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251129337295610337",
     "date": "2026-08-01",
     "merchant": "The New York Times",
     "category": "Subscriptions",
@@ -5870,85 +5966,5 @@
     "category": "Shopping",
     "amount": -35.99,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243031201988682389",
-    "date": "2026-05-05",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -27.16,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "243031201988682388",
-    "date": "2026-05-05",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -87.28,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "242988976010371678",
-    "date": "2026-05-05",
-    "merchant": "Hightower Drinks",
-    "category": "Restaurants & Bars",
-    "amount": -57.21,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "242964215408567104",
-    "date": "2026-05-05",
-    "merchant": "Tower Beer Wine & Spirits",
-    "category": "Liquor Store",
-    "amount": -52.34,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "242964215408567103",
-    "date": "2026-05-05",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243084034751537999",
-    "date": "2026-05-05",
-    "merchant": "HS & D Enterp",
-    "category": "Work Lunch",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243082096015253621",
-    "date": "2026-05-05",
-    "merchant": "Citibank Online",
-    "category": "Financial Fees",
-    "amount": 0.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243171339796423067",
-    "date": "2026-05-05",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -47.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243171339796423066",
-    "date": "2026-05-05",
-    "merchant": "Hightower Drinks",
-    "category": "Liquor Store",
-    "amount": -57.21,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243143720346526501",
-    "date": "2026-05-05",
-    "merchant": "Tower Of Beer Wine & Spirits",
-    "category": "Liquor Store",
-    "amount": -52.34,
-    "account": "Amex Gold Card"
   }
 ]

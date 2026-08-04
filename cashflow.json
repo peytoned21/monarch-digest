@@ -1,34 +1,46 @@
 {
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "month": "August 2026",
-  "days_elapsed": 3,
+  "days_elapsed": 4,
   "days_in_month": 31,
-  "mtd_income": 132.88,
-  "mtd_expenses": 382.91,
-  "mtd_surplus": -250.03,
-  "savings_rate_pct": -188.2,
-  "projected_month_expense": 3956.74,
-  "projected_savings": -3823.86,
+  "mtd_income": 1253.48,
+  "mtd_expenses": 1910.74,
+  "mtd_surplus": -657.26,
+  "savings_rate_pct": -52.4,
+  "projected_month_expense": 14808.24,
+  "projected_savings": -13554.76,
   "top_categories": [
+    {
+      "category": "Student Loans",
+      "amount": 1120.6
+    },
+    {
+      "category": "Travel & Vacation",
+      "amount": 240.89
+    },
+    {
+      "category": "Shopping",
+      "amount": 197.33
+    },
     {
       "category": "Child Activities",
       "amount": 175.0
     },
     {
-      "category": "Shopping",
-      "amount": 110.94
+      "category": "Groceries",
+      "amount": 56.79
     },
     {
-      "category": "Groceries",
-      "amount": 48.57
+      "category": "Entertainment & Recreation",
+      "amount": 53.94
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 40.4
+      "amount": 39.7
     },
     {
       "category": "Subscriptions",
-      "amount": 8.0
+      "amount": 18.79
     }
   ]
 }
