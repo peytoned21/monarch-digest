@@ -16,6 +16,38 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "251254990143693660",
+    "date": "2026-08-04",
+    "merchant": "Stripe",
+    "category": "Furniture & Housewares",
+    "amount": -3511.35,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251242838128272152",
+    "date": "2026-08-04",
+    "merchant": "Spotify",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251200206838637300",
+    "date": "2026-08-04",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -129.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251200206838637299",
+    "date": "2026-08-04",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -11.66,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251083976264852045",
     "date": "2026-08-03",
     "merchant": "Wealthfront",
@@ -80,6 +112,22 @@
     "account": "Stanford Student Loan (3%)"
   },
   {
+    "id": "251242838128272153",
+    "date": "2026-08-03",
+    "merchant": "Dauphin Dance Center",
+    "category": "Child Activities",
+    "amount": -85.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251221861687304282",
+    "date": "2026-08-03",
+    "merchant": "Zelle",
+    "category": "Shopping",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "251089813970559112",
     "date": "2026-08-02",
     "merchant": "Temu",
@@ -101,6 +149,46 @@
     "merchant": "Publix",
     "category": "Groceries",
     "amount": -48.57,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251242838128272155",
+    "date": "2026-08-02",
+    "merchant": "Align Gymnastics",
+    "category": "Fitness",
+    "amount": -145.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251242838128272154",
+    "date": "2026-08-02",
+    "merchant": "Marshalls",
+    "category": "Shopping",
+    "amount": -37.79,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251200206838637303",
+    "date": "2026-08-02",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -48.57,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251200206838637302",
+    "date": "2026-08-02",
+    "merchant": "Dauphin Dance Center",
+    "category": "Child Activities",
+    "amount": -175.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251200206838637301",
+    "date": "2026-08-02",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -58.12,
     "account": "Amex Gold Card"
   },
   {
@@ -174,6 +262,22 @@
     "category": "Subscriptions",
     "amount": -8.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251242838128272156",
+    "date": "2026-08-01",
+    "merchant": "Marshalls",
+    "category": "Shopping",
+    "amount": -172.78,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251222237149864777",
+    "date": "2026-08-01",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -43.19,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "250817938528871158",
@@ -5886,85 +5990,5 @@
     "category": "Shopping",
     "amount": -15.12,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243122294077989861",
-    "date": "2026-05-06",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -35.99,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243122293227594627",
-    "date": "2026-05-06",
-    "merchant": "Hope And Restoration",
-    "category": "Charity",
-    "amount": -35.61,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243084034751537998",
-    "date": "2026-05-06",
-    "merchant": "iHerb.com",
-    "category": "Medical",
-    "amount": -37.04,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243084034751537997",
-    "date": "2026-05-06",
-    "merchant": "Dignitana",
-    "category": "Miscellaneous",
-    "amount": -600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243082096015253620",
-    "date": "2026-05-06",
-    "merchant": "SSP Expressions",
-    "category": "Shopping",
-    "amount": -151.8,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243245096819958427",
-    "date": "2026-05-06",
-    "merchant": "Dignitana Inc",
-    "category": "Miscellaneous",
-    "amount": -600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243245096819958426",
-    "date": "2026-05-06",
-    "merchant": "iHerb",
-    "category": "Groceries",
-    "amount": -37.04,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243245087224439434",
-    "date": "2026-05-06",
-    "merchant": "SSP Expressions",
-    "category": "Child Activities",
-    "amount": -151.8,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243225507679641987",
-    "date": "2026-05-06",
-    "merchant": "Hope And Restoration",
-    "category": "Therapy",
-    "amount": -35.61,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243315475767829315",
-    "date": "2026-05-06",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -35.99,
-    "account": "Amazon Prime Card"
   }
 ]
