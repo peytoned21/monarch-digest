@@ -8,6 +8,38 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "251439169112318606",
+    "date": "2026-08-06",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -50.83,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251439169112318605",
+    "date": "2026-08-06",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -243.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251439169112318604",
+    "date": "2026-08-06",
+    "merchant": "Grove Restaurant and Tavern",
+    "category": "Restaurants & Bars",
+    "amount": -48.33,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251384939257209360",
+    "date": "2026-08-06",
+    "merchant": "Groupon",
+    "category": "Shopping",
+    "amount": -77.4,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251329786916315420",
     "date": "2026-08-05",
     "merchant": "Target",
@@ -72,6 +104,30 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "251386974745600436",
+    "date": "2026-08-05",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "251386974745600435",
+    "date": "2026-08-05",
+    "merchant": "Dekalb County",
+    "category": "Water",
+    "amount": -86.52,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "251386974745600434",
+    "date": "2026-08-05",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -87.28,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "251179947656159987",
     "date": "2026-08-04",
     "merchant": "First Tech Federal Credit Union",
@@ -134,6 +190,22 @@
     "category": "Subscriptions",
     "amount": -12.99,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251409386021266309",
+    "date": "2026-08-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251384939257209361",
+    "date": "2026-08-04",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -129.0,
+    "account": "Amex Gold Card"
   },
   {
     "id": "251083976264852045",
@@ -5933,86 +6005,6 @@
     "merchant": "Michaels",
     "category": "Hobbies",
     "amount": -27.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243273266975679003",
-    "date": "2026-05-08",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -23.66,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243245096819958423",
-    "date": "2026-05-08",
-    "merchant": "HS & D Enterprises",
-    "category": "Shopping",
-    "amount": -12.08,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243245089501946861",
-    "date": "2026-05-08",
-    "merchant": "Mentavi",
-    "category": "Medical",
-    "amount": -199.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243245087224439433",
-    "date": "2026-05-08",
-    "merchant": "Euhm Parking",
-    "category": "Parking & Tolls",
-    "amount": -6.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243225507679641986",
-    "date": "2026-05-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243332358542926108",
-    "date": "2026-05-08",
-    "merchant": "HS & D",
-    "category": "Work Lunch",
-    "amount": -12.08,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243448346343056341",
-    "date": "2026-05-08",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -23.66,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243498199725056823",
-    "date": "2026-05-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243498199725056822",
-    "date": "2026-05-08",
-    "merchant": "Mentavi",
-    "category": "Medical",
-    "amount": -199.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243641475896647782",
-    "date": "2026-05-08",
-    "merchant": "Emory University Hospital Midtown",
-    "category": "Parking & Tolls",
-    "amount": -6.0,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
