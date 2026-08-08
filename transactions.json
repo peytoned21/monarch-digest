@@ -1,5 +1,21 @@
 [
   {
+    "id": "251495075601654053",
+    "date": "2026-08-07",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251495075601654052",
+    "date": "2026-08-07",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251359137967842178",
     "date": "2026-08-06",
     "merchant": "The Home Depot",
@@ -38,6 +54,22 @@
     "category": "Shopping",
     "amount": -77.4,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "251495075601654054",
+    "date": "2026-08-06",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -243.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251480975393890354",
+    "date": "2026-08-06",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -7.76,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "251329786916315420",
@@ -128,6 +160,62 @@
     "account": "Wells Fargo Checking"
   },
   {
+    "id": "251495075601654057",
+    "date": "2026-08-05",
+    "merchant": "Marshalls",
+    "category": "Shopping",
+    "amount": 172.78,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251495075601654056",
+    "date": "2026-08-05",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -126.91,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251495075601654055",
+    "date": "2026-08-05",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -50.3,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251480975393890358",
+    "date": "2026-08-05",
+    "merchant": "Buford Highway Farmers Market",
+    "category": "Groceries",
+    "amount": -14.4,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251480975393890357",
+    "date": "2026-08-05",
+    "merchant": "Kroger",
+    "category": "Gas & Fuel",
+    "amount": -70.66,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251480975393890356",
+    "date": "2026-08-05",
+    "merchant": "Kid to Kid",
+    "category": "Child Activities",
+    "amount": -68.88,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251480975393890355",
+    "date": "2026-08-05",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -17.31,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "251179947656159987",
     "date": "2026-08-04",
     "merchant": "First Tech Federal Credit Union",
@@ -206,6 +294,14 @@
     "category": "Child Activities",
     "amount": -129.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "251480975393890359",
+    "date": "2026-08-04",
+    "merchant": "Spotify",
+    "category": "Entertainment & Recreation",
+    "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "251083976264852045",
@@ -5958,53 +6054,5 @@
     "category": "Restaurants & Bars",
     "amount": -83.53,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "243365765651046497",
-    "date": "2026-05-09",
-    "merchant": "Michaels",
-    "category": "Hobbies",
-    "amount": -27.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243332358542926107",
-    "date": "2026-05-09",
-    "merchant": "Baddie's Burgers",
-    "category": "Restaurants & Bars",
-    "amount": -58.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243315474287239885",
-    "date": "2026-05-09",
-    "merchant": "The New York Times",
-    "category": "Shopping",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243498199725056821",
-    "date": "2026-05-09",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "243495510510346847",
-    "date": "2026-05-09",
-    "merchant": "Baddies",
-    "category": "Restaurants & Bars",
-    "amount": -58.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243641475896647781",
-    "date": "2026-05-09",
-    "merchant": "Michaels",
-    "category": "Hobbies",
-    "amount": -27.0,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

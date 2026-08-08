@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-07",
+  "as_of": "2026-08-08",
   "month": "August 2026",
-  "days_elapsed": 7,
+  "days_elapsed": 8,
   "days_in_month": 31,
-  "mtd_income": 6145.29,
-  "mtd_expenses": 7097.04,
-  "mtd_surplus": -951.75,
-  "savings_rate_pct": -15.5,
-  "projected_month_expense": 31429.75,
-  "projected_savings": -25284.46,
+  "mtd_income": 6318.07,
+  "mtd_expenses": 7204.09,
+  "mtd_surplus": -886.02,
+  "savings_rate_pct": -14.0,
+  "projected_month_expense": 27915.85,
+  "projected_savings": -21597.78,
   "top_categories": [
     {
       "category": "Furniture & Housewares",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 638.09
+      "amount": 664.41
     },
     {
       "category": "Travel & Vacation",
@@ -32,7 +32,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 199.1
+      "amount": 209.17
     },
     {
       "category": "Fitness",
