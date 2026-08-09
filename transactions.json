@@ -1,5 +1,29 @@
 [
   {
+    "id": "251596494346330715",
+    "date": "2026-08-08",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -1024.92,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251596493235888650",
+    "date": "2026-08-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251575004028674740",
+    "date": "2026-08-08",
+    "merchant": "Little Thistle",
+    "category": "Coffee Shops",
+    "amount": -18.36,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "251495075601654053",
     "date": "2026-08-07",
     "merchant": "HS D Enterprises",
@@ -13,6 +37,22 @@
     "merchant": "365 Retail Markets",
     "category": "Groceries",
     "amount": -2.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251575004028674741",
+    "date": "2026-08-07",
+    "merchant": "Journeys",
+    "category": "Clothing",
+    "amount": -70.18,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251557544987665235",
+    "date": "2026-08-07",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -9.01,
     "account": "Amex Gold Card"
   },
   {
@@ -70,6 +110,54 @@
     "category": "Groceries",
     "amount": -7.76,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251575004028674743",
+    "date": "2026-08-06",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -7.76,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251575004028674742",
+    "date": "2026-08-06",
+    "merchant": "Anthropologie",
+    "category": "Clothing",
+    "amount": -75.55,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251557544987665239",
+    "date": "2026-08-06",
+    "merchant": "The Grove Rest",
+    "category": "Restaurants & Bars",
+    "amount": -58.33,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251557544987665238",
+    "date": "2026-08-06",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -50.83,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251557544987665237",
+    "date": "2026-08-06",
+    "merchant": "Groupon",
+    "category": "Shopping",
+    "amount": -77.4,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251557544987665236",
+    "date": "2026-08-06",
+    "merchant": "Groupon",
+    "category": "Shopping",
+    "amount": 77.4,
+    "account": "Amex Gold Card"
   },
   {
     "id": "251329786916315420",
@@ -5981,78 +6069,6 @@
     "merchant": "Shein",
     "category": "Clothing",
     "amount": 102.61,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243448346343056340",
-    "date": "2026-05-10",
-    "merchant": "Bakeries",
-    "category": "Restaurants & Bars",
-    "amount": -83.53,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243448346343056339",
-    "date": "2026-05-10",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -99.89,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243498200981250257",
-    "date": "2026-05-10",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -7.54,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243641475896647780",
-    "date": "2026-05-10",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -64.26,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243641475896647779",
-    "date": "2026-05-10",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -40.82,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243641475896647778",
-    "date": "2026-05-10",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -49.48,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243589513808388330",
-    "date": "2026-05-10",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -7.54,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243584352406938131",
-    "date": "2026-05-10",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -98.89,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243584352406938130",
-    "date": "2026-05-10",
-    "merchant": "Bakeries",
-    "category": "Restaurants & Bars",
-    "amount": -83.53,
     "account": "Amex Gold Card"
   }
 ]
