@@ -1,5 +1,29 @@
 [
   {
+    "id": "251717381895693010",
+    "date": "2026-08-10",
+    "merchant": "Venmo",
+    "category": "DHS Reunion",
+    "amount": 200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "251687709024657850",
+    "date": "2026-08-09",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -43.2,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251665609945719501",
+    "date": "2026-08-09",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -104.27,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251596494346330715",
     "date": "2026-08-08",
     "merchant": "Amazon",
@@ -53,6 +77,14 @@
     "merchant": "HS & D Enter",
     "category": "Work Lunch",
     "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251665609945719502",
+    "date": "2026-08-07",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.17,
     "account": "Amex Gold Card"
   },
   {
@@ -5973,102 +6005,6 @@
     "merchant": "Rebelstork",
     "category": "Shopping",
     "amount": -17.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243473098903331764",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 100.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331763",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 200.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331762",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 100.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331761",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 150.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331760",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 50.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331759",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 100.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331758",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 50.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331757",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 250.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331756",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 100.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243473098903331755",
-    "date": "2026-05-11",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 50.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243497389596287643",
-    "date": "2026-05-11",
-    "merchant": "DHS Reunion",
-    "category": "DHS Reunion",
-    "amount": -1150.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243695544820506640",
-    "date": "2026-05-11",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 102.61,
     "account": "Amex Gold Card"
   }
 ]
