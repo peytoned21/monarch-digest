@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-08-10",
+  "as_of": "2026-08-11",
   "month": "August 2026",
-  "days_elapsed": 10,
+  "days_elapsed": 11,
   "days_in_month": 31,
   "mtd_income": 6422.69,
-  "mtd_expenses": 4901.34,
-  "mtd_surplus": 1521.35,
-  "savings_rate_pct": 23.7,
-  "projected_month_expense": 15194.15,
-  "projected_savings": -8771.46,
+  "mtd_expenses": 4911.91,
+  "mtd_surplus": 1510.78,
+  "savings_rate_pct": 23.5,
+  "projected_month_expense": 13842.66,
+  "projected_savings": -7419.97,
   "top_categories": [
     {
       "category": "Shopping",
-      "amount": 1711.86
+      "amount": 1720.87
     },
     {
       "category": "Student Loans",
@@ -20,11 +20,11 @@
     },
     {
       "category": "Child Activities",
-      "amount": 700.88
+      "amount": 777.0
     },
     {
       "category": "Groceries",
-      "amount": 312.3
+      "amount": 313.86
     },
     {
       "category": "Travel & Vacation",
@@ -32,15 +32,15 @@
     },
     {
       "category": "Clothing",
-      "amount": 145.73
-    },
-    {
-      "category": "Fitness",
-      "amount": 145.0
+      "amount": 214.61
     },
     {
       "category": "Life Insurance",
       "amount": 114.44
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 105.73
     }
   ]
 }

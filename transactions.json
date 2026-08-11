@@ -8,6 +8,22 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "251774895876153960",
+    "date": "2026-08-10",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251774895876153959",
+    "date": "2026-08-10",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -1.56,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251687709024657850",
     "date": "2026-08-09",
     "merchant": "Amazon",
@@ -46,6 +62,14 @@
     "category": "Coffee Shops",
     "amount": -18.36,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251779050111967336",
+    "date": "2026-08-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "251495075601654053",
@@ -5925,86 +5949,6 @@
     "merchant": "Apple",
     "category": "Electronics",
     "amount": 9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243641475896647777",
-    "date": "2026-05-12",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -14.27,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243633286310470270",
-    "date": "2026-05-12",
-    "merchant": "Rebelstork",
-    "category": "Miscellaneous",
-    "amount": -68.81,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243633286310470269",
-    "date": "2026-05-12",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -140.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243633286310470268",
-    "date": "2026-05-12",
-    "merchant": "iHerb.com",
-    "category": "Groceries",
-    "amount": -43.19,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243633286310470267",
-    "date": "2026-05-12",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243695544820506639",
-    "date": "2026-05-12",
-    "merchant": "HS & D Enter",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243816113765294521",
-    "date": "2026-05-12",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -140.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243807499075920666",
-    "date": "2026-05-12",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -14.27,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244000062166737365",
-    "date": "2026-05-12",
-    "merchant": "Rebelstork",
-    "category": "Shopping",
-    "amount": -51.81,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244000062166737364",
-    "date": "2026-05-12",
-    "merchant": "Rebelstork",
-    "category": "Shopping",
-    "amount": -17.0,
     "account": "Amex Gold Card"
   }
 ]
