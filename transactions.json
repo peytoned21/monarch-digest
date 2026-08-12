@@ -1,5 +1,29 @@
 [
   {
+    "id": "251884381376815280",
+    "date": "2026-08-11",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -9.54,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251884381376815279",
+    "date": "2026-08-11",
+    "merchant": "Fudo Japanese Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -48.57,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251872181512774265",
+    "date": "2026-08-11",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "251717381895693010",
     "date": "2026-08-10",
     "merchant": "Venmo",
@@ -24,6 +48,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "251836896774136702",
+    "date": "2026-08-10",
+    "merchant": "Emory Decatur Hospital",
+    "category": "Parking & Tolls",
+    "amount": -5.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251829732294730682",
+    "date": "2026-08-10",
+    "merchant": "HS & D Enter",
+    "category": "Restaurants",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251687709024657850",
     "date": "2026-08-09",
     "merchant": "Amazon",
@@ -33,6 +73,22 @@
   },
   {
     "id": "251665609945719501",
+    "date": "2026-08-09",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -104.27,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251872182842368788",
+    "date": "2026-08-09",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -43.2,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251829732294730683",
     "date": "2026-08-09",
     "merchant": "Publix",
     "category": "Groceries",
@@ -70,6 +126,22 @@
     "category": "Subscriptions",
     "amount": -8.99,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251872182842368787",
+    "date": "2026-08-08",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -1024.92,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "251836896774136703",
+    "date": "2026-08-08",
+    "merchant": "Little Thistle",
+    "category": "Gas",
+    "amount": -18.36,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "251495075601654053",
@@ -110,6 +182,14 @@
     "category": "Groceries",
     "amount": -2.17,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "251836896774136704",
+    "date": "2026-08-07",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -32.13,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "251359137967842178",
@@ -5846,109 +5926,5 @@
     "category": "Shopping",
     "amount": -51.69,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243665705924239571",
-    "date": "2026-05-13",
-    "merchant": "DHS",
-    "category": "DHS Reunion",
-    "amount": -500.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243643131873927444",
-    "date": "2026-05-13",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 500.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243695544820506638",
-    "date": "2026-05-13",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -12.71,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243695544820506637",
-    "date": "2026-05-13",
-    "merchant": "Apple",
-    "category": "Shopping",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243816113765294520",
-    "date": "2026-05-13",
-    "merchant": "iHerb",
-    "category": "Groceries",
-    "amount": -43.19,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243816113765294519",
-    "date": "2026-05-13",
-    "merchant": "HS & D",
-    "category": "Shopping",
-    "amount": -12.71,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243816113765294518",
-    "date": "2026-05-13",
-    "merchant": "Apple",
-    "category": "Internet",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243807499075920665",
-    "date": "2026-05-13",
-    "merchant": "Chick-fil-A",
-    "category": "Restaurants & Bars",
-    "amount": -10.25,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243807499075920664",
-    "date": "2026-05-13",
-    "merchant": "Chevron",
-    "category": "Gas & Fuel",
-    "amount": -74.44,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243915681038279350",
-    "date": "2026-05-13",
-    "merchant": "Chevron",
-    "category": "Gas",
-    "amount": -74.44,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243915681038279349",
-    "date": "2026-05-13",
-    "merchant": "Chick-fil-A",
-    "category": "Restaurants & Bars",
-    "amount": -10.25,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244221724530254549",
-    "date": "2026-05-13",
-    "merchant": "Apple",
-    "category": "Internet",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244221724530254548",
-    "date": "2026-05-13",
-    "merchant": "Apple",
-    "category": "Electronics",
-    "amount": 9.99,
-    "account": "Amex Gold Card"
   }
 ]
