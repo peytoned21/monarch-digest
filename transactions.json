@@ -1,5 +1,37 @@
 [
   {
+    "id": "251994016727376688",
+    "date": "2026-08-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251939623495737625",
+    "date": "2026-08-12",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -312.12,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251939623495737624",
+    "date": "2026-08-12",
+    "merchant": "HEAPS",
+    "category": "Shopping",
+    "amount": -18.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251939623495737623",
+    "date": "2026-08-12",
+    "merchant": "Dunkin'",
+    "category": "Restaurants & Bars",
+    "amount": -6.24,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251884381376815280",
     "date": "2026-08-11",
     "merchant": "HS D Enterprises",
@@ -22,6 +54,22 @@
     "category": "Therapy",
     "amount": -31.48,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251967458354602650",
+    "date": "2026-08-11",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "251939623495737626",
+    "date": "2026-08-11",
+    "merchant": "HS & D Enter",
+    "category": "Restaurants",
+    "amount": -9.54,
+    "account": "Amex Gold Card"
   },
   {
     "id": "251717381895693010",
@@ -61,6 +109,22 @@
     "merchant": "HS & D Enter",
     "category": "Restaurants",
     "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "251993192958731096",
+    "date": "2026-08-10",
+    "merchant": "Emory Decatur",
+    "category": "Parking & Tolls",
+    "amount": -5.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251939623495737627",
+    "date": "2026-08-10",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -1.56,
     "account": "Amex Gold Card"
   },
   {
@@ -526,6 +590,14 @@
     "category": "Entertainment & Recreation",
     "amount": -12.99,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "251939623495737628",
+    "date": "2026-08-04",
+    "merchant": "Wayfair",
+    "category": "Furniture & Housewares",
+    "amount": -3511.35,
+    "account": "Amex Gold Card"
   },
   {
     "id": "251083976264852045",
@@ -5846,85 +5918,5 @@
     "category": "Clothing",
     "amount": -55.74,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "243807499075920663",
-    "date": "2026-05-14",
-    "merchant": "Twin Lakes Bolts",
-    "category": "Groceries",
-    "amount": -19.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243807499075920662",
-    "date": "2026-05-14",
-    "merchant": "Mart Discover",
-    "category": "Travel & Vacation",
-    "amount": -214.62,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243807499075920661",
-    "date": "2026-05-14",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": 29.94,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243775829389026177",
-    "date": "2026-05-14",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -51.69,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243775829389026176",
-    "date": "2026-05-14",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -24.27,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243761830748430668",
-    "date": "2026-05-14",
-    "merchant": "The Home Depot",
-    "category": "Paychecks",
-    "amount": 6555.88,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "243915681038279348",
-    "date": "2026-05-14",
-    "merchant": "Twin Lakes Bolts",
-    "category": "Auto Maintenance",
-    "amount": -19.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243915681038279347",
-    "date": "2026-05-14",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": 29.94,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "243965421608182651",
-    "date": "2026-05-14",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -24.27,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243965421608182650",
-    "date": "2026-05-14",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -51.69,
-    "account": "Amazon Prime Card"
   }
 ]

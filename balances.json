@@ -1,11 +1,11 @@
 {
-  "as_of": "August 12, 2026",
-  "generated_at": "2026-08-12",
+  "as_of": "August 13, 2026",
+  "generated_at": "2026-08-13",
   "_cached": false,
-  "roth": 448343,
-  "groth": 16904,
-  "k401": 192044,
-  "taxable": 182995,
+  "roth": 447762,
+  "groth": 16957,
+  "k401": 191809,
+  "taxable": 183417,
   "hsa": 19476,
   "hd_vested": 15342,
   "hd_rsus": 160306,
@@ -17,14 +17,14 @@
   "stanford_bal": 22901,
   "lexus_bal": 16253,
   "tesla_bal": 7202,
-  "cc_total": 11284,
+  "cc_total": 14843,
   "home_value": 695100,
   "vehicle_total": 60623,
   "lexus_value": 33989,
   "tesla_value": 26633,
-  "net_worth": 1555654,
-  "total_assets": 1898051,
-  "total_debt": 342397,
+  "net_worth": 1551753,
+  "total_assets": 1897709,
+  "total_debt": 345956,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 448343.39,
+      "balance": 447762.87,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 127545.29,
+      "balance": 127601.09,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -183,7 +183,7 @@
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
       "type": "credit",
-      "balance": -785.06,
+      "balance": -816.54,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 192044.56,
+      "balance": 191809.43,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -6016.94,
+      "balance": -9539.39,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 50204.6,
+      "balance": 50401.82,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -399,7 +399,7 @@
       "id": "214858633887817806",
       "name": "Citi ThankYou Preferred (...3736)",
       "type": "credit",
-      "balance": -2924.28,
+      "balance": -2929.28,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Citibank Online"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16904.94,
+      "balance": 16957.33,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -453,7 +453,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5246.03,
+      "balance": 5414.11,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
