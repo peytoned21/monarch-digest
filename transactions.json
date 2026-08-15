@@ -1,5 +1,13 @@
 [
   {
+    "id": "252105454240342326",
+    "date": "2026-08-14",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -4.24,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "251994016727376688",
     "date": "2026-08-13",
     "merchant": "Apple",
@@ -22,6 +30,22 @@
     "category": "Restaurants & Bars",
     "amount": -104.34,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "252131520835167100",
+    "date": "2026-08-13",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -38.51,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "252131520835167099",
+    "date": "2026-08-13",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -88.72,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "251939623495737625",
@@ -93,6 +117,14 @@
     "merchant": "Fudo",
     "category": "Restaurants & Bars",
     "amount": -58.57,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252105454240342327",
+    "date": "2026-08-11",
+    "merchant": "Resy",
+    "category": "Restaurants & Bars",
+    "amount": 24.4,
     "account": "Amex Gold Card"
   },
   {
@@ -5790,109 +5822,5 @@
     "category": "Shopping",
     "amount": -26.31,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244000062166737363",
-    "date": "2026-05-16",
-    "merchant": "Outrun Brewing",
-    "category": "Restaurants",
-    "amount": -8.6,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244000062166737362",
-    "date": "2026-05-16",
-    "merchant": "Live Oak Restaurant",
-    "category": "Restaurants & Bars",
-    "amount": -54.36,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "243965421608182649",
-    "date": "2026-05-16",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -10.79,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "243941126316171637",
-    "date": "2026-05-16",
-    "merchant": "Apple",
-    "category": "Shopping",
-    "amount": -7.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244081590436570066",
-    "date": "2026-05-16",
-    "merchant": "BP",
-    "category": "Shopping",
-    "amount": -7.55,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244081590436570065",
-    "date": "2026-05-16",
-    "merchant": "DoorDash",
-    "category": "Groceries",
-    "amount": -5.94,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244058614469173921",
-    "date": "2026-05-16",
-    "merchant": "Apple",
-    "category": "Internet",
-    "amount": -7.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244173320056938727",
-    "date": "2026-05-16",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -10.79,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244173318159016047",
-    "date": "2026-05-16",
-    "merchant": "DoorDash",
-    "category": "Groceries",
-    "amount": -5.94,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244173318159016046",
-    "date": "2026-05-16",
-    "merchant": "BP",
-    "category": "Shopping",
-    "amount": -7.55,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244350013902102841",
-    "date": "2026-05-16",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -25.31,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244350013902102840",
-    "date": "2026-05-16",
-    "merchant": "Sephora",
-    "category": "Beauty and Grooming",
-    "amount": -49.68,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244527312205193262",
-    "date": "2026-05-16",
-    "merchant": "Live Oak Restaurant",
-    "category": "Restaurants",
-    "amount": -64.36,
-    "account": "Amex Gold Card"
   }
 ]
