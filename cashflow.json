@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-15",
+  "as_of": "2026-08-16",
   "month": "August 2026",
-  "days_elapsed": 15,
+  "days_elapsed": 16,
   "days_in_month": 31,
-  "mtd_income": 6447.09,
-  "mtd_expenses": 9201.34,
-  "mtd_surplus": -2754.25,
-  "savings_rate_pct": -42.7,
-  "projected_month_expense": 19016.1,
-  "projected_savings": -12569.01,
+  "mtd_income": 7168.33,
+  "mtd_expenses": 9224.97,
+  "mtd_surplus": -2056.64,
+  "savings_rate_pct": -28.7,
+  "projected_month_expense": 17873.38,
+  "projected_savings": -10705.05,
   "top_categories": [
     {
       "category": "Furniture & Housewares",
@@ -24,7 +24,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 927.74
+      "amount": 924.14
     },
     {
       "category": "Child Activities",

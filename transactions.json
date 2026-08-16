@@ -1,11 +1,27 @@
 [
   {
+    "id": "252213914104701637",
+    "date": "2026-08-15",
+    "merchant": "Lego",
+    "category": "Entertainment & Recreation",
+    "amount": -27.23,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "252105454240342326",
     "date": "2026-08-14",
     "merchant": "HS D Enterprises",
     "category": "Shopping",
     "amount": -4.24,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "252201783504347170",
+    "date": "2026-08-14",
+    "merchant": "Venmo",
+    "category": "Charity",
+    "amount": 715.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "251994016727376688",
@@ -69,6 +85,14 @@
     "merchant": "Dunkin'",
     "category": "Restaurants & Bars",
     "amount": -6.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252213914104701638",
+    "date": "2026-08-12",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 6.24,
     "account": "Amex Gold Card"
   },
   {
@@ -5766,61 +5790,5 @@
     "category": "Work Lunch",
     "amount": -6.63,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "244117432958918934",
-    "date": "2026-05-17",
-    "merchant": "The Plaza",
-    "category": "Restaurants & Bars",
-    "amount": -25.58,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244117432958918933",
-    "date": "2026-05-17",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -73.96,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244058614469173920",
-    "date": "2026-05-17",
-    "merchant": "J R Crickets",
-    "category": "Restaurants & Bars",
-    "amount": -19.41,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244221724530254547",
-    "date": "2026-05-17",
-    "merchant": "Outrun Brewing",
-    "category": "Restaurants",
-    "amount": -8.6,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244221724530254546",
-    "date": "2026-05-17",
-    "merchant": "Plaza",
-    "category": "Restaurants & Bars",
-    "amount": -25.58,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244221724530254545",
-    "date": "2026-05-17",
-    "merchant": "Jr Crickets",
-    "category": "Restaurants & Bars",
-    "amount": -19.41,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244350013902102839",
-    "date": "2026-05-17",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -26.31,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
