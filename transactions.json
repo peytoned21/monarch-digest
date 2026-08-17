@@ -1,5 +1,13 @@
 [
   {
+    "id": "252342358974079904",
+    "date": "2026-08-17",
+    "merchant": "Path2College 529 Plan",
+    "category": "E&A 529 Plan",
+    "amount": -2000.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "252213914104701637",
     "date": "2026-08-15",
     "merchant": "Lego",
@@ -5717,78 +5725,6 @@
     "merchant": "Bring It Home",
     "category": "Furniture & Housewares",
     "amount": -2600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244171296474079749",
-    "date": "2026-05-18",
-    "merchant": "Read Shop",
-    "category": "Shopping",
-    "amount": -7.1,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244171296474079748",
-    "date": "2026-05-18",
-    "merchant": "K Martial Arts",
-    "category": "Fitness",
-    "amount": -129.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244171296474079747",
-    "date": "2026-05-18",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244244479272231873",
-    "date": "2026-05-18",
-    "merchant": "Brightwheel",
-    "category": "Shopping",
-    "amount": -150.91,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "244221724530254544",
-    "date": "2026-05-18",
-    "merchant": "Read Shop",
-    "category": "Shopping",
-    "amount": -7.1,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244350013902102838",
-    "date": "2026-05-18",
-    "merchant": "Spiller Park Coffee",
-    "category": "Restaurants",
-    "amount": -10.08,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244323044850344426",
-    "date": "2026-05-18",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -67.94,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244323044850344425",
-    "date": "2026-05-18",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -129.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244323044850344424",
-    "date": "2026-05-18",
-    "merchant": "HS & D ENTERTAINMENT",
-    "category": "Work Lunch",
-    "amount": -6.63,
     "account": "Amex Gold Card"
   }
 ]

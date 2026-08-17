@@ -1,18 +1,22 @@
 {
-  "as_of": "2026-08-16",
+  "as_of": "2026-08-17",
   "month": "August 2026",
-  "days_elapsed": 16,
+  "days_elapsed": 17,
   "days_in_month": 31,
   "mtd_income": 7168.33,
-  "mtd_expenses": 9224.97,
-  "mtd_surplus": -2056.64,
-  "savings_rate_pct": -28.7,
-  "projected_month_expense": 17873.38,
-  "projected_savings": -10705.05,
+  "mtd_expenses": 11224.97,
+  "mtd_surplus": -4056.64,
+  "savings_rate_pct": -56.6,
+  "projected_month_expense": 20469.06,
+  "projected_savings": -13300.73,
   "top_categories": [
     {
       "category": "Furniture & Housewares",
       "amount": 3511.35
+    },
+    {
+      "category": "E&A 529 Plan",
+      "amount": 2000.0
     },
     {
       "category": "Student Loans",
@@ -37,10 +41,6 @@
     {
       "category": "Home Improvement",
       "amount": 312.12
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 274.88
     }
   ]
 }
