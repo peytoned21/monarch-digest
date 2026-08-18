@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-17",
+  "as_of": "2026-08-18",
   "month": "August 2026",
-  "days_elapsed": 17,
+  "days_elapsed": 18,
   "days_in_month": 31,
-  "mtd_income": 7168.33,
-  "mtd_expenses": 11224.97,
-  "mtd_surplus": -4056.64,
-  "savings_rate_pct": -56.6,
-  "projected_month_expense": 20469.06,
-  "projected_savings": -13300.73,
+  "mtd_income": 7195.33,
+  "mtd_expenses": 12886.78,
+  "mtd_surplus": -5691.45,
+  "savings_rate_pct": -79.1,
+  "projected_month_expense": 22193.9,
+  "projected_savings": -14998.57,
   "top_categories": [
     {
       "category": "Furniture & Housewares",
@@ -17,6 +17,10 @@
     {
       "category": "E&A 529 Plan",
       "amount": 2000.0
+    },
+    {
+      "category": "Mortgage",
+      "amount": 1345.16
     },
     {
       "category": "Student Loans",
@@ -28,7 +32,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 924.14
+      "amount": 1016.83
     },
     {
       "category": "Child Activities",
@@ -36,11 +40,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 313.86
-    },
-    {
-      "category": "Home Improvement",
-      "amount": 312.12
+      "amount": 398.2
     }
   ]
 }

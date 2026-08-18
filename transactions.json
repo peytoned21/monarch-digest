@@ -1,11 +1,91 @@
 [
   {
+    "id": "252433513689588550",
+    "date": "2026-08-18",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -46.16,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "252342358974079904",
     "date": "2026-08-17",
     "merchant": "Path2College 529 Plan",
     "category": "E&A 529 Plan",
     "amount": -2000.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "252439393443193002",
+    "date": "2026-08-17",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -46.09,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "252439393443193001",
+    "date": "2026-08-17",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -72.83,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "252430982940926365",
+    "date": "2026-08-17",
+    "merchant": "Henderson Mill Elementary School",
+    "category": "Education",
+    "amount": -30.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252430982940926364",
+    "date": "2026-08-17",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -1.69,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252376613574877246",
+    "date": "2026-08-17",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 27.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252376613574877245",
+    "date": "2026-08-17",
+    "merchant": "HS D Enterprises",
+    "category": "Shopping",
+    "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252376613574877244",
+    "date": "2026-08-17",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -82.65,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252364960243327516",
+    "date": "2026-08-17",
+    "merchant": "RoundPoint Mortgage Servicing Corporation",
+    "category": "Mortgage",
+    "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "252439393443193003",
+    "date": "2026-08-16",
+    "merchant": "Beauty By Earth",
+    "category": "Beauty and Grooming",
+    "amount": -44.79,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "252213914104701637",
@@ -5629,102 +5709,6 @@
     "merchant": "American Express",
     "category": "DHS Reunion",
     "amount": 2599.61,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244272340715642906",
-    "date": "2026-05-19",
-    "merchant": "Dunwoody High School",
-    "category": "Education",
-    "amount": -2600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244269521690370275",
-    "date": "2026-05-19",
-    "merchant": "DHS Reunion",
-    "category": "DHS Reunion",
-    "amount": 2523.22,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "244221724530254543",
-    "date": "2026-05-19",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -26.31,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244221724530254542",
-    "date": "2026-05-19",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244386911906373993",
-    "date": "2026-05-19",
-    "merchant": "Spiller Park Coffee",
-    "category": "Coffee Shops",
-    "amount": -10.95,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244386911906373992",
-    "date": "2026-05-19",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -21.29,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244386911906373991",
-    "date": "2026-05-19",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -61.74,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244350013902102837",
-    "date": "2026-05-19",
-    "merchant": "Spiller Park Coffee",
-    "category": "Restaurants & Bars",
-    "amount": -10.95,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244350013902102836",
-    "date": "2026-05-19",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -83.03,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244323044850344423",
-    "date": "2026-05-19",
-    "merchant": "HS & D ENTERTAINMENT",
-    "category": "Work Lunch",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425793160028572",
-    "date": "2026-05-19",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -26.31,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425793160028571",
-    "date": "2026-05-19",
-    "merchant": "Bring It Home",
-    "category": "Furniture & Housewares",
-    "amount": -2600.0,
     "account": "Amex Gold Card"
   }
 ]
