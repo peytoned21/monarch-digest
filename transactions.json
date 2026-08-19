@@ -1,11 +1,43 @@
 [
   {
+    "id": "252533534523073187",
+    "date": "2026-08-19",
+    "merchant": "Georgia Power",
+    "category": "Gas & Electric",
+    "amount": -315.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "252433513689588550",
     "date": "2026-08-18",
     "merchant": "Amazon",
     "category": "Shopping",
     "amount": -46.16,
     "account": "Amazon Prime Card"
+  },
+  {
+    "id": "252540426178732610",
+    "date": "2026-08-18",
+    "merchant": "Maki of Japan",
+    "category": "Restaurants & Bars",
+    "amount": -15.55,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252523868450660726",
+    "date": "2026-08-18",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -4.62,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252486156407480528",
+    "date": "2026-08-18",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -4.63,
+    "account": "Amex Gold Card"
   },
   {
     "id": "252342358974079904",
@@ -77,6 +109,30 @@
     "merchant": "RoundPoint Mortgage Servicing Corporation",
     "category": "Mortgage",
     "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "252486156407480529",
+    "date": "2026-08-17",
+    "merchant": "HS & D Enter",
+    "category": "Shopping",
+    "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252486156407480527",
+    "date": "2026-08-17",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 27.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252364960243327515",
+    "date": "2026-08-17",
+    "merchant": "Venmo",
+    "category": "Fantasy Football",
+    "amount": -300.0,
     "account": "Wealthfront Checking"
   },
   {
@@ -5630,85 +5686,5 @@
     "category": "Shopping",
     "amount": -152.27,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244386911906373990",
-    "date": "2026-05-20",
-    "merchant": "Mart Disco",
-    "category": "Restaurants & Bars",
-    "amount": -214.62,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244361942014042428",
-    "date": "2026-05-20",
-    "merchant": "Substack",
-    "category": "Subscriptions",
-    "amount": -12.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244323044850344422",
-    "date": "2026-05-20",
-    "merchant": "CiCi's Pizza",
-    "category": "Restaurants & Bars",
-    "amount": -14.88,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244323044850344421",
-    "date": "2026-05-20",
-    "merchant": "LIFESTANCE HEALTH",
-    "category": "Medical",
-    "amount": -97.95,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244323044850344420",
-    "date": "2026-05-20",
-    "merchant": "Dunkin'",
-    "category": "Restaurants & Bars",
-    "amount": -6.81,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244457825081697167",
-    "date": "2026-05-20",
-    "merchant": "Newsitems",
-    "category": "Subscriptions",
-    "amount": -12.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244527312205193261",
-    "date": "2026-05-20",
-    "merchant": "LIFESTANCE HEALTH",
-    "category": "Personal",
-    "amount": -97.95,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244527312205193260",
-    "date": "2026-05-20",
-    "merchant": "Dunkin' & Baskin-Robbins",
-    "category": "Coffee Shops",
-    "amount": -6.81,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244577666468881099",
-    "date": "2026-05-20",
-    "merchant": "Dunkin'",
-    "category": "Coffee Shops",
-    "amount": 6.81,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425793160028570",
-    "date": "2026-05-20",
-    "merchant": "American Express",
-    "category": "DHS Reunion",
-    "amount": 2599.61,
-    "account": "Amex Gold Card"
   }
 ]
