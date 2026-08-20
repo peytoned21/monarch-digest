@@ -1,11 +1,35 @@
 [
   {
+    "id": "252624969803964636",
+    "date": "2026-08-20",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5586.74,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "252533534523073187",
     "date": "2026-08-19",
     "merchant": "Georgia Power",
     "category": "Gas & Electric",
     "amount": -315.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "252615572176445820",
+    "date": "2026-08-19",
+    "merchant": "Hope And Restoration",
+    "category": "Therapy",
+    "amount": -31.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252596165660319815",
+    "date": "2026-08-19",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -4.45,
+    "account": "Amex Gold Card"
   },
   {
     "id": "252433513689588550",
@@ -38,6 +62,22 @@
     "category": "Coffee Shops",
     "amount": -4.63,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "252566975020998759",
+    "date": "2026-08-18",
+    "merchant": "Oh K Dog",
+    "category": "Shopping",
+    "amount": -6.35,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "252566975020998758",
+    "date": "2026-08-18",
+    "merchant": "Regal Cinemas",
+    "category": "Entertainment & Recreation",
+    "amount": -23.83,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "252342358974079904",
@@ -5494,197 +5534,5 @@
     "category": "Clothing",
     "amount": -250.88,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "244386905182904561",
-    "date": "2026-05-21",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 32.18,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244364994014028486",
-    "date": "2026-05-21",
-    "merchant": "CDC Federal Credit Union",
-    "category": "Cash & ATM",
-    "amount": -1200.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "244350013902102835",
-    "date": "2026-05-21",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -49.6,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244475776497295508",
-    "date": "2026-05-21",
-    "merchant": "Dignitana",
-    "category": "Miscellaneous",
-    "amount": -600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244457826242470895",
-    "date": "2026-05-21",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -152.27,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244457826242470894",
-    "date": "2026-05-21",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -239.12,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244457825081697165",
-    "date": "2026-05-21",
-    "merchant": "Hope And Restoration",
-    "category": "Charity",
-    "amount": -62.96,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244425793160028569",
-    "date": "2026-05-21",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -91.23,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425793160028568",
-    "date": "2026-05-21",
-    "merchant": "RLI Insurance",
-    "category": "Life Insurance",
-    "amount": -758.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425793160028567",
-    "date": "2026-05-21",
-    "merchant": "Apple",
-    "category": "Shopping",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244425790611988492",
-    "date": "2026-05-21",
-    "merchant": "Google",
-    "category": "Miscellaneous",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "244387952071746261",
-    "date": "2026-05-21",
-    "merchant": "American Express",
-    "category": "DHS Reunion",
-    "amount": -2599.61,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "244554623219606024",
-    "date": "2026-05-21",
-    "merchant": "Hope And Restoration",
-    "category": "Charity",
-    "amount": -62.96,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244527312205193259",
-    "date": "2026-05-21",
-    "merchant": "CiCi's Pizza",
-    "category": "Restaurants & Bars",
-    "amount": -14.88,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244527312205193258",
-    "date": "2026-05-21",
-    "merchant": "RLI Corp.",
-    "category": "Life Insurance",
-    "amount": -758.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244527312205193257",
-    "date": "2026-05-21",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 32.18,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244527312205193256",
-    "date": "2026-05-21",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244527308414591119",
-    "date": "2026-05-21",
-    "merchant": "YouTube",
-    "category": "Entertainment & Recreation",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "244619117515972775",
-    "date": "2026-05-21",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -49.6,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244619117515972773",
-    "date": "2026-05-21",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -40.8,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244577666468881098",
-    "date": "2026-05-21",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -91.23,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244577663717417402",
-    "date": "2026-05-21",
-    "merchant": "Platinum Digital Entertainment",
-    "category": "Internet & Cable",
-    "amount": 15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "244735285986796034",
-    "date": "2026-05-21",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -239.12,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244735285986796033",
-    "date": "2026-05-21",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -152.27,
-    "account": "Amazon Prime Card"
   }
 ]
