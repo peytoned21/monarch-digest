@@ -1,5 +1,29 @@
 [
   {
+    "id": "252797721372467314",
+    "date": "2026-08-21",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -60.77,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252797721372467313",
+    "date": "2026-08-21",
+    "merchant": "Fellini's Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -23.98,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252761210820174410",
+    "date": "2026-08-21",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "252624969803964636",
     "date": "2026-08-20",
     "merchant": "The Home Depot",
@@ -134,6 +158,14 @@
     "category": "Shopping",
     "amount": -7.62,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "252731109211579186",
+    "date": "2026-08-18",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 0.76,
+    "account": "Amex Gold Card"
   },
   {
     "id": "252342358974079904",
@@ -5422,69 +5454,5 @@
     "category": "Shopping",
     "amount": -20.4,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244644388097958773",
-    "date": "2026-05-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244628019194307045",
-    "date": "2026-05-23",
-    "merchant": "Stripe",
-    "category": "Furniture & Housewares",
-    "amount": -462.05,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244628019194307044",
-    "date": "2026-05-23",
-    "merchant": "Fork in the Road",
-    "category": "Restaurants & Bars",
-    "amount": -17.27,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244735284012327890",
-    "date": "2026-05-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244778196053992159",
-    "date": "2026-05-23",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -71.48,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244778196053992158",
-    "date": "2026-05-23",
-    "merchant": "Fork in the Road",
-    "category": "Restaurants & Bars",
-    "amount": -17.27,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244889845033280501",
-    "date": "2026-05-23",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -39.48,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245045601160339509",
-    "date": "2026-05-23",
-    "merchant": "Wayfair",
-    "category": "Furniture & Housewares",
-    "amount": -462.05,
-    "account": "Amex Gold Card"
   }
 ]

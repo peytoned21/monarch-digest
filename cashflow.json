@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-21",
+  "as_of": "2026-08-22",
   "month": "August 2026",
-  "days_elapsed": 21,
+  "days_elapsed": 22,
   "days_in_month": 31,
-  "mtd_income": 11934.19,
-  "mtd_expenses": 14613.52,
-  "mtd_surplus": -2679.33,
-  "savings_rate_pct": -22.5,
-  "projected_month_expense": 21572.34,
-  "projected_savings": -9638.15,
+  "mtd_income": 11934.95,
+  "mtd_expenses": 13322.1,
+  "mtd_surplus": -1387.15,
+  "savings_rate_pct": -11.6,
+  "projected_month_expense": 18772.05,
+  "projected_savings": -6837.1,
   "top_categories": [
     {
       "category": "Furniture & Housewares",
@@ -23,12 +23,8 @@
       "amount": 1345.16
     },
     {
-      "category": "Cash & ATM",
+      "category": "Auto Payment",
       "amount": 1200.0
-    },
-    {
-      "category": "Student Loans",
-      "amount": 1120.6
     },
     {
       "category": "Electronics",
@@ -40,7 +36,11 @@
     },
     {
       "category": "Shopping",
-      "amount": 592.54
+      "amount": 584.92
+    },
+    {
+      "category": "Groceries",
+      "amount": 411.18
     }
   ]
 }
