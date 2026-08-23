@@ -1,5 +1,13 @@
 [
   {
+    "id": "252869454876058089",
+    "date": "2026-08-22",
+    "merchant": "Waffle House",
+    "category": "Restaurants & Bars",
+    "amount": -38.75,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "252797721372467314",
     "date": "2026-08-21",
     "merchant": "XOOM Energy",
@@ -5430,29 +5438,5 @@
     "category": "Clothing",
     "amount": 12.23,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "244619117515972771",
-    "date": "2026-05-24",
-    "merchant": "eBay",
-    "category": "Shopping",
-    "amount": -16.17,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244889845033280500",
-    "date": "2026-05-24",
-    "merchant": "eBay",
-    "category": "Shopping",
-    "amount": -16.17,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "244889845033280499",
-    "date": "2026-05-24",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -20.4,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

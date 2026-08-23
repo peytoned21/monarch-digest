@@ -1,11 +1,11 @@
 {
-  "as_of": "August 22, 2026",
-  "generated_at": "2026-08-22",
+  "as_of": "August 23, 2026",
+  "generated_at": "2026-08-23",
   "_cached": false,
-  "roth": 445016,
+  "roth": 448219,
   "groth": 16797,
-  "k401": 191588,
-  "taxable": 184093,
+  "k401": 192865,
+  "taxable": 184166,
   "hsa": 19476,
   "hd_vested": 14483,
   "hd_rsus": 152861,
@@ -17,14 +17,14 @@
   "stanford_bal": 22901,
   "lexus_bal": 16253,
   "tesla_bal": 7202,
-  "cc_total": 9100,
+  "cc_total": 9184,
   "home_value": 700300,
   "vehicle_total": 60623,
   "lexus_value": 33989,
   "tesla_value": 26633,
-  "net_worth": 1545377,
-  "total_assets": 1884203,
-  "total_debt": 338826,
+  "net_worth": 1549846,
+  "total_assets": 1888756,
+  "total_debt": 338910,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 445016.28,
+      "balance": 448219.75,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 128016.68,
+      "balance": 128105.08,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 191588.52,
+      "balance": 192865.48,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -6011.56,
+      "balance": -6079.18,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 50419.69,
+      "balance": 50375.47,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -444,7 +444,7 @@
       "id": "240526621396640405",
       "name": "Amex Platinum Card",
       "type": "credit",
-      "balance": -94.96,
+      "balance": -110.95,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -453,7 +453,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5657.28,
+      "balance": 5685.86,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
