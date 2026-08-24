@@ -1,5 +1,37 @@
 [
   {
+    "id": "252979118468964801",
+    "date": "2026-08-23",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -6.04,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252979118468964800",
+    "date": "2026-08-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "252977624731558492",
+    "date": "2026-08-23",
+    "merchant": "Yuzu Sushi",
+    "category": "Restaurants & Bars",
+    "amount": -76.9,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "252977624731558491",
+    "date": "2026-08-23",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -4.72,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "252869454876058089",
     "date": "2026-08-22",
     "merchant": "Waffle House",
@@ -29,6 +61,14 @@
     "merchant": "Google",
     "category": "Subscriptions",
     "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "252923373048242875",
+    "date": "2026-08-21",
+    "merchant": "American Express",
+    "category": "Internet & Cable",
+    "amount": 15.99,
     "account": "Amex Platinum Card"
   },
   {
