@@ -1,5 +1,29 @@
 [
   {
+    "id": "253033536710189770",
+    "date": "2026-08-24",
+    "merchant": "Southern Sweets Bakery",
+    "category": "Restaurants & Bars",
+    "amount": -39.12,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253033536710189769",
+    "date": "2026-08-24",
+    "merchant": "Savage Avondale",
+    "category": "Clothing",
+    "amount": -44.69,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253033536710189768",
+    "date": "2026-08-24",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -95.47,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "252979118468964801",
     "date": "2026-08-23",
     "merchant": "Tesla",
@@ -40,6 +64,22 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "253066516059071477",
+    "date": "2026-08-22",
+    "merchant": "Wolf Mountain Vineyard",
+    "category": "Restaurants & Bars",
+    "amount": -32.4,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253066516059071476",
+    "date": "2026-08-22",
+    "merchant": "Frogtown Cellars",
+    "category": "Restaurants & Bars",
+    "amount": -38.4,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "252797721372467314",
     "date": "2026-08-21",
     "merchant": "XOOM Energy",
@@ -70,6 +110,14 @@
     "category": "Internet & Cable",
     "amount": 15.99,
     "account": "Amex Platinum Card"
+  },
+  {
+    "id": "253066516059071478",
+    "date": "2026-08-21",
+    "merchant": "Autopay",
+    "category": "Paychecks",
+    "amount": 2549.05,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "252624969803964636",
@@ -5398,85 +5446,5 @@
     "category": "Internet & Cable",
     "amount": -90.0,
     "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244880590621320151",
-    "date": "2026-05-26",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -16.2,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244880590621320150",
-    "date": "2026-05-26",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -5.62,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244880590621320149",
-    "date": "2026-05-26",
-    "merchant": "BWBC",
-    "category": "Entertainment & Recreation",
-    "amount": -10.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244984517234729947",
-    "date": "2026-05-26",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -16.2,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244984517234729946",
-    "date": "2026-05-26",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -5.62,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "244966286950342820",
-    "date": "2026-05-26",
-    "merchant": "Wells Fargo",
-    "category": "Check",
-    "amount": -150.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "244966286950342819",
-    "date": "2026-05-26",
-    "merchant": "Purchase Authorized on Your Dekalb Far Decatur Ga",
-    "category": "Groceries",
-    "amount": -106.29,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "244966286950342818",
-    "date": "2026-05-26",
-    "merchant": "Atm Withdrawal Authorized on Lavista Rd Tucker Ga Atm Id",
-    "category": "Cash & ATM",
-    "amount": -300.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245045601160339508",
-    "date": "2026-05-26",
-    "merchant": "BWBC",
-    "category": "Restaurants & Bars",
-    "amount": -10.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245045601160339507",
-    "date": "2026-05-26",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 12.23,
-    "account": "Amex Gold Card"
   }
 ]
