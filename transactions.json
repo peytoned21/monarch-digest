@@ -24,6 +24,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "253088194246943395",
+    "date": "2026-08-24",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -27.4,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "252979118468964801",
     "date": "2026-08-23",
     "merchant": "Tesla",
@@ -5381,70 +5389,6 @@
     "merchant": "R & R Properties",
     "category": "Rent",
     "amount": -2665.36,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244937644598829536",
-    "date": "2026-05-27",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -12.85,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "244937644417425867",
-    "date": "2026-05-27",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "244984517234729945",
-    "date": "2026-05-27",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -35.12,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245114906982948983",
-    "date": "2026-05-27",
-    "merchant": "Kroger",
-    "category": "Gas & Fuel",
-    "amount": -71.35,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245114906982948982",
-    "date": "2026-05-27",
-    "merchant": "Michaels",
-    "category": "Furniture & Housewares",
-    "amount": -4.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245148510811267804",
-    "date": "2026-05-27",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -35.12,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245140015886049991",
-    "date": "2026-05-27",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -12.85,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "245140013998612512",
-    "date": "2026-05-27",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
     "account": "Chase Sapphire Preferred "
   }
 ]
