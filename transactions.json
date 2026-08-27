@@ -1,5 +1,29 @@
 [
   {
+    "id": "253281014860686012",
+    "date": "2026-08-27",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -43.16,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253281014860686013",
+    "date": "2026-08-26",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -81.44,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253281014860686014",
+    "date": "2026-08-25",
+    "merchant": "Jason's Deli",
+    "category": "Restaurants & Bars",
+    "amount": -28.49,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "253033536710189770",
     "date": "2026-08-24",
     "merchant": "Southern Sweets Bakery",
@@ -5254,141 +5278,5 @@
     "category": "Restaurants & Bars",
     "amount": -34.19,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245018193253311038",
-    "date": "2026-05-28",
-    "merchant": "The Home Depot",
-    "category": "Paychecks",
-    "amount": 5062.88,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "245114906982948981",
-    "date": "2026-05-28",
-    "merchant": "Chick-fil-A",
-    "category": "Restaurants & Bars",
-    "amount": -9.49,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245110009098084522",
-    "date": "2026-05-28",
-    "merchant": "Wealthfront",
-    "category": "Income",
-    "amount": 1000.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245110009098084521",
-    "date": "2026-05-28",
-    "merchant": "Zelle",
-    "category": "Shopping",
-    "amount": -10.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245096696007041829",
-    "date": "2026-05-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -82.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245096696007041828",
-    "date": "2026-05-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -10.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245096696007041827",
-    "date": "2026-05-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245045601160339506",
-    "date": "2026-05-28",
-    "merchant": "Antico Pizza Battery",
-    "category": "Restaurants & Bars",
-    "amount": -102.84,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245140013998612511",
-    "date": "2026-05-28",
-    "merchant": "R & R Properties",
-    "category": "Rent",
-    "amount": -2665.36,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245140013998612510",
-    "date": "2026-05-28",
-    "merchant": "Anthropic",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245251025226637554",
-    "date": "2026-05-28",
-    "merchant": "Antico",
-    "category": "Restaurants & Bars",
-    "amount": -102.84,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245251022160601847",
-    "date": "2026-05-28",
-    "merchant": "Youtube TV",
-    "category": "Internet & Cable",
-    "amount": -82.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245251022160601846",
-    "date": "2026-05-28",
-    "merchant": "Youtube TV",
-    "category": "Internet & Cable",
-    "amount": -10.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245251022160601845",
-    "date": "2026-05-28",
-    "merchant": "Youtube TV",
-    "category": "Internet & Cable",
-    "amount": -9.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "245238343875371179",
-    "date": "2026-05-28",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": 30.88,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245231752100913638",
-    "date": "2026-05-28",
-    "merchant": "Anthropic",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245231752100913637",
-    "date": "2026-05-28",
-    "merchant": "R & R Properties",
-    "category": "Rent",
-    "amount": -2665.36,
-    "account": "Chase Sapphire Preferred "
   }
 ]
