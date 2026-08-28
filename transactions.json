@@ -8,6 +8,30 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "253364318791213386",
+    "date": "2026-08-27",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 3.52,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253364318791213385",
+    "date": "2026-08-27",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -20.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253309280803823644",
+    "date": "2026-08-27",
+    "merchant": "Waffle House",
+    "category": "Restaurants & Bars",
+    "amount": -17.5,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "253281014860686013",
     "date": "2026-08-26",
     "merchant": "The Home Depot",
@@ -5246,37 +5270,5 @@
     "category": "Shopping",
     "amount": -18.7,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "245115758666785639",
-    "date": "2026-05-29",
-    "merchant": "Georgia Power",
-    "category": "Gas & Electric",
-    "amount": -285.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "245140013998612509",
-    "date": "2026-05-29",
-    "merchant": "Family Dollar",
-    "category": "Clothing",
-    "amount": -12.96,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245238343875371178",
-    "date": "2026-05-29",
-    "merchant": "Burlington",
-    "category": "Clothing",
-    "amount": -11.87,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245238343875371177",
-    "date": "2026-05-29",
-    "merchant": "Chick-fil-A",
-    "category": "Restaurants & Bars",
-    "amount": -34.19,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
