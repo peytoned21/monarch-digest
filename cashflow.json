@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-28",
+  "as_of": "2026-08-29",
   "month": "August 2026",
-  "days_elapsed": 28,
+  "days_elapsed": 29,
   "days_in_month": 31,
   "mtd_income": 5864.65,
-  "mtd_expenses": 9212.26,
-  "mtd_surplus": -3347.61,
-  "savings_rate_pct": -57.1,
-  "projected_month_expense": 10199.29,
-  "projected_savings": -4334.64,
+  "mtd_expenses": 8277.48,
+  "mtd_surplus": -2412.83,
+  "savings_rate_pct": -41.1,
+  "projected_month_expense": 8848.34,
+  "projected_savings": -2983.69,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -21,10 +21,6 @@
     {
       "category": "Auto Payment",
       "amount": 1200.0
-    },
-    {
-      "category": "Electronics",
-      "amount": 1024.92
     },
     {
       "category": "Charity",
@@ -41,6 +37,10 @@
     {
       "category": "Gas & Electric",
       "amount": 375.77
+    },
+    {
+      "category": "Groceries",
+      "amount": 349.27
     }
   ]
 }

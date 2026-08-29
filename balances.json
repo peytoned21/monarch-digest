@@ -1,11 +1,11 @@
 {
-  "as_of": "August 28, 2026",
-  "generated_at": "2026-08-28",
+  "as_of": "August 29, 2026",
+  "generated_at": "2026-08-29",
   "_cached": false,
   "roth": 450281,
-  "groth": 16904,
-  "k401": 192724,
-  "taxable": 185512,
+  "groth": 16847,
+  "k401": 193725,
+  "taxable": 185501,
   "hsa": 19476,
   "hd_vested": 14230,
   "hd_rsus": 150174,
@@ -19,11 +19,11 @@
   "tesla_bal": 6744,
   "cc_total": 8938,
   "home_value": 696800,
-  "vehicle_total": 60783,
-  "lexus_value": 33989,
+  "vehicle_total": 60464,
+  "lexus_value": 33671,
   "tesla_value": 26793,
-  "net_worth": 1547009,
-  "total_assets": 1884571,
+  "net_worth": 1547624,
+  "total_assets": 1885187,
   "total_debt": 337562,
   "accounts": [
     {
@@ -192,7 +192,7 @@
       "id": "166323459708625820",
       "name": "2019 Lexus GX Base",
       "type": "vehicle",
-      "balance": 33989.56,
+      "balance": 33671.05,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "VinAudit"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 192724.3,
+      "balance": 193725.51,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 51152.93,
+      "balance": 51142.26,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16904.05,
+      "balance": 16847.66,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"

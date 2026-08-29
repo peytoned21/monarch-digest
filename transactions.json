@@ -1,5 +1,53 @@
 [
   {
+    "id": "253436002877513873",
+    "date": "2026-08-29",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "253436002877513875",
+    "date": "2026-08-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "253436002877513874",
+    "date": "2026-08-28",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "253419978402767824",
+    "date": "2026-08-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "253419978402767823",
+    "date": "2026-08-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "253419978402767822",
+    "date": "2026-08-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "253281014860686012",
     "date": "2026-08-27",
     "merchant": "The Home Depot",
@@ -5254,21 +5302,5 @@
     "category": "Shopping",
     "amount": -10.69,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245251025226637553",
-    "date": "2026-05-30",
-    "merchant": "Frostys Griddle Shake",
-    "category": "Restaurants & Bars",
-    "amount": -73.83,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245251025226637552",
-    "date": "2026-05-30",
-    "merchant": "Friendly Express",
-    "category": "Shopping",
-    "amount": -18.7,
-    "account": "Amex Gold Card"
   }
 ]
