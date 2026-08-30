@@ -8,6 +8,38 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "253529018642407605",
+    "date": "2026-08-29",
+    "merchant": "Live Oak Tavern",
+    "category": "Restaurants & Bars",
+    "amount": -45.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253529018642407604",
+    "date": "2026-08-29",
+    "merchant": "Outrun Brewing",
+    "category": "Restaurants & Bars",
+    "amount": -1.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253529018642407603",
+    "date": "2026-08-29",
+    "merchant": "Outrun Brewing",
+    "category": "Restaurants & Bars",
+    "amount": -17.43,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253526585466889019",
+    "date": "2026-08-29",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -13.33,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "253436002877513875",
     "date": "2026-08-28",
     "merchant": "Anthropic",
@@ -48,6 +80,22 @@
     "account": "Amex Platinum Card"
   },
   {
+    "id": "253463548085084731",
+    "date": "2026-08-28",
+    "merchant": "Soccer Village",
+    "category": "Child Activities",
+    "amount": -93.73,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253463548085084730",
+    "date": "2026-08-28",
+    "merchant": "Breda Pest Management",
+    "category": "Pest Control",
+    "amount": -101.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "253281014860686012",
     "date": "2026-08-27",
     "merchant": "The Home Depot",
@@ -80,12 +128,28 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "253486313735397997",
+    "date": "2026-08-27",
+    "merchant": "Wells Fargo",
+    "category": "Cash & ATM",
+    "amount": 100.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "253281014860686013",
     "date": "2026-08-26",
     "merchant": "The Home Depot",
     "category": "Home Improvement",
     "amount": -81.44,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253486313735397998",
+    "date": "2026-08-26",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -200.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "253281014860686014",
