@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-08-30",
+  "as_of": "2026-08-31",
   "month": "August 2026",
-  "days_elapsed": 30,
+  "days_elapsed": 31,
   "days_in_month": 31,
-  "mtd_income": 5764.65,
-  "mtd_expenses": 8586.29,
-  "mtd_surplus": -2821.64,
+  "mtd_income": 5773.66,
+  "mtd_expenses": 8597.35,
+  "mtd_surplus": -2823.69,
   "savings_rate_pct": -48.9,
-  "projected_month_expense": 8872.5,
-  "projected_savings": -3107.85,
+  "projected_month_expense": 8597.35,
+  "projected_savings": -2823.69,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -28,11 +28,11 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 626.01
+      "amount": 636.01
     },
     {
       "category": "Home Improvement",
-      "amount": 436.72
+      "amount": 478.8
     },
     {
       "category": "Gas & Electric",
