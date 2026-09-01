@@ -1,46 +1,13 @@
 {
-  "as_of": "2026-08-31",
-  "month": "August 2026",
-  "days_elapsed": 31,
-  "days_in_month": 31,
-  "mtd_income": 5773.66,
-  "mtd_expenses": 8597.35,
-  "mtd_surplus": -2823.69,
-  "savings_rate_pct": -48.9,
-  "projected_month_expense": 8597.35,
-  "projected_savings": -2823.69,
-  "top_categories": [
-    {
-      "category": "E&A 529 Plan",
-      "amount": 2000.0
-    },
-    {
-      "category": "Mortgage",
-      "amount": 1345.16
-    },
-    {
-      "category": "Auto Payment",
-      "amount": 1200.0
-    },
-    {
-      "category": "Charity",
-      "amount": 715.0
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 636.01
-    },
-    {
-      "category": "Home Improvement",
-      "amount": 478.8
-    },
-    {
-      "category": "Gas & Electric",
-      "amount": 375.77
-    },
-    {
-      "category": "Shopping",
-      "amount": 312.9
-    }
-  ]
+  "as_of": "2026-09-01",
+  "month": "September 2026",
+  "days_elapsed": 1,
+  "days_in_month": 30,
+  "mtd_income": 125.21,
+  "mtd_expenses": 0.0,
+  "mtd_surplus": 125.21,
+  "savings_rate_pct": 100.0,
+  "projected_month_expense": 0.0,
+  "projected_savings": 125.21,
+  "top_categories": []
 }

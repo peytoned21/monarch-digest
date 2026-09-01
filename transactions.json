@@ -1,5 +1,21 @@
 [
   {
+    "id": "253690502662005343",
+    "date": "2026-09-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 26.8,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "253690500966457756",
+    "date": "2026-09-01",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 98.41,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "253584149613322338",
     "date": "2026-08-30",
     "merchant": "The Home Depot",
@@ -5213,78 +5229,6 @@
     "merchant": "Lan Zhou Noodle",
     "category": "Restaurants & Bars",
     "amount": -22.34,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245475446083232758",
-    "date": "2026-06-02",
-    "merchant": "Tesla",
-    "category": "Subscriptions",
-    "amount": -10.79,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "245537051253874928",
-    "date": "2026-06-02",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -28.15,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245506425547071686",
-    "date": "2026-06-02",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -45.46,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245506425547071685",
-    "date": "2026-06-02",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.28,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245475446083232759",
-    "date": "2026-06-02",
-    "merchant": "First Tech Federal Credit Union",
-    "category": "Student Loans",
-    "amount": -1120.6,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "245609626651795582",
-    "date": "2026-06-02",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -45.46,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245609626651795581",
-    "date": "2026-06-02",
-    "merchant": "HS & D Enterp",
-    "category": "Shopping",
-    "amount": -9.28,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245582567779017108",
-    "date": "2026-06-02",
-    "merchant": "ATM",
-    "category": "Cash & ATM",
-    "amount": -200.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245701997880091500",
-    "date": "2026-06-02",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -28.15,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

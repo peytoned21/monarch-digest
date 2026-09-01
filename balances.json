@@ -1,16 +1,16 @@
 {
-  "as_of": "August 31, 2026",
-  "generated_at": "2026-08-31",
+  "as_of": "September 1, 2026",
+  "generated_at": "2026-09-01",
   "_cached": false,
   "roth": 448361,
-  "groth": 16847,
+  "groth": 16793,
   "k401": 192739,
-  "taxable": 184599,
+  "taxable": 184419,
   "hsa": 19476,
   "hd_vested": 14298,
   "hd_rsus": 150896,
-  "roth_staging": 10000,
-  "total_cash": 28224,
+  "roth_staging": 10026,
+  "total_cash": 28208,
   "eleanor_529": 32905,
   "arthur_529": 13387,
   "mortgage_bal": 283367,
@@ -22,8 +22,8 @@
   "vehicle_total": 60464,
   "lexus_value": 33671,
   "tesla_value": 26793,
-  "net_worth": 1547218,
-  "total_assets": 1885168,
+  "net_worth": 1546995,
+  "total_assets": 1884944,
   "total_debt": 337949,
   "accounts": [
     {
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 27061.62,
+      "balance": 27045.59,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -165,7 +165,7 @@
       "id": "166319078732931522",
       "name": "Wealthfront Roth Staging Account",
       "type": "depository",
-      "balance": 10000.0,
+      "balance": 10026.8,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 51142.26,
+      "balance": 50930.8,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16847.66,
+      "balance": 16793.93,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -453,7 +453,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5569.73,
+      "balance": 5601.05,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
