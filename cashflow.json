@@ -1,13 +1,30 @@
 {
-  "as_of": "2026-09-01",
+  "as_of": "2026-09-02",
   "month": "September 2026",
-  "days_elapsed": 1,
+  "days_elapsed": 2,
   "days_in_month": 30,
   "mtd_income": 125.21,
-  "mtd_expenses": 0.0,
-  "mtd_surplus": 125.21,
-  "savings_rate_pct": 100.0,
-  "projected_month_expense": 0.0,
-  "projected_savings": 125.21,
-  "top_categories": []
+  "mtd_expenses": 176.0,
+  "mtd_surplus": -50.79,
+  "savings_rate_pct": -40.6,
+  "projected_month_expense": 2640.0,
+  "projected_savings": -2514.79,
+  "top_categories": [
+    {
+      "category": "Child Activities",
+      "amount": 85.0
+    },
+    {
+      "category": "Gas",
+      "amount": 71.21
+    },
+    {
+      "category": "Shopping",
+      "amount": 10.78
+    },
+    {
+      "category": "Work Lunch",
+      "amount": 9.01
+    }
+  ]
 }

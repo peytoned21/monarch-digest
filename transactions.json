@@ -16,6 +16,38 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "253763119884476915",
+    "date": "2026-09-01",
+    "merchant": "Dauphin Dance Center",
+    "category": "Child Activities",
+    "amount": -85.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253763119884476914",
+    "date": "2026-09-01",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -10.78,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253763119884476913",
+    "date": "2026-09-01",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -71.21,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "253751967515353522",
+    "date": "2026-09-01",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "253584149613322338",
     "date": "2026-08-30",
     "merchant": "The Home Depot",
@@ -5117,118 +5149,6 @@
     "merchant": "The Home Depot",
     "category": "Home Improvement",
     "amount": -49.59,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245609626651795580",
-    "date": "2026-06-03",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -17.42,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245609626651795579",
-    "date": "2026-06-03",
-    "merchant": "Dignitana",
-    "category": "Miscellaneous",
-    "amount": -600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245607987934077787",
-    "date": "2026-06-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -10.71,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "245599926337085974",
-    "date": "2026-06-03",
-    "merchant": "Lan Zhou Noodle",
-    "category": "Restaurants",
-    "amount": -18.95,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245599926337085973",
-    "date": "2026-06-03",
-    "merchant": "Chong Qing Hot Pot",
-    "category": "Restaurants",
-    "amount": -13.12,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245703891891462399",
-    "date": "2026-06-03",
-    "merchant": "BP",
-    "category": "Gas",
-    "amount": -10.69,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245685808760038395",
-    "date": "2026-06-03",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -27.16,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245685808760038393",
-    "date": "2026-06-03",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -87.28,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245801376948363317",
-    "date": "2026-06-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -10.71,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "245801374627865343",
-    "date": "2026-06-03",
-    "merchant": "BP",
-    "category": "Gas",
-    "amount": -10.69,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245765054189740200",
-    "date": "2026-06-03",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -17.42,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245765054189740199",
-    "date": "2026-06-03",
-    "merchant": "Dignitana Inc",
-    "category": "Medical - HSA",
-    "amount": -600.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245881239230161270",
-    "date": "2026-06-03",
-    "merchant": "Chong Qing Hot Pot",
-    "category": "Restaurants & Bars",
-    "amount": -13.12,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245881239230161269",
-    "date": "2026-06-03",
-    "merchant": "Lan Zhou Noodle",
-    "category": "Restaurants & Bars",
-    "amount": -22.34,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
