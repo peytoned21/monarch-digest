@@ -1,5 +1,29 @@
 [
   {
+    "id": "253893021971456742",
+    "date": "2026-09-03",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5565.86,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "253834669069378471",
+    "date": "2026-09-02",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "253834669069378470",
+    "date": "2026-09-02",
+    "merchant": "First Tech Federal Credit Union",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "253690502662005343",
     "date": "2026-09-01",
     "merchant": "Wealthfront",
@@ -43,6 +67,14 @@
     "id": "253751967515353522",
     "date": "2026-09-01",
     "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "253864803685049084",
+    "date": "2026-09-01",
+    "merchant": "HS & D Enterprises",
     "category": "Work Lunch",
     "amount": -9.01,
     "account": "Amex Gold Card"
@@ -5085,70 +5117,6 @@
     "merchant": "RaceTrac",
     "category": "Gas & Fuel",
     "amount": -74.23,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245713005778510325",
-    "date": "2026-06-04",
-    "merchant": "Bed Bath & Beyond",
-    "category": "Furniture & Housewares",
-    "amount": -490.84,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245703891891462398",
-    "date": "2026-06-04",
-    "merchant": "ESPN+",
-    "category": "Entertainment & Recreation",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245701997880091499",
-    "date": "2026-06-04",
-    "merchant": "The Home Depot",
-    "category": "Home Improvement",
-    "amount": -49.59,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245701997880091498",
-    "date": "2026-06-04",
-    "merchant": "Spotify",
-    "category": "Entertainment & Recreation",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "245786586037298043",
-    "date": "2026-06-04",
-    "merchant": "Dekalb County",
-    "category": "Water",
-    "amount": -200.68,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "245892803380323208",
-    "date": "2026-06-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245881239230161268",
-    "date": "2026-06-04",
-    "merchant": "Spotify",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246166671870337048",
-    "date": "2026-06-04",
-    "merchant": "The Home Depot",
-    "category": "Home Improvement",
-    "amount": -49.59,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
