@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-09-03",
+  "as_of": "2026-09-04",
   "month": "September 2026",
-  "days_elapsed": 3,
+  "days_elapsed": 4,
   "days_in_month": 30,
   "mtd_income": 5691.07,
-  "mtd_expenses": 1316.4,
-  "mtd_surplus": 4374.67,
-  "savings_rate_pct": 76.9,
-  "projected_month_expense": 13164.0,
-  "projected_savings": -7472.93,
+  "mtd_expenses": 1634.33,
+  "mtd_surplus": 4056.74,
+  "savings_rate_pct": 71.3,
+  "projected_month_expense": 12257.47,
+  "projected_savings": -6566.4,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -16,23 +16,31 @@
     },
     {
       "category": "Child Activities",
-      "amount": 85.0
+      "amount": 337.0
     },
     {
       "category": "Gas",
       "amount": 71.21
     },
     {
+      "category": "Groceries",
+      "amount": 33.62
+    },
+    {
       "category": "Work Lunch",
       "amount": 18.02
     },
     {
-      "category": "Subscriptions",
-      "amount": 10.79
+      "category": "Beauty and Grooming",
+      "amount": 18.0
     },
     {
-      "category": "Shopping",
-      "amount": 10.78
+      "category": "Restaurants & Bars",
+      "amount": 14.31
+    },
+    {
+      "category": "Subscriptions",
+      "amount": 10.79
     }
   ]
 }
