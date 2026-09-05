@@ -1,5 +1,37 @@
 [
   {
+    "id": "254073142880707346",
+    "date": "2026-09-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -12.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "254034330862428374",
+    "date": "2026-09-04",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -243.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254034330862428373",
+    "date": "2026-09-04",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254010085744780081",
+    "date": "2026-09-04",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": 5.39,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "253893021971456742",
     "date": "2026-09-03",
     "merchant": "The Home Depot",
@@ -5029,38 +5061,6 @@
     "merchant": "Pho Bac",
     "category": "Restaurants & Bars",
     "amount": -39.15,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245892803380323207",
-    "date": "2026-06-06",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "245867927957349141",
-    "date": "2026-06-06",
-    "merchant": "DinoDash",
-    "category": "Entertainment & Recreation",
-    "amount": -4.66,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246076434562359763",
-    "date": "2026-06-06",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246072420346044819",
-    "date": "2026-06-06",
-    "merchant": "DinoDash",
-    "category": "Coffee Shops",
-    "amount": -4.66,
     "account": "Amex Gold Card"
   }
 ]
