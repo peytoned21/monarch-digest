@@ -1,15 +1,19 @@
 {
-  "as_of": "2026-09-05",
+  "as_of": "2026-09-06",
   "month": "September 2026",
-  "days_elapsed": 5,
+  "days_elapsed": 6,
   "days_in_month": 30,
-  "mtd_income": 5696.46,
-  "mtd_expenses": 1899.33,
-  "mtd_surplus": 3797.13,
-  "savings_rate_pct": 66.7,
-  "projected_month_expense": 11395.98,
-  "projected_savings": -5699.52,
+  "mtd_income": 5691.07,
+  "mtd_expenses": 4413.92,
+  "mtd_surplus": 1277.15,
+  "savings_rate_pct": 22.4,
+  "projected_month_expense": 22069.6,
+  "projected_savings": -16378.53,
   "top_categories": [
+    {
+      "category": "Travel: Helenback",
+      "amount": 2220.62
+    },
     {
       "category": "Student Loans",
       "amount": 1120.6
@@ -19,28 +23,24 @@
       "amount": 580.0
     },
     {
+      "category": "Life Insurance",
+      "amount": 114.44
+    },
+    {
+      "category": "Water",
+      "amount": 100.29
+    },
+    {
       "category": "Gas",
-      "amount": 71.21
+      "amount": 77.68
     },
     {
-      "category": "Groceries",
-      "amount": 33.62
-    },
-    {
-      "category": "Work Lunch",
-      "amount": 27.03
+      "category": "Shopping",
+      "amount": 45.04
     },
     {
       "category": "Subscriptions",
-      "amount": 23.78
-    },
-    {
-      "category": "Beauty and Grooming",
-      "amount": 18.0
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 14.31
+      "amount": 36.77
     }
   ]
 }

@@ -1,5 +1,45 @@
 [
   {
+    "id": "254163486783775383",
+    "date": "2026-09-06",
+    "merchant": "Holly Jolly Cabin",
+    "category": "Travel: Helenback",
+    "amount": -2220.62,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "254145165789176720",
+    "date": "2026-09-05",
+    "merchant": "Proof of the Pudding",
+    "category": "Restaurants & Bars",
+    "amount": -7.76,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254145165789176719",
+    "date": "2026-09-05",
+    "merchant": "Proof of the Pudding",
+    "category": "Restaurants & Bars",
+    "amount": -7.76,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254145165789176718",
+    "date": "2026-09-05",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -34.26,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254145165789176717",
+    "date": "2026-09-05",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -6.47,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254073142880707346",
     "date": "2026-09-04",
     "merchant": "ESPN+",
@@ -29,6 +69,22 @@
     "merchant": "Walmart",
     "category": "Shopping",
     "amount": 5.39,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254140614555148395",
+    "date": "2026-09-04",
+    "merchant": "Dekalb County",
+    "category": "Water",
+    "amount": -100.29,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "254098720294903859",
+    "date": "2026-09-04",
+    "merchant": "Spotify",
+    "category": "Subscriptions",
+    "amount": -12.99,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -70,6 +126,22 @@
     "category": "Restaurants & Bars",
     "amount": -14.31,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "254140614555148398",
+    "date": "2026-09-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "254140614555148397",
+    "date": "2026-09-03",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -87.28,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "253834669069378471",
@@ -4989,78 +5061,6 @@
     "merchant": "Kroger",
     "category": "Groceries",
     "amount": -136.44,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245969287537173265",
-    "date": "2026-06-07",
-    "merchant": "Quickly Bubble Tea",
-    "category": "Coffee Shops",
-    "amount": -14.84,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245969287537173264",
-    "date": "2026-06-07",
-    "merchant": "Pho Bac",
-    "category": "Restaurants & Bars",
-    "amount": -39.15,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245969287537173263",
-    "date": "2026-06-07",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -134.41,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "245969287537173262",
-    "date": "2026-06-07",
-    "merchant": "Clays Sports Cafe",
-    "category": "Restaurants",
-    "amount": -36.87,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246166671870337046",
-    "date": "2026-06-07",
-    "merchant": "City of Industry",
-    "category": "Clothing",
-    "amount": -806.76,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246166671870337045",
-    "date": "2026-06-07",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -42.65,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246124123295523527",
-    "date": "2026-06-07",
-    "merchant": "Clay's Sports Cafe",
-    "category": "Restaurants",
-    "amount": -44.87,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246124123295523526",
-    "date": "2026-06-07",
-    "merchant": "Quickly Bubble Tea",
-    "category": "Coffee Shops",
-    "amount": -14.84,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246124123295523525",
-    "date": "2026-06-07",
-    "merchant": "Pho Bac",
-    "category": "Restaurants & Bars",
-    "amount": -39.15,
     "account": "Amex Gold Card"
   }
 ]
