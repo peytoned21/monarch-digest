@@ -8,6 +8,38 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "254254095486886214",
+    "date": "2026-09-06",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -30.23,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "254254094619713779",
+    "date": "2026-09-06",
+    "merchant": "Tesla",
+    "category": "Gas",
+    "amount": -1.67,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "254200060979388732",
+    "date": "2026-09-06",
+    "merchant": "Old Hickory House",
+    "category": "Restaurants & Bars",
+    "amount": -11.13,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254200060979388731",
+    "date": "2026-09-06",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -12.95,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254145165789176720",
     "date": "2026-09-05",
     "merchant": "Proof of the Pudding",
@@ -166,6 +198,14 @@
     "category": "Child Activities",
     "amount": -252.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254140614555148399",
+    "date": "2026-09-02",
+    "merchant": "Thomas June",
+    "category": "Subscriptions",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "253690502662005343",
@@ -4989,78 +5029,6 @@
     "merchant": "HS & D Enter",
     "category": "Work Lunch",
     "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246076434562359762",
-    "date": "2026-06-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246072420346044818",
-    "date": "2026-06-08",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -20.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246072420346044817",
-    "date": "2026-06-08",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -18.02,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246072420346044816",
-    "date": "2026-06-08",
-    "merchant": "Bobo Izakaya",
-    "category": "Restaurants & Bars",
-    "amount": -106.73,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246170489405252425",
-    "date": "2026-06-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246136794588848244",
-    "date": "2026-06-08",
-    "merchant": "Zelle",
-    "category": "Income",
-    "amount": 22.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "246124123295523524",
-    "date": "2026-06-08",
-    "merchant": "HS & D Enter",
-    "category": "Work Lunch",
-    "amount": -18.02,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246227305098059871",
-    "date": "2026-06-08",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -20.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246227305098059870",
-    "date": "2026-06-08",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -136.44,
     "account": "Amex Gold Card"
   }
 ]
