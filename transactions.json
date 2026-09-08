@@ -1,5 +1,21 @@
 [
   {
+    "id": "254344968465752460",
+    "date": "2026-09-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "254310682809278816",
+    "date": "2026-09-07",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -3.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254163486783775383",
     "date": "2026-09-06",
     "merchant": "Holly Jolly Cabin",
@@ -4965,70 +4981,6 @@
     "merchant": "Limres Dental Group",
     "category": "Dentist",
     "amount": -320.33,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246100937451446824",
-    "date": "2026-06-09",
-    "merchant": "American Heritage",
-    "category": "Other Income",
-    "amount": 100.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "246175144921211796",
-    "date": "2026-06-09",
-    "merchant": "King of Pops",
-    "category": "Restaurants",
-    "amount": -15.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246170489405252424",
-    "date": "2026-06-09",
-    "merchant": "Allstate",
-    "category": "Life Insurance",
-    "amount": -2421.27,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246124123295523523",
-    "date": "2026-06-09",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246262438905717237",
-    "date": "2026-06-09",
-    "merchant": "Allstate",
-    "category": "Life Insurance",
-    "amount": -2421.27,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246227305098059869",
-    "date": "2026-06-09",
-    "merchant": "Bobo Izakaya",
-    "category": "Restaurants & Bars",
-    "amount": -128.08,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246227305098059868",
-    "date": "2026-06-09",
-    "merchant": "King of Pops",
-    "category": "Restaurants",
-    "amount": -18.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246227305098059867",
-    "date": "2026-06-09",
-    "merchant": "HS & D Enter",
-    "category": "Work Lunch",
-    "amount": -6.63,
     "account": "Amex Gold Card"
   }
 ]

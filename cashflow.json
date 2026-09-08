@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-09-07",
+  "as_of": "2026-09-08",
   "month": "September 2026",
-  "days_elapsed": 7,
+  "days_elapsed": 8,
   "days_in_month": 30,
   "mtd_income": 5691.07,
-  "mtd_expenses": 4509.9,
-  "mtd_surplus": 1181.17,
-  "savings_rate_pct": 20.8,
-  "projected_month_expense": 19328.14,
-  "projected_savings": -13637.07,
+  "mtd_expenses": 4522.88,
+  "mtd_surplus": 1168.19,
+  "savings_rate_pct": 20.5,
+  "projected_month_expense": 16960.8,
+  "projected_savings": -11269.73,
   "top_categories": [
     {
       "category": "Travel: Helenback",
@@ -31,12 +31,12 @@
       "amount": 100.29
     },
     {
-      "category": "Gas",
-      "amount": 79.35
+      "category": "Subscriptions",
+      "amount": 89.75
     },
     {
-      "category": "Subscriptions",
-      "amount": 76.77
+      "category": "Gas",
+      "amount": 79.35
     },
     {
       "category": "Shopping",
