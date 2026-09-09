@@ -8,6 +8,54 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "254422675289482197",
+    "date": "2026-09-08",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254422675289482196",
+    "date": "2026-09-08",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -4.97,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254422675289482195",
+    "date": "2026-09-08",
+    "merchant": "Etsy",
+    "category": "Shopping",
+    "amount": -53.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254379494712746074",
+    "date": "2026-09-08",
+    "merchant": "Henderson",
+    "category": "Child Activities",
+    "amount": -20.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254379494712746073",
+    "date": "2026-09-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -136.42,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254379494712746072",
+    "date": "2026-09-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -0.04,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "254310682809278816",
     "date": "2026-09-07",
     "merchant": "Apple",
@@ -54,6 +102,14 @@
     "category": "Groceries",
     "amount": -12.95,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "254379494712746075",
+    "date": "2026-09-06",
+    "merchant": "Shell",
+    "category": "Gas",
+    "amount": -50.8,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "254145165789176720",
@@ -133,6 +189,14 @@
     "merchant": "Spotify",
     "category": "Subscriptions",
     "amount": -12.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254379494712746076",
+    "date": "2026-09-04",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": 5.39,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4941,46 +5005,6 @@
     "merchant": "Lightricks",
     "category": "Miscellaneous",
     "amount": -39.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246278159183323171",
-    "date": "2026-06-10",
-    "merchant": "Lightricks",
-    "category": "Miscellaneous",
-    "amount": -39.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246262438905717236",
-    "date": "2026-06-10",
-    "merchant": "DoorDash",
-    "category": "Restaurants & Bars",
-    "amount": -2.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246227305098059866",
-    "date": "2026-06-10",
-    "merchant": "Limeres Dental Group",
-    "category": "Dentist",
-    "amount": -320.33,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246445659826103288",
-    "date": "2026-06-10",
-    "merchant": "DoorDash",
-    "category": "Restaurants & Bars",
-    "amount": -2.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246434423901201147",
-    "date": "2026-06-10",
-    "merchant": "Limres Dental Group",
-    "category": "Dentist",
-    "amount": -320.33,
     "account": "Amex Gold Card"
   }
 ]
