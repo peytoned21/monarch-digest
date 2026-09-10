@@ -1,5 +1,21 @@
 [
   {
+    "id": "254527177581601664",
+    "date": "2026-09-10",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -20.64,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "254466730694222591",
+    "date": "2026-09-09",
+    "merchant": "Dekra",
+    "category": "Restaurants & Bars",
+    "amount": -25.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "254344968465752460",
     "date": "2026-09-08",
     "merchant": "Netflix",
@@ -53,6 +69,14 @@
     "merchant": "Walmart",
     "category": "Shopping",
     "amount": -0.04,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254466730694222592",
+    "date": "2026-09-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": 7.91,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4933,78 +4957,6 @@
     "merchant": "Publix",
     "category": "Groceries",
     "amount": -28.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246286971753669270",
-    "date": "2026-06-11",
-    "merchant": "The Home Depot",
-    "category": "Paycheck",
-    "amount": 5165.73,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "246354633070420266",
-    "date": "2026-06-11",
-    "merchant": "Khuan's Hair Design",
-    "category": "Beauty and Grooming",
-    "amount": -18.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246329937936458706",
-    "date": "2026-06-11",
-    "merchant": "Rev Coffee",
-    "category": "Coffee Shops",
-    "amount": -5.57,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246329937936458705",
-    "date": "2026-06-11",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -6.62,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246445659826103289",
-    "date": "2026-06-11",
-    "merchant": "Khuan's Hair Design",
-    "category": "Beauty and Grooming",
-    "amount": -28.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246434423901201146",
-    "date": "2026-06-11",
-    "merchant": "Rev Coffee",
-    "category": "Coffee Shops",
-    "amount": -6.57,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246520107743781653",
-    "date": "2026-06-11",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -85.37,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246485677263233035",
-    "date": "2026-06-11",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -6.62,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246691206340223175",
-    "date": "2026-06-11",
-    "merchant": "Lightricks",
-    "category": "Miscellaneous",
-    "amount": -39.99,
     "account": "Amex Gold Card"
   }
 ]
