@@ -8,6 +8,38 @@
     "account": "Amazon Prime Card"
   },
   {
+    "id": "254591009035330180",
+    "date": "2026-09-10",
+    "merchant": "DeKalb County Tax Commissioner",
+    "category": "Taxes",
+    "amount": -47.06,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254591009035330179",
+    "date": "2026-09-10",
+    "merchant": "Buford Highway Farmers Market",
+    "category": "Groceries",
+    "amount": -50.72,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254591009035330178",
+    "date": "2026-09-10",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "254591009035330177",
+    "date": "2026-09-10",
+    "merchant": "Lightricks",
+    "category": "Subscriptions",
+    "amount": -39.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254466730694222591",
     "date": "2026-09-09",
     "merchant": "Dekra",
@@ -77,6 +109,14 @@
     "merchant": "Walmart",
     "category": "Shopping",
     "amount": 7.91,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254559371278623688",
+    "date": "2026-09-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -128.51,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4933,30 +4973,6 @@
     "merchant": "Tiny Lou's",
     "category": "Restaurants & Bars",
     "amount": -238.52,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246434423901201145",
-    "date": "2026-06-12",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -28.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246520107743781652",
-    "date": "2026-06-12",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -26.13,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246587476399825228",
-    "date": "2026-06-12",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -28.55,
     "account": "Amex Gold Card"
   }
 ]

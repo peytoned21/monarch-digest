@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-09-10",
+  "as_of": "2026-09-11",
   "month": "September 2026",
-  "days_elapsed": 10,
+  "days_elapsed": 11,
   "days_in_month": 30,
-  "mtd_income": 5709.76,
-  "mtd_expenses": 4841.36,
-  "mtd_surplus": 868.4,
-  "savings_rate_pct": 15.2,
-  "projected_month_expense": 14524.08,
-  "projected_savings": -8814.32,
+  "mtd_income": 5701.85,
+  "mtd_expenses": 4980.23,
+  "mtd_surplus": 721.62,
+  "savings_rate_pct": 12.7,
+  "projected_month_expense": 13582.45,
+  "projected_savings": -7880.6,
   "top_categories": [
     {
       "category": "Travel: Helenback",
@@ -24,23 +24,23 @@
     },
     {
       "category": "Shopping",
-      "amount": 286.35
+      "amount": 278.44
     },
     {
       "category": "Gas",
       "amount": 130.15
     },
     {
+      "category": "Subscriptions",
+      "amount": 129.74
+    },
+    {
       "category": "Life Insurance",
       "amount": 114.44
     },
     {
-      "category": "Water",
-      "amount": 100.29
-    },
-    {
-      "category": "Subscriptions",
-      "amount": 89.75
+      "category": "Groceries",
+      "amount": 102.26
     }
   ]
 }
