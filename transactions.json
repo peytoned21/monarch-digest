@@ -1,5 +1,21 @@
 [
   {
+    "id": "254709964775301288",
+    "date": "2026-09-11",
+    "merchant": "Cava",
+    "category": "Restaurants & Bars",
+    "amount": -212.04,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "254648830069252445",
+    "date": "2026-09-11",
+    "merchant": "State Road and Toll",
+    "category": "Parking & Tolls",
+    "amount": -20.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "254527177581601664",
     "date": "2026-09-10",
     "merchant": "Amazon",
@@ -38,6 +54,30 @@
     "category": "Subscriptions",
     "amount": -39.99,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "254648830069252446",
+    "date": "2026-09-10",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -34.55,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254647236639531514",
+    "date": "2026-09-10",
+    "merchant": "SeatGeek",
+    "category": "Entertainment & Recreation",
+    "amount": 94.5,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "254647236639531513",
+    "date": "2026-09-10",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -300.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "254466730694222591",
@@ -4925,54 +4965,6 @@
     "merchant": "Shein",
     "category": "Clothing",
     "amount": -62.27,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246536449466245221",
-    "date": "2026-06-13",
-    "merchant": "Inns & Hotels",
-    "category": "Restaurants & Bars",
-    "amount": -198.52,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246485677263233034",
-    "date": "2026-06-13",
-    "merchant": "E. 48th Street Market",
-    "category": "Groceries",
-    "amount": -37.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246485677263233033",
-    "date": "2026-06-13",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246587476399825227",
-    "date": "2026-06-13",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246691206340223174",
-    "date": "2026-06-13",
-    "merchant": "48th Street Market",
-    "category": "Restaurants",
-    "amount": -37.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246796225634836889",
-    "date": "2026-06-13",
-    "merchant": "Tiny Lou's",
-    "category": "Restaurants & Bars",
-    "amount": -238.52,
     "account": "Amex Gold Card"
   }
 ]
