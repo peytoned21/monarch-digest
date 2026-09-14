@@ -8,6 +8,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "254890886828073973",
+    "date": "2026-09-13",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.79,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "254761129079677569",
     "date": "2026-09-12",
     "merchant": "Temu",
@@ -4926,45 +4934,5 @@
     "category": "Work Lunch",
     "amount": -6.36,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "246653855788376896",
-    "date": "2026-06-15",
-    "merchant": "RoundPoint Mortgage Servicing Corporation",
-    "category": "Mortgage",
-    "amount": -1345.16,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "246691206340223172",
-    "date": "2026-06-15",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -132.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246691206340223171",
-    "date": "2026-06-15",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246796225634836887",
-    "date": "2026-06-15",
-    "merchant": "HS & D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246881888139944342",
-    "date": "2026-06-15",
-    "merchant": "First United Methodist Church",
-    "category": "Charity",
-    "amount": -25.0,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
