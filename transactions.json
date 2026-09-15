@@ -1,5 +1,21 @@
 [
   {
+    "id": "254988733362676550",
+    "date": "2026-09-15",
+    "merchant": "RoundPoint Mortgage Servicing Corporation",
+    "category": "Mortgage",
+    "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "254928018608169603",
+    "date": "2026-09-14",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254816129395925184",
     "date": "2026-09-13",
     "merchant": "Apple",
@@ -4829,110 +4845,6 @@
     "merchant": "Wok Provision",
     "category": "Restaurants & Bars",
     "amount": -14.42,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246809806039360261",
-    "date": "2026-06-16",
-    "merchant": "Hope And Restoration",
-    "category": "Charity",
-    "amount": -62.96,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246796225634836886",
-    "date": "2026-06-16",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 45.46,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246796225634836885",
-    "date": "2026-06-16",
-    "merchant": "HS & D Enterprises",
-    "category": "Work Lunch",
-    "amount": -6.36,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246796225634836884",
-    "date": "2026-06-16",
-    "merchant": "ELA",
-    "category": "Shopping",
-    "amount": -44.8,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246964482841977732",
-    "date": "2026-06-16",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -53.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246964482841977731",
-    "date": "2026-06-16",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -74.68,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246964482841977730",
-    "date": "2026-06-16",
-    "merchant": "Michaels",
-    "category": "Furniture & Housewares",
-    "amount": -170.62,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246952070339306040",
-    "date": "2026-06-16",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -132.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246952070339306039",
-    "date": "2026-06-16",
-    "merchant": "ELA",
-    "category": "Restaurants & Bars",
-    "amount": -54.8,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246901172909056133",
-    "date": "2026-06-16",
-    "merchant": "Hope And Restoration",
-    "category": "Therapy",
-    "amount": -62.96,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "246881888139944339",
-    "date": "2026-06-16",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -38.71,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246848235332641616",
-    "date": "2026-06-16",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": 45.46,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246848235332641615",
-    "date": "2026-06-16",
-    "merchant": "HS & D Enterprise",
-    "category": "Work Lunch",
-    "amount": -6.36,
     "account": "Amex Gold Card"
   }
 ]
