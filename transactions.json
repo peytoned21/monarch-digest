@@ -8,12 +8,36 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "255056709480817617",
+    "date": "2026-09-15",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -4.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255056709480817616",
+    "date": "2026-09-15",
+    "merchant": "Salama Tires Company",
+    "category": "Auto Maintenance",
+    "amount": -300.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "254928018608169603",
     "date": "2026-09-14",
     "merchant": "HS D Enterprises",
     "category": "Work Lunch",
     "amount": -6.63,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "255011717979775083",
+    "date": "2026-09-14",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": -18.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "254816129395925184",
@@ -30,6 +54,38 @@
     "category": "Shopping",
     "amount": -10.79,
     "account": "Amazon Prime Card"
+  },
+  {
+    "id": "255011717979775087",
+    "date": "2026-09-13",
+    "merchant": "Club Pilates",
+    "category": "Fitness",
+    "amount": -99.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255011717979775086",
+    "date": "2026-09-13",
+    "merchant": "Brockett Pub House",
+    "category": "Restaurants & Bars",
+    "amount": -71.78,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255011717979775085",
+    "date": "2026-09-13",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": -6.19,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255011717979775084",
+    "date": "2026-09-13",
+    "merchant": "Michaels",
+    "category": "Furniture & Housewares",
+    "amount": -18.6,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "254761129079677569",
@@ -53,6 +109,14 @@
     "merchant": "The Grove Restaurant",
     "category": "Restaurants & Bars",
     "amount": -48.55,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255011717979775088",
+    "date": "2026-09-12",
+    "merchant": "The Grove Restaurant",
+    "category": "Restaurants & Bars",
+    "amount": -58.55,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4774,77 +4838,5 @@
     "category": "Clothing",
     "amount": -26.96,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246900242910225240",
-    "date": "2026-06-17",
-    "merchant": "Wok Provisions",
-    "category": "Restaurants & Bars",
-    "amount": -12.42,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246900242910225239",
-    "date": "2026-06-17",
-    "merchant": "Atlanta",
-    "category": "Restaurants",
-    "amount": -48.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246881888139944337",
-    "date": "2026-06-17",
-    "merchant": "Kroger",
-    "category": "Gas",
-    "amount": -70.9,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246848235332641614",
-    "date": "2026-06-17",
-    "merchant": "Dignitana",
-    "category": "Miscellaneous",
-    "amount": -300.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247082873321890756",
-    "date": "2026-06-17",
-    "merchant": "Kroger",
-    "category": "Gas & Fuel",
-    "amount": -70.9,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247082873321890755",
-    "date": "2026-06-17",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -38.71,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247056319860646370",
-    "date": "2026-06-17",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -48.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247056319860646369",
-    "date": "2026-06-17",
-    "merchant": "Dignitana Inc",
-    "category": "Medical - HSA",
-    "amount": -300.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247056319860646368",
-    "date": "2026-06-17",
-    "merchant": "Wok Provision",
-    "category": "Restaurants & Bars",
-    "amount": -14.42,
-    "account": "Amex Gold Card"
   }
 ]
