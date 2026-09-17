@@ -1,5 +1,69 @@
 [
   {
+    "id": "255180129978753417",
+    "date": "2026-09-17",
+    "merchant": "Cava",
+    "category": "Restaurants & Bars",
+    "amount": -218.02,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255166263834124297",
+    "date": "2026-09-17",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 5565.87,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "255166263834124296",
+    "date": "2026-09-17",
+    "merchant": "Fun Money Stonks",
+    "category": "Other Income",
+    "amount": 0.21,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "255180130765185469",
+    "date": "2026-09-16",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -9.71,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "255180129978753416",
+    "date": "2026-09-16",
+    "merchant": "Pop Habit",
+    "category": "Coffee Shops",
+    "amount": -18.6,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255114096782811918",
+    "date": "2026-09-16",
+    "merchant": "Palisades at West Paces",
+    "category": "Parking & Tolls",
+    "amount": -8.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255114096782811917",
+    "date": "2026-09-16",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -36.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255099443669311722",
+    "date": "2026-09-16",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -10.25,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "254988733362676550",
     "date": "2026-09-15",
     "merchant": "RoundPoint Mortgage Servicing Corporation",
@@ -21,6 +85,14 @@
     "merchant": "Salama Tires Company",
     "category": "Auto Maintenance",
     "amount": -300.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255114096782811916",
+    "date": "2026-09-15",
+    "merchant": "HS & D Enterp",
+    "category": "Work Lunch",
+    "amount": -4.24,
     "account": "Amex Gold Card"
   },
   {
@@ -4765,78 +4837,6 @@
     "merchant": "Target",
     "category": "Shopping",
     "amount": -30.79,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246964482841977729",
-    "date": "2026-06-18",
-    "merchant": "Burlington",
-    "category": "Clothing",
-    "amount": -26.96,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246964482841977728",
-    "date": "2026-06-18",
-    "merchant": "Scrap Tucker",
-    "category": "Coffee Shops",
-    "amount": -15.12,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246964482841977727",
-    "date": "2026-06-18",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -48.56,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "246952070339306038",
-    "date": "2026-06-18",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -85.61,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "246942477454353308",
-    "date": "2026-06-18",
-    "merchant": "CDC Federal Credit Union",
-    "category": "Auto Payment",
-    "amount": -1200.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "247082873321890754",
-    "date": "2026-06-18",
-    "merchant": "Scrap Tucker",
-    "category": "Restaurants",
-    "amount": -15.12,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247082873321890753",
-    "date": "2026-06-18",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -48.56,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247158592135700929",
-    "date": "2026-06-18",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -85.61,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247535565119889623",
-    "date": "2026-06-18",
-    "merchant": "Burlington",
-    "category": "Clothing",
-    "amount": -26.96,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
