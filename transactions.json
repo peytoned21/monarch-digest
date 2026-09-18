@@ -24,6 +24,14 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "255227209330926116",
+    "date": "2026-09-17",
+    "merchant": "Henderson Mill Elementary School",
+    "category": "Education",
+    "amount": -30.5,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "255180130765185469",
     "date": "2026-09-16",
     "merchant": "Amazon",
@@ -64,6 +72,22 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "255193925610840388",
+    "date": "2026-09-16",
+    "merchant": "SeatGeek",
+    "category": "UGA Football/Sports",
+    "amount": 40.5,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255193925610840387",
+    "date": "2026-09-16",
+    "merchant": "Wells Fargo",
+    "category": "Financial Fees",
+    "amount": -15.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "254988733362676550",
     "date": "2026-09-15",
     "merchant": "RoundPoint Mortgage Servicing Corporation",
@@ -94,6 +118,14 @@
     "category": "Work Lunch",
     "amount": -4.24,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "255186374085255455",
+    "date": "2026-09-15",
+    "merchant": "PERC",
+    "category": "Coffee Shops",
+    "amount": -10.21,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "254928018608169603",
@@ -278,6 +310,14 @@
     "category": "Restaurants & Bars",
     "amount": -25.0,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254458509796516183",
+    "date": "2026-09-09",
+    "merchant": "Venmo",
+    "category": "Fantasy Football",
+    "amount": -400.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "254344968465752460",
@@ -4790,53 +4830,5 @@
     "category": "Groceries",
     "amount": -10.42,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "247082873321890752",
-    "date": "2026-06-19",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -30.79,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247056319860646367",
-    "date": "2026-06-19",
-    "merchant": "QuikTrip",
-    "category": "Gas & Fuel",
-    "amount": -7.39,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247056319860646366",
-    "date": "2026-06-19",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247158592135700928",
-    "date": "2026-06-19",
-    "merchant": "HS & D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247261029368538003",
-    "date": "2026-06-19",
-    "merchant": "QuikTrip",
-    "category": "Gas",
-    "amount": -7.39,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247535565119889622",
-    "date": "2026-06-19",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -30.79,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
