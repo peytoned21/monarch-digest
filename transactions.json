@@ -1,5 +1,21 @@
 [
   {
+    "id": "255284139419182020",
+    "date": "2026-09-18",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -10.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255278987394097498",
+    "date": "2026-09-18",
+    "merchant": "Halls Flower Shop",
+    "category": "Gifts",
+    "amount": -192.23,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "255180129978753417",
     "date": "2026-09-17",
     "merchant": "Cava",
@@ -30,6 +46,14 @@
     "category": "Education",
     "amount": -30.5,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "255273581666050208",
+    "date": "2026-09-17",
+    "merchant": "ATM",
+    "category": "Cash & ATM",
+    "amount": -50.0,
+    "account": "Wells Fargo Checking"
   },
   {
     "id": "255180130765185469",
@@ -4766,69 +4790,5 @@
     "category": "Internet & Cable",
     "amount": 15.99,
     "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247107197537821480",
-    "date": "2026-06-20",
-    "merchant": "Thomas County Central",
-    "category": "Education",
-    "amount": -26.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247174351765315910",
-    "date": "2026-06-20",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -24.71,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247174350820548882",
-    "date": "2026-06-20",
-    "merchant": "Substack",
-    "category": "Subscriptions",
-    "amount": -12.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247158592135700927",
-    "date": "2026-06-20",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -10.42,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247261029368538002",
-    "date": "2026-06-20",
-    "merchant": "Thomas County",
-    "category": "Miscellaneous",
-    "amount": -26.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247356263118086601",
-    "date": "2026-06-20",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -24.71,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247356260527055112",
-    "date": "2026-06-20",
-    "merchant": "Substack",
-    "category": "Subscriptions",
-    "amount": -12.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247416854674350738",
-    "date": "2026-06-20",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -10.42,
-    "account": "Amex Gold Card"
   }
 ]
