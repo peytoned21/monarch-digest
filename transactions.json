@@ -1,5 +1,21 @@
 [
   {
+    "id": "255396151639876230",
+    "date": "2026-09-19",
+    "merchant": "Brockett Pub House And Grill",
+    "category": "Restaurants & Bars",
+    "amount": -81.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255396151639876229",
+    "date": "2026-09-19",
+    "merchant": "Parkside Cabin Rentals",
+    "category": "Rent",
+    "amount": -750.12,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "255284139419182020",
     "date": "2026-09-18",
     "merchant": "HS D Enterprises",
@@ -54,6 +70,22 @@
     "category": "Cash & ATM",
     "amount": -50.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255384810982154394",
+    "date": "2026-09-17",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -38.25,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255384810982154393",
+    "date": "2026-09-17",
+    "merchant": "Carter's",
+    "category": "Clothing",
+    "amount": -56.07,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "255180130765185469",
@@ -4702,93 +4734,5 @@
     "category": "Gas",
     "amount": -10.37,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "247264890769580132",
-    "date": "2026-06-21",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -15.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247264890769580131",
-    "date": "2026-06-21",
-    "merchant": "Pickle Barrel Cafe",
-    "category": "Restaurants & Bars",
-    "amount": -23.27,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247261029368538000",
-    "date": "2026-06-21",
-    "merchant": "RaceTrac",
-    "category": "Gas & Fuel",
-    "amount": -9.17,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247261029368537999",
-    "date": "2026-06-21",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247261027082642121",
-    "date": "2026-06-21",
-    "merchant": "Google",
-    "category": "Miscellaneous",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247356260527055113",
-    "date": "2026-06-21",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -15.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247312741283340349",
-    "date": "2026-06-21",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247312739449381798",
-    "date": "2026-06-21",
-    "merchant": "YouTube",
-    "category": "Entertainment & Recreation",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247447697992130574",
-    "date": "2026-06-21",
-    "merchant": "Pickle Barrel Cafe",
-    "category": "Restaurants & Bars",
-    "amount": -27.92,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247416854674350737",
-    "date": "2026-06-21",
-    "merchant": "RaceTrac",
-    "category": "Gas & Fuel",
-    "amount": -9.17,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247416852021453003",
-    "date": "2026-06-21",
-    "merchant": "American Express",
-    "category": "Internet & Cable",
-    "amount": 15.99,
-    "account": "Amex Platinum Card"
   }
 ]

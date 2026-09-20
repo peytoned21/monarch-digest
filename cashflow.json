@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-09-19",
+  "as_of": "2026-09-20",
   "month": "September 2026",
-  "days_elapsed": 19,
+  "days_elapsed": 20,
   "days_in_month": 30,
-  "mtd_income": 11402.93,
-  "mtd_expenses": 8618.08,
-  "mtd_surplus": 2784.85,
-  "savings_rate_pct": 24.4,
-  "projected_month_expense": 13607.49,
-  "projected_savings": -2204.56,
+  "mtd_income": 11277.72,
+  "mtd_expenses": 9543.86,
+  "mtd_surplus": 1733.86,
+  "savings_rate_pct": 15.4,
+  "projected_month_expense": 14315.79,
+  "projected_savings": -3038.07,
   "top_categories": [
     {
       "category": "Travel: Helenback",
@@ -23,24 +23,24 @@
       "amount": 1120.6
     },
     {
+      "category": "Rent",
+      "amount": 750.12
+    },
+    {
       "category": "Restaurants & Bars",
-      "amount": 611.6
+      "amount": 692.94
     },
     {
       "category": "Child Activities",
       "amount": 600.0
     },
     {
+      "category": "Shopping",
+      "amount": 420.93
+    },
+    {
       "category": "Fantasy Football",
       "amount": 400.0
-    },
-    {
-      "category": "Shopping",
-      "amount": 382.68
-    },
-    {
-      "category": "Cash & ATM",
-      "amount": 350.0
     }
   ]
 }
