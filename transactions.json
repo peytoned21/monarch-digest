@@ -1,5 +1,53 @@
 [
   {
+    "id": "255527227305698074",
+    "date": "2026-09-21",
+    "merchant": "Georgia Power Co.",
+    "category": "Gas & Electric",
+    "amount": -315.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "255527762185363595",
+    "date": "2026-09-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255527762185363594",
+    "date": "2026-09-20",
+    "merchant": "Home Run Derby",
+    "category": "Auto Maintenance",
+    "amount": -15.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255507276477965187",
+    "date": "2026-09-20",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -2.39,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255507276477965186",
+    "date": "2026-09-20",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -10.25,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255507276477965183",
+    "date": "2026-09-20",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -81.39,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "255396151639876230",
     "date": "2026-09-19",
     "merchant": "Brockett Pub House And Grill",
@@ -30,6 +78,22 @@
     "category": "Gifts",
     "amount": -192.23,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255507276477965185",
+    "date": "2026-09-18",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 19.68,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255507276477965184",
+    "date": "2026-09-18",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 30.37,
+    "account": "Amex Gold Card"
   },
   {
     "id": "255180129978753417",
@@ -86,6 +150,14 @@
     "category": "Clothing",
     "amount": -56.07,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255291188268966375",
+    "date": "2026-09-17",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -1200.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "255180130765185469",
@@ -4638,101 +4710,5 @@
     "category": "Shopping",
     "amount": -54.52,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247356260527055111",
-    "date": "2026-06-22",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -2.62,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247356260527055110",
-    "date": "2026-06-22",
-    "merchant": "XOOM Energy",
-    "category": "Gas & Electric",
-    "amount": -67.2,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247312741283340348",
-    "date": "2026-06-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -30.93,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247312741283340347",
-    "date": "2026-06-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -1.1,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247312741283340346",
-    "date": "2026-06-22",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -31.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247312741283340345",
-    "date": "2026-06-22",
-    "merchant": "QuikTrip",
-    "category": "Gas",
-    "amount": -10.37,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247447697992130573",
-    "date": "2026-06-22",
-    "merchant": "XOOM Energy",
-    "category": "Gas & Electric",
-    "amount": -67.2,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247447697992130572",
-    "date": "2026-06-22",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -2.62,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247416854674350736",
-    "date": "2026-06-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -30.93,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247416854674350735",
-    "date": "2026-06-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -1.1,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247521143302332675",
-    "date": "2026-06-22",
-    "merchant": "Shein",
-    "category": "Clothing",
-    "amount": -31.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247521143302332674",
-    "date": "2026-06-22",
-    "merchant": "QuikTrip",
-    "category": "Gas",
-    "amount": -10.37,
-    "account": "Amex Gold Card"
   }
 ]
