@@ -1,11 +1,59 @@
 [
   {
+    "id": "255622992988414046",
+    "date": "2026-09-22",
+    "merchant": "Fun Money Stonks",
+    "category": "Other Income",
+    "amount": 0.06,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "255527227305698074",
     "date": "2026-09-21",
     "merchant": "Georgia Power Co.",
     "category": "Gas & Electric",
     "amount": -315.0,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "255621385599001195",
+    "date": "2026-09-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -52.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255617607283974377",
+    "date": "2026-09-21",
+    "merchant": "Celeste D Harris",
+    "category": "Other Income",
+    "amount": 5.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255617607283974374",
+    "date": "2026-09-21",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -3.18,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255564645634351939",
+    "date": "2026-09-21",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -4.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255564644201997198",
+    "date": "2026-09-21",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
   },
   {
     "id": "255527762185363595",
@@ -4622,93 +4670,5 @@
     "category": "Restaurants",
     "amount": -6.63,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "247447699599597758",
-    "date": "2026-06-23",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -54.52,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247447699599597757",
-    "date": "2026-06-23",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -7.96,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247447697992130571",
-    "date": "2026-06-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247416854674350734",
-    "date": "2026-06-23",
-    "merchant": "HS D Enterprises",
-    "category": "Work Lunch",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247539140263879064",
-    "date": "2026-06-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247535565119889620",
-    "date": "2026-06-23",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -11.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247535565119889619",
-    "date": "2026-06-23",
-    "merchant": "Tower Beer & Wine",
-    "category": "Restaurants & Bars",
-    "amount": -137.07,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247535565119889618",
-    "date": "2026-06-23",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -37.44,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "247521143302332673",
-    "date": "2026-06-23",
-    "merchant": "HS & D Enterprises",
-    "category": "Work Lunch",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247630874574529000",
-    "date": "2026-06-23",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -7.96,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247630874574528999",
-    "date": "2026-06-23",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -54.52,
-    "account": "Amazon Prime Card"
   }
 ]
