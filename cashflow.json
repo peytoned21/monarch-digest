@@ -1,15 +1,19 @@
 {
-  "as_of": "2026-09-22",
+  "as_of": "2026-09-23",
   "month": "September 2026",
-  "days_elapsed": 22,
+  "days_elapsed": 23,
   "days_in_month": 30,
-  "mtd_income": 5766.97,
-  "mtd_expenses": 9571.6,
-  "mtd_surplus": -3804.63,
-  "savings_rate_pct": -66.0,
-  "projected_month_expense": 13052.18,
-  "projected_savings": -7285.21,
+  "mtd_income": 5761.58,
+  "mtd_expenses": 13304.74,
+  "mtd_surplus": -7543.16,
+  "savings_rate_pct": -130.9,
+  "projected_month_expense": 17354.01,
+  "projected_savings": -11592.43,
   "top_categories": [
+    {
+      "category": "Home & Auto Insurance",
+      "amount": 2840.0
+    },
     {
       "category": "Travel: Helenback",
       "amount": 2220.62
@@ -17,6 +21,10 @@
     {
       "category": "Mortgage",
       "amount": 1345.16
+    },
+    {
+      "category": "Loan Repayment",
+      "amount": 1200.0
     },
     {
       "category": "Auto Payment",
@@ -33,14 +41,6 @@
     {
       "category": "Shopping",
       "amount": 428.75
-    },
-    {
-      "category": "Fantasy Football",
-      "amount": 400.0
-    },
-    {
-      "category": "Cash & ATM",
-      "amount": 350.0
     }
   ]
 }

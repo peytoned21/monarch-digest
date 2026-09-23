@@ -1,30 +1,30 @@
 {
-  "as_of": "September 22, 2026",
-  "generated_at": "2026-09-22",
+  "as_of": "September 23, 2026",
+  "generated_at": "2026-09-23",
   "_cached": false,
-  "roth": 449204,
-  "groth": 16924,
-  "k401": 192856,
-  "taxable": 187555,
-  "hsa": 19673,
+  "roth": 449778,
+  "groth": 16932,
+  "k401": 195432,
+  "taxable": 187551,
+  "hsa": 20104,
   "hd_vested": 13099,
   "hd_rsus": 138155,
   "roth_staging": 10000,
-  "total_cash": 24388,
+  "total_cash": 24414,
   "eleanor_529": 32905,
   "arthur_529": 13387,
-  "mortgage_bal": 283367,
+  "mortgage_bal": 281974,
   "stanford_bal": 21835,
-  "lexus_bal": 15610,
-  "tesla_bal": 6744,
-  "cc_total": 7797,
+  "lexus_bal": 14955,
+  "tesla_bal": 6279,
+  "cc_total": 8032,
   "home_value": 687600,
   "vehicle_total": 60464,
   "lexus_value": 33671,
   "tesla_value": 26793,
-  "net_worth": 1523928,
-  "total_assets": 1859283,
-  "total_debt": 335354,
+  "net_worth": 1529816,
+  "total_assets": 1862893,
+  "total_debt": 333077,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -48,7 +48,7 @@
       "id": "166315121196343650",
       "name": "2019 Lexus GX460 (4.5%)",
       "type": "loan",
-      "balance": -15610.49,
+      "balance": -14955.27,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "CDC Federal Credit Union"
@@ -75,7 +75,7 @@
       "id": "166315122046738789",
       "name": "2023 Tesla Model 3 (4.5%)",
       "type": "loan",
-      "balance": -6744.07,
+      "balance": -6279.23,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "CDC Federal Credit Union"
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 449204.81,
+      "balance": 449778.51,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 128346.97,
+      "balance": 128444.7,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 23594.16,
+      "balance": 23594.22,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -183,7 +183,7 @@
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
       "type": "credit",
-      "balance": -3360.41,
+      "balance": -3387.41,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 192856.68,
+      "balance": 195432.62,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -282,7 +282,7 @@
       "id": "167583325498581992",
       "name": "HSA investment account",
       "type": "brokerage",
-      "balance": 18881.51,
+      "balance": 19098.45,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Payflex"
@@ -291,7 +291,7 @@
       "id": "167583325695714281",
       "name": "HSA deposit account",
       "type": "brokerage",
-      "balance": 792.42,
+      "balance": 1006.3,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Payflex"
@@ -345,7 +345,7 @@
       "id": "175197949084508375",
       "name": "3149 McCully Dr. Mortgage (2.75%)",
       "type": "loan",
-      "balance": -283367.39,
+      "balance": -281974.24,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Roundpoint Mortgage"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -2334.3,
+      "balance": -2432.57,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -381,7 +381,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 53548.79,
+      "balance": 53393.91,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -399,7 +399,7 @@
       "id": "214858633887817806",
       "name": "Citi ThankYou Preferred (...3736)",
       "type": "credit",
-      "balance": -636.91,
+      "balance": -731.23,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Citibank Online"
@@ -417,7 +417,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16924.93,
+      "balance": 16932.48,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -444,7 +444,7 @@
       "id": "240526621396640405",
       "name": "Amex Platinum Card",
       "type": "credit",
-      "balance": -78.97,
+      "balance": -94.96,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -453,10 +453,28 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5659.73,
+      "balance": 5712.74,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
+    },
+    {
+      "id": "255679647949201498",
+      "name": "Primary Share Savings (...8280)",
+      "type": "depository",
+      "balance": 25.0,
+      "include_in_nw": true,
+      "is_asset": true,
+      "institution": "CDC Federal Credit Union"
+    },
+    {
+      "id": "255679648004776027",
+      "name": "Simply Checking (...8318)",
+      "type": "depository",
+      "balance": 1.0,
+      "include_in_nw": true,
+      "is_asset": true,
+      "institution": "CDC Federal Credit Union"
     }
   ],
   "peyton_age": 39
