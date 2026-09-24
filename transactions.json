@@ -1,5 +1,61 @@
 [
   {
+    "id": "255791384692203633",
+    "date": "2026-09-23",
+    "merchant": "Archive Resale",
+    "category": "Other Income",
+    "amount": 56.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255791384692203632",
+    "date": "2026-09-23",
+    "merchant": "Cuzco Peruvian Cuisine",
+    "category": "Restaurants & Bars",
+    "amount": -75.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255735484047631088",
+    "date": "2026-09-23",
+    "merchant": "Depop",
+    "category": "Clothing",
+    "amount": -9.83,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255735484047631087",
+    "date": "2026-09-23",
+    "merchant": "Archive Resale",
+    "category": "Shopping",
+    "amount": -56.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255735484047631086",
+    "date": "2026-09-23",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -46.66,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255735484047631085",
+    "date": "2026-09-23",
+    "merchant": "Palisades at West Paces",
+    "category": "Parking & Tolls",
+    "amount": -8.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255735484047631084",
+    "date": "2026-09-23",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "255622992988414046",
     "date": "2026-09-22",
     "merchant": "Fun Money Stonks",
@@ -37,6 +93,14 @@
     "merchant": "Allstate Vehicle & Property Insurance",
     "category": "Home & Auto Insurance",
     "amount": -2840.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255736262801957395",
+    "date": "2026-09-22",
+    "merchant": "Tucker",
+    "category": "Entertainment & Recreation",
+    "amount": -16.2,
     "account": "Chase Sapphire Preferred "
   },
   {
@@ -102,6 +166,38 @@
     "category": "Gas & Electric",
     "amount": -63.56,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255735481913778630",
+    "date": "2026-09-21",
+    "merchant": "American Express",
+    "category": "Subscriptions",
+    "amount": 15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "255617607283974376",
+    "date": "2026-09-21",
+    "merchant": "Stiffler Thomas",
+    "category": "Shopping",
+    "amount": 5.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255617607283974375",
+    "date": "2026-09-21",
+    "merchant": "Serena Petitfrere",
+    "category": "Shopping",
+    "amount": 80.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "255552658822079023",
+    "date": "2026-09-21",
+    "merchant": "Venmo",
+    "category": "Personal",
+    "amount": -3.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "255527762185363595",
@@ -368,6 +464,14 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "254892164603913169",
+    "date": "2026-09-14",
+    "merchant": "Venmo",
+    "category": "Personal",
+    "amount": -1.5,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "254816129395925184",
     "date": "2026-09-13",
     "merchant": "Apple",
@@ -614,6 +718,22 @@
     "category": "Shopping",
     "amount": -128.51,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "254535977987416578",
+    "date": "2026-09-08",
+    "merchant": "John Thomas",
+    "category": "Personal",
+    "amount": 15.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "254361349080948862",
+    "date": "2026-09-08",
+    "merchant": "Venmo",
+    "category": "Personal",
+    "amount": -50.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "254310682809278816",
@@ -4621,62 +4741,6 @@
     "merchant": "Stillfire Brewing",
     "category": "Liquor Store",
     "amount": -29.04,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247554546606220019",
-    "date": "2026-06-25",
-    "merchant": "The Home Depot",
-    "category": "Paycheck",
-    "amount": 5784.43,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "247539141321892366",
-    "date": "2026-06-25",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -17.25,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247628748175647202",
-    "date": "2026-06-25",
-    "merchant": "Stillfire Brewing",
-    "category": "Restaurants",
-    "amount": -28.04,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247628748175647201",
-    "date": "2026-06-25",
-    "merchant": "Stillfire Brewing",
-    "category": "Restaurants",
-    "amount": -1.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247577027212681538",
-    "date": "2026-06-25",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247721833243026280",
-    "date": "2026-06-25",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -17.25,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "247681358913020716",
-    "date": "2026-06-25",
-    "merchant": "HS & D Enter",
-    "category": "Work Lunch",
-    "amount": -9.01,
     "account": "Amex Gold Card"
   }
 ]
