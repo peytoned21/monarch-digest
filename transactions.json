@@ -1,5 +1,37 @@
 [
   {
+    "id": "255904648245748610",
+    "date": "2026-09-25",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -97.05,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255864883565765460",
+    "date": "2026-09-25",
+    "merchant": "The Home Depot",
+    "category": "Bonus Income",
+    "amount": 25209.83,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "255904648245748611",
+    "date": "2026-09-24",
+    "merchant": "On Cyclon",
+    "category": "Clothing",
+    "amount": 56.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255848367849939101",
+    "date": "2026-09-24",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -50.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "255791384692203633",
     "date": "2026-09-23",
     "merchant": "Archive Resale",
@@ -56,6 +88,46 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "255848367849939100",
+    "date": "2026-09-23",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 2.26,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "255832125960298890",
+    "date": "2026-09-23",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -37.92,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255832125960298889",
+    "date": "2026-09-23",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -73.35,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255832125960298888",
+    "date": "2026-09-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -57.12,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "255827556231487594",
+    "date": "2026-09-23",
+    "merchant": "OpenAI",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "255622992988414046",
     "date": "2026-09-22",
     "merchant": "Fun Money Stonks",
@@ -102,6 +174,14 @@
     "category": "Entertainment & Recreation",
     "amount": -16.2,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255832125960298891",
+    "date": "2026-09-22",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -64.79,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "255527227305698074",
@@ -4717,30 +4797,6 @@
     "merchant": "Marathon",
     "category": "Gas",
     "amount": -73.77,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247681358913020715",
-    "date": "2026-06-26",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -10.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247784834865242171",
-    "date": "2026-06-26",
-    "merchant": "HS & D",
-    "category": "Work Lunch",
-    "amount": -10.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247888383980806744",
-    "date": "2026-06-26",
-    "merchant": "Stillfire Brewing",
-    "category": "Liquor Store",
-    "amount": -29.04,
     "account": "Amex Gold Card"
   }
 ]
