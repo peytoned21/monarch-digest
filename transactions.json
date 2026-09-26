@@ -16,6 +16,30 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "255919813880128177",
+    "date": "2026-09-25",
+    "merchant": "GA Driver Services",
+    "category": "Auto Maintenance",
+    "amount": -27.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255919813880128176",
+    "date": "2026-09-25",
+    "merchant": "US Customs",
+    "category": "Travel & Vacation",
+    "amount": -120.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "255915781874721703",
+    "date": "2026-09-25",
+    "merchant": "Sephora",
+    "category": "Beauty and Grooming",
+    "amount": -45.36,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "255904648245748611",
     "date": "2026-09-24",
     "merchant": "On Cyclon",
@@ -4766,37 +4790,5 @@
     "category": "Subscriptions",
     "amount": -20.0,
     "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247784834865242170",
-    "date": "2026-06-27",
-    "merchant": "Shrimp Basket",
-    "category": "Restaurants & Bars",
-    "amount": -81.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247784834865242169",
-    "date": "2026-06-27",
-    "merchant": "Marathon",
-    "category": "Gas",
-    "amount": -73.77,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247941043718136671",
-    "date": "2026-06-27",
-    "merchant": "Shrimp Basket",
-    "category": "Restaurants & Bars",
-    "amount": -100.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247941043718136670",
-    "date": "2026-06-27",
-    "merchant": "Marathon",
-    "category": "Gas",
-    "amount": -73.77,
-    "account": "Amex Gold Card"
   }
 ]
