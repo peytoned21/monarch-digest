@@ -1,5 +1,53 @@
 [
   {
+    "id": "256073207222575862",
+    "date": "2026-09-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -41.15,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256073207222575861",
+    "date": "2026-09-26",
+    "merchant": "Jr Crickets",
+    "category": "Restaurants & Bars",
+    "amount": -128.05,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256017608541676088",
+    "date": "2026-09-26",
+    "merchant": "Sally Beauty",
+    "category": "Beauty and Grooming",
+    "amount": -12.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256017608541676087",
+    "date": "2026-09-26",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -46.88,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256017608541676086",
+    "date": "2026-09-26",
+    "merchant": "Union Fare",
+    "category": "Travel & Vacation",
+    "amount": -27.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256011523224183375",
+    "date": "2026-09-26",
+    "merchant": "The New York Times",
+    "category": "Subscriptions",
+    "amount": -8.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "255904648245748610",
     "date": "2026-09-25",
     "merchant": "Publix",
@@ -4702,93 +4750,5 @@
     "category": "Subscriptions",
     "amount": -3.99,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "247903124928275184",
-    "date": "2026-06-28",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247903124928275183",
-    "date": "2026-06-28",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -22.81,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247903124928275182",
-    "date": "2026-06-28",
-    "merchant": "Anthropic",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247888383980806743",
-    "date": "2026-06-28",
-    "merchant": "The Point Restaurant",
-    "category": "Restaurants & Bars",
-    "amount": -115.45,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247888383980806742",
-    "date": "2026-06-28",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -15.13,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247888381833322956",
-    "date": "2026-06-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -82.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247888381833322955",
-    "date": "2026-06-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -10.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247888381833322954",
-    "date": "2026-06-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "247995540164256548",
-    "date": "2026-06-28",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -22.81,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247995540164256547",
-    "date": "2026-06-28",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "247995540164256546",
-    "date": "2026-06-28",
-    "merchant": "Anthropic",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
   }
 ]
