@@ -1,30 +1,30 @@
 {
-  "as_of": "September 27, 2026",
-  "generated_at": "2026-09-27",
+  "as_of": "September 28, 2026",
+  "generated_at": "2026-09-28",
   "_cached": false,
   "roth": 446404,
   "groth": 16865,
   "k401": 195975,
-  "taxable": 186656,
+  "taxable": 185267,
   "hsa": 20104,
   "hd_vested": 13330,
   "hd_rsus": 139544,
   "roth_staging": 11250,
-  "total_cash": 48374,
+  "total_cash": 46747,
   "eleanor_529": 32905,
   "arthur_529": 13387,
   "mortgage_bal": 281974,
   "stanford_bal": 21835,
   "lexus_bal": 14955,
   "tesla_bal": 6279,
-  "cc_total": 9890,
-  "home_value": 687600,
-  "vehicle_total": 60464,
+  "cc_total": 10222,
+  "home_value": 692000,
+  "vehicle_total": 60605,
   "lexus_value": 33671,
-  "tesla_value": 26793,
-  "net_worth": 1550995,
-  "total_assets": 1885930,
-  "total_debt": 334934,
+  "tesla_value": 26934,
+  "net_worth": 1550731,
+  "total_assets": 1885998,
+  "total_debt": 335266,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 127509.38,
+      "balance": 126518.31,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 47554.05,
+      "balance": 45926.48,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -201,7 +201,7 @@
       "id": "166323514962289604",
       "name": "2023 Tesla Model 3 Base",
       "type": "vehicle",
-      "balance": 26793.8,
+      "balance": 26934.91,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "VinAudit"
@@ -300,7 +300,7 @@
       "id": "172772382270759039",
       "name": "3149 McCully Dr Atlanta GA 30345",
       "type": "real_estate",
-      "balance": 687600.0,
+      "balance": 692000.0,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Zillow"
@@ -354,7 +354,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -2679.64,
+      "balance": -3011.25,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -369,19 +369,10 @@
       "institution": "American Express"
     },
     {
-      "id": "196833246271447445",
-      "name": "THD Employee Stock Purchase Plan",
-      "type": "brokerage",
-      "balance": 12909.3,
-      "include_in_nw": true,
-      "is_asset": true,
-      "institution": "EquatePlus"
-    },
-    {
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 53460.35,
+      "balance": 53171.5,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -453,7 +444,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5686.56,
+      "balance": 5577.62,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -475,6 +466,15 @@
       "include_in_nw": true,
       "is_asset": true,
       "institution": "CDC Federal Credit Union"
+    },
+    {
+      "id": "256175113825624865",
+      "name": "THD Employee Stock Purchase Plan",
+      "type": "brokerage",
+      "balance": 11452.33,
+      "include_in_nw": true,
+      "is_asset": true,
+      "institution": "EquatePlus"
     }
   ],
   "peyton_age": 39

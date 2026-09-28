@@ -1,5 +1,61 @@
 [
   {
+    "id": "256186631632921202",
+    "date": "2026-09-28",
+    "merchant": "Lifetouch",
+    "category": "Education",
+    "amount": -26.22,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256186631632921201",
+    "date": "2026-09-28",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -4.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256129516932375218",
+    "date": "2026-09-27",
+    "merchant": "JAI HO",
+    "category": "Restaurants & Bars",
+    "amount": -11.15,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256129516932375217",
+    "date": "2026-09-27",
+    "merchant": "Fred's Meat",
+    "category": "Groceries",
+    "amount": -45.74,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256129516932375216",
+    "date": "2026-09-27",
+    "merchant": "Gus Dumplings",
+    "category": "Restaurants & Bars",
+    "amount": -27.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256129516932375215",
+    "date": "2026-09-27",
+    "merchant": "Little Tart",
+    "category": "Restaurants & Bars",
+    "amount": -5.85,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256129516932375214",
+    "date": "2026-09-27",
+    "merchant": "Jeni's Splendid Ice Creams",
+    "category": "Restaurants & Bars",
+    "amount": -25.69,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "256073207222575862",
     "date": "2026-09-26",
     "merchant": "Walmart",
@@ -4725,30 +4781,6 @@
     "merchant": "Flora Bama Lounge",
     "category": "Restaurants & Bars",
     "amount": -25.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247903154849391496",
-    "date": "2026-06-29",
-    "merchant": "Georgia Power",
-    "category": "Gas & Electric",
-    "amount": -266.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "247993726268285560",
-    "date": "2026-06-29",
-    "merchant": "Luna's Eat & Drink",
-    "category": "Restaurants & Bars",
-    "amount": -48.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "247993726268285559",
-    "date": "2026-06-29",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -3.99,
     "account": "Amex Gold Card"
   }
 ]
