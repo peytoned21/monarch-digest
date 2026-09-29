@@ -16,6 +16,46 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "256242677773706057",
+    "date": "2026-09-28",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256242676971545380",
+    "date": "2026-09-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "256242676971545379",
+    "date": "2026-09-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "256242676971545378",
+    "date": "2026-09-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "256193541860958756",
+    "date": "2026-09-28",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "256129516932375218",
     "date": "2026-09-27",
     "merchant": "JAI HO",
@@ -54,6 +94,14 @@
     "category": "Restaurants & Bars",
     "amount": -25.69,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "256193543517708952",
+    "date": "2026-09-27",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -76.61,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "256073207222575862",
@@ -142,6 +190,14 @@
     "category": "Beauty and Grooming",
     "amount": -45.36,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "256193541860958757",
+    "date": "2026-09-25",
+    "merchant": "Known Traveler",
+    "category": "Other Income",
+    "amount": 120.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "255904648245748611",
