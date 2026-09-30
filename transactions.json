@@ -1,5 +1,45 @@
 [
   {
+    "id": "256357081671475355",
+    "date": "2026-09-29",
+    "merchant": "Basils Restaurant Tapas Bar",
+    "category": "Restaurants & Bars",
+    "amount": -57.15,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256300398805983633",
+    "date": "2026-09-29",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256300398805983632",
+    "date": "2026-09-29",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -99.72,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256300398805983631",
+    "date": "2026-09-29",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -1.11,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256284834720064093",
+    "date": "2026-09-29",
+    "merchant": "G1sk003a",
+    "category": "Shopping",
+    "amount": -99.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "256186631632921202",
     "date": "2026-09-28",
     "merchant": "Lifetouch",
@@ -56,6 +96,22 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "256284834720064092",
+    "date": "2026-09-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "256278368599613864",
+    "date": "2026-09-28",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -38.66,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "256129516932375218",
     "date": "2026-09-27",
     "merchant": "JAI HO",
@@ -104,6 +160,22 @@
     "account": "Amazon Prime Card"
   },
   {
+    "id": "256278368599613865",
+    "date": "2026-09-27",
+    "merchant": "Rowan Inc",
+    "category": "Shopping",
+    "amount": -136.29,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "256278368599613863",
+    "date": "2026-09-27",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -16.19,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "256073207222575862",
     "date": "2026-09-26",
     "merchant": "Walmart",
@@ -150,6 +222,14 @@
     "category": "Subscriptions",
     "amount": -8.0,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "256278368599613866",
+    "date": "2026-09-26",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -20.68,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "255904648245748610",
@@ -4750,93 +4830,5 @@
     "category": "Restaurants",
     "amount": -160.11,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248094619016831147",
-    "date": "2026-07-01",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 18.67,
-    "account": "Wealthfront Roth Staging Account"
-  },
-  {
-    "id": "248094617510028277",
-    "date": "2026-07-01",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 141.81,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "248072003845562761",
-    "date": "2026-07-01",
-    "merchant": "Wells Fargo",
-    "category": "Cash & ATM",
-    "amount": -114.44,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "248195718992307029",
-    "date": "2026-07-01",
-    "merchant": "External Loan Payment Olb Transfer",
-    "category": "Student Loan",
-    "amount": 1120.6,
-    "account": "Stanford Student Loan (3%)"
-  },
-  {
-    "id": "248180422796583423",
-    "date": "2026-07-01",
-    "merchant": "The Gulf Retail",
-    "category": "Shopping",
-    "amount": -30.8,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248151616078684315",
-    "date": "2026-07-01",
-    "merchant": "Henderson",
-    "category": "Child Activities",
-    "amount": -25.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248272566084378791",
-    "date": "2026-07-01",
-    "merchant": "The Gulf Retail",
-    "category": "Shopping",
-    "amount": -30.8,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248205746019181511",
-    "date": "2026-07-01",
-    "merchant": "Goodwill",
-    "category": "Other Income",
-    "amount": 50.0,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "248326806520668770",
-    "date": "2026-07-01",
-    "merchant": "Flora-Bama Oyster Bar",
-    "category": "Restaurants",
-    "amount": -6.69,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248326806520668769",
-    "date": "2026-07-01",
-    "merchant": "The Gulf",
-    "category": "Restaurants",
-    "amount": -137.05,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248310975338324371",
-    "date": "2026-07-01",
-    "merchant": "Flora Bama Lounge",
-    "category": "Restaurants & Bars",
-    "amount": -25.75,
-    "account": "Amex Gold Card"
   }
 ]

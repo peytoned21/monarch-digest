@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "month": "September 2026",
-  "days_elapsed": 29,
+  "days_elapsed": 30,
   "days_in_month": 30,
   "mtd_income": 31150.93,
-  "mtd_expenses": 7795.73,
-  "mtd_surplus": 23355.2,
-  "savings_rate_pct": 75.0,
-  "projected_month_expense": 8064.55,
-  "projected_savings": 23086.38,
+  "mtd_expenses": 8197.19,
+  "mtd_surplus": 22953.74,
+  "savings_rate_pct": 73.7,
+  "projected_month_expense": 8197.19,
+  "projected_savings": 22953.74,
   "top_categories": [
     {
       "category": "Home & Auto Insurance",
@@ -24,19 +24,19 @@
     },
     {
       "category": "Shopping",
-      "amount": 390.81
+      "amount": 653.63
+    },
+    {
+      "category": "Groceries",
+      "amount": 393.41
     },
     {
       "category": "Gas & Electric",
       "amount": 378.56
     },
     {
-      "category": "Groceries",
-      "amount": 322.29
-    },
-    {
       "category": "Restaurants & Bars",
-      "amount": 237.57
+      "amount": 305.15
     },
     {
       "category": "Work Expense",
