@@ -16,6 +16,62 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "256587191912702046",
+    "date": "2026-10-02",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256587191912702045",
+    "date": "2026-10-02",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -7.45,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256587191912702044",
+    "date": "2026-10-02",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -15.22,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256565132459451293",
+    "date": "2026-10-02",
+    "merchant": "Venmo",
+    "category": "Personal",
+    "amount": -20.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "256565132459451292",
+    "date": "2026-10-02",
+    "merchant": "First Tech Fcu",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "256565132459451291",
+    "date": "2026-10-02",
+    "merchant": "Ga County",
+    "category": "Taxes",
+    "amount": -3367.71,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "256565034441712565",
+    "date": "2026-10-02",
+    "merchant": "Walgreens",
+    "category": "Medical",
+    "amount": -25.32,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "256430421247467627",
     "date": "2026-10-01",
     "merchant": "The Home Depot",
@@ -4622,101 +4678,5 @@
     "category": "Groceries",
     "amount": -16.75,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "248363041991631267",
-    "date": "2026-07-04",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248453320454119454",
-    "date": "2026-07-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248414876720898268",
-    "date": "2026-07-04",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -105.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248414876720898267",
-    "date": "2026-07-04",
-    "merchant": "Atlanta",
-    "category": "Restaurants",
-    "amount": -12.38,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248543949256335497",
-    "date": "2026-07-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248543949256335496",
-    "date": "2026-07-04",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248624514580029774",
-    "date": "2026-07-04",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -12.38,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248624514580029773",
-    "date": "2026-07-04",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -105.79,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248674315710439677",
-    "date": "2026-07-04",
-    "merchant": "Spotify",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248674315710439676",
-    "date": "2026-07-04",
-    "merchant": "Kroger",
-    "category": "Gas & Fuel",
-    "amount": -60.42,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248674315710439675",
-    "date": "2026-07-04",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -37.98,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248674315710439674",
-    "date": "2026-07-04",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -77.44,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

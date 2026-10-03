@@ -1,34 +1,46 @@
 {
-  "as_of": "2026-10-02",
+  "as_of": "2026-10-03",
   "month": "October 2026",
-  "days_elapsed": 2,
+  "days_elapsed": 3,
   "days_in_month": 31,
   "mtd_income": 6963.67,
-  "mtd_expenses": 537.51,
-  "mtd_surplus": 6426.16,
-  "savings_rate_pct": 92.3,
-  "projected_month_expense": 8331.41,
-  "projected_savings": -1367.74,
+  "mtd_expenses": 5102.82,
+  "mtd_surplus": 1860.85,
+  "savings_rate_pct": 26.7,
+  "projected_month_expense": 52729.14,
+  "projected_savings": -45765.47,
   "top_categories": [
+    {
+      "category": "Taxes",
+      "amount": 3367.71
+    },
+    {
+      "category": "Student Loans",
+      "amount": 1120.6
+    },
     {
       "category": "Child Activities",
       "amount": 301.0
     },
     {
       "category": "Personal",
-      "amount": 215.0
+      "amount": 235.0
+    },
+    {
+      "category": "Medical",
+      "amount": 25.32
+    },
+    {
+      "category": "Groceries",
+      "amount": 22.67
+    },
+    {
+      "category": "Work Lunch",
+      "amount": 13.25
     },
     {
       "category": "Subscriptions",
       "amount": 10.79
-    },
-    {
-      "category": "Coffee Shops",
-      "amount": 6.48
-    },
-    {
-      "category": "Work Lunch",
-      "amount": 4.24
     }
   ]
 }
