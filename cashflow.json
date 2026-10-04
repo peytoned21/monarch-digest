@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-03",
+  "as_of": "2026-10-04",
   "month": "October 2026",
-  "days_elapsed": 3,
+  "days_elapsed": 4,
   "days_in_month": 31,
-  "mtd_income": 6963.67,
-  "mtd_expenses": 5102.82,
-  "mtd_surplus": 1860.85,
-  "savings_rate_pct": 26.7,
-  "projected_month_expense": 52729.14,
-  "projected_savings": -45765.47,
+  "mtd_income": 7263.67,
+  "mtd_expenses": 5388.05,
+  "mtd_surplus": 1875.62,
+  "savings_rate_pct": 25.8,
+  "projected_month_expense": 41757.39,
+  "projected_savings": -34493.72,
   "top_categories": [
     {
       "category": "Taxes",
@@ -19,28 +19,28 @@
       "amount": 1120.6
     },
     {
-      "category": "Child Activities",
-      "amount": 301.0
-    },
-    {
       "category": "Personal",
-      "amount": 235.0
+      "amount": 288.75
     },
     {
-      "category": "Medical",
-      "amount": 25.32
+      "category": "Entertainment & Recreation",
+      "amount": 150.18
     },
     {
-      "category": "Groceries",
-      "amount": 22.67
+      "category": "Shopping",
+      "amount": 150.12
     },
     {
-      "category": "Work Lunch",
-      "amount": 13.25
+      "category": "Child Activities",
+      "amount": 85.0
+    },
+    {
+      "category": "Gas",
+      "amount": 68.6
     },
     {
       "category": "Subscriptions",
-      "amount": 10.79
+      "amount": 50.79
     }
   ]
 }

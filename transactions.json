@@ -1,5 +1,29 @@
 [
   {
+    "id": "256655568814416473",
+    "date": "2026-10-03",
+    "merchant": "Circle K",
+    "category": "Gas",
+    "amount": -68.6,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "256644052397531440",
+    "date": "2026-10-03",
+    "merchant": "The Lost Sea Adventure",
+    "category": "Entertainment & Recreation",
+    "amount": -150.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256643386295919215",
+    "date": "2026-10-03",
+    "merchant": "Springplace",
+    "category": "Restaurants & Bars",
+    "amount": -38.58,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "256536405399773475",
     "date": "2026-10-02",
     "merchant": "Tesla",
@@ -72,6 +96,38 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "256655569344995420",
+    "date": "2026-10-02",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -150.12,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "256641484979118783",
+    "date": "2026-10-02",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 250.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "256641484979118782",
+    "date": "2026-10-02",
+    "merchant": "Laura ReidyPuckett",
+    "category": "Other Income",
+    "amount": 50.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "256641484979118781",
+    "date": "2026-10-02",
+    "merchant": "Thomas June",
+    "category": "Subscriptions",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "256430421247467627",
     "date": "2026-10-01",
     "merchant": "The Home Depot",
@@ -126,6 +182,14 @@
     "category": "Work Lunch",
     "amount": -4.24,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "256643386295919216",
+    "date": "2026-10-01",
+    "merchant": "Tiffany Nichole Ha",
+    "category": "Personal",
+    "amount": -268.75,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "256357081671475355",
@@ -4590,93 +4654,5 @@
     "category": "Travel & Vacation",
     "amount": -150.0,
     "account": "Wealthfront Checking"
-  },
-  {
-    "id": "248543949256335495",
-    "date": "2026-07-05",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -24.36,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248518632197267912",
-    "date": "2026-07-05",
-    "merchant": "White Windmill Bakery",
-    "category": "Restaurants & Bars",
-    "amount": -12.76,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248518632197267911",
-    "date": "2026-07-05",
-    "merchant": "Wine and Spirits",
-    "category": "Liquor Store",
-    "amount": -177.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248518632197267910",
-    "date": "2026-07-05",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -16.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248518632197267909",
-    "date": "2026-07-05",
-    "merchant": "Home Run Derby",
-    "category": "Auto Maintenance",
-    "amount": -47.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248518632197267908",
-    "date": "2026-07-05",
-    "merchant": "Hightower Drinks",
-    "category": "Coffee Shops",
-    "amount": -16.19,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248636449376641525",
-    "date": "2026-07-05",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -24.36,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248624514580029772",
-    "date": "2026-07-05",
-    "merchant": "Hightower",
-    "category": "Liquor Store",
-    "amount": -16.19,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248678532507443349",
-    "date": "2026-07-05",
-    "merchant": "Home Run Derby",
-    "category": "Restaurants & Bars",
-    "amount": -47.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248678532507443348",
-    "date": "2026-07-05",
-    "merchant": "Tower of Beer",
-    "category": "Liquor Store",
-    "amount": -177.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248678532507443347",
-    "date": "2026-07-05",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -16.75,
-    "account": "Amex Gold Card"
   }
 ]
