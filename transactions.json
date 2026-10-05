@@ -1,5 +1,21 @@
 [
   {
+    "id": "256756281312748198",
+    "date": "2026-10-04",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -243.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "256756281312748197",
+    "date": "2026-10-04",
+    "merchant": "DLW Wilderness Smokehouse",
+    "category": "Restaurants & Bars",
+    "amount": -42.33,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "256655568814416473",
     "date": "2026-10-03",
     "merchant": "Circle K",
@@ -126,6 +142,14 @@
     "category": "Subscriptions",
     "amount": -40.0,
     "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "256812820151083509",
+    "date": "2026-10-02",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 6.48,
+    "account": "Amex Gold Card"
   },
   {
     "id": "256430421247467627",
@@ -4550,109 +4574,5 @@
     "category": "Restaurants & Bars",
     "amount": -80.24,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "248624514580029771",
-    "date": "2026-07-06",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248571479125336884",
-    "date": "2026-07-06",
-    "merchant": "Yager Family Medicine",
-    "category": "Medical",
-    "amount": -49.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248678532507443346",
-    "date": "2026-07-06",
-    "merchant": "White",
-    "category": "Restaurants & Bars",
-    "amount": -12.76,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248678532507443345",
-    "date": "2026-07-06",
-    "merchant": "HS & D Enter",
-    "category": "Work Lunch",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248674315710439673",
-    "date": "2026-07-06",
-    "merchant": "Jiffy Lube",
-    "category": "Auto Maintenance",
-    "amount": -216.31,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248674315710439672",
-    "date": "2026-07-06",
-    "merchant": "Home Run Derby",
-    "category": "Auto Maintenance",
-    "amount": -39.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248828773775909883",
-    "date": "2026-07-06",
-    "merchant": "Jiffy Lube",
-    "category": "Auto Maintenance",
-    "amount": -216.31,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248828773775909882",
-    "date": "2026-07-06",
-    "merchant": "Target",
-    "category": "Groceries",
-    "amount": 22.66,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248828773775909881",
-    "date": "2026-07-06",
-    "merchant": "Target",
-    "category": "Groceries",
-    "amount": 42.62,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248784244716806569",
-    "date": "2026-07-06",
-    "merchant": "Yager Family Medicine",
-    "category": "Medical",
-    "amount": -49.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248754661096366134",
-    "date": "2026-07-06",
-    "merchant": "Home Run Derby",
-    "category": "Auto Maintenance",
-    "amount": -39.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248754661096366133",
-    "date": "2026-07-06",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -77.44,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248550182430384770",
-    "date": "2026-07-06",
-    "merchant": "Venmo",
-    "category": "Travel & Vacation",
-    "amount": -150.0,
-    "account": "Wealthfront Checking"
   }
 ]
