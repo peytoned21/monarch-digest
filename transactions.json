@@ -1,5 +1,13 @@
 [
   {
+    "id": "256828863045116607",
+    "date": "2026-10-05",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -1009.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "256756281312748198",
     "date": "2026-10-04",
     "merchant": "K Martial Arts",
@@ -14,6 +22,14 @@
     "category": "Restaurants & Bars",
     "amount": -42.33,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "256837157435417181",
+    "date": "2026-10-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -13.99,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "256655568814416473",
@@ -4501,78 +4517,6 @@
     "merchant": "Patreon",
     "category": "Entertainment & Recreation",
     "amount": -4.86,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248730770761261130",
-    "date": "2026-07-07",
-    "merchant": "La Grotta Ristorante",
-    "category": "Restaurants & Bars",
-    "amount": -66.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248727967513912281",
-    "date": "2026-07-07",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -83.82,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "248678532507443344",
-    "date": "2026-07-07",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -7.95,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248674315710439671",
-    "date": "2026-07-07",
-    "merchant": "Boutique Rugs",
-    "category": "Clothing",
-    "amount": -191.01,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248828773775909880",
-    "date": "2026-07-07",
-    "merchant": "Boutique Rugs",
-    "category": "Clothing",
-    "amount": -191.01,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248819191843332774",
-    "date": "2026-07-07",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -83.82,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "248784244716806568",
-    "date": "2026-07-07",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": 11.37,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248784244716806567",
-    "date": "2026-07-07",
-    "merchant": "HS & D Enterprise",
-    "category": "Restaurants",
-    "amount": -7.95,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248836872446353951",
-    "date": "2026-07-07",
-    "merchant": "La Grotta Ristorante",
-    "category": "Restaurants & Bars",
-    "amount": -80.24,
     "account": "Amex Gold Card"
   }
 ]

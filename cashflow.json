@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-05",
+  "as_of": "2026-10-06",
   "month": "October 2026",
-  "days_elapsed": 5,
+  "days_elapsed": 6,
   "days_in_month": 31,
   "mtd_income": 7270.15,
-  "mtd_expenses": 5673.38,
-  "mtd_surplus": 1596.77,
-  "savings_rate_pct": 22.0,
-  "projected_month_expense": 35174.96,
-  "projected_savings": -27904.81,
+  "mtd_expenses": 6696.37,
+  "mtd_surplus": 573.78,
+  "savings_rate_pct": 7.9,
+  "projected_month_expense": 34597.91,
+  "projected_savings": -27327.76,
   "top_categories": [
     {
       "category": "Taxes",
@@ -17,6 +17,10 @@
     {
       "category": "Student Loans",
       "amount": 1120.6
+    },
+    {
+      "category": "Life Insurance",
+      "amount": 1009.0
     },
     {
       "category": "Child Activities",
@@ -37,10 +41,6 @@
     {
       "category": "Gas",
       "amount": 68.6
-    },
-    {
-      "category": "Subscriptions",
-      "amount": 50.79
     }
   ]
 }
