@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-06",
+  "as_of": "2026-10-07",
   "month": "October 2026",
-  "days_elapsed": 6,
+  "days_elapsed": 7,
   "days_in_month": 31,
   "mtd_income": 7270.15,
-  "mtd_expenses": 6696.37,
-  "mtd_surplus": 573.78,
-  "savings_rate_pct": 7.9,
-  "projected_month_expense": 34597.91,
-  "projected_savings": -27327.76,
+  "mtd_expenses": 7313.72,
+  "mtd_surplus": -43.57,
+  "savings_rate_pct": -0.6,
+  "projected_month_expense": 32389.33,
+  "projected_savings": -25119.18,
   "top_categories": [
     {
       "category": "Taxes",
@@ -20,27 +20,27 @@
     },
     {
       "category": "Life Insurance",
-      "amount": 1009.0
+      "amount": 1036.16
     },
     {
       "category": "Child Activities",
       "amount": 328.0
     },
     {
+      "category": "Restaurants & Bars",
+      "amount": 306.67
+    },
+    {
       "category": "Personal",
       "amount": 288.75
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 231.09
-    },
-    {
       "category": "Shopping",
-      "amount": 150.12
+      "amount": 238.64
     },
     {
-      "category": "Gas",
-      "amount": 68.6
+      "category": "Travel & Vacation",
+      "amount": 203.11
     }
   ]
 }
