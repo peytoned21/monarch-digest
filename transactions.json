@@ -1,5 +1,61 @@
 [
   {
+    "id": "257092496009404834",
+    "date": "2026-10-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -46.47,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257092496009404833",
+    "date": "2026-10-08",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -55.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257092496009404832",
+    "date": "2026-10-08",
+    "merchant": "Home Run Derby",
+    "category": "Auto Maintenance",
+    "amount": -39.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257058712399585710",
+    "date": "2026-10-07",
+    "merchant": "SeatGeek",
+    "category": "UGA Football/Sports",
+    "amount": 43.2,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "257042757992784502",
+    "date": "2026-10-07",
+    "merchant": "Angry Elk Brewery",
+    "category": "Restaurants & Bars",
+    "amount": -33.06,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257010440675992562",
+    "date": "2026-10-07",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -18.74,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257010440675992561",
+    "date": "2026-10-07",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -42.11,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "256928429635478003",
     "date": "2026-10-06",
     "merchant": "BP",
@@ -22,6 +78,22 @@
     "category": "Gas & Electric",
     "amount": -125.42,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "257010440675992564",
+    "date": "2026-10-06",
+    "merchant": "Carver's Orchard",
+    "category": "Groceries",
+    "amount": -10.23,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257010440675992563",
+    "date": "2026-10-06",
+    "merchant": "Joe And Pops Sub S",
+    "category": "Restaurants & Bars",
+    "amount": -61.7,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "256828863045116607",
@@ -4550,69 +4622,5 @@
     "category": "Clothing",
     "amount": -4.84,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "248815403760820780",
-    "date": "2026-07-09",
-    "merchant": "The Home Depot",
-    "category": "Paychecks",
-    "amount": 5088.46,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "248911910007677569",
-    "date": "2026-07-09",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -2.17,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "248889901257270119",
-    "date": "2026-07-09",
-    "merchant": "Dekalb County Tax Commissioner",
-    "category": "Taxes",
-    "amount": -301.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248836872446353949",
-    "date": "2026-07-09",
-    "merchant": "Waffle House",
-    "category": "Restaurants & Bars",
-    "amount": -11.31,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "248943007881961793",
-    "date": "2026-07-09",
-    "merchant": "Patreon",
-    "category": "Entertainment & Recreation",
-    "amount": -4.86,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249047815145071312",
-    "date": "2026-07-09",
-    "merchant": "Dekalb Vehicle Tag",
-    "category": "Auto Payment",
-    "amount": -301.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249047815145071311",
-    "date": "2026-07-09",
-    "merchant": "Waffle House",
-    "category": "Restaurants & Bars",
-    "amount": -11.31,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249184356858274168",
-    "date": "2026-07-09",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -2.17,
-    "account": "Chase Sapphire Preferred "
   }
 ]
