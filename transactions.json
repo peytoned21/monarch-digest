@@ -24,6 +24,70 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "257156606433632656",
+    "date": "2026-10-08",
+    "merchant": "clays sports cafe",
+    "category": "Restaurants & Bars",
+    "amount": -30.65,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257156606433632655",
+    "date": "2026-10-08",
+    "merchant": "Shady Rays",
+    "category": "Clothing",
+    "amount": -55.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257156606433632654",
+    "date": "2026-10-08",
+    "merchant": "Etsy",
+    "category": "Shopping",
+    "amount": -15.61,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257112359929062164",
+    "date": "2026-10-08",
+    "merchant": "Alta",
+    "category": "Financial Fees",
+    "amount": -40.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257112359929062163",
+    "date": "2026-10-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257100110155948756",
+    "date": "2026-10-08",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -72.73,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257100110155948755",
+    "date": "2026-10-08",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -1.43,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257100110155948754",
+    "date": "2026-10-08",
+    "merchant": "fellinis pizza",
+    "category": "Restaurants & Bars",
+    "amount": -18.36,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "257058712399585710",
     "date": "2026-10-07",
     "merchant": "SeatGeek",
@@ -54,6 +118,14 @@
     "category": "Shopping",
     "amount": -42.11,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257112359929062165",
+    "date": "2026-10-07",
+    "merchant": "PALOUSE BRAND",
+    "category": "Shopping",
+    "amount": -279.0,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "256928429635478003",
@@ -4582,45 +4654,5 @@
     "category": "Gas & Fuel",
     "amount": -14.02,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "248911173916762407",
-    "date": "2026-07-10",
-    "merchant": "Venmo",
-    "category": "Restaurants & Bars",
-    "amount": -27.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "248995085889249459",
-    "date": "2026-07-10",
-    "merchant": "Wine and Spirits",
-    "category": "Liquor Store",
-    "amount": -348.73,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249036114199782350",
-    "date": "2026-07-10",
-    "merchant": "ATM",
-    "category": "Cash & ATM",
-    "amount": -300.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "249151705262793426",
-    "date": "2026-07-10",
-    "merchant": "Tower Of Beer Wine & Spirits",
-    "category": "Restaurants",
-    "amount": -348.73,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249332334674781145",
-    "date": "2026-07-10",
-    "merchant": "Goodwill",
-    "category": "Clothing",
-    "amount": -4.84,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

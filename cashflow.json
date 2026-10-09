@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-08",
+  "as_of": "2026-10-09",
   "month": "October 2026",
-  "days_elapsed": 8,
+  "days_elapsed": 9,
   "days_in_month": 31,
   "mtd_income": 7313.35,
-  "mtd_expenses": 7621.02,
-  "mtd_surplus": -307.67,
-  "savings_rate_pct": -4.2,
-  "projected_month_expense": 29531.45,
-  "projected_savings": -22218.1,
+  "mtd_expenses": 8142.97,
+  "mtd_surplus": -829.62,
+  "savings_rate_pct": -11.3,
+  "projected_month_expense": 28048.01,
+  "projected_savings": -20734.66,
   "top_categories": [
     {
       "category": "Taxes",
@@ -23,12 +23,12 @@
       "amount": 1036.16
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 401.43
+      "category": "Shopping",
+      "amount": 695.57
     },
     {
-      "category": "Shopping",
-      "amount": 400.96
+      "category": "Restaurants & Bars",
+      "amount": 450.44
     },
     {
       "category": "Child Activities",
