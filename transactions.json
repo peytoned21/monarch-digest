@@ -1,5 +1,45 @@
 [
   {
+    "id": "257214675637182525",
+    "date": "2026-10-09",
+    "merchant": "Wine and Spirits",
+    "category": "Liquor Store",
+    "amount": -100.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257214675637182524",
+    "date": "2026-10-09",
+    "merchant": "Learnedleague",
+    "category": "Entertainment & Recreation",
+    "amount": -35.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257186483007332536",
+    "date": "2026-10-09",
+    "merchant": "Goodwill",
+    "category": "Clothing",
+    "amount": -24.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257186483007332535",
+    "date": "2026-10-09",
+    "merchant": "Northern China Eatery",
+    "category": "Restaurants & Bars",
+    "amount": -77.56,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257186483007332534",
+    "date": "2026-10-09",
+    "merchant": "Hightower",
+    "category": "Liquor Store",
+    "amount": -38.86,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "257092496009404834",
     "date": "2026-10-08",
     "merchant": "Walmart",
@@ -86,6 +126,22 @@
     "category": "Restaurants & Bars",
     "amount": -18.36,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "257205592477606702",
+    "date": "2026-10-08",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -19.39,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "257205592477606701",
+    "date": "2026-10-08",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -107.97,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "257058712399585710",
