@@ -1,5 +1,37 @@
 [
   {
+    "id": "257327873274093578",
+    "date": "2026-10-10",
+    "merchant": "LITTLE THISTLE STUDIO",
+    "category": "Shopping",
+    "amount": -12.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257327873274093577",
+    "date": "2026-10-10",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -26.39,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257289275104502173",
+    "date": "2026-10-10",
+    "merchant": "Goodwill",
+    "category": "Clothing",
+    "amount": -25.35,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257289275104502172",
+    "date": "2026-10-10",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 16.19,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "257214675637182525",
     "date": "2026-10-09",
     "merchant": "Wine and Spirits",
@@ -37,6 +69,14 @@
     "merchant": "Hightower",
     "category": "Liquor Store",
     "amount": -38.86,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257289275104502174",
+    "date": "2026-10-09",
+    "merchant": "Adidas",
+    "category": "Shopping",
+    "amount": -43.2,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4629,86 +4669,6 @@
     "merchant": "Publix",
     "category": "Groceries",
     "amount": -5.14,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249184356858274167",
-    "date": "2026-07-12",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -8.26,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "249151705262793425",
-    "date": "2026-07-12",
-    "merchant": "QuikTrip",
-    "category": "Gas",
-    "amount": -14.02,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249151705262793424",
-    "date": "2026-07-12",
-    "merchant": "Little Thistle Studio",
-    "category": "Child Care",
-    "amount": -75.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249151705262793423",
-    "date": "2026-07-12",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -71.8,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249151705262793422",
-    "date": "2026-07-12",
-    "merchant": "Fork in the Road",
-    "category": "Restaurants & Bars",
-    "amount": -28.44,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249277290188316890",
-    "date": "2026-07-12",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -8.26,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "249204519200563669",
-    "date": "2026-07-12",
-    "merchant": "Little Thistle",
-    "category": "Shopping",
-    "amount": -75.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249310580129604485",
-    "date": "2026-07-12",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -71.8,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249310580129604484",
-    "date": "2026-07-12",
-    "merchant": "Fork in the Road",
-    "category": "Restaurants & Bars",
-    "amount": -28.44,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249310580129604483",
-    "date": "2026-07-12",
-    "merchant": "QuikTrip",
-    "category": "Gas & Fuel",
-    "amount": -14.02,
     "account": "Amex Gold Card"
   }
 ]
