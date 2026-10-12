@@ -1,5 +1,13 @@
 [
   {
+    "id": "257384530199913014",
+    "date": "2026-10-11",
+    "merchant": "WONDERPHO",
+    "category": "Restaurants & Bars",
+    "amount": -67.12,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "257327873274093578",
     "date": "2026-10-10",
     "merchant": "LITTLE THISTLE STUDIO",
@@ -4606,69 +4614,5 @@
     "category": "Restaurants & Bars",
     "amount": -9.67,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249204519200563668",
-    "date": "2026-07-13",
-    "merchant": "Wesley D Powell DDS",
-    "category": "Dentist",
-    "amount": -546.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249204519200563667",
-    "date": "2026-07-13",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -5.14,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249204519200563666",
-    "date": "2026-07-13",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249204519200563665",
-    "date": "2026-07-13",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249310580129604482",
-    "date": "2026-07-13",
-    "merchant": "HS & D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249310580129604481",
-    "date": "2026-07-13",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249427804949520790",
-    "date": "2026-07-13",
-    "merchant": "Wesley D Powell DDS",
-    "category": "Dentist",
-    "amount": -546.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249427804949520789",
-    "date": "2026-07-13",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -5.14,
-    "account": "Amex Gold Card"
   }
 ]
