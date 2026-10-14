@@ -1,11 +1,75 @@
 [
   {
+    "id": "257613890051842175",
+    "date": "2026-10-14",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -4.42,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "257543301752627215",
     "date": "2026-10-13",
     "merchant": "Target",
     "category": "Shopping",
     "amount": 37.8,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257613890051842177",
+    "date": "2026-10-13",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -101.44,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257613890051842176",
+    "date": "2026-10-13",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -12.51,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257574242200002612",
+    "date": "2026-10-13",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -27.22,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "257574241551982616",
+    "date": "2026-10-13",
+    "merchant": "HS & D Enterprises",
+    "category": "Work Lunch",
+    "amount": -6.63,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257556648392859918",
+    "date": "2026-10-13",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -3.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257556648392859917",
+    "date": "2026-10-13",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -100.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257556648392859916",
+    "date": "2026-10-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
   },
   {
     "id": "257498466771476666",
@@ -4494,69 +4558,5 @@
     "category": "Restaurants & Bars",
     "amount": -8.0,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249353267454091870",
-    "date": "2026-07-15",
-    "merchant": "Path2College 529 Plan",
-    "category": "E&A 529 Plan",
-    "amount": -2000.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "249427804949520788",
-    "date": "2026-07-15",
-    "merchant": "Little Thistle Studio",
-    "category": "Fitness",
-    "amount": -45.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249427804949520787",
-    "date": "2026-07-15",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -3.18,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249375631851070111",
-    "date": "2026-07-15",
-    "merchant": "RoundPoint Mortgage Servicing Corporation",
-    "category": "Mortgage",
-    "amount": -1345.16,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "249481276460835510",
-    "date": "2026-07-15",
-    "merchant": "Little Thistle",
-    "category": "Shopping",
-    "amount": -45.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249481276460835509",
-    "date": "2026-07-15",
-    "merchant": "HS & D Enterprise",
-    "category": "Shopping",
-    "amount": -3.18,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249474358915834767",
-    "date": "2026-07-15",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -23.56,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "249658079730147854",
-    "date": "2026-07-15",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -23.56,
-    "account": "Amazon Prime Card"
   }
 ]
