@@ -1,18 +1,26 @@
 {
-  "as_of": "2026-10-14",
+  "as_of": "2026-10-15",
   "month": "October 2026",
-  "days_elapsed": 14,
+  "days_elapsed": 15,
   "days_in_month": 31,
-  "mtd_income": 7367.34,
-  "mtd_expenses": 9051.58,
-  "mtd_surplus": -1684.24,
-  "savings_rate_pct": -22.9,
-  "projected_month_expense": 20042.78,
-  "projected_savings": -12675.44,
+  "mtd_income": 13885.21,
+  "mtd_expenses": 12562.58,
+  "mtd_surplus": 1322.63,
+  "savings_rate_pct": 9.5,
+  "projected_month_expense": 25962.67,
+  "projected_savings": -12077.46,
   "top_categories": [
     {
       "category": "Taxes",
       "amount": 3367.71
+    },
+    {
+      "category": "E&A 529 Plan",
+      "amount": 2000.0
+    },
+    {
+      "category": "Mortgage",
+      "amount": 1345.16
     },
     {
       "category": "Student Loans",
@@ -23,24 +31,16 @@
       "amount": 1036.16
     },
     {
-      "category": "Shopping",
-      "amount": 673.74
+      "category": "Restaurants & Bars",
+      "amount": 674.37
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 549.34
+      "category": "Shopping",
+      "amount": 671.35
     },
     {
       "category": "Entertainment & Recreation",
       "amount": 388.29
-    },
-    {
-      "category": "Child Activities",
-      "amount": 340.0
-    },
-    {
-      "category": "Personal",
-      "amount": 299.0
     }
   ]
 }

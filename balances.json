@@ -1,30 +1,30 @@
 {
-  "as_of": "October 14, 2026",
-  "generated_at": "2026-10-14",
+  "as_of": "October 15, 2026",
+  "generated_at": "2026-10-15",
   "_cached": false,
-  "roth": 443549,
-  "groth": 16977,
-  "k401": 195667,
-  "taxable": 187304,
+  "roth": 443682,
+  "groth": 16779,
+  "k401": 195449,
+  "taxable": 186167,
   "hsa": 20780,
   "hd_vested": 13330,
   "hd_rsus": 139544,
   "roth_staging": 11250,
-  "total_cash": 44262,
-  "eleanor_529": 32905,
-  "arthur_529": 13387,
+  "total_cash": 47431,
+  "eleanor_529": 32124,
+  "arthur_529": 15024,
   "mortgage_bal": 281974,
   "stanford_bal": 20768,
   "lexus_bal": 14955,
   "tesla_bal": 6279,
-  "cc_total": 11921,
+  "cc_total": 11952,
   "home_value": 683200,
   "vehicle_total": 60789,
   "lexus_value": 33854,
   "tesla_value": 26934,
-  "net_worth": 1538707,
-  "total_assets": 1874606,
-  "total_debt": 335898,
+  "net_worth": 1541260,
+  "total_assets": 1877190,
+  "total_debt": 335930,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 443549.12,
+      "balance": 443682.41,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 126927.64,
+      "balance": 126147.22,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 43087.45,
+      "balance": 46256.39,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -210,28 +210,10 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 195667.93,
+      "balance": 195449.76,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
-    },
-    {
-      "id": "166340476717179832",
-      "name": "Eleanor 529 Plan",
-      "type": "brokerage",
-      "balance": 32905.1,
-      "include_in_nw": true,
-      "is_asset": true,
-      "institution": "Path2College 529 Plan"
-    },
-    {
-      "id": "166340476873417657",
-      "name": "Arthur 529 Plan",
-      "type": "brokerage",
-      "balance": 13387.79,
-      "include_in_nw": true,
-      "is_asset": true,
-      "institution": "Path2College 529 Plan"
     },
     {
       "id": "166396829315834201",
@@ -354,7 +336,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -1825.13,
+      "balance": -1856.34,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -372,7 +354,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 54900.04,
+      "balance": 54645.83,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -408,7 +390,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16977.41,
+      "balance": 16779.77,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -444,7 +426,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5476.57,
+      "balance": 5374.72,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -471,10 +453,28 @@
       "id": "256175113825624865",
       "name": "THD Employee Stock Purchase Plan",
       "type": "brokerage",
-      "balance": 11500.31,
+      "balance": 11478.05,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "EquatePlus"
+    },
+    {
+      "id": "257710852086374403",
+      "name": "Eleanor 529 Plan",
+      "type": "brokerage",
+      "balance": 32124.3,
+      "include_in_nw": true,
+      "is_asset": true,
+      "institution": "Path2College 529 Plan"
+    },
+    {
+      "id": "257710852313915396",
+      "name": "Arthur 529 Plan",
+      "type": "brokerage",
+      "balance": 15024.69,
+      "include_in_nw": true,
+      "is_asset": true,
+      "institution": "Path2College 529 Plan"
     }
   ],
   "peyton_age": 39
