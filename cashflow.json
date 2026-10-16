@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-15",
+  "as_of": "2026-10-16",
   "month": "October 2026",
-  "days_elapsed": 15,
+  "days_elapsed": 16,
   "days_in_month": 31,
-  "mtd_income": 13885.21,
-  "mtd_expenses": 12562.58,
-  "mtd_surplus": 1322.63,
-  "savings_rate_pct": 9.5,
-  "projected_month_expense": 25962.67,
-  "projected_savings": -12077.46,
+  "mtd_income": 6883.74,
+  "mtd_expenses": 12825.07,
+  "mtd_surplus": -5941.33,
+  "savings_rate_pct": -86.3,
+  "projected_month_expense": 24848.57,
+  "projected_savings": -17964.83,
   "top_categories": [
     {
       "category": "Taxes",
@@ -32,15 +32,15 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 674.37
+      "amount": 714.02
     },
     {
       "category": "Shopping",
-      "amount": 671.35
+      "amount": 679.98
     },
     {
-      "category": "Entertainment & Recreation",
-      "amount": 388.29
+      "category": "Beauty and Grooming",
+      "amount": 401.75
     }
   ]
 }

@@ -24,6 +24,46 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "257759251381822412",
+    "date": "2026-10-15",
+    "merchant": "BASEMENT BIKE MECHANIC",
+    "category": "Auto Maintenance",
+    "amount": -52.83,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257731693658448690",
+    "date": "2026-10-15",
+    "merchant": "Sunrise Flour Mill",
+    "category": "Groceries",
+    "amount": -37.79,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257731693658448689",
+    "date": "2026-10-15",
+    "merchant": "Massage Art Studio",
+    "category": "Beauty and Grooming",
+    "amount": -133.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257731196659638861",
+    "date": "2026-10-15",
+    "merchant": "BUTTERMILK KITCHEN",
+    "category": "Restaurants & Bars",
+    "amount": -24.18,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257731196659638860",
+    "date": "2026-10-15",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "257613890051842175",
     "date": "2026-10-14",
     "merchant": "Dunkin'",
@@ -38,6 +78,14 @@
     "category": "Restaurants & Bars",
     "amount": -125.03,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "257731693658448691",
+    "date": "2026-10-14",
+    "merchant": "Frosty Caboose",
+    "category": "Restaurants & Bars",
+    "amount": -15.47,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "257543301752627215",
@@ -118,6 +166,22 @@
     "category": "Shopping",
     "amount": -7.55,
     "account": "Amazon Prime Card"
+  },
+  {
+    "id": "257731693658448693",
+    "date": "2026-10-13",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -66.87,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257731693658448692",
+    "date": "2026-10-13",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -8.63,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "257498466771476666",
@@ -4485,38 +4549,6 @@
     "merchant": "RaceTrac",
     "category": "Gas",
     "amount": -48.03,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249594336114582267",
-    "date": "2026-07-17",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -2.17,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249570973547700778",
-    "date": "2026-07-17",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": 18.35,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249751949294903660",
-    "date": "2026-07-17",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -2.17,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249919793347371330",
-    "date": "2026-07-17",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": 18.35,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
