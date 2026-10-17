@@ -1,5 +1,69 @@
 [
   {
+    "id": "257853873123696950",
+    "date": "2026-10-16",
+    "merchant": "Pizza Hut",
+    "category": "Restaurants & Bars",
+    "amount": -14.13,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257853873123696949",
+    "date": "2026-10-16",
+    "merchant": "Fork in the Road",
+    "category": "Restaurants & Bars",
+    "amount": -20.84,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257847218302558953",
+    "date": "2026-10-16",
+    "merchant": "Raging Burrito",
+    "category": "Restaurants & Bars",
+    "amount": -31.88,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257847218302558952",
+    "date": "2026-10-16",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -4.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257847218302558951",
+    "date": "2026-10-16",
+    "merchant": "Universal Global",
+    "category": "Parking & Tolls",
+    "amount": -9.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257847218302558950",
+    "date": "2026-10-16",
+    "merchant": "365 Retail Markets",
+    "category": "Groceries",
+    "amount": -2.58,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257847218302558949",
+    "date": "2026-10-16",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -7.17,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257822283441054536",
+    "date": "2026-10-16",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -40.02,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "257719072474472893",
     "date": "2026-10-15",
     "merchant": "RoundPoint Mortgage Servicing Corporation",
@@ -4525,30 +4589,6 @@
     "merchant": "Scrap Tucker",
     "category": "Child Activities",
     "amount": -5.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249699637339824206",
-    "date": "2026-07-18",
-    "merchant": "Down Wind Restaurant",
-    "category": "Restaurants & Bars",
-    "amount": -44.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249857988282491754",
-    "date": "2026-07-18",
-    "merchant": "The Down",
-    "category": "Restaurants & Bars",
-    "amount": -44.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249919793347371329",
-    "date": "2026-07-18",
-    "merchant": "RaceTrac",
-    "category": "Gas",
-    "amount": -48.03,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

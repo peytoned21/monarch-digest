@@ -1,19 +1,15 @@
 {
-  "as_of": "2026-10-16",
+  "as_of": "2026-10-17",
   "month": "October 2026",
-  "days_elapsed": 16,
+  "days_elapsed": 17,
   "days_in_month": 31,
-  "mtd_income": 6883.74,
-  "mtd_expenses": 12825.07,
-  "mtd_surplus": -5941.33,
-  "savings_rate_pct": -86.3,
-  "projected_month_expense": 24848.57,
-  "projected_savings": -17964.83,
+  "mtd_income": 6921.54,
+  "mtd_expenses": 8135.28,
+  "mtd_surplus": -1213.74,
+  "savings_rate_pct": -17.5,
+  "projected_month_expense": 14834.92,
+  "projected_savings": -7913.38,
   "top_categories": [
-    {
-      "category": "Taxes",
-      "amount": 3367.71
-    },
     {
       "category": "E&A 529 Plan",
       "amount": 2000.0
@@ -23,24 +19,28 @@
       "amount": 1345.16
     },
     {
-      "category": "Student Loans",
-      "amount": 1120.6
-    },
-    {
       "category": "Life Insurance",
       "amount": 1036.16
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 714.02
-    },
-    {
       "category": "Shopping",
-      "amount": 679.98
+      "amount": 720.0
     },
     {
-      "category": "Beauty and Grooming",
-      "amount": 401.75
+      "category": "Restaurants & Bars",
+      "amount": 655.84
+    },
+    {
+      "category": "Entertainment & Recreation",
+      "amount": 513.32
+    },
+    {
+      "category": "Personal",
+      "amount": 279.0
+    },
+    {
+      "category": "Groceries",
+      "amount": 256.97
     }
   ]
 }
