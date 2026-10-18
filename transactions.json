@@ -1,5 +1,37 @@
 [
   {
+    "id": "257959975629824649",
+    "date": "2026-10-17",
+    "merchant": "LSU VICTORY",
+    "category": "Entertainment & Recreation",
+    "amount": -50.46,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257959975629824646",
+    "date": "2026-10-17",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -31.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "257945034152681995",
+    "date": "2026-10-17",
+    "merchant": "UnivPark",
+    "category": "Parking & Tolls",
+    "amount": -6.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "257903966105313450",
+    "date": "2026-10-17",
+    "merchant": "LITTLE THISTLE STUDIO",
+    "category": "Shopping",
+    "amount": -12.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "257853873123696950",
     "date": "2026-10-16",
     "merchant": "Pizza Hut",
@@ -62,6 +94,14 @@
     "category": "Shopping",
     "amount": -40.02,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257959975629824647",
+    "date": "2026-10-16",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 15.42,
+    "account": "Amex Gold Card"
   },
   {
     "id": "257719072474472893",
@@ -128,6 +168,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "257914652379259822",
+    "date": "2026-10-15",
+    "merchant": "Massage Art Studio",
+    "category": "Beauty and Grooming",
+    "amount": -166.25,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "257613890051842175",
     "date": "2026-10-14",
     "merchant": "Dunkin'",
@@ -150,6 +198,14 @@
     "category": "Restaurants & Bars",
     "amount": -15.47,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "257959975629824648",
+    "date": "2026-10-14",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 0.52,
+    "account": "Amex Gold Card"
   },
   {
     "id": "257543301752627215",
@@ -4558,37 +4614,5 @@
     "category": "Groceries",
     "amount": -12.5,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "249751949294903659",
-    "date": "2026-07-19",
-    "merchant": "Old Hickory House",
-    "category": "Restaurants & Bars",
-    "amount": -30.13,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249932103273095863",
-    "date": "2026-07-19",
-    "merchant": "Old Hickory",
-    "category": "Restaurants & Bars",
-    "amount": -30.13,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249919793347371328",
-    "date": "2026-07-19",
-    "merchant": "Waffle House",
-    "category": "Restaurants & Bars",
-    "amount": -15.75,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "249919793347371327",
-    "date": "2026-07-19",
-    "merchant": "Scrap Tucker",
-    "category": "Child Activities",
-    "amount": -5.0,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
