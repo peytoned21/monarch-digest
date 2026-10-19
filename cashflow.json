@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-18",
+  "as_of": "2026-10-19",
   "month": "October 2026",
-  "days_elapsed": 18,
+  "days_elapsed": 19,
   "days_in_month": 31,
-  "mtd_income": 6887.48,
-  "mtd_expenses": 8192.78,
-  "mtd_surplus": -1305.3,
-  "savings_rate_pct": -19.0,
-  "projected_month_expense": 14109.79,
-  "projected_savings": -7222.31,
+  "mtd_income": 6881.0,
+  "mtd_expenses": 8100.23,
+  "mtd_surplus": -1219.23,
+  "savings_rate_pct": -17.7,
+  "projected_month_expense": 13216.16,
+  "projected_savings": -6335.16,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -23,24 +23,24 @@
       "amount": 1036.16
     },
     {
-      "category": "Shopping",
-      "amount": 763.42
-    },
-    {
       "category": "Restaurants & Bars",
       "amount": 655.84
     },
     {
+      "category": "Shopping",
+      "amount": 601.3
+    },
+    {
       "category": "Entertainment & Recreation",
-      "amount": 563.78
+      "amount": 575.78
     },
     {
       "category": "Personal",
       "amount": 279.0
     },
     {
-      "category": "Child Activities",
-      "amount": 255.0
+      "category": "Groceries",
+      "amount": 275.92
     }
   ]
 }
