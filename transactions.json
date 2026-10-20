@@ -1,5 +1,45 @@
 [
   {
+    "id": "258152223192588889",
+    "date": "2026-10-19",
+    "merchant": "Wells Fargo",
+    "category": "Other Income",
+    "amount": 100.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "258152223192588888",
+    "date": "2026-10-19",
+    "merchant": "Wells Fargo",
+    "category": "Cash & ATM",
+    "amount": -200.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "258132292124221754",
+    "date": "2026-10-19",
+    "merchant": "The Plaza",
+    "category": "Restaurants & Bars",
+    "amount": -29.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258132292124221753",
+    "date": "2026-10-19",
+    "merchant": "Krystal",
+    "category": "Shopping",
+    "amount": -8.41,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258127373736550435",
+    "date": "2026-10-19",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -14.57,
+    "account": "Amazon Prime Card"
+  },
+  {
     "id": "258017474500305518",
     "date": "2026-10-18",
     "merchant": "Publix",
@@ -4461,78 +4501,6 @@
     "merchant": "Adj Redist Purchase Bal",
     "category": "Shopping",
     "amount": 50.0,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "249964412478103663",
-    "date": "2026-07-21",
-    "merchant": "Google",
-    "category": "Shopping",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "249932103273095860",
-    "date": "2026-07-21",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249932103273095859",
-    "date": "2026-07-21",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "249919793347371326",
-    "date": "2026-07-21",
-    "merchant": "Vista Yoga",
-    "category": "Fitness",
-    "amount": -95.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250073501947338818",
-    "date": "2026-07-21",
-    "merchant": "HS & D Enter",
-    "category": "Shopping",
-    "amount": -6.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250073501947338817",
-    "date": "2026-07-21",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250073499300733798",
-    "date": "2026-07-21",
-    "merchant": "YouTube",
-    "category": "Entertainment & Recreation",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "250138533188018901",
-    "date": "2026-07-21",
-    "merchant": "Vista Yoga",
-    "category": "Fitness",
-    "amount": -95.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250125337652831168",
-    "date": "2026-07-21",
-    "merchant": "American Express",
-    "category": "Internet & Cable",
-    "amount": 15.99,
     "account": "Amex Platinum Card"
   }
 ]
