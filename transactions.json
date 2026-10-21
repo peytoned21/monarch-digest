@@ -1,5 +1,69 @@
 [
   {
+    "id": "258203299982811240",
+    "date": "2026-10-21",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -1200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "258247550319928091",
+    "date": "2026-10-20",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -91.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258243270761456539",
+    "date": "2026-10-20",
+    "merchant": "Wells Fargo",
+    "category": "Cash & ATM",
+    "amount": -200.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "258218938412769596",
+    "date": "2026-10-20",
+    "merchant": "Substack",
+    "category": "Subscriptions",
+    "amount": -12.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "258190275363414029",
+    "date": "2026-10-20",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": -48.35,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258190275363414028",
+    "date": "2026-10-20",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -5.3,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258188527752127476",
+    "date": "2026-10-20",
+    "merchant": "US Postal Service",
+    "category": "Postage & Shipping",
+    "amount": -14.2,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258188527752127475",
+    "date": "2026-10-20",
+    "merchant": "Alpha Plus Fabrics",
+    "category": "Shopping",
+    "amount": -102.5,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258152223192588889",
     "date": "2026-10-19",
     "merchant": "Wells Fargo",
@@ -40,12 +104,36 @@
     "account": "Amazon Prime Card"
   },
   {
+    "id": "258188527752127478",
+    "date": "2026-10-19",
+    "merchant": "eBay",
+    "category": "Shopping",
+    "amount": -19.2,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258188527752127477",
+    "date": "2026-10-19",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -62.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258017474500305518",
     "date": "2026-10-18",
     "merchant": "Publix",
     "category": "Groceries",
     "amount": -45.57,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "258188527752127479",
+    "date": "2026-10-18",
+    "merchant": "Sunrise Flour Mill",
+    "category": "Groceries",
+    "amount": -28.09,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "257959975629824649",
@@ -78,6 +166,22 @@
     "category": "Shopping",
     "amount": -12.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "258188527752127481",
+    "date": "2026-10-17",
+    "merchant": "Vista Yoga",
+    "category": "Fitness",
+    "amount": -42.27,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258188527752127480",
+    "date": "2026-10-17",
+    "merchant": "Chevron",
+    "category": "Gas",
+    "amount": -16.19,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "257853873123696950",
@@ -4406,101 +4510,5 @@
     "category": "Subscriptions",
     "amount": -20.0,
     "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250096320030647268",
-    "date": "2026-07-22",
-    "merchant": "XOOM Energy",
-    "category": "Gas & Electric",
-    "amount": -64.09,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250073501947338816",
-    "date": "2026-07-22",
-    "merchant": "Salama Tires Company",
-    "category": "Auto Maintenance",
-    "amount": -440.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250071907250938638",
-    "date": "2026-07-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -24.11,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250071907250938637",
-    "date": "2026-07-22",
-    "merchant": "Nakato Japanese Restaurant",
-    "category": "Restaurants & Bars",
-    "amount": -93.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250138533188018899",
-    "date": "2026-07-22",
-    "merchant": "QuikTrip",
-    "category": "Gas & Fuel",
-    "amount": -35.01,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250125339868471430",
-    "date": "2026-07-22",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -24.11,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250125337652831167",
-    "date": "2026-07-22",
-    "merchant": "Dr Adj Redist Cadv Prin",
-    "category": "Loan Repayment",
-    "amount": -50.0,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "250232815362187892",
-    "date": "2026-07-22",
-    "merchant": "Nakato Japanese",
-    "category": "Restaurants & Bars",
-    "amount": -113.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250232815362187891",
-    "date": "2026-07-22",
-    "merchant": "Salama Tires",
-    "category": "Auto Maintenance",
-    "amount": -440.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250210835524166223",
-    "date": "2026-07-22",
-    "merchant": "XOOM Energy",
-    "category": "Gas & Electric",
-    "amount": -64.09,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250319506989064672",
-    "date": "2026-07-22",
-    "merchant": "QuikTrip",
-    "category": "Gas & Fuel",
-    "amount": -35.01,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250125337652831166",
-    "date": "2026-07-22",
-    "merchant": "Adj Redist Purchase Bal",
-    "category": "Shopping",
-    "amount": 50.0,
-    "account": "Amex Platinum Card"
   }
 ]
