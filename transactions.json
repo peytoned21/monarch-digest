@@ -8,6 +8,46 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "258312664260748091",
+    "date": "2026-10-21",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -66.57,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "258305830172959353",
+    "date": "2026-10-21",
+    "merchant": "Mellow Mushroom",
+    "category": "Work Expense",
+    "amount": -124.75,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258305828248822156",
+    "date": "2026-10-21",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "258266897379697047",
+    "date": "2026-10-21",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Loan Repayment",
+    "amount": -711.04,
+    "account": "Simply Checking (...8318)"
+  },
+  {
+    "id": "258266897379697046",
+    "date": "2026-10-21",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Loan Repayment",
+    "amount": -488.96,
+    "account": "Simply Checking (...8318)"
+  },
+  {
     "id": "258247550319928091",
     "date": "2026-10-20",
     "merchant": "Kroger",
@@ -4462,53 +4502,5 @@
     "category": "Shopping",
     "amount": -411.34,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250098813774012856",
-    "date": "2026-07-23",
-    "merchant": "The Home Depot",
-    "category": "Paychecks",
-    "amount": 5347.17,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "250178802065285185",
-    "date": "2026-07-23",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -80.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250125339868471429",
-    "date": "2026-07-23",
-    "merchant": "Brello",
-    "category": "Rent",
-    "amount": -474.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250232815362187890",
-    "date": "2026-07-23",
-    "merchant": "Brello",
-    "category": "Rent",
-    "amount": -474.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250210835524166222",
-    "date": "2026-07-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250301508879327656",
-    "date": "2026-07-23",
-    "merchant": "OpenAI",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
   }
 ]

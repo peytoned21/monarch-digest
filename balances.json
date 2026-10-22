@@ -1,11 +1,11 @@
 {
-  "as_of": "October 21, 2026",
-  "generated_at": "2026-10-21",
+  "as_of": "October 22, 2026",
+  "generated_at": "2026-10-22",
   "_cached": false,
-  "roth": 437485,
-  "groth": 16789,
-  "k401": 192430,
-  "taxable": 186400,
+  "roth": 439195,
+  "groth": 16880,
+  "k401": 193312,
+  "taxable": 186357,
   "hsa": 20780,
   "hd_vested": 13525,
   "hd_rsus": 141500,
@@ -15,16 +15,16 @@
   "arthur_529": 15024,
   "mortgage_bal": 281275,
   "stanford_bal": 20768,
-  "lexus_bal": 14955,
-  "tesla_bal": 6279,
-  "cc_total": 13088,
+  "lexus_bal": 14297,
+  "tesla_bal": 5812,
+  "cc_total": 11006,
   "home_value": 680000,
   "vehicle_total": 60789,
   "lexus_value": 33854,
   "tesla_value": 26934,
-  "net_worth": 1528704,
-  "total_assets": 1865071,
-  "total_debt": 336367,
+  "net_worth": 1534727,
+  "total_assets": 1867888,
+  "total_debt": 333160,
   "accounts": [
     {
       "id": "166314504416601073",
@@ -48,7 +48,7 @@
       "id": "166315121196343650",
       "name": "2019 Lexus GX460 (4.5%)",
       "type": "loan",
-      "balance": -14955.27,
+      "balance": -14297.7,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "CDC Federal Credit Union"
@@ -75,7 +75,7 @@
       "id": "166315122046738789",
       "name": "2023 Tesla Model 3 (4.5%)",
       "type": "loan",
-      "balance": -6279.23,
+      "balance": -5812.72,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "CDC Federal Credit Union"
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 437485.84,
+      "balance": 439195.84,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 126078.27,
+      "balance": 126117.17,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -183,7 +183,7 @@
       "id": "166319434882818743",
       "name": "Chase Sapphire Preferred ",
       "type": "credit",
-      "balance": -6894.67,
+      "balance": -6906.67,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Chase"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 192430.26,
+      "balance": 193312.32,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -336,7 +336,7 @@
       "id": "190599885034038166",
       "name": "Amex Gold Card",
       "type": "credit",
-      "balance": -2425.62,
+      "balance": -2470.75,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "American Express"
@@ -354,7 +354,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 55007.89,
+      "balance": 54902.85,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -372,7 +372,7 @@
       "id": "214858633887817806",
       "name": "Citi ThankYou Preferred (...3736)",
       "type": "credit",
-      "balance": -3168.0,
+      "balance": -1028.31,
       "include_in_nw": true,
       "is_asset": false,
       "institution": "Citibank Online"
@@ -390,7 +390,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16789.12,
+      "balance": 16880.82,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -426,7 +426,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5314.58,
+      "balance": 5337.41,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -453,7 +453,7 @@
       "id": "256175113825624865",
       "name": "THD Employee Stock Purchase Plan",
       "type": "brokerage",
-      "balance": 12091.55,
+      "balance": 12267.67,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "EquatePlus"
