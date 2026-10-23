@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-22",
+  "as_of": "2026-10-23",
   "month": "October 2026",
-  "days_elapsed": 22,
+  "days_elapsed": 23,
   "days_in_month": 31,
-  "mtd_income": 6981.0,
-  "mtd_expenses": 9305.89,
-  "mtd_surplus": -2324.89,
-  "savings_rate_pct": -33.3,
-  "projected_month_expense": 13112.84,
-  "projected_savings": -6131.84,
+  "mtd_income": 6937.8,
+  "mtd_expenses": 9026.89,
+  "mtd_surplus": -2089.09,
+  "savings_rate_pct": -30.1,
+  "projected_month_expense": 12166.68,
+  "projected_savings": -5228.88,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
