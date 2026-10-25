@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-24",
+  "as_of": "2026-10-25",
   "month": "October 2026",
-  "days_elapsed": 24,
+  "days_elapsed": 25,
   "days_in_month": 31,
   "mtd_income": 6953.79,
-  "mtd_expenses": 8828.3,
-  "mtd_surplus": -1874.51,
-  "savings_rate_pct": -27.0,
-  "projected_month_expense": 11403.22,
-  "projected_savings": -4449.43,
+  "mtd_expenses": 8750.59,
+  "mtd_surplus": -1796.8,
+  "savings_rate_pct": -25.8,
+  "projected_month_expense": 10850.73,
+  "projected_savings": -3896.94,
   "top_categories": [
     {
       "category": "E&A 529 Plan",
@@ -28,15 +28,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 821.71
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 451.74
+      "amount": 784.64
     },
     {
       "category": "Cash & ATM",
       "amount": 400.0
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 374.18
     },
     {
       "category": "Groceries",

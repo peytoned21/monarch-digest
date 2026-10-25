@@ -8,6 +8,14 @@
     "account": "Chase Sapphire Preferred "
   },
   {
+    "id": "258547385248981252",
+    "date": "2026-10-24",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -99.78,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258479319023559311",
     "date": "2026-10-23",
     "merchant": "Temu",
@@ -69,6 +77,22 @@
     "merchant": "Intown Wholesale",
     "category": "Shopping",
     "amount": -56.7,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258547385248981254",
+    "date": "2026-10-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -62.57,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258547385248981253",
+    "date": "2026-10-23",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -27.72,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -4414,61 +4438,5 @@
     "category": "Restaurants & Bars",
     "amount": -54.7,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "250391962633314922",
-    "date": "2026-07-26",
-    "merchant": "Kids Empire",
-    "category": "Entertainment & Recreation",
-    "amount": -42.98,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250391962633314921",
-    "date": "2026-07-26",
-    "merchant": "Kids Empire",
-    "category": "Entertainment & Recreation",
-    "amount": -1.89,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250391915596292407",
-    "date": "2026-07-26",
-    "merchant": "Fellinis Pizza",
-    "category": "Restaurants & Bars",
-    "amount": -23.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250498522703405138",
-    "date": "2026-07-26",
-    "merchant": "Fellini's Pizza",
-    "category": "Restaurants",
-    "amount": -23.98,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250597032663654799",
-    "date": "2026-07-26",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -52.27,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250575079487775593",
-    "date": "2026-07-26",
-    "merchant": "Kids Empire",
-    "category": "Entertainment & Recreation",
-    "amount": -42.98,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250575079487775592",
-    "date": "2026-07-26",
-    "merchant": "Kids Empire",
-    "category": "Entertainment & Recreation",
-    "amount": -1.89,
-    "account": "Chase Sapphire Preferred "
   }
 ]
