@@ -1,5 +1,29 @@
 [
   {
+    "id": "258681923534004380",
+    "date": "2026-10-25",
+    "merchant": "Stillfire Brewing",
+    "category": "Restaurants & Bars",
+    "amount": -14.52,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "258649738138558474",
+    "date": "2026-10-25",
+    "merchant": "Munster Cravings",
+    "category": "Restaurants & Bars",
+    "amount": -5.12,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258649738138558473",
+    "date": "2026-10-25",
+    "merchant": "Atlanta",
+    "category": "Restaurants & Bars",
+    "amount": -69.31,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "258500454054305869",
     "date": "2026-10-24",
     "merchant": "The New York Times",
@@ -4382,61 +4406,5 @@
     "category": "Therapy",
     "amount": -31.48,
     "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250551886328832316",
-    "date": "2026-07-27",
-    "merchant": "Sprig Restaurant",
-    "category": "Restaurants",
-    "amount": -44.7,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250498522703405137",
-    "date": "2026-07-27",
-    "merchant": "HS D Enterprises",
-    "category": "Restaurants",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250483328622207622",
-    "date": "2026-07-27",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250605737865060723",
-    "date": "2026-07-27",
-    "merchant": "HS & D Enterp",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250682777667576204",
-    "date": "2026-07-27",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -52.27,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250667982373462438",
-    "date": "2026-07-27",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "250659275020378500",
-    "date": "2026-07-27",
-    "merchant": "Sprig",
-    "category": "Restaurants & Bars",
-    "amount": -54.7,
-    "account": "Amex Gold Card"
   }
 ]
