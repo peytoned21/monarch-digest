@@ -1,16 +1,16 @@
 {
-  "as_of": "October 26, 2026",
-  "generated_at": "2026-10-26",
+  "as_of": "October 27, 2026",
+  "generated_at": "2026-10-27",
   "_cached": false,
-  "roth": 433839,
-  "groth": 16607,
+  "roth": 436017,
+  "groth": 16722,
   "k401": 191356,
-  "taxable": 185307,
+  "taxable": 186747,
   "hsa": 20780,
-  "hd_vested": 13953,
+  "hd_vested": 13933,
   "hd_rsus": 146162,
   "roth_staging": 12500,
-  "total_cash": 37251,
+  "total_cash": 36751,
   "eleanor_529": 32124,
   "arthur_529": 15024,
   "mortgage_bal": 281275,
@@ -22,8 +22,8 @@
   "vehicle_total": 60789,
   "lexus_value": 33854,
   "tesla_value": 26934,
-  "net_worth": 1534408,
-  "total_assets": 1862142,
+  "net_worth": 1537622,
+  "total_assets": 1865355,
   "total_debt": 327733,
   "accounts": [
     {
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 433839.98,
+      "balance": 436017.05,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 125069.3,
+      "balance": 125806.06,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 36126.42,
+      "balance": 35626.42,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -354,7 +354,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 54906.28,
+      "balance": 55590.87,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -390,7 +390,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16607.5,
+      "balance": 16722.34,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -399,7 +399,7 @@
       "id": "223855104973808566",
       "name": "LIIA- Vested Brokerage Account (...0_A0)",
       "type": "brokerage",
-      "balance": 13953.07,
+      "balance": 13933.72,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Merrill Lynch - Benefits"
@@ -426,7 +426,7 @@
       "id": "244125023416033574",
       "name": "Fun Money Stonks (...4635)",
       "type": "brokerage",
-      "balance": 5331.54,
+      "balance": 5350.68,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
