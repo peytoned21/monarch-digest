@@ -1,5 +1,45 @@
 [
   {
+    "id": "258874915552175055",
+    "date": "2026-10-27",
+    "merchant": "Wells Fargo",
+    "category": "Check",
+    "amount": -1235.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "258823447587529266",
+    "date": "2026-10-27",
+    "merchant": "Sprouts Farmers Market",
+    "category": "Groceries",
+    "amount": -15.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258823447587529265",
+    "date": "2026-10-27",
+    "merchant": "HS D Enterprises",
+    "category": "Work Lunch",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258816772279312711",
+    "date": "2026-10-27",
+    "merchant": "Airbnb",
+    "category": "Travel & Vacation",
+    "amount": 132.69,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258816772279312710",
+    "date": "2026-10-27",
+    "merchant": "Airbnb",
+    "category": "Travel & Vacation",
+    "amount": -162.07,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258765180771443247",
     "date": "2026-10-26",
     "merchant": "Kroger",
@@ -22,6 +62,22 @@
     "category": "Groceries",
     "amount": -47.93,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "258816772279312713",
+    "date": "2026-10-26",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -50.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258816772279312712",
+    "date": "2026-10-26",
+    "merchant": "Airbnb",
+    "category": "Travel & Vacation",
+    "amount": -132.69,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "258681923534004380",
@@ -4238,61 +4294,5 @@
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "250628694240862928",
-    "date": "2026-07-29",
-    "merchant": "Georgia Power",
-    "category": "Gas & Electric",
-    "amount": -266.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "250712919019299717",
-    "date": "2026-07-29",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -39.74,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250682777667576203",
-    "date": "2026-07-29",
-    "merchant": "Kroger",
-    "category": "Gas & Fuel",
-    "amount": -69.08,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250659275020378499",
-    "date": "2026-07-29",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -8.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250817938528871159",
-    "date": "2026-07-29",
-    "merchant": "Kroger",
-    "category": "Gas",
-    "amount": -69.08,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250767390380335738",
-    "date": "2026-07-29",
-    "merchant": "HS & D Enter",
-    "category": "Restaurants",
-    "amount": -8.75,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250759600414859976",
-    "date": "2026-07-29",
-    "merchant": "ATM",
-    "category": "Cash & ATM",
-    "amount": -200.0,
-    "account": "Wells Fargo Checking"
   }
 ]
