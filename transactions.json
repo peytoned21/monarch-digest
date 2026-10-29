@@ -1,5 +1,77 @@
 [
   {
+    "id": "258965842176188915",
+    "date": "2026-10-29",
+    "merchant": "Georgia Power Co.",
+    "category": "Gas & Electric",
+    "amount": -315.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "258965842176188914",
+    "date": "2026-10-29",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 6084.05,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "258963155833529134",
+    "date": "2026-10-28",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -92.97,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "258963154867790093",
+    "date": "2026-10-28",
+    "merchant": "Anthropic",
+    "category": "Subscriptions",
+    "amount": -20.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "258939806382236008",
+    "date": "2026-10-28",
+    "merchant": "Meehan's Public House",
+    "category": "Restaurants & Bars",
+    "amount": -15.9,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258939806382236007",
+    "date": "2026-10-28",
+    "merchant": "Cafe Comma",
+    "category": "Coffee Shops",
+    "amount": -9.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "258939802946052150",
+    "date": "2026-10-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -10.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "258939802946052149",
+    "date": "2026-10-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "258939802946052148",
+    "date": "2026-10-28",
+    "merchant": "Google",
+    "category": "Subscriptions",
+    "amount": -82.99,
+    "account": "Amex Platinum Card"
+  },
+  {
     "id": "258874915552175055",
     "date": "2026-10-27",
     "merchant": "Wells Fargo",
@@ -38,6 +110,14 @@
     "category": "Travel & Vacation",
     "amount": -162.07,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "258939806382236006",
+    "date": "2026-10-27",
+    "merchant": "American Express",
+    "category": "Financial Fees",
+    "amount": -325.0,
+    "account": "Amex Gold Card"
   },
   {
     "id": "258765180771443247",
@@ -4254,45 +4334,5 @@
     "category": "Groceries",
     "amount": 0.01,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250723756631073735",
-    "date": "2026-07-30",
-    "merchant": "American Heritage",
-    "category": "Other Income",
-    "amount": 5002.47,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "250820959658779316",
-    "date": "2026-07-30",
-    "merchant": "Tum Pok Pok",
-    "category": "Restaurants & Bars",
-    "amount": -25.6,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250768518221341258",
-    "date": "2026-07-30",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -89.42,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250767390380335737",
-    "date": "2026-07-30",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -37.45,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250767390380335736",
-    "date": "2026-07-30",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
   }
 ]

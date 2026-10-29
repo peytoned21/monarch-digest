@@ -1,23 +1,15 @@
 {
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "month": "October 2026",
-  "days_elapsed": 28,
+  "days_elapsed": 29,
   "days_in_month": 31,
-  "mtd_income": 7028.72,
-  "mtd_expenses": 8612.8,
-  "mtd_surplus": -1584.08,
-  "savings_rate_pct": -22.5,
-  "projected_month_expense": 9535.6,
-  "projected_savings": -2506.88,
+  "mtd_income": 6598.15,
+  "mtd_expenses": 5952.77,
+  "mtd_surplus": 645.38,
+  "savings_rate_pct": 9.8,
+  "projected_month_expense": 6363.31,
+  "projected_savings": 234.84,
   "top_categories": [
-    {
-      "category": "E&A 529 Plan",
-      "amount": 2000.0
-    },
-    {
-      "category": "Mortgage",
-      "amount": 1345.16
-    },
     {
       "category": "Check",
       "amount": 1235.0
@@ -28,19 +20,27 @@
     },
     {
       "category": "Shopping",
-      "amount": 630.37
+      "amount": 714.71
     },
     {
       "category": "Cash & ATM",
       "amount": 400.0
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 363.12
+      "category": "Gas & Electric",
+      "amount": 381.57
+    },
+    {
+      "category": "Financial Fees",
+      "amount": 325.0
     },
     {
       "category": "Travel & Vacation",
       "amount": 294.76
+    },
+    {
+      "category": "Groceries",
+      "amount": 242.83
     }
   ]
 }
