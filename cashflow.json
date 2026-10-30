@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-29",
+  "as_of": "2026-10-30",
   "month": "October 2026",
-  "days_elapsed": 29,
+  "days_elapsed": 30,
   "days_in_month": 31,
-  "mtd_income": 6598.15,
-  "mtd_expenses": 5952.77,
-  "mtd_surplus": 645.38,
-  "savings_rate_pct": 9.8,
-  "projected_month_expense": 6363.31,
-  "projected_savings": 234.84,
+  "mtd_income": 6465.46,
+  "mtd_expenses": 5618.11,
+  "mtd_surplus": 847.35,
+  "savings_rate_pct": 13.1,
+  "projected_month_expense": 5805.38,
+  "projected_savings": 660.08,
   "top_categories": [
     {
       "category": "Check",
@@ -20,7 +20,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 714.71
+      "amount": 736.69
     },
     {
       "category": "Cash & ATM",
@@ -35,12 +35,12 @@
       "amount": 325.0
     },
     {
-      "category": "Travel & Vacation",
-      "amount": 294.76
+      "category": "Groceries",
+      "amount": 247.14
     },
     {
-      "category": "Groceries",
-      "amount": 242.83
+      "category": "Restaurants & Bars",
+      "amount": 214.34
     }
   ]
 }

@@ -16,6 +16,38 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "259055200072835617",
+    "date": "2026-10-29",
+    "merchant": "Henderson Mill Elementary School",
+    "category": "Education",
+    "amount": -15.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259055200072835616",
+    "date": "2026-10-29",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -4.31,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259001945497215968",
+    "date": "2026-10-29",
+    "merchant": "eBay",
+    "category": "Shopping",
+    "amount": -6.06,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "259001945497215967",
+    "date": "2026-10-29",
+    "merchant": "The Fabric Cellar Inc",
+    "category": "Shopping",
+    "amount": -55.94,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258963155833529134",
     "date": "2026-10-28",
     "merchant": "Amazon",
@@ -4318,21 +4350,5 @@
     "category": "Shopping",
     "amount": -43.19,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "250817938528871158",
-    "date": "2026-07-31",
-    "merchant": "Marshalls",
-    "category": "Shopping",
-    "amount": -210.57,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250817938528871157",
-    "date": "2026-07-31",
-    "merchant": "Walmart",
-    "category": "Groceries",
-    "amount": 0.01,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
