@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-30",
+  "as_of": "2026-10-31",
   "month": "October 2026",
-  "days_elapsed": 30,
+  "days_elapsed": 31,
   "days_in_month": 31,
-  "mtd_income": 6465.46,
-  "mtd_expenses": 5618.11,
-  "mtd_surplus": 847.35,
-  "savings_rate_pct": 13.1,
-  "projected_month_expense": 5805.38,
-  "projected_savings": 660.08,
+  "mtd_income": 6474.47,
+  "mtd_expenses": 5728.29,
+  "mtd_surplus": 746.18,
+  "savings_rate_pct": 11.5,
+  "projected_month_expense": 5728.29,
+  "projected_savings": 746.18,
   "top_categories": [
     {
       "category": "Check",
@@ -35,12 +35,12 @@
       "amount": 325.0
     },
     {
-      "category": "Groceries",
-      "amount": 247.14
+      "category": "Restaurants & Bars",
+      "amount": 270.71
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 214.34
+      "category": "Groceries",
+      "amount": 253.83
     }
   ]
 }

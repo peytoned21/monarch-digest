@@ -1,5 +1,53 @@
 [
   {
+    "id": "259152647320182796",
+    "date": "2026-10-30",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -10.25,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "259113240363999653",
+    "date": "2026-10-30",
+    "merchant": "Brockett Pub House And Grill",
+    "category": "Restaurants & Bars",
+    "amount": -86.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259113240363999652",
+    "date": "2026-10-30",
+    "merchant": "Heritage Golf Club",
+    "category": "Entertainment & Recreation",
+    "amount": -17.81,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259113240363999650",
+    "date": "2026-10-30",
+    "merchant": "Heritage Golf Club",
+    "category": "Entertainment & Recreation",
+    "amount": -4.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259092831883174441",
+    "date": "2026-10-30",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -11.41,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "259092831883174440",
+    "date": "2026-10-30",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -36.09,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "258965842176188915",
     "date": "2026-10-29",
     "merchant": "Georgia Power Co.",
@@ -102,6 +150,22 @@
     "category": "Subscriptions",
     "amount": -82.99,
     "account": "Amex Platinum Card"
+  },
+  {
+    "id": "259170608671040384",
+    "date": "2026-10-28",
+    "merchant": "American Express",
+    "category": "Internet & Cable",
+    "amount": 9.01,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "259113240363999651",
+    "date": "2026-10-28",
+    "merchant": "Meehans Vinning",
+    "category": "Restaurants & Bars",
+    "amount": -20.9,
+    "account": "Amex Gold Card"
   },
   {
     "id": "258874915552175055",
@@ -4262,93 +4326,5 @@
     "category": "Shopping",
     "amount": -37.79,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "250982847083389769",
-    "date": "2026-08-01",
-    "merchant": "Pizza Hut",
-    "category": "Restaurants & Bars",
-    "amount": -7.7,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250982847083389768",
-    "date": "2026-08-01",
-    "merchant": "Napoleons Grill",
-    "category": "Restaurants & Bars",
-    "amount": -32.7,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "250947091929441033",
-    "date": "2026-08-01",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -9.63,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "250947091929441032",
-    "date": "2026-08-01",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -43.19,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "250947089535541658",
-    "date": "2026-08-01",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251145843645555383",
-    "date": "2026-08-01",
-    "merchant": "Napoleons Grill",
-    "category": "Restaurants & Bars",
-    "amount": -39.7,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251145843645555382",
-    "date": "2026-08-01",
-    "merchant": "Pizza Hut",
-    "category": "Restaurants",
-    "amount": -7.7,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251129338789831255",
-    "date": "2026-08-01",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -9.63,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251129337295610337",
-    "date": "2026-08-01",
-    "merchant": "The New York Times",
-    "category": "Subscriptions",
-    "amount": -8.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251242838128272156",
-    "date": "2026-08-01",
-    "merchant": "Marshalls",
-    "category": "Shopping",
-    "amount": -172.78,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251222237149864777",
-    "date": "2026-08-01",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -43.19,
-    "account": "Amazon Prime Card"
   }
 ]
