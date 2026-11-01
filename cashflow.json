@@ -1,46 +1,13 @@
 {
-  "as_of": "2026-10-31",
-  "month": "October 2026",
-  "days_elapsed": 31,
-  "days_in_month": 31,
-  "mtd_income": 6474.47,
-  "mtd_expenses": 5728.29,
-  "mtd_surplus": 746.18,
-  "savings_rate_pct": 11.5,
-  "projected_month_expense": 5728.29,
-  "projected_savings": 746.18,
-  "top_categories": [
-    {
-      "category": "Check",
-      "amount": 1235.0
-    },
-    {
-      "category": "Loan Repayment",
-      "amount": 1200.0
-    },
-    {
-      "category": "Shopping",
-      "amount": 736.69
-    },
-    {
-      "category": "Cash & ATM",
-      "amount": 400.0
-    },
-    {
-      "category": "Gas & Electric",
-      "amount": 381.57
-    },
-    {
-      "category": "Financial Fees",
-      "amount": 325.0
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 270.71
-    },
-    {
-      "category": "Groceries",
-      "amount": 253.83
-    }
-  ]
+  "as_of": "2026-11-01",
+  "month": "November 2026",
+  "days_elapsed": 1,
+  "days_in_month": 30,
+  "mtd_income": 0.0,
+  "mtd_expenses": 0.0,
+  "mtd_surplus": 0.0,
+  "savings_rate_pct": 0.0,
+  "projected_month_expense": 0.0,
+  "projected_savings": 0.0,
+  "top_categories": []
 }
