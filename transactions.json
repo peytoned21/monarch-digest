@@ -1,5 +1,69 @@
 [
   {
+    "id": "259343172575896088",
+    "date": "2026-11-02",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -43.19,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259343172575896086",
+    "date": "2026-11-02",
+    "merchant": "Dekalb Utility",
+    "category": "Gas & Electric",
+    "amount": -111.87,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259343172575896085",
+    "date": "2026-11-02",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -5.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259340830516388802",
+    "date": "2026-11-02",
+    "merchant": "Venmo",
+    "category": "Personal",
+    "amount": -3.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "259295743753265311",
+    "date": "2026-11-02",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 36.46,
+    "account": "Wealthfront Roth Staging Account"
+  },
+  {
+    "id": "259295742490780238",
+    "date": "2026-11-02",
+    "merchant": "Wealthfront",
+    "category": "Interest",
+    "amount": 141.82,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "259343172575896087",
+    "date": "2026-11-01",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -44.95,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259285480448663978",
+    "date": "2026-11-01",
+    "merchant": "Eagle Parking",
+    "category": "Parking & Tolls",
+    "amount": -8.0,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "259152647320182796",
     "date": "2026-10-30",
     "merchant": "Kroger",
@@ -4126,133 +4190,5 @@
     "category": "Furniture & Housewares",
     "amount": -3511.35,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "251083976264852045",
-    "date": "2026-08-03",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 22.85,
-    "account": "Wealthfront Roth Staging Account"
-  },
-  {
-    "id": "251083974498001310",
-    "date": "2026-08-03",
-    "merchant": "Wealthfront",
-    "category": "Interest",
-    "amount": 110.03,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "251145843645555381",
-    "date": "2026-08-03",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -8.22,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251145843645555380",
-    "date": "2026-08-03",
-    "merchant": "Parkside Cabin Rentals",
-    "category": "Travel & Vacation",
-    "amount": -240.89,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251129338789831254",
-    "date": "2026-08-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -39.95,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251129338789831253",
-    "date": "2026-08-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -46.44,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251129337295610336",
-    "date": "2026-08-03",
-    "merchant": "Fantasypros",
-    "category": "Entertainment & Recreation",
-    "amount": -53.94,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251128175035097667",
-    "date": "2026-08-03",
-    "merchant": "External Loan Payment Olb Transfer",
-    "category": "Student Loan",
-    "amount": 1120.6,
-    "account": "Stanford Student Loan (3%)"
-  },
-  {
-    "id": "251242838128272153",
-    "date": "2026-08-03",
-    "merchant": "Dauphin Dance Center",
-    "category": "Child Activities",
-    "amount": -85.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251221861687304282",
-    "date": "2026-08-03",
-    "merchant": "Zelle",
-    "category": "Shopping",
-    "amount": -40.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "251329786916315423",
-    "date": "2026-08-03",
-    "merchant": "Parkside Cabin Rental",
-    "category": "Travel & Vacation",
-    "amount": -240.89,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315422",
-    "date": "2026-08-03",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -8.22,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251315919026856040",
-    "date": "2026-08-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -46.44,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251315919026856039",
-    "date": "2026-08-03",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -39.95,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251315917613376421",
-    "date": "2026-08-03",
-    "merchant": "Fantasypros",
-    "category": "Fantasy Football",
-    "amount": -53.94,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251289288272978586",
-    "date": "2026-08-03",
-    "merchant": "Dauphin Dance Center",
-    "category": "Child Activities",
-    "amount": -85.0,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
