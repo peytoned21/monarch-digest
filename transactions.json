@@ -1,5 +1,21 @@
 [
   {
+    "id": "259436589805937041",
+    "date": "2026-11-03",
+    "merchant": "First Tech Federal Credit Union",
+    "category": "Student Loans",
+    "amount": -1120.6,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "259436589805937040",
+    "date": "2026-11-03",
+    "merchant": "Tesla",
+    "category": "Subscriptions",
+    "amount": -10.79,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "259343172575896088",
     "date": "2026-11-02",
     "merchant": "Target",
@@ -4094,101 +4110,5 @@
     "category": "Shopping",
     "amount": -17.31,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251179947656159987",
-    "date": "2026-08-04",
-    "merchant": "First Tech Federal Credit Union",
-    "category": "Student Loans",
-    "amount": -1120.6,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "251179947656159986",
-    "date": "2026-08-04",
-    "merchant": "Tesla",
-    "category": "Subscriptions",
-    "amount": -10.79,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "251254990143693660",
-    "date": "2026-08-04",
-    "merchant": "Stripe",
-    "category": "Furniture & Housewares",
-    "amount": -3511.35,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251242838128272152",
-    "date": "2026-08-04",
-    "merchant": "Spotify",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251200206838637300",
-    "date": "2026-08-04",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -129.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251200206838637299",
-    "date": "2026-08-04",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -11.66,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315421",
-    "date": "2026-08-04",
-    "merchant": "HS & D Enter",
-    "category": "Shopping",
-    "amount": -11.66,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251315917613376420",
-    "date": "2026-08-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251409386021266309",
-    "date": "2026-08-04",
-    "merchant": "ESPN+",
-    "category": "Subscriptions",
-    "amount": -12.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251384939257209361",
-    "date": "2026-08-04",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -129.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251480975393890359",
-    "date": "2026-08-04",
-    "merchant": "Spotify",
-    "category": "Entertainment & Recreation",
-    "amount": -12.99,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251939623495737628",
-    "date": "2026-08-04",
-    "merchant": "Wayfair",
-    "category": "Furniture & Housewares",
-    "amount": -3511.35,
-    "account": "Amex Gold Card"
   }
 ]

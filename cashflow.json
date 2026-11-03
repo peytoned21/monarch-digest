@@ -1,15 +1,19 @@
 {
-  "as_of": "2026-11-02",
+  "as_of": "2026-11-03",
   "month": "November 2026",
-  "days_elapsed": 2,
+  "days_elapsed": 3,
   "days_in_month": 30,
   "mtd_income": 178.28,
-  "mtd_expenses": 216.25,
-  "mtd_surplus": -37.97,
-  "savings_rate_pct": -21.3,
-  "projected_month_expense": 3243.75,
-  "projected_savings": -3065.47,
+  "mtd_expenses": 1346.56,
+  "mtd_surplus": -1168.28,
+  "savings_rate_pct": -655.3,
+  "projected_month_expense": 13465.6,
+  "projected_savings": -13287.32,
   "top_categories": [
+    {
+      "category": "Student Loans",
+      "amount": 1120.6
+    },
     {
       "category": "Gas & Electric",
       "amount": 111.87
@@ -20,7 +24,11 @@
     },
     {
       "category": "Groceries",
-      "amount": 44.95
+      "amount": 43.87
+    },
+    {
+      "category": "Subscriptions",
+      "amount": 10.79
     },
     {
       "category": "Parking & Tolls",
