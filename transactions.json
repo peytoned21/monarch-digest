@@ -1,5 +1,29 @@
 [
   {
+    "id": "259523585321673452",
+    "date": "2026-11-04",
+    "merchant": "Holly Jolly Cabin",
+    "category": "Travel: Helenback",
+    "amount": -500.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "259519417786769477",
+    "date": "2026-11-04",
+    "merchant": "K Martial Arts",
+    "category": "Child Activities",
+    "amount": -243.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259519417786769476",
+    "date": "2026-11-04",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -5.71,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "259436589805937041",
     "date": "2026-11-03",
     "merchant": "First Tech Federal Credit Union",
@@ -14,6 +38,38 @@
     "category": "Subscriptions",
     "amount": -10.79,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "259461765910176553",
+    "date": "2026-11-03",
+    "merchant": "HS Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259461765910176552",
+    "date": "2026-11-03",
+    "merchant": "Kura Revolving Sushi Bar",
+    "category": "Restaurants & Bars",
+    "amount": -30.5,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259456837204517671",
+    "date": "2026-11-03",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": 16.2,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "259456837204517670",
+    "date": "2026-11-03",
+    "merchant": "Walmart",
+    "category": "Groceries",
+    "amount": 13.6,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "259343172575896088",
@@ -64,6 +120,14 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "259459361368122138",
+    "date": "2026-11-02",
+    "merchant": "Thomas June",
+    "category": "Subscriptions",
+    "amount": -40.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
     "id": "259343172575896087",
     "date": "2026-11-01",
     "merchant": "Kroger",
@@ -78,6 +142,22 @@
     "category": "Parking & Tolls",
     "amount": -8.0,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "259456837204517673",
+    "date": "2026-11-01",
+    "merchant": "Dauphin Dance Center",
+    "category": "Child Activities",
+    "amount": -85.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "259456837204517672",
+    "date": "2026-11-01",
+    "merchant": "Atlanta School of TUCKER GA",
+    "category": "Education",
+    "amount": -216.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "259152647320182796",
@@ -3966,149 +4046,5 @@
     "category": "Shopping",
     "amount": 77.4,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315420",
-    "date": "2026-08-05",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -50.3,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315419",
-    "date": "2026-08-05",
-    "merchant": "Marshalls",
-    "category": "Shopping",
-    "amount": 172.78,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315418",
-    "date": "2026-08-05",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -126.77,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251329786916315417",
-    "date": "2026-08-05",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -1.14,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251289288272978585",
-    "date": "2026-08-05",
-    "merchant": "Journeys",
-    "category": "Travel & Vacation",
-    "amount": -70.18,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251289288272978584",
-    "date": "2026-08-05",
-    "merchant": "Anthropologie",
-    "category": "Clothing",
-    "amount": -75.55,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251289288272978583",
-    "date": "2026-08-05",
-    "merchant": "Kid to Kid",
-    "category": "Child Activities",
-    "amount": -68.88,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251289288272978582",
-    "date": "2026-08-05",
-    "merchant": "Buford Highway Farmers Market",
-    "category": "Groceries",
-    "amount": -14.4,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251386974745600436",
-    "date": "2026-08-05",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -27.16,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "251386974745600435",
-    "date": "2026-08-05",
-    "merchant": "Dekalb County",
-    "category": "Water",
-    "amount": -86.52,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "251386974745600434",
-    "date": "2026-08-05",
-    "merchant": "AIG",
-    "category": "Life Insurance",
-    "amount": -87.28,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "251495075601654057",
-    "date": "2026-08-05",
-    "merchant": "Marshalls",
-    "category": "Shopping",
-    "amount": 172.78,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251495075601654056",
-    "date": "2026-08-05",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -126.91,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251495075601654055",
-    "date": "2026-08-05",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": -50.3,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251480975393890358",
-    "date": "2026-08-05",
-    "merchant": "Buford Highway Farmers Market",
-    "category": "Groceries",
-    "amount": -14.4,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251480975393890357",
-    "date": "2026-08-05",
-    "merchant": "Kroger",
-    "category": "Gas & Fuel",
-    "amount": -70.66,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251480975393890356",
-    "date": "2026-08-05",
-    "merchant": "Kid to Kid",
-    "category": "Child Activities",
-    "amount": -68.88,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251480975393890355",
-    "date": "2026-08-05",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -17.31,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

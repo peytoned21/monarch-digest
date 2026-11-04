@@ -1,18 +1,30 @@
 {
-  "as_of": "2026-11-03",
+  "as_of": "2026-11-04",
   "month": "November 2026",
-  "days_elapsed": 3,
+  "days_elapsed": 4,
   "days_in_month": 30,
-  "mtd_income": 178.28,
-  "mtd_expenses": 1346.56,
-  "mtd_surplus": -1168.28,
-  "savings_rate_pct": -655.3,
-  "projected_month_expense": 13465.6,
-  "projected_savings": -13287.32,
+  "mtd_income": 208.08,
+  "mtd_expenses": 2475.78,
+  "mtd_surplus": -2267.7,
+  "savings_rate_pct": -1089.8,
+  "projected_month_expense": 18568.35,
+  "projected_savings": -18360.27,
   "top_categories": [
     {
       "category": "Student Loans",
       "amount": 1120.6
+    },
+    {
+      "category": "Travel: Helenback",
+      "amount": 500.0
+    },
+    {
+      "category": "Child Activities",
+      "amount": 328.0
+    },
+    {
+      "category": "Education",
+      "amount": 216.0
     },
     {
       "category": "Gas & Electric",
@@ -20,23 +32,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 48.43
+      "amount": 57.44
+    },
+    {
+      "category": "Subscriptions",
+      "amount": 50.79
     },
     {
       "category": "Groceries",
       "amount": 43.87
-    },
-    {
-      "category": "Subscriptions",
-      "amount": 10.79
-    },
-    {
-      "category": "Parking & Tolls",
-      "amount": 8.0
-    },
-    {
-      "category": "Personal",
-      "amount": 3.0
     }
   ]
 }
