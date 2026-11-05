@@ -24,6 +24,38 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "259619273201098774",
+    "date": "2026-11-04",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -15.22,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "259619273201098773",
+    "date": "2026-11-04",
+    "merchant": "ESPN+",
+    "category": "Subscriptions",
+    "amount": -13.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "259605135042225147",
+    "date": "2026-11-04",
+    "merchant": "AIG",
+    "category": "Life Insurance",
+    "amount": -27.16,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "259583008706601983",
+    "date": "2026-11-04",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -7.55,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "259436589805937041",
     "date": "2026-11-03",
     "merchant": "First Tech Federal Credit Union",
@@ -3942,109 +3974,5 @@
     "category": "Shopping",
     "amount": -32.13,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251359137967842178",
-    "date": "2026-08-06",
-    "merchant": "The Home Depot",
-    "category": "Paycheck",
-    "amount": 5839.63,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "251439169112318606",
-    "date": "2026-08-06",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -50.83,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251439169112318605",
-    "date": "2026-08-06",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -243.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251439169112318604",
-    "date": "2026-08-06",
-    "merchant": "Grove Restaurant and Tavern",
-    "category": "Restaurants & Bars",
-    "amount": -48.33,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251384939257209360",
-    "date": "2026-08-06",
-    "merchant": "Groupon",
-    "category": "Shopping",
-    "amount": -77.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251495075601654054",
-    "date": "2026-08-06",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -243.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251480975393890354",
-    "date": "2026-08-06",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -7.76,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251575004028674743",
-    "date": "2026-08-06",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -7.76,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251575004028674742",
-    "date": "2026-08-06",
-    "merchant": "Anthropologie",
-    "category": "Clothing",
-    "amount": -75.55,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251557544987665239",
-    "date": "2026-08-06",
-    "merchant": "The Grove Rest",
-    "category": "Restaurants & Bars",
-    "amount": -58.33,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251557544987665238",
-    "date": "2026-08-06",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -50.83,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251557544987665237",
-    "date": "2026-08-06",
-    "merchant": "Groupon",
-    "category": "Shopping",
-    "amount": -77.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251557544987665236",
-    "date": "2026-08-06",
-    "merchant": "Groupon",
-    "category": "Shopping",
-    "amount": 77.4,
-    "account": "Amex Gold Card"
   }
 ]
