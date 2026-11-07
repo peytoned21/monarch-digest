@@ -1,5 +1,21 @@
 [
   {
+    "id": "259757858711609405",
+    "date": "2026-11-06",
+    "merchant": "Creek Golf Course",
+    "category": "Entertainment & Recreation",
+    "amount": -61.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259757858711609404",
+    "date": "2026-11-06",
+    "merchant": "Sweet Peas Downtown Eatery",
+    "category": "Restaurants & Bars",
+    "amount": -18.68,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "259692660860592523",
     "date": "2026-11-05",
     "merchant": "Wells Fargo",
@@ -3966,53 +3982,5 @@
     "category": "Groceries",
     "amount": -104.27,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "251596494346330715",
-    "date": "2026-08-08",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -1024.92,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251596493235888650",
-    "date": "2026-08-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251575004028674740",
-    "date": "2026-08-08",
-    "merchant": "Little Thistle",
-    "category": "Coffee Shops",
-    "amount": -18.36,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251779050111967336",
-    "date": "2026-08-08",
-    "merchant": "Netflix",
-    "category": "Subscriptions",
-    "amount": -8.99,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "251872182842368787",
-    "date": "2026-08-08",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -1024.92,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251836896774136703",
-    "date": "2026-08-08",
-    "merchant": "Little Thistle",
-    "category": "Gas",
-    "amount": -18.36,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]

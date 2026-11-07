@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-06",
+  "as_of": "2026-11-07",
   "month": "November 2026",
-  "days_elapsed": 6,
+  "days_elapsed": 7,
   "days_in_month": 30,
-  "mtd_income": 205.63,
-  "mtd_expenses": 3204.18,
-  "mtd_surplus": -2998.55,
-  "savings_rate_pct": -1458.2,
-  "projected_month_expense": 16020.9,
-  "projected_savings": -15815.27,
+  "mtd_income": 219.94,
+  "mtd_expenses": 3268.37,
+  "mtd_surplus": -3048.43,
+  "savings_rate_pct": -1386.0,
+  "projected_month_expense": 14007.3,
+  "projected_savings": -13787.36,
   "top_categories": [
     {
       "category": "Student Loans",
