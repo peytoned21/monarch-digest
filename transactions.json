@@ -16,6 +16,14 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "259809153866735647",
+    "date": "2026-11-06",
+    "merchant": "Bar and Grill",
+    "category": "Restaurants & Bars",
+    "amount": -19.8,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "259692660860592523",
     "date": "2026-11-05",
     "merchant": "Wells Fargo",
@@ -142,6 +150,14 @@
     "category": "Subscriptions",
     "amount": -12.99,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "259815098382492005",
+    "date": "2026-11-04",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 5.71,
+    "account": "Amex Gold Card"
   },
   {
     "id": "259436589805937041",
@@ -3949,38 +3965,6 @@
     "merchant": "365 Retail Markets",
     "category": "Groceries",
     "amount": -1.56,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251687709024657850",
-    "date": "2026-08-09",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -43.2,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251665609945719501",
-    "date": "2026-08-09",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -104.27,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251872182842368788",
-    "date": "2026-08-09",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -43.2,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "251829732294730683",
-    "date": "2026-08-09",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -104.27,
     "account": "Amex Gold Card"
   }
 ]
