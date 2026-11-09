@@ -1,5 +1,29 @@
 [
   {
+    "id": "259987926984630883",
+    "date": "2026-11-08",
+    "merchant": "Kroger",
+    "category": "Groceries",
+    "amount": -52.69,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259929557496176707",
+    "date": "2026-11-08",
+    "merchant": "NACOOCHEE VILLAGE TAVERN",
+    "category": "Restaurants & Bars",
+    "amount": -73.98,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "259899491216204062",
+    "date": "2026-11-08",
+    "merchant": "Netflix",
+    "category": "Subscriptions",
+    "amount": -8.99,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "259757858711609405",
     "date": "2026-11-06",
     "merchant": "Creek Golf Course",
@@ -3909,62 +3933,6 @@
     "merchant": "Resy",
     "category": "Restaurants & Bars",
     "amount": 24.4,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251717381895693010",
-    "date": "2026-08-10",
-    "merchant": "Venmo",
-    "category": "DHS Reunion",
-    "amount": 200.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "251774895876153960",
-    "date": "2026-08-10",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251774895876153959",
-    "date": "2026-08-10",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -1.56,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251836896774136702",
-    "date": "2026-08-10",
-    "merchant": "Emory Decatur Hospital",
-    "category": "Parking & Tolls",
-    "amount": -5.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251829732294730682",
-    "date": "2026-08-10",
-    "merchant": "HS & D Enter",
-    "category": "Restaurants",
-    "amount": -9.01,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251993192958731096",
-    "date": "2026-08-10",
-    "merchant": "Emory Decatur",
-    "category": "Parking & Tolls",
-    "amount": -5.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251939623495737627",
-    "date": "2026-08-10",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -1.56,
     "account": "Amex Gold Card"
   }
 ]
