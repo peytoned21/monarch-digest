@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-09",
+  "as_of": "2026-11-10",
   "month": "November 2026",
-  "days_elapsed": 9,
+  "days_elapsed": 10,
   "days_in_month": 30,
   "mtd_income": 225.65,
-  "mtd_expenses": 3428.16,
-  "mtd_surplus": -3202.51,
-  "savings_rate_pct": -1419.2,
-  "projected_month_expense": 11427.2,
-  "projected_savings": -11201.55,
+  "mtd_expenses": 2967.31,
+  "mtd_surplus": -2741.66,
+  "savings_rate_pct": -1215.0,
+  "projected_month_expense": 8901.93,
+  "projected_savings": -8676.28,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -17,10 +17,6 @@
     {
       "category": "Child Activities",
       "amount": 544.0
-    },
-    {
-      "category": "Travel: Helenback",
-      "amount": 500.0
     },
     {
       "category": "Check",
@@ -32,7 +28,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 153.46
+      "amount": 158.81
     },
     {
       "category": "Gas & Electric",
@@ -41,6 +37,10 @@
     {
       "category": "Fitness",
       "amount": 99.0
+    },
+    {
+      "category": "Shopping",
+      "amount": 89.78
     }
   ]
 }
