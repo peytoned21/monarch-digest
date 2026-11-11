@@ -1,18 +1,22 @@
 {
-  "as_of": "2026-11-10",
+  "as_of": "2026-11-11",
   "month": "November 2026",
-  "days_elapsed": 10,
+  "days_elapsed": 11,
   "days_in_month": 30,
-  "mtd_income": 225.65,
-  "mtd_expenses": 2967.31,
-  "mtd_surplus": -2741.66,
-  "savings_rate_pct": -1215.0,
-  "projected_month_expense": 8901.93,
-  "projected_savings": -8676.28,
+  "mtd_income": 801.95,
+  "mtd_expenses": 3819.83,
+  "mtd_surplus": -3017.88,
+  "savings_rate_pct": -376.3,
+  "projected_month_expense": 10417.72,
+  "projected_savings": -9615.77,
   "top_categories": [
     {
       "category": "Student Loans",
       "amount": 1120.6
+    },
+    {
+      "category": "Furniture & Housewares",
+      "amount": 729.08
     },
     {
       "category": "Child Activities",
@@ -24,11 +28,11 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 208.29
+      "amount": 223.29
     },
     {
       "category": "Groceries",
-      "amount": 158.81
+      "amount": 164.16
     },
     {
       "category": "Gas & Electric",
@@ -37,10 +41,6 @@
     {
       "category": "Fitness",
       "amount": 99.0
-    },
-    {
-      "category": "Shopping",
-      "amount": 89.78
     }
   ]
 }

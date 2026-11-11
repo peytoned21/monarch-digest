@@ -1,5 +1,37 @@
 [
   {
+    "id": "260173527995326813",
+    "date": "2026-11-11",
+    "merchant": "Holly Jolly Cabin",
+    "category": "Travel: Helenback",
+    "amount": 500.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "260164304598147331",
+    "date": "2026-11-11",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -7.43,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260164304598147329",
+    "date": "2026-11-11",
+    "merchant": "Wayfair",
+    "category": "Furniture & Housewares",
+    "amount": -729.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260106202853090012",
+    "date": "2026-11-10",
+    "merchant": "HS & D Enter",
+    "category": "Work Lunch",
+    "amount": -11.66,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "260046603353530773",
     "date": "2026-11-09",
     "merchant": "Kroger",
@@ -13,6 +45,22 @@
     "merchant": "Temu",
     "category": "Shopping",
     "amount": -33.8,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260164304598147332",
+    "date": "2026-11-09",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 20.51,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260164304598147330",
+    "date": "2026-11-09",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 55.79,
     "account": "Amex Gold Card"
   },
   {
@@ -38,6 +86,14 @@
     "category": "Subscriptions",
     "amount": -8.99,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "260099519035679100",
+    "date": "2026-11-08",
+    "merchant": "Unique Maps",
+    "category": "Entertainment & Recreation",
+    "amount": -84.0,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "259757858711609405",
@@ -3862,37 +3918,5 @@
     "category": "Shopping",
     "amount": -88.72,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "251939623495737625",
-    "date": "2026-08-12",
-    "merchant": "The Home Depot",
-    "category": "Home Improvement",
-    "amount": -312.12,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251939623495737624",
-    "date": "2026-08-12",
-    "merchant": "HEAPS",
-    "category": "Shopping",
-    "amount": -18.36,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "251939623495737623",
-    "date": "2026-08-12",
-    "merchant": "Dunkin'",
-    "category": "Restaurants & Bars",
-    "amount": -6.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252213914104701638",
-    "date": "2026-08-12",
-    "merchant": "Dunkin'",
-    "category": "Coffee Shops",
-    "amount": 6.24,
-    "account": "Amex Gold Card"
   }
 ]
