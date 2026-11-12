@@ -1,16 +1,16 @@
 {
-  "as_of": "November 11, 2026",
-  "generated_at": "2026-11-11",
+  "as_of": "November 12, 2026",
+  "generated_at": "2026-11-12",
   "_cached": false,
-  "roth": 431745,
-  "groth": 16453,
-  "k401": 191140,
-  "taxable": 178528,
+  "roth": 436940,
+  "groth": 16662,
+  "k401": 190313,
+  "taxable": 180643,
   "hsa": 20780,
-  "hd_vested": 15397,
-  "hd_rsus": 156965,
+  "hd_vested": 15293,
+  "hd_rsus": 161512,
   "roth_staging": 12500,
-  "total_cash": 44681,
+  "total_cash": 50245,
   "eleanor_529": 32124,
   "arthur_529": 15024,
   "mortgage_bal": 281275,
@@ -22,8 +22,8 @@
   "vehicle_total": 60853,
   "lexus_value": 33689,
   "tesla_value": 27163,
-  "net_worth": 1536996,
-  "total_assets": 1867336,
+  "net_worth": 1553718,
+  "total_assets": 1884058,
   "total_debt": 330339,
   "accounts": [
     {
@@ -84,7 +84,7 @@
       "id": "166315463192551957",
       "name": "Peyton - Roth IRA",
       "type": "brokerage",
-      "balance": 431745.87,
+      "balance": 436940.53,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -93,7 +93,7 @@
       "id": "166315464107958806",
       "name": "Vanguard - Taxable Brokerage Account",
       "type": "brokerage",
-      "balance": 123450.74,
+      "balance": 125052.59,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -138,7 +138,7 @@
       "id": "166319078579839423",
       "name": "Wealthfront Checking",
       "type": "depository",
-      "balance": 44111.08,
+      "balance": 49674.48,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -210,7 +210,7 @@
       "id": "166324255650160922",
       "name": "Home Depot 401(k)",
       "type": "brokerage",
-      "balance": 191140.02,
+      "balance": 190313.1,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Alight - Home Depot"
@@ -291,7 +291,7 @@
       "id": "172875141729952163",
       "name": "The Home Depot RSUs",
       "type": "brokerage",
-      "balance": 156965.79,
+      "balance": 161512.94,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Merrill Lynch - Benefits"
@@ -354,7 +354,7 @@
       "id": "197503573974524915",
       "name": "S&P 500 Direct Portfolio",
       "type": "brokerage",
-      "balance": 55077.83,
+      "balance": 55591.19,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Wealthfront"
@@ -390,7 +390,7 @@
       "id": "223293897426543417",
       "name": "Grace - Roth IRA ",
       "type": "brokerage",
-      "balance": 16453.48,
+      "balance": 16662.7,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Vanguard"
@@ -399,7 +399,7 @@
       "id": "223855104973808566",
       "name": "LIIA- Vested Brokerage Account (...0_A0)",
       "type": "brokerage",
-      "balance": 15397.44,
+      "balance": 15293.38,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "Merrill Lynch - Benefits"
@@ -453,7 +453,7 @@
       "id": "256175113825624865",
       "name": "THD Employee Stock Purchase Plan",
       "type": "brokerage",
-      "balance": 13684.47,
+      "balance": 13707.12,
       "include_in_nw": true,
       "is_asset": true,
       "institution": "EquatePlus"

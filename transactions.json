@@ -1,5 +1,13 @@
 [
   {
+    "id": "260233904789594733",
+    "date": "2026-11-12",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 6084.04,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "260173527995326813",
     "date": "2026-11-11",
     "merchant": "Holly Jolly Cabin",
@@ -21,6 +29,30 @@
     "merchant": "Wayfair",
     "category": "Furniture & Housewares",
     "amount": -729.08,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260264778044219619",
+    "date": "2026-11-11",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -41.02,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "260223194506403922",
+    "date": "2026-11-11",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -71.24,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260223194506403921",
+    "date": "2026-11-11",
+    "merchant": "CiCi's Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -15.27,
     "account": "Amex Gold Card"
   },
   {
@@ -3878,45 +3910,5 @@
     "category": "Charity",
     "amount": 715.0,
     "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "251994016727376688",
-    "date": "2026-08-13",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252049931876901762",
-    "date": "2026-08-13",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -56.29,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252049931876901761",
-    "date": "2026-08-13",
-    "merchant": "Cheddar Up",
-    "category": "Restaurants & Bars",
-    "amount": -104.34,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252131520835167100",
-    "date": "2026-08-13",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -38.51,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252131520835167099",
-    "date": "2026-08-13",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -88.72,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
