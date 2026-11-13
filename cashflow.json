@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-12",
+  "as_of": "2026-11-13",
   "month": "November 2026",
-  "days_elapsed": 12,
+  "days_elapsed": 13,
   "days_in_month": 30,
   "mtd_income": 6885.99,
-  "mtd_expenses": 3947.36,
-  "mtd_surplus": 2938.63,
-  "savings_rate_pct": 42.7,
-  "projected_month_expense": 9868.4,
-  "projected_savings": -2982.41,
+  "mtd_expenses": 4051.59,
+  "mtd_surplus": 2834.4,
+  "savings_rate_pct": 41.2,
+  "projected_month_expense": 9349.82,
+  "projected_savings": -2463.83,
   "top_categories": [
     {
       "category": "Student Loans",
@@ -36,7 +36,7 @@
     },
     {
       "category": "Shopping",
-      "amount": 130.8
+      "amount": 135.04
     },
     {
       "category": "Gas & Electric",

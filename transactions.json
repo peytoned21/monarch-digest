@@ -1,11 +1,35 @@
 [
   {
+    "id": "260341127685546158",
+    "date": "2026-11-13",
+    "merchant": "Apple",
+    "category": "Subscriptions",
+    "amount": -9.99,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "260233904789594733",
     "date": "2026-11-12",
     "merchant": "The Home Depot",
     "category": "Paychecks",
     "amount": 6084.04,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260307033506390699",
+    "date": "2026-11-12",
+    "merchant": "AT&T",
+    "category": "Internet & Cable",
+    "amount": -90.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260280697369862879",
+    "date": "2026-11-12",
+    "merchant": "HS Enterprises",
+    "category": "Shopping",
+    "amount": -4.24,
+    "account": "Amex Gold Card"
   },
   {
     "id": "260173527995326813",
@@ -3894,21 +3918,5 @@
     "category": "Entertainment & Recreation",
     "amount": -27.23,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "252105454240342326",
-    "date": "2026-08-14",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -4.24,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252201783504347170",
-    "date": "2026-08-14",
-    "merchant": "Venmo",
-    "category": "Charity",
-    "amount": 715.0,
-    "account": "Wells Fargo Checking"
   }
 ]
