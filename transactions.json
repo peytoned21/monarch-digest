@@ -1,5 +1,29 @@
 [
   {
+    "id": "260516074134381227",
+    "date": "2026-11-14",
+    "merchant": "CHV",
+    "category": "Gas",
+    "amount": -3.11,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260458877523271805",
+    "date": "2026-11-14",
+    "merchant": "Armk Concessions",
+    "category": "Restaurants & Bars",
+    "amount": -38.13,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260447510936363954",
+    "date": "2026-11-14",
+    "merchant": "Dai Loi II",
+    "category": "Restaurants & Bars",
+    "amount": -21.6,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "260341127685546158",
     "date": "2026-11-13",
     "merchant": "Apple",
@@ -22,6 +46,38 @@
     "category": "Shopping",
     "amount": -9.01,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "260458877523271807",
+    "date": "2026-11-13",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 12.16,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260458877523271806",
+    "date": "2026-11-13",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 13.1,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260458877523271804",
+    "date": "2026-11-13",
+    "merchant": "Temu",
+    "category": "Shopping",
+    "amount": 31.87,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260447576022524533",
+    "date": "2026-11-13",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -10.21,
+    "account": "Amazon Prime Card"
   },
   {
     "id": "260233904789594733",
@@ -141,6 +197,30 @@
     "merchant": "The Home Depot",
     "category": "Home Improvement",
     "amount": -1.6,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260458877523271808",
+    "date": "2026-11-11",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": 1.29,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260447510936363957",
+    "date": "2026-11-11",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -22.52,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260447510936363956",
+    "date": "2026-11-11",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -122.44,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -3966,13 +4046,5 @@
     "category": "Fantasy Football",
     "amount": -300.0,
     "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252439393443193003",
-    "date": "2026-08-16",
-    "merchant": "Beauty By Earth",
-    "category": "Beauty and Grooming",
-    "amount": -44.79,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
