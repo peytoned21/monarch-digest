@@ -1,5 +1,21 @@
 [
   {
+    "id": "260633370978886486",
+    "date": "2026-11-16",
+    "merchant": "HS Enterprises",
+    "category": "Shopping",
+    "amount": -9.01,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260574658964693127",
+    "date": "2026-11-15",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -120.98,
+    "account": "Amex Gold Card"
+  },
+  {
     "id": "260516074134381227",
     "date": "2026-11-14",
     "merchant": "CHV",
@@ -22,6 +38,22 @@
     "category": "Restaurants & Bars",
     "amount": -21.6,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260538134606848173",
+    "date": "2026-11-14",
+    "merchant": "Pizza Hut",
+    "category": "Restaurants & Bars",
+    "amount": -14.12,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "260538134606848172",
+    "date": "2026-11-14",
+    "merchant": "Armk Concessions",
+    "category": "Restaurants & Bars",
+    "amount": -16.74,
+    "account": "Chase Sapphire Preferred "
   },
   {
     "id": "260341127685546158",
@@ -3950,101 +3982,5 @@
     "category": "Coffee Shops",
     "amount": 0.76,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "252342358974079904",
-    "date": "2026-08-17",
-    "merchant": "Path2College 529 Plan",
-    "category": "E&A 529 Plan",
-    "amount": -2000.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252439393443193002",
-    "date": "2026-08-17",
-    "merchant": "Walmart",
-    "category": "Shopping",
-    "amount": -46.09,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252439393443193001",
-    "date": "2026-08-17",
-    "merchant": "Chevron",
-    "category": "Gas",
-    "amount": -72.83,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252430982940926365",
-    "date": "2026-08-17",
-    "merchant": "Henderson Mill Elementary School",
-    "category": "Education",
-    "amount": -30.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252430982940926364",
-    "date": "2026-08-17",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -1.69,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252376613574877246",
-    "date": "2026-08-17",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": 27.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252376613574877245",
-    "date": "2026-08-17",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -10.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252376613574877244",
-    "date": "2026-08-17",
-    "merchant": "Kroger",
-    "category": "Groceries",
-    "amount": -82.65,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252364960243327516",
-    "date": "2026-08-17",
-    "merchant": "RoundPoint Mortgage Servicing Corporation",
-    "category": "Mortgage",
-    "amount": -1345.16,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252486156407480529",
-    "date": "2026-08-17",
-    "merchant": "HS & D Enter",
-    "category": "Shopping",
-    "amount": -10.07,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252486156407480527",
-    "date": "2026-08-17",
-    "merchant": "Target",
-    "category": "Shopping",
-    "amount": 27.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252364960243327515",
-    "date": "2026-08-17",
-    "merchant": "Venmo",
-    "category": "Fantasy Football",
-    "amount": -300.0,
-    "account": "Wealthfront Checking"
   }
 ]
