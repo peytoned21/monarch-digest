@@ -8,6 +8,30 @@
     "account": "Amex Gold Card"
   },
   {
+    "id": "260666636395029155",
+    "date": "2026-11-16",
+    "merchant": "Path2College 529 Plan",
+    "category": "529 Contributions",
+    "amount": -2000.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260666636395029154",
+    "date": "2026-11-16",
+    "merchant": "RoundPoint Mortgage Servicing Corporation",
+    "category": "Mortgage",
+    "amount": -1345.16,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260594946608669250",
+    "date": "2026-11-16",
+    "merchant": "Venmo",
+    "category": "Travel: Helenback",
+    "amount": 404.81,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "260574658964693127",
     "date": "2026-11-15",
     "merchant": "Publix",
@@ -142,6 +166,22 @@
     "category": "Shopping",
     "amount": -67.59,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260233904789594734",
+    "date": "2026-11-12",
+    "merchant": "Venmo",
+    "category": "Travel: Helenback",
+    "amount": 728.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260233904789594732",
+    "date": "2026-11-12",
+    "merchant": "Venmo",
+    "category": "Travel: Helenback",
+    "amount": 2044.53,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "260173527995326813",
@@ -3918,69 +3958,5 @@
     "category": "Cash & ATM",
     "amount": -1200.0,
     "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252433513689588550",
-    "date": "2026-08-18",
-    "merchant": "Amazon",
-    "category": "Shopping",
-    "amount": -46.16,
-    "account": "Amazon Prime Card"
-  },
-  {
-    "id": "252540426178732610",
-    "date": "2026-08-18",
-    "merchant": "Maki of Japan",
-    "category": "Restaurants & Bars",
-    "amount": -15.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252523868450660726",
-    "date": "2026-08-18",
-    "merchant": "Tesla",
-    "category": "Gas",
-    "amount": -4.62,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "252486156407480528",
-    "date": "2026-08-18",
-    "merchant": "Dunkin'",
-    "category": "Coffee Shops",
-    "amount": -4.63,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252566975020998759",
-    "date": "2026-08-18",
-    "merchant": "Oh K Dog",
-    "category": "Shopping",
-    "amount": -6.35,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252566975020998758",
-    "date": "2026-08-18",
-    "merchant": "Regal Cinemas",
-    "category": "Entertainment & Recreation",
-    "amount": -23.83,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252698647145161465",
-    "date": "2026-08-18",
-    "merchant": "Oh K Dog",
-    "category": "Shopping",
-    "amount": -7.62,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252731109211579186",
-    "date": "2026-08-18",
-    "merchant": "Dunkin'",
-    "category": "Coffee Shops",
-    "amount": 0.76,
-    "account": "Amex Gold Card"
   }
 ]

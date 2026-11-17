@@ -1,15 +1,23 @@
 {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-17",
   "month": "November 2026",
-  "days_elapsed": 16,
+  "days_elapsed": 17,
   "days_in_month": 30,
-  "mtd_income": 7194.41,
-  "mtd_expenses": 4633.94,
-  "mtd_surplus": 2560.47,
-  "savings_rate_pct": 35.6,
-  "projected_month_expense": 8688.64,
-  "projected_savings": -1494.23,
+  "mtd_income": 9871.75,
+  "mtd_expenses": 7979.1,
+  "mtd_surplus": 1892.65,
+  "savings_rate_pct": 19.2,
+  "projected_month_expense": 14080.76,
+  "projected_savings": -4209.01,
   "top_categories": [
+    {
+      "category": "529 Contributions",
+      "amount": 2000.0
+    },
+    {
+      "category": "Mortgage",
+      "amount": 1345.16
+    },
     {
       "category": "Student Loans",
       "amount": 1120.6
@@ -33,14 +41,6 @@
     {
       "category": "Groceries",
       "amount": 279.79
-    },
-    {
-      "category": "Home Improvement",
-      "amount": 229.24
-    },
-    {
-      "category": "Shopping",
-      "amount": 221.85
     }
   ]
 }
