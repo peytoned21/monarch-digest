@@ -1,5 +1,61 @@
 [
   {
+    "id": "260812007981130139",
+    "date": "2026-11-18",
+    "merchant": "Ticketmaster",
+    "category": "Entertainment & Recreation",
+    "amount": -59.35,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "260809697430282361",
+    "date": "2026-11-18",
+    "merchant": "Wealthfront",
+    "category": "Taxes",
+    "amount": -3367.75,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260812008672142294",
+    "date": "2026-11-17",
+    "merchant": "Amazon",
+    "category": "Shopping",
+    "amount": -21.59,
+    "account": "Amazon Prime Card"
+  },
+  {
+    "id": "260738218906820740",
+    "date": "2026-11-17",
+    "merchant": "Dunkin'",
+    "category": "Coffee Shops",
+    "amount": -5.71,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260738218906820739",
+    "date": "2026-11-17",
+    "merchant": "HS Enterprises",
+    "category": "Shopping",
+    "amount": -6.63,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260730472435228972",
+    "date": "2026-11-17",
+    "merchant": "mavis tire",
+    "category": "Auto Maintenance",
+    "amount": -88.66,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260730472435228971",
+    "date": "2026-11-17",
+    "merchant": "Chick-fil-A",
+    "category": "Restaurants & Bars",
+    "amount": -9.67,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "260633370978886486",
     "date": "2026-11-16",
     "merchant": "HS Enterprises",
@@ -32,12 +88,36 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "260730472435228973",
+    "date": "2026-11-16",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -54.0,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "260574658964693127",
     "date": "2026-11-15",
     "merchant": "Publix",
     "category": "Groceries",
     "amount": -120.98,
     "account": "Amex Gold Card"
+  },
+  {
+    "id": "260730472435228975",
+    "date": "2026-11-15",
+    "merchant": "Target",
+    "category": "Shopping",
+    "amount": -19.44,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260730472435228974",
+    "date": "2026-11-15",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -215.81,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "260516074134381227",
@@ -78,6 +158,14 @@
     "category": "Restaurants & Bars",
     "amount": -16.74,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "260730472435228976",
+    "date": "2026-11-14",
+    "merchant": "Dai Loi II",
+    "category": "Restaurants & Bars",
+    "amount": -25.6,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "260341127685546158",
@@ -182,6 +270,22 @@
     "category": "Travel: Helenback",
     "amount": 2044.53,
     "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260730472435228979",
+    "date": "2026-11-12",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -115.99,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260730472435228978",
+    "date": "2026-11-12",
+    "merchant": "The Home Depot",
+    "category": "Home Improvement",
+    "amount": -6.46,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "260173527995326813",
@@ -3926,37 +4030,5 @@
     "category": "Shopping",
     "amount": -6.36,
     "account": "Amex Gold Card"
-  },
-  {
-    "id": "252533534523073187",
-    "date": "2026-08-19",
-    "merchant": "Georgia Power",
-    "category": "Gas & Electric",
-    "amount": -315.0,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252615572176445820",
-    "date": "2026-08-19",
-    "merchant": "Hope And Restoration",
-    "category": "Therapy",
-    "amount": -31.48,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "252596165660319815",
-    "date": "2026-08-19",
-    "merchant": "365 Retail Markets",
-    "category": "Groceries",
-    "amount": -4.45,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252679416223572002",
-    "date": "2026-08-19",
-    "merchant": "CDC Federal Credit Union",
-    "category": "Cash & ATM",
-    "amount": -1200.0,
-    "account": "Wealthfront Checking"
   }
 ]

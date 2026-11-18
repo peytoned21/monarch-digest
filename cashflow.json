@@ -1,15 +1,19 @@
 {
-  "as_of": "2026-11-17",
+  "as_of": "2026-11-18",
   "month": "November 2026",
-  "days_elapsed": 17,
+  "days_elapsed": 18,
   "days_in_month": 30,
-  "mtd_income": 9871.75,
-  "mtd_expenses": 7979.1,
-  "mtd_surplus": 1892.65,
-  "savings_rate_pct": 19.2,
-  "projected_month_expense": 14080.76,
-  "projected_savings": -4209.01,
+  "mtd_income": 9729.93,
+  "mtd_expenses": 11522.72,
+  "mtd_surplus": -1792.79,
+  "savings_rate_pct": -18.4,
+  "projected_month_expense": 19204.53,
+  "projected_savings": -9474.6,
   "top_categories": [
+    {
+      "category": "Taxes",
+      "amount": 3367.75
+    },
     {
       "category": "529 Contributions",
       "amount": 2000.0
@@ -27,16 +31,12 @@
       "amount": 729.08
     },
     {
-      "category": "Child Activities",
-      "amount": 544.0
+      "category": "Shopping",
+      "amount": 526.07
     },
     {
       "category": "Check",
       "amount": 355.0
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 329.15
     },
     {
       "category": "Groceries",
