@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-18",
+  "as_of": "2026-11-19",
   "month": "November 2026",
-  "days_elapsed": 18,
+  "days_elapsed": 19,
   "days_in_month": 30,
-  "mtd_income": 9729.93,
-  "mtd_expenses": 11522.72,
-  "mtd_surplus": -1792.79,
-  "savings_rate_pct": -18.4,
-  "projected_month_expense": 19204.53,
-  "projected_savings": -9474.6,
+  "mtd_income": 9715.41,
+  "mtd_expenses": 11359.74,
+  "mtd_surplus": -1644.33,
+  "savings_rate_pct": -16.9,
+  "projected_month_expense": 17936.43,
+  "projected_savings": -8221.02,
   "top_categories": [
     {
       "category": "Taxes",
@@ -32,15 +32,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 526.07
+      "amount": 471.01
     },
     {
       "category": "Check",
       "amount": 355.0
     },
     {
-      "category": "Groceries",
-      "amount": 279.79
+      "category": "Child Activities",
+      "amount": 243.0
     }
   ]
 }

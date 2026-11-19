@@ -16,6 +16,54 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "260866686950777728",
+    "date": "2026-11-18",
+    "merchant": "BP",
+    "category": "Gas",
+    "amount": -4.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260866686950777727",
+    "date": "2026-11-18",
+    "merchant": "Inner Voice Brewing",
+    "category": "Restaurants & Bars",
+    "amount": -6.48,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260866686950777726",
+    "date": "2026-11-18",
+    "merchant": "Brainwave Pizza",
+    "category": "Restaurants & Bars",
+    "amount": -11.07,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "260816388548928484",
+    "date": "2026-11-18",
+    "merchant": "Steinbecks",
+    "category": "Restaurants & Bars",
+    "amount": -22.3,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260816388548928483",
+    "date": "2026-11-18",
+    "merchant": "Walmart",
+    "category": "Groceries",
+    "amount": 7.56,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260816388548928482",
+    "date": "2026-11-18",
+    "merchant": "Walmart",
+    "category": "Groceries",
+    "amount": 14.38,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "260812008672142294",
     "date": "2026-11-17",
     "merchant": "Amazon",
@@ -3982,53 +4030,5 @@
     "category": "Paychecks",
     "amount": 2549.05,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252624969803964636",
-    "date": "2026-08-20",
-    "merchant": "The Home Depot",
-    "category": "Paychecks",
-    "amount": 5586.74,
-    "account": "Wealthfront Checking"
-  },
-  {
-    "id": "252707013857845959",
-    "date": "2026-08-20",
-    "merchant": "Substack",
-    "category": "Subscriptions",
-    "amount": -12.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "252706820478411622",
-    "date": "2026-08-20",
-    "merchant": "Apple",
-    "category": "Subscriptions",
-    "amount": -3.99,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252706820478411621",
-    "date": "2026-08-20",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -16.08,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252651902672511598",
-    "date": "2026-08-20",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -47.55,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "252651902672511597",
-    "date": "2026-08-20",
-    "merchant": "HS D Enterprises",
-    "category": "Shopping",
-    "amount": -6.36,
-    "account": "Amex Gold Card"
   }
 ]
