@@ -1,5 +1,29 @@
 [
   {
+    "id": "260988592655900930",
+    "date": "2026-11-20",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -1200.0,
+    "account": "Wealthfront Checking"
+  },
+  {
+    "id": "260987191880000200",
+    "date": "2026-11-19",
+    "merchant": "Laurin Coss",
+    "category": "Home Improvement",
+    "amount": -30.0,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "260881457311851058",
+    "date": "2026-11-19",
+    "merchant": "Venmo",
+    "category": "Travel: Helenback",
+    "amount": 417.28,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "260812007981130139",
     "date": "2026-11-18",
     "merchant": "Ticketmaster",
@@ -104,6 +128,14 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "260905321320358822",
+    "date": "2026-11-17",
+    "merchant": "Steinbecks",
+    "category": "Restaurants & Bars",
+    "amount": -28.3,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "260633370978886486",
     "date": "2026-11-16",
     "merchant": "HS Enterprises",
@@ -165,6 +197,14 @@
     "merchant": "Walmart",
     "category": "Shopping",
     "amount": -215.81,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260905321320358823",
+    "date": "2026-11-15",
+    "merchant": "Walmart",
+    "category": "Shopping",
+    "amount": -201.43,
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
@@ -3989,46 +4029,6 @@
     "merchant": "Frogtown Cellars",
     "category": "Restaurants & Bars",
     "amount": -38.4,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "252797721372467314",
-    "date": "2026-08-21",
-    "merchant": "XOOM Energy",
-    "category": "Gas & Electric",
-    "amount": -60.77,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "252797721372467313",
-    "date": "2026-08-21",
-    "merchant": "Fellini's Pizza",
-    "category": "Restaurants & Bars",
-    "amount": -23.98,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "252761210820174410",
-    "date": "2026-08-21",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "252923373048242875",
-    "date": "2026-08-21",
-    "merchant": "American Express",
-    "category": "Internet & Cable",
-    "amount": 15.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "253066516059071478",
-    "date": "2026-08-21",
-    "merchant": "Autopay",
-    "category": "Paychecks",
-    "amount": 2549.05,
     "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
