@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-21",
   "month": "November 2026",
-  "days_elapsed": 20,
+  "days_elapsed": 21,
   "days_in_month": 30,
   "mtd_income": 10110.75,
-  "mtd_expenses": 12581.36,
-  "mtd_surplus": -2470.61,
-  "savings_rate_pct": -24.4,
-  "projected_month_expense": 18872.04,
-  "projected_savings": -8761.29,
+  "mtd_expenses": 12593.88,
+  "mtd_surplus": -2483.13,
+  "savings_rate_pct": -24.6,
+  "projected_month_expense": 17991.26,
+  "projected_savings": -7880.51,
   "top_categories": [
     {
       "category": "Taxes",
