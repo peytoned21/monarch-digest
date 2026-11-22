@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-21",
+  "as_of": "2026-11-22",
   "month": "November 2026",
-  "days_elapsed": 21,
+  "days_elapsed": 22,
   "days_in_month": 30,
-  "mtd_income": 10110.75,
-  "mtd_expenses": 12593.88,
-  "mtd_surplus": -2483.13,
-  "savings_rate_pct": -24.6,
-  "projected_month_expense": 17991.26,
-  "projected_savings": -7880.51,
+  "mtd_income": 10096.09,
+  "mtd_expenses": 11816.49,
+  "mtd_surplus": -1720.4,
+  "savings_rate_pct": -17.0,
+  "projected_month_expense": 16113.4,
+  "projected_savings": -6017.31,
   "top_categories": [
     {
       "category": "Taxes",
@@ -27,20 +27,20 @@
       "amount": 1200.0
     },
     {
-      "category": "Student Loans",
-      "amount": 1120.6
-    },
-    {
       "category": "Furniture & Housewares",
       "amount": 729.08
     },
     {
       "category": "Shopping",
-      "amount": 456.63
+      "amount": 688.57
     },
     {
       "category": "Check",
       "amount": 355.0
+    },
+    {
+      "category": "Home Improvement",
+      "amount": 247.81
     }
   ]
 }
