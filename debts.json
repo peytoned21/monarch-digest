@@ -1,17 +1,17 @@
 {
-  "as_of": "2026-11-22",
-  "days_to_40": 275,
+  "as_of": "2026-11-23",
+  "days_to_40": 274,
   "payoff_target_date": "2027-08-24",
   "debts": [
     {
       "name": "Lexus",
-      "balance": 14297.7,
+      "balance": 13644.83,
       "rate": 4.5,
       "is_target": true
     },
     {
       "name": "Tesla",
-      "balance": 5812.72,
+      "balance": 5347.41,
       "rate": 4.5,
       "is_target": true
     },
@@ -22,7 +22,7 @@
       "is_target": false
     }
   ],
-  "total_target_debt": 20110.42,
+  "total_target_debt": 18992.24,
   "mortgage_balance": 281275.27,
-  "monthly_payoff_needed": 2226.04
+  "monthly_payoff_needed": 2109.94
 }

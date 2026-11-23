@@ -1,5 +1,69 @@
 [
   {
+    "id": "261274938464215810",
+    "date": "2026-11-23",
+    "merchant": "XOOM Energy",
+    "category": "Gas & Electric",
+    "amount": -73.26,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "261253966844600738",
+    "date": "2026-11-23",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -40.49,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261211018843071003",
+    "date": "2026-11-22",
+    "merchant": "Jr Crickets",
+    "category": "Restaurants & Bars",
+    "amount": -48.19,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261211018843071002",
+    "date": "2026-11-22",
+    "merchant": "Publix",
+    "category": "Groceries",
+    "amount": -5.47,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261211018843071001",
+    "date": "2026-11-22",
+    "merchant": "US Postal Service",
+    "category": "Postage & Shipping",
+    "amount": -101.25,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261193436479038394",
+    "date": "2026-11-22",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -488.96,
+    "account": "Simply Checking (...8318)"
+  },
+  {
+    "id": "261193436479038393",
+    "date": "2026-11-22",
+    "merchant": "CDC Federal Credit Union",
+    "category": "Auto Payment",
+    "amount": -711.04,
+    "account": "Simply Checking (...8318)"
+  },
+  {
+    "id": "261183604267098284",
+    "date": "2026-11-22",
+    "merchant": "Kids Empire",
+    "category": "Child Activities",
+    "amount": -64.48,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "261125594388832479",
     "date": "2026-11-21",
     "merchant": "Temu",
@@ -77,6 +141,14 @@
     "merchant": "Google Fiber",
     "category": "Subscriptions",
     "amount": -15.99,
+    "account": "Amex Platinum Card"
+  },
+  {
+    "id": "261253968583139888",
+    "date": "2026-11-21",
+    "merchant": "American Express",
+    "category": "Subscriptions",
+    "amount": 15.99,
     "account": "Amex Platinum Card"
   },
   {
@@ -4046,37 +4118,5 @@
     "category": "Restaurants & Bars",
     "amount": -28.49,
     "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "253033536710189770",
-    "date": "2026-08-24",
-    "merchant": "Southern Sweets Bakery",
-    "category": "Restaurants & Bars",
-    "amount": -39.12,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253033536710189769",
-    "date": "2026-08-24",
-    "merchant": "Savage Avondale",
-    "category": "Clothing",
-    "amount": -44.69,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253033536710189768",
-    "date": "2026-08-24",
-    "merchant": "Publix",
-    "category": "Groceries",
-    "amount": -95.47,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253088194246943395",
-    "date": "2026-08-24",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": -27.4,
-    "account": "Amex Gold Card"
   }
 ]
