@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-23",
+  "as_of": "2026-11-24",
   "month": "November 2026",
-  "days_elapsed": 23,
+  "days_elapsed": 24,
   "days_in_month": 30,
   "mtd_income": 10106.37,
-  "mtd_expenses": 11596.13,
-  "mtd_surplus": -1489.76,
-  "savings_rate_pct": -14.7,
-  "projected_month_expense": 15125.39,
-  "projected_savings": -5019.02,
+  "mtd_expenses": 11476.71,
+  "mtd_surplus": -1370.34,
+  "savings_rate_pct": -13.6,
+  "projected_month_expense": 14345.89,
+  "projected_savings": -4239.52,
   "top_categories": [
     {
       "category": "Taxes",
@@ -32,15 +32,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 681.02
-    },
-    {
-      "category": "Check",
-      "amount": 355.0
+      "amount": 718.81
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 248.51
+      "amount": 449.66
+    },
+    {
+      "category": "Clothing",
+      "amount": 292.49
     }
   ]
 }

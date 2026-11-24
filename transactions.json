@@ -1,5 +1,21 @@
 [
   {
+    "id": "261363368727618016",
+    "date": "2026-11-24",
+    "merchant": "Cracker Barrel",
+    "category": "Restaurants & Bars",
+    "amount": -56.92,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "261363368727618015",
+    "date": "2026-11-24",
+    "merchant": "Okefenokee Swamp",
+    "category": "Restaurants & Bars",
+    "amount": -118.79,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "261274938464215810",
     "date": "2026-11-23",
     "merchant": "XOOM Energy",
@@ -13,6 +29,30 @@
     "merchant": "QuikTrip",
     "category": "Gas",
     "amount": -40.49,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261363368727618017",
+    "date": "2026-11-23",
+    "merchant": "Okefenokee Swamp",
+    "category": "Gas",
+    "amount": -153.22,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "261298202643211018",
+    "date": "2026-11-23",
+    "merchant": "Spencers",
+    "category": "Shopping",
+    "amount": -37.79,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261298202643211017",
+    "date": "2026-11-23",
+    "merchant": "Shein",
+    "category": "Clothing",
+    "amount": -170.88,
     "account": "Amex Gold Card"
   },
   {
@@ -62,6 +102,14 @@
     "category": "Child Activities",
     "amount": -64.48,
     "account": "Chase Sapphire Preferred "
+  },
+  {
+    "id": "261363368727618018",
+    "date": "2026-11-22",
+    "merchant": "Jason's Deli",
+    "category": "Restaurants & Bars",
+    "amount": -25.44,
+    "account": "Citi ThankYou Preferred (...3736)"
   },
   {
     "id": "261125594388832479",
@@ -4110,13 +4158,5 @@
     "category": "Cash & ATM",
     "amount": -200.0,
     "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "253281014860686014",
-    "date": "2026-08-25",
-    "merchant": "Jason's Deli",
-    "category": "Restaurants & Bars",
-    "amount": -28.49,
-    "account": "Citi ThankYou Preferred (...3736)"
   }
 ]
