@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "month": "November 2026",
-  "days_elapsed": 24,
+  "days_elapsed": 25,
   "days_in_month": 30,
-  "mtd_income": 10106.37,
-  "mtd_expenses": 11476.71,
-  "mtd_surplus": -1370.34,
-  "savings_rate_pct": -13.6,
-  "projected_month_expense": 14345.89,
-  "projected_savings": -4239.52,
+  "mtd_income": 16444.13,
+  "mtd_expenses": 10970.56,
+  "mtd_surplus": 5473.57,
+  "savings_rate_pct": 33.3,
+  "projected_month_expense": 13164.67,
+  "projected_savings": 3279.46,
   "top_categories": [
     {
       "category": "Taxes",
@@ -27,16 +27,16 @@
       "amount": 1200.0
     },
     {
-      "category": "Furniture & Housewares",
-      "amount": 729.08
-    },
-    {
       "category": "Shopping",
-      "amount": 718.81
+      "amount": 685.01
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 449.66
+      "amount": 560.47
+    },
+    {
+      "category": "Gas",
+      "amount": 327.57
     },
     {
       "category": "Clothing",

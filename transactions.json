@@ -1,5 +1,21 @@
 [
   {
+    "id": "261428591996117644",
+    "date": "2026-11-25",
+    "merchant": "Bow Tie Bakery and Bistro",
+    "category": "Restaurants & Bars",
+    "amount": -27.39,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261418335993799479",
+    "date": "2026-11-25",
+    "merchant": "The Home Depot",
+    "category": "Paychecks",
+    "amount": 6414.06,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "261363368727618016",
     "date": "2026-11-24",
     "merchant": "Cracker Barrel",
@@ -14,6 +30,38 @@
     "category": "Restaurants & Bars",
     "amount": -118.79,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "261385341543325950",
+    "date": "2026-11-24",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -64.84,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261385341543325949",
+    "date": "2026-11-24",
+    "merchant": "QuikTrip",
+    "category": "Gas",
+    "amount": -2.34,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261385341543325948",
+    "date": "2026-11-24",
+    "merchant": "The Fishermans Wife",
+    "category": "Restaurants & Bars",
+    "amount": -83.42,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261385341543325947",
+    "date": "2026-11-24",
+    "merchant": "Rooms2Let",
+    "category": "Travel & Vacation",
+    "amount": -148.44,
+    "account": "Amex Gold Card"
   },
   {
     "id": "261274938464215810",
@@ -4141,22 +4189,6 @@
     "merchant": "Wells Fargo",
     "category": "Cash & ATM",
     "amount": 100.0,
-    "account": "Wells Fargo Checking"
-  },
-  {
-    "id": "253281014860686013",
-    "date": "2026-08-26",
-    "merchant": "The Home Depot",
-    "category": "Home Improvement",
-    "amount": -81.44,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "253486313735397998",
-    "date": "2026-08-26",
-    "merchant": "ATM",
-    "category": "Cash & ATM",
-    "amount": -200.0,
     "account": "Wells Fargo Checking"
   }
 ]
