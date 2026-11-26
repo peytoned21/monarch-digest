@@ -16,6 +16,46 @@
     "account": "Wealthfront Checking"
   },
   {
+    "id": "261507912733500405",
+    "date": "2026-11-25",
+    "merchant": "CINC",
+    "category": "THD ESPP",
+    "amount": 13765.93,
+    "account": "Wells Fargo Checking"
+  },
+  {
+    "id": "261472103800185163",
+    "date": "2026-11-25",
+    "merchant": "Trader Joe's",
+    "category": "Groceries",
+    "amount": -27.09,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261472103800185162",
+    "date": "2026-11-25",
+    "merchant": "McAlister's Deli",
+    "category": "Restaurants & Bars",
+    "amount": -46.36,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261472103800185161",
+    "date": "2026-11-25",
+    "merchant": "The Lodge At Wakulla Springs",
+    "category": "Travel & Vacation",
+    "amount": -26.0,
+    "account": "Amex Gold Card"
+  },
+  {
+    "id": "261458603361116544",
+    "date": "2026-11-25",
+    "merchant": "NIC Inc.",
+    "category": "Entertainment & Recreation",
+    "amount": -6.0,
+    "account": "Chase Sapphire Preferred "
+  },
+  {
     "id": "261363368727618016",
     "date": "2026-11-24",
     "merchant": "Cracker Barrel",
@@ -4150,45 +4190,5 @@
     "category": "Internet & Cable",
     "amount": 9.01,
     "account": "Amex Platinum Card"
-  },
-  {
-    "id": "253281014860686012",
-    "date": "2026-08-27",
-    "merchant": "The Home Depot",
-    "category": "Home Improvement",
-    "amount": -43.16,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "253364318791213386",
-    "date": "2026-08-27",
-    "merchant": "Temu",
-    "category": "Shopping",
-    "amount": 3.52,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253364318791213385",
-    "date": "2026-08-27",
-    "merchant": "K Martial Arts",
-    "category": "Child Activities",
-    "amount": -20.0,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253309280803823644",
-    "date": "2026-08-27",
-    "merchant": "Waffle House",
-    "category": "Restaurants & Bars",
-    "amount": -17.5,
-    "account": "Amex Gold Card"
-  },
-  {
-    "id": "253486313735397997",
-    "date": "2026-08-27",
-    "merchant": "Wells Fargo",
-    "category": "Cash & ATM",
-    "amount": 100.0,
-    "account": "Wells Fargo Checking"
   }
 ]
