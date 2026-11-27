@@ -1,5 +1,13 @@
 [
   {
+    "id": "261554399411642692",
+    "date": "2026-11-26",
+    "merchant": "Nordstrom Rack",
+    "category": "Clothing",
+    "amount": -172.7,
+    "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
     "id": "261428591996117644",
     "date": "2026-11-25",
     "merchant": "Bow Tie Bakery and Bistro",
@@ -480,6 +488,14 @@
     "account": "Citi ThankYou Preferred (...3736)"
   },
   {
+    "id": "260594946608669249",
+    "date": "2026-11-16",
+    "merchant": "Venmo",
+    "category": "Charity",
+    "amount": 150.0,
+    "account": "Wealthfront Checking"
+  },
+  {
     "id": "260574658964693127",
     "date": "2026-11-15",
     "merchant": "Publix",
@@ -686,6 +702,14 @@
     "category": "Home Improvement",
     "amount": -6.46,
     "account": "Citi ThankYou Preferred (...3736)"
+  },
+  {
+    "id": "260233904789594736",
+    "date": "2026-11-12",
+    "merchant": "Venmo",
+    "category": "Charity",
+    "amount": 100.0,
+    "account": "Wealthfront Checking"
   },
   {
     "id": "260173527995326813",
@@ -4126,69 +4150,5 @@
     "category": "Shopping",
     "amount": -13.33,
     "account": "Amazon Prime Card"
-  },
-  {
-    "id": "253436002877513875",
-    "date": "2026-08-28",
-    "merchant": "Anthropic",
-    "category": "Subscriptions",
-    "amount": -20.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "253436002877513874",
-    "date": "2026-08-28",
-    "merchant": "AT&T",
-    "category": "Internet & Cable",
-    "amount": -90.0,
-    "account": "Chase Sapphire Preferred "
-  },
-  {
-    "id": "253419978402767824",
-    "date": "2026-08-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -10.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "253419978402767823",
-    "date": "2026-08-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -82.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "253419978402767822",
-    "date": "2026-08-28",
-    "merchant": "Google",
-    "category": "Subscriptions",
-    "amount": -9.99,
-    "account": "Amex Platinum Card"
-  },
-  {
-    "id": "253463548085084731",
-    "date": "2026-08-28",
-    "merchant": "Soccer Village",
-    "category": "Child Activities",
-    "amount": -93.73,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "253463548085084730",
-    "date": "2026-08-28",
-    "merchant": "Breda Pest Management",
-    "category": "Pest Control",
-    "amount": -101.0,
-    "account": "Citi ThankYou Preferred (...3736)"
-  },
-  {
-    "id": "253639782057320941",
-    "date": "2026-08-28",
-    "merchant": "American Express",
-    "category": "Internet & Cable",
-    "amount": 9.01,
-    "account": "Amex Platinum Card"
   }
 ]
